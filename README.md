@@ -94,7 +94,7 @@ La colaboración del equipo al realizar el primer avance del proyecto fue activa
 
 ---
 
-Repositorio de GitHub (Reporte): [Proyecto CeTe](https://github.com/Nexxus-ops/CeTe-Report)
+Repositorio de GitHub (Reporte): [Proyecto CeTe](https://github.com/Nexxus-ops/Report-CeTe.git)
 
 <div style="page-break-after: always;"></div>
 
