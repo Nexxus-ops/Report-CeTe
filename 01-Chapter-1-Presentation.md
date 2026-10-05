@@ -197,7 +197,7 @@ Para validar nuestros Feature Assumptions, planteamos las siguientes hipótesis:
     * Desarrollar un Prototipo interactivo (Figma) del módulo de ingreso rápido de mercadería y testearlo directamente con operarios de almacén para ver si les parece más fácil que usar un cuaderno.
 
 <p align="center">
-  <img src="assets/images/Lean_UX_Canvas.jpeg" alt="Lean UX Canvas" width="800">
+  <img src="Images/Lean UX Canvas.jpeg" alt="Lean UX Canvas" width="800">
 </p>
 
 ## 1.3. Segmentos objetivo

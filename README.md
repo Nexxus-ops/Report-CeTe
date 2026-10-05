@@ -1,6 +1,6 @@
 <div align="center">
 
-<br> <img src="assets/images/logo-upc.png" alt="Logo de la Universidad" width="300"> <br>
+<br> <img src="Images/logo-upc.png" alt="Logo de la Universidad" width="300"> <br>
 
 # UNIVERSIDAD PERUANA DE CIENCIAS APLICADAS
 
@@ -94,7 +94,7 @@ La colaboración del equipo al realizar el primer avance del proyecto fue activa
 
 ---
 
-Repositorio de GitHub (Reporte): [Proyecto CeTe](https://github.com/Nexxus-ops/CeTe-Report)
+Repositorio de GitHub (Reporte): [Proyecto CeTe](https://github.com/Nexxus-ops/Report-CeTe.git)
 
 <div style="page-break-after: always;"></div>
 

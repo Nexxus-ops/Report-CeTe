@@ -290,7 +290,7 @@ Para el proceso de validación, hemos diseñado sesiones interactivas donde los 
 * **Distrito:** San Miguel
 * **URL del Video:** [Ver entrevista (OneDrive)](https://1drv.ms/v/c/e88873f5d7dca6f3/IQBGbGRWY2rUQ538hXef1EzLAdgfob7Mw59Zjm2DJZ55iCg?e=hPPCtx)
 <p align="center">
-  <img src="Images/jesusentrevistas.png" width="400" alt="Captura Entrevista Jesús">
+  <img src="jesusentrevistas.png" width="400" alt="Captura Entrevista Jesús">
 </p>
 
 * **Resumen de la evaluación:**
@@ -302,7 +302,7 @@ Para el proceso de validación, hemos diseñado sesiones interactivas donde los 
 * **Distrito:** Santiago de Surco
 * **URL del Video:** [Ver entrevista (OneDrive)](https://1drv.ms/v/c/e88873f5d7dca6f3/IQBrUEoZT2CBRJ2rlCxRdA_zAfMIUn-hNsRdc9TrtVkJP1k?e=bM1yV4)
 <p align="center">
-  <img src="Images/guillermoentrevista.png" width="400" alt="Captura Entrevista Luis">
+  <img src="guillermoentrevista.png" width="400" alt="Captura Entrevista Luis">
 </p>
 
 * **Resumen de la evaluación:**
