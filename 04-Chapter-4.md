@@ -260,7 +260,7 @@ El usuario Colaborador puede acceder a su perfil, ver los proyectos o tareas asi
 
 Nuestro prototipo navegable fue construido íntegramente en Figma, configurando estados reactivos y modales interactivos para brindar retroalimentación inmediata, simulando con precisión el comportamiento ágil de una SPA (*Single Page Application*).
 
-*(Placeholder: [Captura_Prototipo_Figma.jpg])*
+![Captura Prototipo Figma](Images/imagenpiero6.png)
 
 <div style="page-break-after: always"></div>
 
