@@ -1123,18 +1123,98 @@ Los Diagramas de Clases UML mapean de manera precisa nuestras entidades del back
 
 ## 4.8. Database Design
 
-El diseño de nuestra base de datos relacional PostgreSQL, mapeada a través de **Entity Framework Core (C#)**, respeta la separación estricta de *Bounded Contexts*, garantizando escalabilidad y consistencia de los datos.
+El diseño de nuestra base de datos relacional PostgreSQL, mapeada a través de **Entity Framework Core (C#)**, respeta la separación estricta de *Bounded Contexts*, garantizando escalabilidad y consistencia de los datos. Al ser CeTe una plataforma SaaS B2B, se ha implementado una arquitectura **Multi-Tenant** (Multi-inquilino), donde cada empresa cliente opera en un entorno de datos lógicamente aislado mediante el identificador `TenantId`.
 
 ### 4.8.1. Database Diagrams
 
-El Diagrama Entidad-Relación (ERD) muestra la estructura física de persistencia:
-* **Tabla InventoryItems:** Llave primaria en formato UUID, columnas indexadas para el código SKU y control de cantidades.
-* **Tabla Transactions:** Llave primaria, montos y *timestamps*. Las relaciones foráneas se mantienen optimizadas para soportar el intenso esquema transaccional del negocio comercial y logístico.
+A continuación, se presenta el Diagrama Entidad-Relación (ERD) que estructura el núcleo transaccional de CeTe, compuesto por 15 tablas distribuidas en cinco módulos lógicos (Bounded Contexts):
 
-<p align="center">
-  <img src="Images/Database-Diagram.png" width="800" alt="Diagrama de Base de Datos ERD">
-  <br><em>Nota. Diagrama Entidad-Relación (ERD) documentando el esquema de base de datos.</em>
-</p>
+1. **Módulo SaaS y Seguridad:** `Tenants`, `SubscriptionPlans`, `Users`, `Roles`.
+2. **Módulo de Inventario (Core):** `InventoryItems`, `Categories`, `StockMovements`.
+3. **Módulo Comercial:** `Sales`, `SaleDetails`, `Customers`.
+4. **Módulo Logístico:** `Dispatches`, `DispatchSales`, `Drivers`, `DispatchIncidents`.
+5. **Módulo de Alertas:** `Notifications`.
+
+```mermaid
+erDiagram
+    %% SaaS & Security Module
+    TENANTS ||--o{ USERS : has
+    SUBSCRIPTION_PLANS ||--o{ TENANTS : grants
+    ROLES ||--o{ USERS : assigns
+
+    %% Inventory Module
+    TENANTS ||--o{ INVENTORY_ITEMS : owns
+    TENANTS ||--o{ CATEGORIES : owns
+    CATEGORIES ||--o{ INVENTORY_ITEMS : categorizes
+    INVENTORY_ITEMS ||--o{ STOCK_MOVEMENTS : tracks
+    USERS ||--o{ STOCK_MOVEMENTS : registers
+
+    %% Commercial Module
+    TENANTS ||--o{ SALES : generates
+    TENANTS ||--o{ CUSTOMERS : manages
+    CUSTOMERS ||--o{ SALES : makes
+    USERS ||--o{ SALES : processes
+    SALES ||--|{ SALE_DETAILS : contains
+    INVENTORY_ITEMS ||--o{ SALE_DETAILS : included_in
+
+    %% Logistics Module
+    TENANTS ||--o{ DISPATCHES : organizes
+    TENANTS ||--o{ DRIVERS : employs
+    USERS ||--o{ DISPATCHES : creates
+    DRIVERS ||--o{ DISPATCHES : executes
+    DISPATCHES ||--|{ DISPATCH_SALES : groups
+    SALES ||--o| DISPATCH_SALES : assigned_to
+    DISPATCHES ||--o{ DISPATCH_INCIDENTS : records
+
+    %% Alerts Module
+    TENANTS ||--o{ NOTIFICATIONS : receives
+    USERS ||--o{ NOTIFICATIONS : notified_by
+
+    TENANTS {
+        uuid Id PK
+        string Name
+        string Ruc
+        uuid SubscriptionPlanId FK
+    }
+    USERS {
+        uuid Id PK
+        uuid TenantId FK
+        int RoleId FK
+        string FullName
+        string Email
+    }
+    INVENTORY_ITEMS {
+        uuid Id PK
+        uuid TenantId FK
+        uuid CategoryId FK
+        string Sku
+        int Quantity
+        decimal UnitPrice
+    }
+    STOCK_MOVEMENTS {
+        uuid Id PK
+        uuid InventoryItemId FK
+        uuid UserId FK
+        string MovementType
+        int Quantity
+        string Reason
+    }
+    SALES {
+        uuid Id PK
+        uuid TenantId FK
+        uuid CustomerId FK
+        uuid UserId FK
+        decimal TotalAmount
+        string Status
+    }
+    DISPATCHES {
+        uuid Id PK
+        uuid TenantId FK
+        uuid DriverId FK
+        uuid UserId FK
+        string Status
+    }
+```
 
 # Capítulo V: Product Implementation, Validation & Deployment
 
