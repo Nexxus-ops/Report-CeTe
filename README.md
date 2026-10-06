@@ -1652,8 +1652,8 @@ Durante el Sprint 1, el equipo de Nexxus se concentró en la implementación y d
 | Location | Google Meet (reunión virtual) |
 | Prepared By | Salazar Marquina, Kevin Junior |
 | Attendees | Anahua Ancachi, Liz Maribel<br>Campoblanco Guzman, Diego Roberto<br>Montes Chang, Piero Francisco<br>Salazar Marquina, Kevin Junior<br>Salazar Quiche, Darikson Bill |
-| **Sprint 1 Review Summary** | Durante este primer ciclo el equipo consolidó los artefactos de UX definidos en los capítulos anteriores y los tradujo en una implementación web funcional. Se desarrolló y desplegó la primera versión de la Landing Page de CeTe, la cual comunica la propuesta de valor orientada a la centralización B2B de inventario y ventas. Se implementaron el Hero section, los planes de suscripción, diseño responsive y adaptabilidad móvil. |
-| **Sprint 1 Retrospective Summary** | El equipo evaluó positivamente la distribución del trabajo mediante la convención de ramas `feature/*` de GitFlow, reduciendo colisiones de código. Como oportunidad de mejora, se debe afinar la estimación de las tareas de internacionalización (i18n) para el próximo ciclo. |
+| **Sprint 1 Review Summary** | Durante este primer ciclo el equipo consolidó los artefactos de UX definidos en los capítulos anteriores y los tradujo en una implementación web funcional. Se desarrolló y desplegó la primera versión de la Landing Page de CeTe. Todo el ciclo de vida del desarrollo, desde la asignación de tareas hasta su paso a "Done", fue monitoreado y gestionado mediante nuestro tablero Kanban en Trello, garantizando transparencia en el avance. |
+| **Sprint 1 Retrospective Summary** | El equipo evaluó positivamente la distribución del trabajo mediante la convención de ramas feature/* de GitFlow, reduciendo colisiones de código. El uso de Trello facilitó la visualización de los cuellos de botella en la fase de revisión de los Pull Requests. Como oportunidad de mejora, se debe afinar la estimación de las tareas de internacionalización (i18n) en la herramienta para el próximo ciclo. |
 | **Sprint Goal & User Stories** | |
 | **Sprint 1 Goal** | *Our focus is on* publicar la primera versión funcional y responsive de la Landing Page de CeTe.<br>*We believe it delivers* a las MYPES una comprensión rápida de nuestra solución B2B.<br>*This will be confirmed when* el sitio sea accesible desde cualquier dispositivo, mostrando claramente la propuesta y los planes de suscripción. |
 | **Sprint 1 Velocity** | 24 |
@@ -1679,6 +1679,10 @@ Durante el Sprint 1, el equipo de Nexxus se concentró en la implementación y d
 | US29 | Implementación de navegación responsive | Desarrollo del header fijo, scroll suave y menú hamburguesa para móviles. | 4 | Campoblanco, Diego | Done |
 | US33 | Implementación del Footer Institucional | Creación del pie de página con enlaces legales y redes sociales. | 2 | Montes, Piero | Done |
 | US34 | Despliegue en GitHub Pages | Configuración del repositorio y publicación de la versión v1.0.0. | 2 | Campoblanco, Diego | Done |
+
+<p align="center">
+  <img src="Images/Trello-Backlog-1" width="800" alt="Evidencia-Produt-Backlog-Trello">
+</p>
 
 <div style="page-break-after: always"></div>
 
