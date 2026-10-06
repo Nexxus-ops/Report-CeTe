@@ -41,7 +41,7 @@ Proyecto
 
 <br>
 
-### **Período 202620**
+### **Período 2026-02**
 ### **Septiembre 2026**
 
 </div>
