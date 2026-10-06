@@ -1052,17 +1052,36 @@ La siguiente imagen muestra el conjunto de mockups desarrollados para CeTe:
 
 ### 4.4.4. Web Applications User Flow Diagrams
 
-A diferencia del wireflow, los diagramas de flujo de usuario detallan la lógica condicional y la validación de errores.
-**User Goal:** Procesar un Despacho / Venta.
-El *happy path* muestra una validación de stock exitosa. El *unhappy path* detalla la intercepción del sistema al detectar un "Quiebre de Stock", mostrando una alerta preventiva roja que bloquea la transacción.
+El diagrama de flujo de usuario es una representación visual de los pasos que un usuario sigue al interactuar con una aplicación o sitio web. Muestra la secuencia de acciones que el usuario realiza para completar una tarea específica, lo que nos ayuda a identificar posibles puntos de fricción y a optimizar la experiencia del usuario.
 
-*(Placeholder: [Imagen_UserFlow_Despacho.jpg])*
+**Leyenda:**
+
+![Leyenda del User Flow](Images/imagenpiero1.png)
+
+**Flujo de Usuario:**
+Empieza con el usuario ingresando a la página de inicio de CeTe Workspace. Aquí determina si es "Administrador" o "Colaborador".
+
+![Flujo de Usuario Login](Images/imagenpiero2.png)
+
+**Flujo de Administrador:**
+El usuario Administrador puede acceder a su perfil, visualizar el panel de control de la MYPE, asignar tareas a sus colaboradores, y acceder a las herramientas de reportes y administración.
+
+![Flujo de Administrador](Images/imagenpiero3.png)
+
+**Flujo de Colaborador:**
+El usuario Colaborador puede acceder a su perfil, ver los proyectos o tareas asignadas, registrar su avance diario, y acceder a las herramientas operativas de su espacio de trabajo.
+
+![Flujo de Colaborador](Images/imagenpiero4.png)
+
+**Vista general del flujo de usuario:**
+
+![Vista General del User Flow](Images/imagenpiero5.png)
 
 ### 4.5. Web Applications Prototyping
 
 Nuestro prototipo navegable fue construido íntegramente en Figma, configurando estados reactivos y modales interactivos para brindar retroalimentación inmediata, simulando con precisión el comportamiento ágil de una SPA (*Single Page Application*).
 
-*(Placeholder: [Captura_Prototipo_Figma.jpg])*
+![Captura Prototipo Figma](Images/imagenpiero6.png)
 
 <div style="page-break-after: always"></div>
 
