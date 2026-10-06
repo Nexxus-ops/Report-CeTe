@@ -1070,7 +1070,7 @@ Nuestro prototipo navegable fue construido íntegramente en Figma, configurando 
 
 A partir del entendimiento general del negocio logrado en el Big Picture Event Storming, hemos profundizado en la arquitectura del software aplicando Domain-Driven Design (DDD). En esta sección presentamos la transición de los eventos de negocio hacia artefactos de software concretos y su representación estructural utilizando el Modelo C4. El diseño técnico subyacente se apoyará en un backend sólido desarrollado en C# con ASP.NET Core 8.
 
-### 4.6.1. Design-Level Event Storming
+## 4.6.1. Design-Level Event Storming
 
 El equipo llevó a cabo una sesión de Design-Level Event Storming para refinar los eventos descubiertos y agruparlos lógicamente. Identificamos los Commands (acciones, notas azules) que disparan los eventos, los Aggregates (entidades de dominio, notas amarillas) que validan las reglas, y las Queries (notas verdes) necesarias para renderizar la UI.
 
