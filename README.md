@@ -1760,6 +1760,53 @@ El equipo gestionó el desarrollo utilizando repositorios de GitHub. Se aplicaro
 
 <div style="page-break-after: always"></div>
 
+### 5.2.2.1. Sprint Planning 2
+
+| Sprint # | Sprint 2 |
+| :--- | :--- |
+| **Sprint Planning Background** | |
+| Date | 06/10/2026 |
+| Time | 8:00 PM |
+| Location | Google Meet (reunión virtual) |
+| Prepared By | Campoblanco Guzman, Diego Roberto |
+| Attendees | Anahua Ancachi, Liz Maribel <br> Campoblanco Guzman, Diego Roberto <br> Montes Chang, Piero Francisco <br> Salazar Marquina, Kevin Junior <br> Salazar Quiche, Darikson Bill |
+| **Sprint 2 Review Summary** | Durante este segundo ciclo, el equipo materializó la arquitectura basada en Domain-Driven Design (DDD) construyendo la Web Application (Frontend) interactiva utilizando Vue.js 3, Vite, y PrimeVue. Se implementaron los Bounded Contexts core de la plataforma: IAM, Inventario, Ventas y Logística, integrados con un servidor de desarrollo mockeado (JSON-Server) para simular la persistencia de datos relacionales y las respuestas de la API. |
+| **Sprint 2 Retrospective Summary** | El equipo evaluó positivamente el uso de Pinia para la gestión del estado y la implementación de la Arquitectura Hexagonal en el frontend, lo cual permitió separar claramente la capa de dominio, infraestructura (API calls) y presentación (vistas/componentes). Como oportunidad de mejora, se debe planificar la sustitución progresiva del Mock Backend (`db.json`) por la integración oficial con el RESTful API en C# (ASP.NET Core) en el siguiente ciclo. |
+| **Sprint Goal & User Stories** | |
+| Sprint 2 Goal | **Our focus is on** publicar la primera versión funcional de la Single Page Application (SPA) para la gestión logística. <br><br> **We believe it delivers** a los operarios de almacén y dueños de MYPEs una interfaz de "cero fricción" para registrar inventarios, procesar ventas y programar rutas. <br><br> **This will be confirmed when** el sistema permita navegar fluidamente entre módulos mediante el Vue Router, proteger rutas con el `authentication.guard.js`, y soportar la internacionalización (ES/EN) de forma reactiva. |
+| Sprint 2 Velocity | 24 |
+| Sum of Story Points | 24 |
+
+#### Aspect Leaders and Collaborators
+
+| Team Member | Web App (Frontend) | Diseño UI/UX | Mock API / Arquitectura | Deployment |
+| :--- | :--- | :--- | :--- | :--- |
+| Anahua Ancachi, Liz | Lider | Colaborador | Colaborador | Colaborador |
+| Campoblanco, Diego | Colaborador | Colaborador | Lider | Colaborador |
+| Montes Chang, Piero | Colaborador | Colaborador | Colaborador | Lider |
+| Salazar, Kevin | Colaborador | Lider | Colaborador | Colaborador |
+| Salazar, Darikson | Colaborador | Colaborador | Colaborador | Colaborador |
+
+#### Sprint Backlog 2
+
+| Story ID | Work Item / Task Title | Description | Est. (h) | Assigned To | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **US02** | Implementación de vistas de Autenticación y Guardias (IAM) | Desarrollo de `sign-in-form.vue`, `sign-up-form.vue` y protección de rutas con `authentication.guard.js` y persistencia en LocalStorage usando `iam.store.js`. | 4 | Anahua, Liz | Done |
+| **US09 / US10** | Desarrollo del Módulo Core de Inventario | Construcción de `inventory-list.vue` (Kardex interactivo) y `inventory-form.vue` para el registro/ajuste de stock de SKUs y manejo de mermas. | 5 | Montes, Piero | Done |
+| **US15 / US16** | Implementación del Punto de Venta (POS) interactivo | Desarrollo de `point-of-sale.vue` incluyendo un carrito de ventas reactivo, buscador integrado y validación/descuento automático de stock agotado (Stock Out). | 5 | Salazar, Darikson | Done |
+| **US17** | Maquetación del Historial de Ventas | Implementación de `sales-list.vue` utilizando `pv-data-table` para listar transacciones y procesar anulaciones mediante `sales.store.js`. | 3 | Salazar, Kevin | Done |
+| **US19 / US21** | Desarrollo del Módulo de Rutas y Despacho | Construcción de `dispatch-form.vue` para generar nuevos manifiestos asociando ventas completadas, y `dispatch-list.vue` para actualizar el monitoreo de las rutas. | 4 | Campoblanco, Diego | Done |
+| **US33** | Configuración de Internacionalización (i18n) | Implementación de `vue-i18n` cargando diccionarios dinámicos (`es.json` y `en.json`) y el componente `language-switcher.vue` para la barra superior. | 2 | Montes, Piero | Done |
+| **TS** | Configuración del Mock Backend (JSON-Server) | Creación de base de datos simulada (`db.json`) y rutas RESTful personalizadas (`routes.json`) en el puerto 5222 para proveer datos a la SPA sin depender del servidor C#. | 2 | Anahua, Liz | Done |
+
+<p align="center">
+  <img src="Images/Trello-Backlog-2.png" width="800" alt="Evidencia-Sprint-Backlog-2-Trello">
+</p>
+
+Tablero Kanban del Sprint 2 gestionado en Trello, mostrando el flujo de desarrollo del Frontend.
+
+Enlace al tablero: https://trello.com/invite/b/6ac48ac544b95ec0d7179e1b/ATTId5582c14f0a61ddde82968ca79935a3f89ED4899/cete-sprint-backlog-2
+
 ## 5.3. Validation Interviews
 
 ### 5.3.1. Diseño de entrevistas
