@@ -169,6 +169,7 @@ Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos
 <td align="center" valign="middle">
   <b>Campoblanco Guzman, Diego Roberto</b><br>
   <small>Código: U202414313</small>
+    <img src="Images/Foto-Diego.png" alt="Logo de la Universidad" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
 <td>Actualmente estudio la carrera de Ingeniería de Software en la UPC. Soy una persona apasionada por la programación, enfocada en la creación de aplicaciones modulares y en la simulación de infraestructuras de red y dispositivos IoT. Busco garantizar que la integración del hardware se comunique de manera eficiente con las bases de datos y la plataforma web.</td>
@@ -185,6 +186,7 @@ Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos
 <td align="center" valign="middle">
   <b>Salazar Marquina, Kevin Junior</b><br>
   <small>Código: U202417747</small>
+    <img src="Images/Foto-Kevin.jpg" alt="Logo de la Universidad" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
 <td>Estudiante con sólidos conocimientos en el desarrollo frontend y backend. Aporta al equipo habilidades en el uso de frameworks como Angular y Spring Boot, enfocado en asegurar la escalabilidad del sistema B2B.</td>
