@@ -178,6 +178,7 @@ Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos
 <td align="center" valign="middle">
   <b>Montes Chang, Piero</b><br>
   <small>Código: U202411324</small>
+    <img src="Images/Foto-Piero.jpg" alt="Logo de la Universidad" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
 <td>Estudiante de 5to ciclo con conocimientos en DDD.</td>
@@ -195,9 +196,10 @@ Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos
 <td align="center" valign="middle">
   <b>Salazar Quiche, Darikson Bill</b><br>
   <small>Código: U202422620</small>
+    <img src="Images/Foto-Darikson.jpg" alt="Logo de la Universidad" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
-<td>Estudiante con desarrollo de figama avanzado</td>
+<td>Estudiante con desarrollo de figma avanzado</td>
 </tr>
 </tbody>
 </table>
@@ -1885,6 +1887,7 @@ El equipo gestionó el desarrollo utilizando repositorios de GitHub. Se aplicaro
 | **US33** | Configuración de Internacionalización (i18n) | Implementación de `vue-i18n` cargando diccionarios dinámicos (`es.json` y `en.json`) y el componente `language-switcher.vue` para la barra superior. | 2 | Montes, Piero | Done |
 | **TS** | Configuración del Mock Backend (JSON-Server) | Creación de base de datos simulada (`db.json`) y rutas RESTful personalizadas (`routes.json`) en el puerto 5222 para proveer datos a la SPA sin depender del servidor C#. | 2 | Anahua, Liz | Done |
 
+
 <p align="center">
   <img src="Images/Trello-Backlog-2.png" width="800" alt="Evidencia-Sprint-Backlog-2-Trello">
 </p>
@@ -1892,6 +1895,113 @@ El equipo gestionó el desarrollo utilizando repositorios de GitHub. Se aplicaro
 Tablero Kanban del Sprint 2 gestionado en Trello, mostrando el flujo de desarrollo del Frontend.
 
 Enlace al tablero: https://trello.com/invite/b/6ac48ac544b95ec0d7179e1b/ATTId5582c14f0a61ddde82968ca79935a3f89ED4899/cete-sprint-backlog-2
+
+### 5.2.2.4. Development Evidence for Sprint Review.
+
+Esta sección expone la evidencia técnica del progreso alcanzado. El Frontend de CeTe fue desarrollada utilizando JavaScript, Vue3, CSS y HTML haciendo uso de DDD.
+
+**Registro de commits del Sprint 1:**
+
+<p align="center">
+  <img src="Images/Registro-De-Commits-2.png" alt="Evidencia de Código" title="Development Evidence" width="700">
+</p>
+
+<p align="center">
+  <img src="Images/Codigo-Sprint-21.png" alt="Evidencia de Código" title="Development Evidence" width="700">
+</p>
+<p align="center">
+  <img src="Images/Codigo-Sprint-22.png" alt="Evidencia de Código" title="Development Evidence" width="700">
+</p>
+<p align="center">
+  <img src="Images/Codigo-Sprint-23.png" alt="Evidencia de Código" title="Development Evidence" width="700">
+</p>
+
+
+### 5.2.2.5. Execution Evidence for Sprint Review.
+
+Se validó el comportamiento del Frontend de la aplicacion que respondiera adecuadamente según las US propuestas para este sprint.
+
+<p align="center">
+  <img src="Images/Ejecucion-21.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-22.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-23.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-24.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-25.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-26.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-27.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-28.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-29.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-210.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-211.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-212.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-213.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-214.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-215.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-216.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-217.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-218.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-219.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+
+<div style="page-break-after: always"></div>
+
+### 5.2.2.6. Services Documentation Evidence for Sprint Review.
+
+Durante el Sprint 2, la implementación de la Single Page Application (SPA) requirió el diseño de una capa de infraestructura robusta para el consumo de servicios web. Dado que el RESTful API oficial en ASP.NET Core se encuentra en fase de desarrollo, el equipo implementó un Fake API y construyó los Gateways de Infraestructura en el frontend siguiendo los principios de la Arquitectura Hexagonal. Esta separación asegura que el frontend esté listo para conectarse al backend real en los próximos sprints sin necesidad de refactorizar la lógica de negocio.
+
+### 5.2.2.7. Software Deployment Evidence for Sprint Review.
+
+La versión `v1.0.0` del Frontend fue publicada exitosamente utilizando GitHub Pages automatizando el despliegue a partir de la rama `main`.
+
+<p align="center">
+  <img src="Images/Deployment-Evidence.png" alt="Despliegue GitHub Pages" title="Deployment Evidence" width="700">
+</p>
+
+### 5.2.2.8. Team Collaboration Insights during Sprint.
+
+El equipo gestionó el desarrollo utilizando repositorios de GitHub. Se aplicaron Pull Requests con revisiones cruzadas. A continuación, las analíticas de colaboración:
+
+<p align="center">
+  <img src="Images/Sprint-2-Collaboration-Insight.png" alt="GitHub Insights" title="Collaboration Evidence" width="700">
+</p>
+
+<div style="page-break-after: always"></div>
 
 ## 5.3. Validation Interviews
 
