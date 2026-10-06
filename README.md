@@ -1068,52 +1068,193 @@ Nuestro prototipo navegable fue construido íntegramente en Figma, configurando 
 
 ## 4.6. Domain-Driven Software Architecture
 
-A partir del entendimiento general del negocio logrado en el *Big Picture Event Storming*, hemos profundizado en la arquitectura del software aplicando *Domain-Driven Design* (DDD). En esta sección presentamos la transición de los eventos de negocio hacia artefactos de software concretos y su representación estructural utilizando el **Modelo C4**. El diseño técnico subyacente se apoyará en un backend sólido desarrollado en **C# con ASP.NET Core 8**.
+A partir del entendimiento general del negocio logrado en el Big Picture Event Storming, hemos profundizado en la arquitectura del software aplicando Domain-Driven Design (DDD). En esta sección presentamos la transición de los eventos de negocio hacia artefactos de software concretos y su representación estructural utilizando el Modelo C4. El diseño técnico subyacente se apoyará en un backend sólido desarrollado en C# con ASP.NET Core 8.
 
 ### 4.6.1. Design-Level Event Storming
 
-El equipo llevó a cabo una sesión de *Design-Level Event Storming* para refinar los eventos descubiertos y agruparlos lógicamente. Identificamos los *Commands* (acciones, notas azules) que disparan los eventos, los *Aggregates* (entidades de dominio, notas amarillas) que validan las reglas, y las *Queries* (notas verdes) necesarias para renderizar la UI.
+El equipo llevó a cabo una sesión de Design-Level Event Storming para refinar los eventos descubiertos y agruparlos lógicamente. Identificamos los Commands (acciones, notas azules) que disparan los eventos, los Aggregates (entidades de dominio, notas amarillas) que validan las reglas, y las Queries (notas verdes) necesarias para renderizar la UI.
 
-A partir de este análisis, definimos los **Bounded Contexts** principales del sistema:
+A partir de este análisis, definimos los Bounded Contexts principales del sistema:
+
 * **Warehouse Management (Core Domain):** Gobierna el control de stock, ingresos, salidas y mermas.
 * **Sales & Billing:** Administra el ciclo de vida de las transacciones comerciales.
 
-*(Placeholder: [Insertar imagen: Captura del tablero de Design-Level Event Storming])*
+```mermaid
+flowchart LR
+    %% Paleta de colores estándar de Event Storming
+    classDef command fill:#87b4e5,stroke:#2b578c,color:#000,rx:5px,ry:5px
+    classDef aggregate fill:#f9e076,stroke:#a68910,color:#000,rx:5px,ry:5px
+    classDef event fill:#f4b163,stroke:#c46c0b,color:#000,rx:5px,ry:5px
+    classDef query fill:#a5d790,stroke:#387c1c,color:#000,rx:5px,ry:5px
+    classDef policy fill:#d5a8e3,stroke:#7c3d91,color:#000,rx:5px,ry:5px
 
-### 4.6.2. Software Architecture Context Diagram
+    subgraph Warehouse["Warehouse Management (Core Domain)"]
+        direction LR
+        W_Cmd1["<b>Command</b><br/>Register Stock Input"]:::command
+        W_Agg1["<b>Aggregate</b><br/>InventoryItem"]:::aggregate
+        W_Evt1["<b>Domain Event</b><br/>Stock Added"]:::event
+        W_Qry1["<b>Query / Read Model</b><br/>Inventory View"]:::query
+
+        W_Cmd1 -->|"Invoca"| W_Agg1 -->|"Emite"| W_Evt1 -.->|"Actualiza"| W_Qry1
+
+        W_Cmd2["<b>Command</b><br/>Decrease Stock"]:::command
+        W_Agg2["<b>Aggregate</b><br/>InventoryItem"]:::aggregate
+        W_Evt2["<b>Domain Event</b><br/>Stock Decreased"]:::event
+
+        W_Cmd2 -->|"Invoca"| W_Agg2 -->|"Emite"| W_Evt2
+    end
+
+    subgraph Sales["Sales & Billing (Bounded Context)"]
+        direction LR
+        S_Cmd1["<b>Command</b><br/>Create Sale"]:::command
+        S_Agg1["<b>Aggregate</b><br/>Sale"]:::aggregate
+        S_Evt1["<b>Domain Event</b><br/>Sale Confirmed"]:::event
+        S_Qry1["<b>Query / Read Model</b><br/>Sales Dashboard"]:::query
+
+        S_Cmd1 -->|"Invoca"| S_Agg1 -->|"Emite"| S_Evt1 -.->|"Actualiza"| S_Qry1
+    end
+
+    %% Regla de negocio cruzada (Policy / Process Manager)
+    Policy["<b>Policy</b><br/>Deduct Stock on Sale"]:::policy
+    
+    S_Evt1 -.->|"Desencadena"| Policy
+    Policy -->|"Ejecuta automáticamente"| W_Cmd2
+```
+
+*Nota. Representación del tablero de Design-Level Event Storming ilustrando el flujo desde los comandos hasta la actualización de los modelos de lectura, separados por Bounded Context y conectados mediante una Política (Policy).*
+
+## 4.6.2. Software Architecture Context Diagram
 
 En esta sección se presenta el diagrama de contexto correspondiente al Nivel 1 del Modelo C4. El propósito es ilustrar a CeTe en el centro de su entorno, interactuando con actores y sistemas externos.
-* **Usuarios:** *Business Owner* (dueño con perfil gerencial) y *Warehouse Operator* (almacenero o vendedor).
-* **Sistemas Externos:** El ecosistema se integra con la **SUNAT API** (para la validación de comprobantes) y con un **Email Gateway** (para envío de alertas preventivas).
 
-<p align="center">
-  <img src="Images/Context-Diagram.png" width="800" alt="Diagrama de Contexto C4">
-  <br><em>Nota. Diagrama de Contexto del Sistema elaborado aplicando el Modelo C4.</em>
-</p>
+* **Usuarios:** Business Owner (dueño con perfil gerencial) y Warehouse Operator (almacenero o vendedor).
 
-### 4.6.3. Software Architecture Container Diagrams
+* **Sistemas Externos:** El ecosistema se integra con la SUNAT API (para la validación de comprobantes) y con un Email Gateway (para envío de alertas preventivas).
+
+```mermaid
+flowchart TD
+    %% Actors
+    OWNER(("<b>Business Owner</b><br/>[Person]<br/><i>Dueño con perfil<br/>gerencial</i>"))
+    OPERATOR(("<b>Warehouse Operator</b><br/>[Person]<br/><i>Almacenero o vendedor</i>"))
+    
+    %% Core System
+    CETE("<b>CeTe SaaS System</b><br/>[Software System]<br/><i>Plataforma principal de gestión<br/>de inventario, ventas y logística</i>")
+    
+    %% External Systems
+    SUNAT["<b>SUNAT API</b><br/>[Software System]<br/><i>Servicio gubernamental para la<br/>validación de comprobantes</i>"]
+    EMAIL["<b>Email Gateway</b><br/>[Software System]<br/><i>Servicio externo para envío de<br/>alertas preventivas y notificaciones</i>"]
+    
+    %% Relationships
+    OWNER -.->|"Supervisa el negocio,<br/>revisa métricas y reportes"| CETE
+    OPERATOR -.->|"Gestiona operaciones<br/>diarias y registra ventas"| CETE
+    
+    CETE -.->|"Valida y emite<br/>comprobantes electrónicos"| SUNAT
+    CETE -.->|"Delega el envío de<br/>correos electrónicos"| EMAIL
+    
+    %% C4 Model Styling
+    classDef person fill:#08427b,stroke:#052e56,color:#ffffff,stroke-width:2px
+    classDef system fill:#1168bd,stroke:#0b4884,color:#ffffff,rx:10px,ry:10px,stroke-width:2px
+    classDef external fill:#999999,stroke:#6b6b6b,color:#ffffff,rx:10px,ry:10px,stroke-width:2px
+    
+    class OWNER,OPERATOR person
+    class CETE system
+    class SUNAT,EMAIL external
+
+```
+
+*Nota. Diagrama de Contexto del Sistema elaborado aplicando el Modelo C4.*
+
+## 4.6.3. Software Architecture Container Diagrams
 
 El Diagrama de Contenedores (Nivel 2 del Modelo C4) descompone el sistema central en unidades de despliegue independientes, reflejando nuestras decisiones tecnológicas:
+
 * **Landing Page:** Frontend estático público (HTML5, CSS3, JS).
-* **Single Page Application (Frontend Container):** Desarrollada con **Vue.js y PrimeVue**. Provee la interfaz reactiva y se comunica asíncronamente vía JSON/HTTPS.
-* **RESTful API Application (Backend Container):** Desarrollada en **C# con ASP.NET Core 8**. Este contenedor expone los *Endpoints* y procesa la lógica de negocio orientada a dominio.
-* **Database Container:** Base de datos relacional (**PostgreSQL**) para persistir el estado transaccional del sistema.
 
-<p align="center">
-  <img src="Images/Container-Diagram.png" width="800" alt="Diagrama de Contenedores C4">
-  <br><em>Nota. Diagrama de Contenedores ilustrando el stack tecnológico de CeTe.</em>
-</p>
+* **Single Page Application (Frontend Container):** Desarrollada con Vue.js y PrimeVue. Provee la interfaz reactiva y se comunica asíncronamente vía JSON/HTTPS.
 
-### 4.6.4. Software Architecture Components Diagrams
+* **RESTful API Application (Backend Container):** Desarrollada en C# con ASP.NET Core 8. Este contenedor expone los Endpoints y procesa la lógica de negocio orientada a dominio.
 
-El Diagrama de Componentes (Nivel 3 del Modelo C4) hace un acercamiento al interior del contenedor del RESTful API (C#). Este diagrama muestra el flujo de ejecución: las peticiones HTTP entrantes son interceptadas por el `SecurityMiddleware`, canalizadas hacia un `InventoryController` (API endpoint), procesadas por el `InventoryService` (lógica de dominio) y finalmente persistidas utilizando el `InventoryRepository` (apoyado robustamente en **Entity Framework Core**).
+* **Database Container:** Base de datos relacional (PostgreSQL) para persistir el estado transaccional del sistema.
 
-<p align="center">
-  <img src="Images/Component-Diagram.png" width="800" alt="Diagrama de Componentes C4">
-  <br><em>Nota. Diagrama de Componentes del Backend API de CeTe.</em>
-</p>
+```mermaid
+flowchart TD
+    %% Actors
+    USER(("<b>Web User</b><br/>[Person]<br/><i>Usuario público o<br/>cliente autenticado (Tenant)</i>"))
+    
+    %% System Boundary
+    subgraph SystemBoundary ["CeTe SaaS System [Software System]"]
+        direction TB
+        
+        LP["<b>Landing Page</b><br/>[Container: HTML5, CSS3, JS]<br/><i>Sitio web público informativo<br/>y portal de entrada</i>"]
+        
+        SPA["<b>Single Page Application</b><br/>[Container: Vue.js, PrimeVue]<br/><i>Provee la interfaz reactiva<br/>para la gestión del sistema</i>"]
+        
+        API["<b>RESTful API Application</b><br/>[Container: C#, ASP.NET Core 8]<br/><i>Expone los endpoints y procesa<br/>la lógica de negocio (DDD)</i>"]
+        
+        DB[("<b>Database</b><br/>[Container: PostgreSQL]<br/><i>Base de datos relacional para<br/>persistir el estado transaccional</i>")]
+    end
 
-<div style="page-break-after: always"></div>
+    %% Relationships
+    USER -.->|"Visita sitio público<br/>[HTTPS]"| LP
+    USER -.->|"Interactúa con la plataforma<br/>[HTTPS]"| SPA
+    SPA -.->|"Realiza peticiones API<br/>[JSON/HTTPS]"| API
+    API -.->|"Lee y escribe datos<br/>[SQL/Entity Framework]"| DB
+
+    %% C4 Model Styling
+    classDef person fill:#08427b,stroke:#052e56,color:#ffffff,rx:5px,ry:5px
+    classDef container fill:#1168bd,stroke:#0b4884,color:#ffffff,rx:5px,ry:5px
+    classDef database fill:#1168bd,stroke:#0b4884,color:#ffffff
+    classDef boundary fill:#ffffff,stroke:#1168bd,stroke-width:2px,stroke-dasharray: 5 5,color:#1168bd
+
+    class USER person
+    class LP,SPA,API container
+    class DB database
+    class SystemBoundary boundary
+
+```
+
+*Nota. Diagrama de Contenedores ilustrando el stack tecnológico de CeTe.*
+
+
+## 4.6.4. Software Architecture Components Diagrams
+
+El Diagrama de Componentes (Nivel 3 del Modelo C4) hace un acercamiento al interior del contenedor del RESTful API (C#). Este diagrama muestra el flujo de ejecución: las peticiones HTTP entrantes son interceptadas por el SecurityMiddleware, canalizadas hacia un InventoryController (API endpoint), procesadas por el InventoryService (lógica de dominio) y finalmente persistidas utilizando el InventoryRepository (apoyado robustamente en Entity Framework Core).
+
+```mermaid
+flowchart LR
+    SPA["<b>Single Page Application</b><br/>[Container: Frontend]<br/><i>Interfaz de usuario responsiva</i>"]
+    
+    subgraph API ["RESTful API Application [Container]"]
+        direction LR
+        MW["<b>SecurityMiddleware</b><br/>[Component: .NET Core Auth]<br/><i>Valida autenticación y tokens JWT</i>"]
+        CTRL["<b>InventoryController</b><br/>[Component: C# REST Controller]<br/><i>Recibe peticiones HTTP GET/POST para el almacén</i>"]
+        SVC["<b>InventoryService</b><br/>[Component: C# Service]<br/><i>Aplica lógica y validaciones de negocio</i>"]
+        REPO["<b>InventoryRepository</b><br/>[Component: Entity Framework Core]<br/><i>Mapea objetos y ejecuta consultas</i>"]
+        
+        MW -->|"Pasa peticiones<br/>autorizadas"| CTRL
+        CTRL -->|"Invoca métodos<br/>del dominio"| SVC
+        SVC -->|"Persiste o consulta<br/>información"| REPO
+    end
+    
+    DB[("<b>Database</b><br/>[Container: PostgreSQL]<br/><i>Almacena el estado relacional de<br/>inventarios y transacciones</i>")]
+
+    SPA -.->|"Envía peticiones HTTP cifradas<br/>con Bearer Token"| MW
+    REPO -.->|"Ejecuta consultas<br/>SQL / ORM"| DB
+
+    %% C4 Model Styling
+    classDef container fill:#1168bd,stroke:#0b4884,color:#ffffff,rx:5px,ry:5px
+    classDef component fill:#85bbf0,stroke:#5b93c5,color:#000000,rx:5px,ry:5px
+    classDef database fill:#1168bd,stroke:#0b4884,color:#ffffff
+    classDef boundary fill:#ffffff,stroke:#1168bd,stroke-width:2px,color:#1168bd
+
+    class SPA container
+    class MW,CTRL,SVC,REPO component
+    class DB database
+    class API boundary
+
+```
+
+*Nota. Diagrama de Componentes del Backend API de CeTe.*
 
 ## 4.7. Software Object-Oriented Design
 
