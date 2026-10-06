@@ -1117,17 +1117,267 @@ El Diagrama de Componentes (Nivel 3 del Modelo C4) hace un acercamiento al inter
 
 ## 4.7. Software Object-Oriented Design
 
-En esta sección detallamos cómo los conceptos identificados en el DDD se traducen en código **C#**. El diseño orientado a objetos en CeTe protege rigurosamente los invariantes encapsulando el estado y exponiendo únicamente métodos con significado de dominio.
+En esta sección detallamos cómo los conceptos identificados en el DDD (Domain-Driven Design) se traducen en código C#. El diseño orientado a objetos en CeTe protege rigurosamente los invariantes encapsulando el estado y exponiendo únicamente métodos con significado de dominio.
 
 ### 4.7.1. Class Diagrams
 
-Los Diagramas de Clases UML mapean de manera precisa nuestras entidades del backend.
-* **Clase InventoryItem (Aggregate Root):** Las propiedades de estado (ej. `Id`, `Sku`, `Quantity`) utilizan el modificador `{ get; private set; }` en C# para evitar mutaciones externas directas. Exponemos métodos públicos ricos como `AddStock(int amount)` o `DecreaseStock(int amount)` que evalúan las reglas lógicas internamente antes de alterar las cantidades.
+Los Diagramas de Clases UML mapean de manera precisa nuestras entidades del backend, respetando la separación por *Bounded Contexts*. 
 
-<p align="center">
-  <img src="Images/Class-Diagram.png" width="800" alt="Diagrama de Clases">
-  <br><em>Nota. Diagrama de Clases UML modelando el comportamiento de las entidades de dominio.</em>
-</p>
+Como regla general de nuestra arquitectura, las propiedades de estado utilizan el modificador de acceso privado `-` (implementado como `{ get; private set; }` en C#) para evitar mutaciones externas directas. Las interacciones con las entidades se realizan exclusivamente a través de métodos públicos `+` ricos en significado de dominio (ej. `AddStock(int amount)` o `CalculateTaxes()`), los cuales evalúan las reglas lógicas internamente antes de alterar el estado.
+
+A continuación, se presenta el modelo de dominio principal:
+
+```mermaid
+classDiagram
+    %% ==========================================
+    %% SAAS & SECURITY MODULE
+    %% ==========================================
+    namespace SaasAndSecurity {
+        class Tenant {
+            -Id: Guid
+            -Name: string
+            -Ruc: string
+            -SubscriptionPlanId: Guid
+            +ChangeSubscription(planId: Guid): void
+            +UpdateDetails(name: string, ruc: string): void
+        }
+
+        class SubscriptionPlan {
+            -Id: Guid
+            -Name: string
+            -Price: decimal
+            -MaxUsers: int
+        }
+
+        class User {
+            -Id: Guid
+            -TenantId: Guid
+            -RoleId: int
+            -FullName: string
+            -Email: string
+            +AssignRole(roleId: int): void
+        }
+
+        class Role {
+            -Id: int
+            -Name: string
+        }
+    }
+
+    %% ==========================================
+    %% INVENTORY MODULE (CORE)
+    %% ==========================================
+    namespace Inventory {
+        class InventoryItem {
+            <<Aggregate Root>>
+            -Id: Guid
+            -TenantId: Guid
+            -CategoryId: Guid
+            -Sku: string
+            -Quantity: int
+            -UnitPrice: decimal
+            +AddStock(amount: int): void
+            +DecreaseStock(amount: int): void
+            +UpdatePrice(newPrice: decimal): void
+        }
+
+        class Category {
+            -Id: Guid
+            -TenantId: Guid
+            -Name: string
+        }
+
+        class StockMovement {
+            -Id: Guid
+            -InventoryItemId: Guid
+            -UserId: Guid
+            -MovementType: string
+            -Quantity: int
+            -Reason: string
+        }
+    }
+
+    %% ==========================================
+    %% COMMERCIAL MODULE
+    %% ==========================================
+    namespace Commercial {
+        class Sale {
+            <<Aggregate Root>>
+            -Id: Guid
+            -TenantId: Guid
+            -CustomerId: Guid
+            -UserId: Guid
+            -TotalAmount: decimal
+            -Status: string
+            +AddDetail(itemId: Guid, qty: int, price: decimal): void
+            +CalculateTaxes(): decimal
+            +ConfirmSale(): void
+        }
+
+        class SaleDetail {
+            -Id: Guid
+            -SaleId: Guid
+            -InventoryItemId: Guid
+            -Quantity: int
+            -UnitPrice: decimal
+            +GetSubtotal(): decimal
+        }
+
+        class Customer {
+            -Id: Guid
+            -TenantId: Guid
+            -Name: string
+            -ContactInfo: string
+        }
+    }
+
+    %% ==========================================
+    %% LOGISTICS MODULE
+    %% ==========================================
+    namespace Logistics {
+        class Dispatch {
+            <<Aggregate Root>>
+            -Id: Guid
+            -TenantId: Guid
+            -DriverId: Guid
+            -UserId: Guid
+            -Status: string
+            +AssignDriver(driverId: Guid): void
+            +CompleteDispatch(): void
+        }
+
+        class DispatchSale {
+            -DispatchId: Guid
+            -SaleId: Guid
+        }
+
+        class Driver {
+            -Id: Guid
+            -TenantId: Guid
+            -Name: string
+            -License: string
+        }
+
+        class DispatchIncident {
+            -Id: Guid
+            -DispatchId: Guid
+            -Description: string
+            -OccurredAt: DateTime
+        }
+    }
+
+    %% ==========================================
+    %% ALERTS MODULE
+    %% ==========================================
+    namespace Alerts {
+        class Notification {
+            -Id: Guid
+            -TenantId: Guid
+            -UserId: Guid
+            -Message: string
+            -IsRead: boolean
+            +MarkAsRead(): void
+        }
+    }
+
+    %% ==========================================
+    %% RELATIONSHIPS
+    %% ==========================================
+    
+    %% Compositions (Aggregates)
+    Sale *-- "1..*" SaleDetail : contains
+    Dispatch *-- "1..*" DispatchSale : groups
+    Dispatch *-- "0..*" DispatchIncident : records
+    
+    %% Associations
+    Tenant "1" --> "*" User : has
+    Tenant "1" --> "*" InventoryItem : owns
+    SubscriptionPlan "1" --> "*" Tenant : grants
+    Role "1" --> "*" User : assigns
+    
+    InventoryItem "1" --> "*" StockMovement : tracks
+    Category "1" --> "*" InventoryItem : categorizes
+    
+    SaleDetail "0..*" --> "1" InventoryItem : references
+    Customer "1" --> "*" Sale : makes
+    
+    Dispatch "1" --> "*" Driver : executes
+    DispatchSale "*" --> "1" Sale : assigned_to
+```
+
+### 4.7.2. Implementación en C# (Ejemplo)
+
+Para ilustrar cómo este diseño orientado a objetos protege las reglas de negocio, a continuación se presenta la implementación del *Aggregate Root* `Sale` y su entidad dependiente `SaleDetail`, modelados según las relaciones de composición y encapsulamiento del diagrama UML:
+
+```csharp
+public class Sale 
+{
+    // Encapsulamiento: Setters privados para proteger los invariantes del dominio.
+    public Guid Id { get; private set; }
+    public Guid TenantId { get; private set; }
+    public Guid CustomerId { get; private set; }
+    public decimal TotalAmount { get; private set; }
+    public string Status { get; private set; }
+
+    // Navigation Property protegida: Se evita que colecciones sean manipuladas con .Add() o .Remove() directamente
+    private readonly List<SaleDetail> _saleDetails = new();
+    public IReadOnlyCollection<SaleDetail> SaleDetails => _saleDetails.AsReadOnly();
+
+    public Sale(Guid tenantId, Guid customerId)
+    {
+        Id = Guid.NewGuid();
+        TenantId = tenantId;
+        CustomerId = customerId;
+        Status = "Draft";
+    }
+
+    // Comportamiento de Dominio
+    public void AddDetail(InventoryItem item, int quantity)
+    {
+        if (item.Quantity < quantity)
+            throw new InvalidOperationException("Stock insuficiente para realizar la venta.");
+
+        var detail = new SaleDetail(this.Id, item.Id, quantity, item.UnitPrice);
+        _saleDetails.Add(detail);
+        
+        RecalculateTotal();
+    }
+
+    public decimal CalculateTaxes()
+    {
+        const decimal TaxRate = 0.18m; // Ejemplo: IGV 18%
+        return TotalAmount * TaxRate;
+    }
+
+    private void RecalculateTotal()
+    {
+        TotalAmount = _saleDetails.Sum(d => d.GetSubtotal());
+    }
+}
+
+public class SaleDetail
+{
+    public Guid Id { get; private set; }
+    public Guid SaleId { get; private set; }
+    public Guid InventoryItemId { get; private set; }
+    public int Quantity { get; private set; }
+    public decimal UnitPrice { get; private set; }
+
+    internal SaleDetail(Guid saleId, Guid inventoryItemId, int quantity, decimal unitPrice)
+    {
+        Id = Guid.NewGuid();
+        SaleId = saleId;
+        InventoryItemId = inventoryItemId;
+        Quantity = quantity;
+        UnitPrice = unitPrice;
+    }
+
+    public decimal GetSubtotal()
+    {
+        return Quantity * UnitPrice;
+    }
+}
+```
 
 ## 4.8. Database Design
 
