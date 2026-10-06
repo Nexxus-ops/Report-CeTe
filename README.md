@@ -1681,7 +1681,7 @@ Durante el Sprint 1, el equipo de Nexxus se concentró en la implementación y d
 | US34 | Despliegue en GitHub Pages | Configuración del repositorio y publicación de la versión v1.0.0. | 2 | Campoblanco, Diego | Done |
 
 <p align="center">
-  <img src="Images/Trello-Backlog-1" width="800" alt="Evidencia-Produt-Backlog-Trello">
+  <img src="Images/Trello-Backlog-1.png" width="800" alt="Evidencia-Produt-Backlog-Trello">
 </p>
 
 <div style="page-break-after: always"></div>
