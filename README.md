@@ -367,7 +367,7 @@ Entender el panorama actual para identificar cómo CeTe puede diferenciarse sien
 | | **¿Qué valor ofrece?** | Vender rápido en tiendas y cumplir con la SUNAT. | Mantener las finanzas e impuestos en orden. | Tener todas las aplicaciones de gestión interconectadas. | Eliminar los cuadernos y excels, sabiendo exactamente dónde está la mercadería y ahorrando horas. |
 | | **Mercado objetivo** | Restaurantes y tiendas minoristas en Perú. | MYPES que priorizan el orden contable. | Desde PYMES hasta grandes corporaciones globales. | Dueños y operarios de MYPES (consorcios, textiles, restaurantes) agobiados por procesos manuales. |
 | **Producto** | **Productos & Servicios** | Punto de venta web, inventario básico, facturación. | Facturación, contabilidad, gestión de inventario. | CRM, eCommerce, Almacén avanzado, Contabilidad. | Gestión de Almacén, Ventas, Despacho, Dashboard en tiempo real y proyección IoT. |
-| | **Precios & Costos** | Suscripción mensual por terminal. | Suscripción mensual escalonada. | Costoso por usuario para la versión full en la nube. | Suscripción SaaS mensual/anual accesible. |
+| | **Precios & Costos** | Desde S/ 149.00/mes (Plan Básico 1 caja). Hardware y terminales extra se cotizan por separado. | Desde S/ 99.00/mes (Plan Pyme con límite de facturas). Plan Pro (inventario full) escala a S/ 249.00/mes. | Versión Standard Cloud: $24.90 (S/ 95 aprox.) por usuario/mes. Requiere alto costo de consultoría para la implementación inicial. | Tarifa plana MYPE: S/ 80.00/mes. Sin cobro por usuario adicional operativo. Implementación a costo cero (Plug & Play). |
 | | **Distribución** | Web Application y App móvil POS. | Plataforma Web Cloud. | Plataforma Web, Apps móviles y software de escritorio. | Web Application (Cloud) responsiva (Mobile/Desktop). |
 | **SWOT** | **Fortalezas** | Excelente usabilidad y presencia local. | Gran ecosistema de integraciones contables. | Código abierto, infinidad de funcionalidades. | Diseño inspirado en dolores reales, alta adaptabilidad (plantilla general). |
 | | **Debilidades** | Módulo logístico básico, no apto para distribución compleja. | Enfoque muy administrativo, pesado para el almacenero. | Configuración inicial compleja, requiere consultores. | Startup emergente sin marca establecida aún. |
@@ -375,6 +375,15 @@ Entender el panorama actual para identificar cómo CeTe puede diferenciarse sien
 | | **Amenazas** | Nuevos competidores POS de bajo costo. | Cambios en normativas tributarias. | Soluciones locales de nicho. | Resistencia al cambio del personal acostumbrado al papel. |
 
 <p align="center"><em>Nota: Análisis competitivo de CeTe en comparación con las principales soluciones del mercado.</em></p>
+
+### 2.1.1.1. Análisis de Modelos Tarifarios (Pricing)
+
+Para sustentar la viabilidad comercial y el diseño de la tarifa plana de CeTe, se investigó el modelo de monetización de los competidores directos, evidenciando barreras económicas estructurales para la adopción tecnológica en el segmento MYPE:
+
+* **Cobro por Terminal de Venta (Wally POS):** El mercado de POS tradicional exige un pago base aproximado de S/ 149.00 mensuales anclado a un único dispositivo o punto de emisión. Si una MYPE (ej. un consorcio de alimentos) necesita aperturar un almacén secundario o una segunda caja, el costo de suscripción se duplica automáticamente, penalizando la expansión física del negocio.
+* **Cobro por Volumen de Transacciones (Alegra):** Los sistemas con enfoque contable atraen a las MYPES con planes de entrada (S/ 99.00/mes) que imponen límites estrictos en la cantidad de comprobantes emitidos. Para que un negocio acceda a métricas gerenciales completas y gestión multi-almacén, es forzado a migrar al plan Pro (S/ 249.00/mes), lo que representa un salto financiero superior al 150%.
+* **Cobro por Usuario Nombrado (Odoo):** El modelo tradicional de ERP en la nube cobra una licencia individual por cada trabajador. Aunque la tarifa base ronda los S/ 95.00 mensuales ($24.90 USD), una pequeña empresa que requiera accesos para un administrador, dos almaceneros y dos vendedores enfrentaría un costo operativo de S/ 475.00 mensuales, sin contar las elevadas horas de consultoría necesarias para parametrizar el ecosistema.
+* **Nuestra Propuesta de Valor (CeTe):** Se introduce un modelo SaaS de *Tarifa Plana* de S/ 80.00 mensuales diseñado para la realidad financiera peruana. CeTe absorbe la ventaja competitiva al no cobrar licencias adicionales por cada operario logístico registrado ni limitar el volumen de ingresos de SKUs. Esto elimina la fricción económica y permite que el dueño del negocio digitalice a toda su fuerza laboral de almacén bajo una sola suscripción centralizada.eTe en comparación con las principales soluciones del mercado.</em></p>
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
