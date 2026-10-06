@@ -82,9 +82,9 @@ Link de la organización (GitHub): https://github.com/Nexxus-ops
 ## Commits por integrante
 
 - **Anahua Ancachi, Liz Maribel (`lizzanahua-rgb`)**: 2 commits
-- **Campoblanco Guzman, Diego Roberto (`diegocampoblancog-droid`)**: 8 commits
-- **Montes Chang, Piero (`PieroMchang`)**: 1 commits
-- **Salazar Marquina, Kevin Junior (`AresSalamar`)**: 3 commits
+- **Campoblanco Guzman, Diego Roberto (`diegocampoblancog-droid`)**: 16 commits
+- **Montes Chang, Piero (`PieroMchang`)**: 7 commits
+- **Salazar Marquina, Kevin Junior (`AresSalamar`)**: 8 commits
 - **Salazar Quiche, Darikson Bill (`darikson26`)**: 2 commits
 - **Total de commits en AV1:** 16
 
