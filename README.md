@@ -35,7 +35,7 @@ Proyecto
 | :---: | :--- |
 | U202421123 | Anahua Ancachi, Liz Maribel |
 | U202414313 | Campoblanco Guzman, Diego Roberto |
-| U20241G031 | Montes Chang, Piero F|
+| U20241G031 | Montes Chang, Piero Francis|
 | U202417747 | Salazar Marquina, Kevin Junior |
 | U202422620 | Salazar Quiche, Darikson Bill |
 
