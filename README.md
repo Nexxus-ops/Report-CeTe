@@ -17,7 +17,7 @@
 # **Informe del Trabajo Final**
 
 Docente
-### **Sánchez Ponce, Alex Humberto**
+### **Sánchez Ponce, Humberto Alex**
 
 <br>
 
