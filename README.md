@@ -81,10 +81,10 @@ Link de la organización (GitHub): https://github.com/Nexxus-ops
 
 ## Commits por integrante
 
-- **Anahua Ancachi, Liz Maribel (`lizzanahua-rgb`)**: 2 commits
+- **Anahua Ancachi, Liz Maribel (`lizzanahua-rgb`)**: 3 commits
 - **Campoblanco Guzman, Diego Roberto (`diegocampoblancog-droid`)**: 16 commits
 - **Montes Chang, Piero (`PieroMchang`)**: 7 commits
-- **Salazar Marquina, Kevin Junior (`AresSalamar`)**: 8 commits
+- **Salazar Marquina, Kevin Junior (`AresSalamar`)**: 12 commits
 - **Salazar Quiche, Darikson Bill (`darikson26`)**: 2 commits
 - **Total de commits en AV1:** 16
 
@@ -145,8 +145,6 @@ Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos
 >* **Eficiencia:** Buscamos hacer más con menos, eliminando los procesos repetitivos y manuales.
 
 ### 1.1.2. Perfiles de integrantes del equipo
-
-*[Placeholder: Fotos del equipo]*
 
 <table border="1" cellspacing="0" cellpadding="8" style="border-collapse: collapse; width: 100%;">
 <thead>
