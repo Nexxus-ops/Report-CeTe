@@ -38,7 +38,7 @@ Proyecto
 | U202411324 | Montes Chang, Piero |
 | U202417747 | Salazar Marquina, Kevin Junior |
 | U202422620 | Salazar Quiche, Darikson Bill |
-
+ 
 <br>
 
 ### **Período 202620**
