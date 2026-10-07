@@ -34,7 +34,7 @@ Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos
 <tr>
 <td align="center" valign="middle">
   <b>Anahua Ancachi, Liz Maribel</b><br>
-  <small>Código: U202420071</small>
+  <small>Código: U202421123</small>
 </td>
 <td align="center">Ingeniería de Software</td>
 <td>Estudiante con sólidos conocimientos en el desarrollo frontend y backend. Aporta al equipo habilidades en la implementación de arquitecturas orientadas a dominio (DDD).</td>
