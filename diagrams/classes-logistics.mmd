@@ -1,0 +1,23 @@
+---
+title: UML actual · Despacho e incidencias · CeTe API
+---
+classDiagram
+  class Dispatch {
+    +Guid Id
+    +string DriverName
+    +string LicensePlate
+    +string Status [private set]
+    +DateTimeOffset CreatedAt
+    +Transition(string next) void
+  }
+  class DispatchSale {
+    +Guid DispatchId
+    +Guid SaleId
+  }
+  class DispatchIncident {
+    +Guid DispatchId
+    +string Description
+    +DateTimeOffset CreatedAt
+  }
+  Dispatch "1" <-- "0..*" DispatchSale : DispatchId
+  Dispatch "1" <-- "0..*" DispatchIncident : DispatchId

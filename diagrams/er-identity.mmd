@@ -1,0 +1,56 @@
+---
+title: ER físico · Identidad y empresa
+---
+erDiagram
+  Tenants {
+    uuid Id PK
+    text Name
+    text Ruc
+    text Address
+  }
+  SubscriptionPlans {
+    uuid Id PK
+    text Name
+    decimal MonthlyPrice
+  }
+  TenantSubscriptions {
+    uuid Id PK
+    uuid SubscriptionPlanId FK
+    text Status
+    uuid TenantId FK
+  }
+  Users {
+    uuid Id PK
+    text Username
+    text PasswordHash
+    text Role
+    bool Active
+    uuid TenantId FK
+  }
+  Roles {
+    uuid Id PK
+    text Name
+    uuid TenantId FK
+  }
+  UserRoles {
+    uuid Id PK
+    uuid UserId FK
+    uuid RoleId FK
+    uuid TenantId FK
+  }
+  UserSessions {
+    uuid Id PK
+    uuid UserId FK
+    timestamptz ExpiresAt
+    bool Revoked
+    uuid TenantId FK
+  }
+  Tenants ||--o{ Roles : "TenantId"
+  SubscriptionPlans ||--o{ TenantSubscriptions : "SubscriptionPlanId"
+  Tenants ||--o{ TenantSubscriptions : "TenantId"
+  Tenants ||--o{ UserRoles : "TenantId"
+  Roles ||--o{ UserRoles : "RoleId"
+  Users ||--o{ UserRoles : "UserId"
+  Tenants ||--o{ UserSessions : "TenantId"
+  Users ||--o{ UserSessions : "UserId"
+  Tenants ||--o{ Users : "TenantId"

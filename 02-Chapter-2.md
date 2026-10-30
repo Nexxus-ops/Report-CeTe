@@ -1,5 +1,7 @@
 # Capítulo II: Requirements Elicitation & Analysis
 
+[Competidores](#21-competidores) · [Entrevistas](#22-entrevistas) · [Needfinding](#23-needfinding) · [EventStorming](#24-big-picture-eventstorming) · [Lenguaje ubicuo](#25-ubiquitous-language)
+
 ## 2.1. Competidores
 
 Para validar nuestra propuesta de valor en el ecosistema B2B SaaS, hemos identificado a tres competidores principales que ofrecen soluciones de digitalización para MYPES en la región.
@@ -291,21 +293,45 @@ La matriz evidencia que Miguel requiere interfaces móviles hiper-optimizadas pa
 
 ## 2.4. Big Picture EventStorming
 
-En la sesión de Big Picture EventStorming, el equipo exploró de manera colaborativa y visual la línea de tiempo completa del negocio logístico utilizando FigJam, desde la recepción de mercadería hasta la facturación final.
+El tablero histórico explora la operación logística y sirve como insumo de descubrimiento. La revisión AV2 precisa la secuencia del negocio: **registrar una compra no equivale a recibirla**, y confirmar una venta produce una boleta académica, no una factura fiscal. Los avisos y vencimientos identificados durante el descubrimiento siguen siendo oportunidades de evolución.
 
-* **Fase de Abastecimiento:** Se mapearon eventos críticos como `MerchandiseReceived`, `InventoryUpdated` y `LowStockAlertTriggered`.
-* **Fase Comercial:** Se identificaron hitos transaccionales como `PurchaseOrderPlaced` y `InvoiceGenerated`.
-* **Oportunidades Estratégicas:** El análisis visual reveló que el mayor cuello de botella y acumulación de fricción ocurre porque la información del estado físico del almacén no fluye en tiempo real hacia el área de ventas. La plataforma CeTe actuará como el puente digital que sincronice estos eventos de manera automatizada.
+![Recorrido operativo del incremento AV2](diagrams/business-timeline.svg)
 
-<p align="center"><img src="Images/Big-Picure-Event-Storming.png" width="800" alt="Event Storming CeTe"></p>
+*Vista conceptual del negocio contrastada con los casos de uso actuales. Los hechos no corresponden a eventos publicados en un bus de mensajería.* [Ampliar](diagrams/business-timeline.svg) · [Fuente editable](diagrams/business-timeline.mmd)
+
+<details>
+<summary>Ver tablero histórico de descubrimiento</summary>
+
+![Tablero histórico de Big Picture EventStorming](Images/Big-Picure-Event-Storming.png)
+
+El tablero se conserva como evidencia de la etapa de descubrimiento. La secuencia AV2 y el alcance implementado se explican en el diagrama anterior y en el capítulo IV.
+
+</details>
 
 ## 2.5. Ubiquitous Language
 
-Para asegurar una comunicación sin ambigüedades entre los expertos del negocio y el equipo de desarrollo, hemos construido nuestro **Lenguaje Ubicuo (Ubiquitous Language)**. Este glosario estandariza los términos centrales del dominio logístico en todos los artefactos y el código fuente:
+El lenguaje ubicuo distingue la identidad del producto, la cantidad disponible y los documentos de cada operación. Los términos se usan según su contexto; no se interpreta cada sustantivo como un agregado o una tabla independiente.
 
-* **Inventory Item (Artículo de Inventario):** Producto físico o insumo que se encuentra almacenado dentro del negocio, listo para ser despachado o vendido.
-* **SKU (Stock Keeping Unit):** Identificador alfanumérico único asignado a un artículo para rastrear su disponibilidad exacta.
-* **Shipment Manifest (Manifiesto de Despacho):** Documento logístico consolidado que agrupa los artículos que saldrán del almacén.
-* **Commercial Transaction (Transacción Comercial):** El registro oficial de una venta. Consolida los artículos adquiridos por el cliente y el estado del pago.
-* **Quarantine (Cuarentena):** Estado temporal asignado a un artículo de inventario que presenta daños o dudas sobre su calidad, inhabilitando su venta.
-* **Stock Out (Quiebre de Stock):** Situación crítica que ocurre cuando se intenta vender o utilizar un artículo cuya cantidad física en el almacén ha llegado a cero.
+| Término de negocio | Contexto | Significado y representación actual |
+| :--- | :--- | :--- |
+| **Empresa / tenant** | Identidad | Organización propietaria de los datos, representada por `Tenant`. `TenantId` delimita sus operaciones. |
+| **Cuenta y sesión** | Identidad | `User` identifica a la persona que accede; `UserSession` determina vigencia y revocación. No son la misma entidad. |
+| **Producto / artículo** | Inventario | `Product` conserva SKU, nombre, precio y estado. `InventoryItem` es un nombre de compatibilidad en DTO, no una entidad de la API. |
+| **SKU** | Inventario | Código de producto único dentro de una empresa; puede repetirse en otra. |
+| **Almacén** | Inventario | `Warehouse` identifica el lugar de operación. El saldo distingue producto y almacén. |
+| **Saldo disponible** | Inventario | `StockBalance.Quantity`; cantidad que puede retirarse o venderse sin quedar negativa. |
+| **Movimiento** | Inventario | `InventoryMovement`; variación con signo, motivo, usuario y fecha. No sustituye al producto ni al saldo. |
+| **Ingreso / salida** | Inventario | Aumento o disminución física. La salida requiere motivo y saldo suficiente. |
+| **Orden de compra** | Abastecimiento | `PurchaseOrder` y sus líneas representan lo pedido al proveedor; no aumentan existencias. |
+| **Recepción física** | Abastecimiento | `GoodsReceipt` y sus líneas registran lo entregado; pueden cubrir solo parte de la orden. |
+| **Pendiente de recepción** | Abastecimiento | Cantidad pedida menos cantidad acumulada recibida de una línea. |
+| **Venta** | Ventas | `Sale` y `SaleLine` conservan la transacción comercial y sus precios históricos. |
+| **Pago registrado** | Ventas | `Payment` anota método y monto; no ejecuta cobros en tarjeta ni transferencias bancarias. |
+| **Boleta académica** | Ventas | `SalesReceipt` conserva datos comerciales para visualizar e imprimir el detalle de compra. Sin emisión fiscal. |
+| **Anulación de venta** | Ventas | Cambio a `CANCELLED`, restitución única de stock y reversión del registro de pago; se rechaza si tiene asignación logística. |
+| **Despacho / manifiesto** | Logística | `Dispatch` agrupa ventas completadas mediante `DispatchSale`; controla conductor, placa, estado e incidencias. No es una guía fiscal. |
+| **Incidencia de ruta** | Logística | `DispatchIncident` documenta un contratiempo del despacho en tránsito. |
+| **Quiebre de stock** | Inventario | Ausencia de unidades disponibles. La API impide confirmar una salida que exceda el saldo. |
+| **Merma / cuarentena** | Evolución del inventario | Conceptos de descubrimiento. No existe todavía un flujo de cuarentena ni valoración contable de mermas. |
+
+La correspondencia entre estos términos, clases y tablas se desarrolla en [DDD y diseño de datos](04-Chapter-4.md#46-domain-driven-software-architecture).

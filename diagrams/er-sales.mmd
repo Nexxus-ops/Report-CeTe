@@ -1,0 +1,79 @@
+---
+title: ER físico · Ventas y sus referencias
+---
+erDiagram
+  Customers {
+    uuid Id PK
+    text Name
+    text Contact
+    uuid TenantId FK
+  }
+  Sales {
+    uuid Id PK
+    text CustomerName
+    uuid WarehouseId FK
+    uuid UserId FK
+    decimal TotalAmount
+    text Status
+    text RequestHash
+    timestamptz CreatedAt
+    uuid TenantId FK
+  }
+  SaleLines {
+    uuid Id PK
+    uuid SaleId FK
+    uuid ProductId FK
+    text Sku
+    text Name
+    decimal Quantity
+    decimal UnitPrice
+    uuid TenantId FK
+  }
+  Payments {
+    uuid Id PK
+    uuid SaleId FK
+    text Method
+    decimal Amount
+    text Status
+    uuid TenantId FK
+  }
+  SalesReceipts {
+    uuid Id PK
+    uuid SaleId FK
+    text Number
+    text CompanyName
+    text Ruc
+    text Address
+    text Cashier
+    timestamptz IssuedAt
+    uuid TenantId FK
+  }
+  Products {
+    uuid Id PK
+    text Sku
+    text Name
+    decimal UnitPrice
+    decimal MinimumStock
+    bool Active
+    uuid TenantId FK
+  }
+  Warehouses {
+    uuid Id PK
+    text Name
+    text Address
+    uuid TenantId FK
+  }
+  Users {
+    uuid Id PK
+    text Username
+    text PasswordHash
+    text Role
+    bool Active
+    uuid TenantId FK
+  }
+  Sales ||--o{ Payments : "SaleId"
+  Products ||--o{ SaleLines : "ProductId"
+  Sales ||--o{ SaleLines : "SaleId"
+  Users ||--o{ Sales : "UserId"
+  Warehouses ||--o{ Sales : "WarehouseId"
+  Sales ||--o| SalesReceipts : "SaleId"

@@ -1,5 +1,7 @@
 # Capítulo V: Product Implementation, Validation & Deployment
 
+[Configuración](#51-software-configuration-management) · [Sprint 1](#521-sprint-1) · [Sprint 2](#522-sprint-2) · [Sprint 3 / AV2](#523-sprint-3--consolidación-av2) · [Validación](#53-validation-interviews)
+
 ## 5.1. Software Configuration Management
 
 La Gestión de Configuración de Software (SCM) es la disciplina que permite identificar, controlar, versionar y auditar los distintos componentes de un sistema durante todo su ciclo de vida. Su aplicación asegura la trazabilidad de los cambios realizados sobre el código fuente, la documentación y los artefactos de diseño, reduciendo la probabilidad de errores de integración y facilitando el trabajo colaborativo del equipo.
@@ -145,20 +147,23 @@ Como regla transversal, **toda la nomenclatura técnica (identificadores, clases
 
 **C# (.NET Core)**
 * Indentación de 4 espacios.
-* Nomenclatura `PascalCase` para clases y métodos (`InventoryController`), `camelCase` para variables locales.
+* Nomenclatura `PascalCase` para clases y métodos (`StockBalance`, `Receive`), `camelCase` para variables locales.
 * Aplicación estricta de inyección de dependencias y programación asíncrona (`Async`).
 
 ### 5.1.4. Software Deployment Configuration
 
-**1. Landing Page (GitHub Pages)**
-* **Plataforma de hosting:** GitHub Pages.
-* **Origen del despliegue:** contenido estático de la rama `main` del repositorio.
-* Se incorpora el archivo `.nojekyll` para garantizar la correcta carga de la carpeta `/assets`.
+La configuración actual de AV2 utiliza Render para las tres aplicaciones públicas y PostgreSQL administrado. GitHub Pages corresponde al despliegue histórico de la landing documentado en Sprint 1.
 
-**2. Frontend y RESTful API (Proyección)**
-El despliegue de las aplicaciones reactivas y servicios backend se configurará utilizando servicios Cloud escalables (Ej. Azure App Services, AWS o Vercel), garantizando alta disponibilidad para las MYPES.
+| Producto | Construcción y ejecución | Publicación AV2 |
+| :--- | :--- | :--- |
+| Landing | Archivos estáticos HTML, CSS y JavaScript. | [Static Site en Render](https://cete-landing-av2.onrender.com/). |
+| Frontend | Vue/Vite: instalación desde lockfile y compilación a `dist`; navegación por hash. | [Static Site en Render](https://cete-web-av2.onrender.com/). |
+| API | Imagen Docker con ASP.NET Core 10, configuración de CORS, JWT y conexión por variables de entorno. | [Web Service en Render](https://cete-api-av2.onrender.com/swagger). |
+| Base de datos | PostgreSQL 17; conexión interna desde la API. | Instancia administrada Free con vencimiento registrado en 5.2.3.7. |
 
-<div style="page-break-after: always"></div>
+En desarrollo, Docker Compose levanta API y PostgreSQL; frontend y landing se ejecutan con sus servidores locales. Docker empaqueta el servicio y Render proporciona alojamiento público. Las credenciales se guardan fuera de Git; los archivos de ejemplo contienen solo nombres y valores de referencia. El [README de la API](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/README.md) incluye el procedimiento reproducible.
+
+La [vista de despliegue](04-Chapter-4.md#463-software-architecture-container-diagrams) muestra comunicaciones y responsabilidades. Los resultados de construcción, ejecución y persistencia se registran en la [verificación AV2](AV2/verificacion.md); la configuración por sí sola no acredita disponibilidad ni alta disponibilidad.
 
 ## 5.2. Landing Page, Services & Applications Implementation
 
@@ -284,7 +289,11 @@ El equipo gestionó el desarrollo utilizando repositorios de GitHub. Se aplicaro
 
 <div style="page-break-after: always"></div>
 
-### 5.2.2.1. Sprint Planning 2
+### 5.2.2. Sprint 2
+
+> **Registro histórico TB1.** La planificación y la retrospectiva siguientes se conservan como fueron declaradas. Sus referencias a DDD, arquitectura hexagonal y responsabilidades no sustituyen la comprobación de los límites reales ni la evidencia individual. La arquitectura actual se contrasta con el código en el capítulo IV.
+
+#### 5.2.2.1. Sprint Planning 2
 
 | Sprint # | Sprint 2 |
 | :--- | :--- |
@@ -301,7 +310,7 @@ El equipo gestionó el desarrollo utilizando repositorios de GitHub. Se aplicaro
 | Sprint 2 Velocity | 24 |
 | Sum of Story Points | 24 |
 
-#### Aspect Leaders and Collaborators
+#### 5.2.2.2. Aspect Leaders and Collaborators
 
 | Team Member | Web App (Frontend) | Diseño UI/UX | Mock API / Arquitectura | Deployment |
 | :--- | :--- | :--- | :--- | :--- |
@@ -311,10 +320,9 @@ El equipo gestionó el desarrollo utilizando repositorios de GitHub. Se aplicaro
 | Salazar, Kevin | Colaborador | Lider | Colaborador | Colaborador |
 | Salazar, Darikson | Colaborador | Colaborador | Colaborador | Colaborador |
 
-#### Sprint Backlog 2
+#### 5.2.2.3. Sprint Backlog 2
 
 > **Aclaración TB1.** Las siete estimaciones suman 25 h (4 + 5 + 5 + 3 + 4 + 2 + 2). Esto no prueba 25 horas reales de trabajo. Tres actividades están por debajo de 4 h y varias agrupan módulos completos. Se conserva el registro histórico. Las asignaciones y estados requieren contraste con commits y tablero y no prueban por sí solos la participación declarada.
-
 
 
 | Story ID | Work Item / Task Title | Description | Est. (h) | Assigned To | Status |
@@ -336,7 +344,7 @@ Tablero Kanban del Sprint 2 gestionado en Trello, mostrando el flujo de desarrol
 
 Enlace al tablero: https://trello.com/invite/b/6ac48ac544b95ec0d7179e1b/ATTId5582c14f0a61ddde82968ca79935a3f89ED4899/cete-sprint-backlog-2
 
-### 5.2.2.4. Development Evidence for Sprint Review.
+#### 5.2.2.4. Development Evidence for Sprint Review
 
 Esta sección expone la evidencia técnica del progreso alcanzado. El Frontend de CeTe fue desarrollada utilizando JavaScript, Vue3, CSS y HTML haciendo uso de DDD.
 
@@ -357,7 +365,7 @@ Esta sección expone la evidencia técnica del progreso alcanzado. El Frontend d
 </p>
 
 
-### 5.2.2.5. Execution Evidence for Sprint Review.
+#### 5.2.2.5. Execution Evidence for Sprint Review
 
 Se validó el comportamiento del Frontend de la aplicacion que respondiera adecuadamente según las US propuestas para este sprint.
 
@@ -421,11 +429,11 @@ Se validó el comportamiento del Frontend de la aplicacion que respondiera adecu
 
 <div style="page-break-after: always"></div>
 
-### 5.2.2.6. Services Documentation Evidence for Sprint Review.
+#### 5.2.2.6. Services Documentation Evidence for Sprint Review
 
 Durante el Sprint 2, la implementación de la Single Page Application (SPA) requirió el diseño de una capa de infraestructura robusta para el consumo de servicios web. Dado que el RESTful API oficial en ASP.NET Core se encuentra en fase de desarrollo, el equipo implementó un Fake API y construyó los Gateways de Infraestructura en el frontend siguiendo los principios de la Arquitectura Hexagonal. Esta separación asegura que el frontend esté listo para conectarse al backend real en los próximos sprints sin necesidad de refactorizar la lógica de negocio.
 
-### 5.2.2.7. Software Deployment Evidence for Sprint Review.
+#### 5.2.2.7. Software Deployment Evidence for Sprint Review
 
 La versión `v1.0.0` del Frontend fue publicada exitosamente utilizando GitHub Pages automatizando el despliegue a partir de la rama `main`.
 
@@ -433,7 +441,7 @@ La versión `v1.0.0` del Frontend fue publicada exitosamente utilizando GitHub P
   <img src="Images/Deployment-Evidence.png" alt="Despliegue GitHub Pages" title="Deployment Evidence" width="700">
 </p>
 
-### 5.2.2.8. Team Collaboration Insights during Sprint.
+#### 5.2.2.8. Team Collaboration Insights during Sprint
 
 El equipo gestionó el desarrollo utilizando repositorios de GitHub. Se aplicaron Pull Requests con revisiones cruzadas. A continuación, las analíticas de colaboración:
 
@@ -482,38 +490,67 @@ Total propuesto: **94 horas-persona**, con tareas de 4 a 8 h. Ajustar a capacida
 
 #### 5.2.3.4. Development Evidence for Sprint Review
 
-Las correcciones están en ramas codex/av2-corrections. La API nueva está en [CeTe-Api](https://github.com/Nexxus-ops/CeTe-Api). El [registro AV2](AV2/README.md) relaciona feedback, archivos, pruebas y pendientes. Esta asistencia técnica no se atribuye a otros integrantes.
+Las correcciones se encuentran en las ramas `codex/av2-corrections`. La API propia se documenta en [CeTe-Api](https://github.com/Nexxus-ops/CeTe-Api). El [registro AV2](AV2/README.md) vincula cada observación con sus archivos, pruebas y pendientes. Las contribuciones individuales se acreditan por separado con commits y revisión.
 
 #### 5.2.3.5. Execution Evidence for Sprint Review
 
-Capturas de ejecución pública real con datos ficticios en Render. No acreditan entrevistas ni participación individual del equipo.
+Las siguientes capturas corresponden a ejecución pública con datos ficticios en Render. Presentan el producto y su resultado; la evidencia de participación y validación con usuarios se registra en sus secciones específicas.
 
-![Dashboard AV2](AV2/evidence/dashboard-desktop.png)
-![Boleta AV2](AV2/evidence/receipt-desktop.png)
-![Boleta móvil AV2](AV2/evidence/receipt-mobile.png)
-![Landing AV2](AV2/evidence/landing-desktop.png)
+**E1 · Dashboard operativo**
 
-Pruebas aprobadas: invariantes de dominio; autenticación, permisos y tenant; SKU duplicado; compras y recepción parcial; rollback; UUID idempotente; boleta histórica; anulación única; sesión revocada; ventas simultáneas; exclusividad y recursos de despacho; transiciones e incidencias. La consulta externa USD/PEN respondió correctamente.
+![Dashboard AV2 con indicadores de operación](AV2/evidence/dashboard-desktop.png)
 
-Navegador aprobado: registro, acceso, venta en POS, boleta, español, recarga y móvil de 390px sin desbordamiento. Landing: idiomas, persistencia, cuatro recursos del footer, anclas y menú móvil.
+*Resumen de ventas y existencias de la empresa autenticada.*
 
-#![Compras y recepción AV2](AV2/evidence/purchases-desktop.png)
+**E2 · Compras y recepción parcial**
 
-### 5.2.3.6. Services Documentation Evidence for Sprint Review
+![Compra y recepción parcial AV2](AV2/evidence/purchases-desktop.png)
 
-Swagger está en /swagger y /swagger/v1/swagger.json, con autenticación Bearer. El README de la API describe contratos y pruebas reproducibles. Los pagos son registros académicos, sin pasarela ni emisión fiscal.
+*La orden conserva cantidades pedidas y recibidas; el stock aumenta al recibir físicamente.*
+
+**E3 · Boleta de compra en escritorio**
+
+![Boleta AV2 con cabecera y detalle](AV2/evidence/receipt-desktop.png)
+
+*Empresa, orden, fecha/hora, lugar, responsable, artículos, cantidades, precios y total.*
+
+<details>
+<summary>Ver boleta en pantalla móvil y documento de impresión</summary>
+
+<p align="center"><img src="AV2/evidence/receipt-mobile.png" width="300" alt="Boleta AV2 en móvil de 390 píxeles"></p>
+
+![Documento de la boleta para impresión](AV2/evidence/receipt-document.png)
+
+</details>
+
+**E4 · Landing bilingüe**
+
+![Landing AV2 con propuesta y acceso al producto](AV2/evidence/landing-desktop.png)
+
+*Propuesta comercial, captura del producto y navegación a recursos funcionales.*
+
+| Grupo de pruebas | Resultado registrado | Evidencia |
+| :--- | :--- | :--- |
+| Dominio y API | Aprobado: stock, tenant, permisos, recepción parcial, rollback, idempotencia, boleta histórica, anulación, revocación, concurrencia y despacho. | [Verificación técnica](AV2/verificacion.md). |
+| Integración externa | Consulta de referencia USD/PEN aprobada. | [Resultados y alcance](AV2/revalidacion-2026-10-30.md). |
+| Navegador | Recorrido local y público, POS por teclado, boleta, impresión, idiomas, recarga y móvil de 390 px aprobados. | [Pruebas reproducibles](https://github.com/Nexxus-ops/FrontEnd-CeTe/blob/codex/av2-corrections/tests/browser/full-flow.cjs). |
+| Landing | Dos idiomas persistentes, cuatro recursos del footer, anclas, captura y menú móvil aprobados. | [Revalidación](AV2/revalidacion-2026-10-30.md). |
+
+#### 5.2.3.6. Services Documentation Evidence for Sprint Review
+
+La documentación pública está en [Swagger UI](https://cete-api-av2.onrender.com/swagger) y en el [contrato OpenAPI](https://cete-api-av2.onrender.com/swagger/v1/swagger.json). Los endpoints protegidos requieren autenticación Bearer. El [README de la API](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/README.md) contiene instalación y pruebas reproducibles. Los pagos son registros académicos, sin pasarela ni emisión fiscal.
 
 #### 5.2.3.7. Software Deployment Evidence for Sprint Review
 
-Docker Compose ejecuta API y PostgreSQL localmente. El mismo Dockerfile se publica en Render. La API, frontend y landing están publicados en Render. El recorrido público verifica registro, acceso, compra, recepción parcial, venta, selección por teclado, boleta, impresión y persistencia de idioma. Ver [resultado y commits](AV2/verificacion.md). La base Free vence el 29/11/2026 UTC.
+Docker Compose ejecuta API y PostgreSQL localmente. El mismo Dockerfile se publica en Render. La API, frontend y landing están publicados en Render. El recorrido público verifica registro, acceso, compra, recepción parcial, venta, selección por teclado, boleta, impresión y persistencia de idioma. Ver [resultado y commits](AV2/verificacion.md). La base Free tiene vencimiento registrado para el **28/11/2026 a las 22:30, hora de Lima** (29/11/2026 a las 03:30 UTC).
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
 
-La entrega histórica solo acredita dos participantes de frontend. Esta asistencia técnica no resuelve esa observación. Registrar al menos tres autores reales con commits, archivos, US/TS, revisión y demo individual. [Registro humano AV2](AV2/evidencia-equipo.md) permanece pendiente. Se conserva la ficha histórica de performance y sus notas.
+La revisión del docente identifica dos participantes acreditados en frontend. Para cerrar la observación se requiere la participación real de al menos tres integrantes, sustentada con commits, archivos, US/TS, revisión cruzada y demostración individual. El [registro de contribuciones AV2](AV2/evidencia-equipo.md) está pendiente de completar con esa evidencia. La ficha histórica de performance conserva sus calificaciones.
 
 ## 5.3. Validation Interviews
 
-> **AV2:** existe una validación registrada por segmento. Se requieren 3–5 por segmento con evidencia verificada. Ver [guía de validación](AV2/validacion.md). No se consideran realizadas las entrevistas pendientes.
+> **Estado de validación AV2:** se conserva una entrevista registrada por segmento. La ronda requiere 3–5 participantes por segmento con evidencia verificable; las sesiones faltantes siguen pendientes. El protocolo y los criterios de registro se encuentran en la [guía de validación](AV2/validacion.md).
 
 ### 5.3.1. Diseño de entrevistas
 

@@ -1,0 +1,25 @@
+---
+title: DDD · Mapa lógico de contextos · CeTe AV2
+---
+flowchart TB
+  I["Identidad y empresa<br/>Cuentas, roles y sesiones"]:::internal
+  W["Inventario · núcleo<br/>Producto, almacén, saldo y movimiento"]:::internal
+  P["Abastecimiento<br/>Proveedor, orden y recepción"]:::internal
+  S["Ventas<br/>Venta, pago registrado y boleta"]:::internal
+  L["Logística<br/>Agrupación, estado e incidencias"]:::internal
+  A["Indicadores<br/>Proyección de lectura, sin agregado propio"]:::external
+  I -->|"Aporta identidad y TenantId"| W
+  I -->|"Aporta identidad y TenantId"| P
+  I -->|"Aporta identidad y TenantId"| S
+  I -->|"Aporta identidad y TenantId"| L
+  W -->|"Aporta producto y saldo; recibe aumento"| P
+  W -->|"Aporta precio y saldo; recibe descuento o restitución"| S
+  S -->|"Aporta ventas elegibles para despacho"| L
+  W -->|"Aporta saldos y umbrales"| A
+  S -->|"Aporta ventas completadas"| A
+  L -->|"Aporta despachos pendientes"| A
+  K["Leyenda: azul = responsabilidad de negocio actual<br/>gris = consulta transversal · flecha = proveedor de información hacia consumidor<br/>Límites lógicos: hoy comparten proceso, repositorio y base de datos"]:::external
+
+  classDef person fill:#0A2540,stroke:#0A2540,color:#FFFFFF
+  classDef internal fill:#E8F1FB,stroke:#1D5F96,color:#102A43
+  classDef external fill:#F1F3F5,stroke:#5B6470,color:#172B4D

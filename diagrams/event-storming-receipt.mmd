@@ -1,0 +1,21 @@
+---
+title: EventStorming de diseño · Recepción parcial · CeTe AV2
+---
+flowchart TB
+  A["Operario de almacén autorizado"]:::actor
+  C["Comando: recibir cantidad de una compra"]:::command
+  O["Operations.Receive<br/>Coordina orden, recepción y saldo"]:::aggregate
+  P["Validación: cantidad positiva<br/>y no mayor que el pendiente"]:::aggregate
+  B["StockBalance.Receive<br/>Incrementa existencias del almacén"]:::aggregate
+  E["Hechos tras commit<br/>Recepción registrada · stock aumentado<br/>Orden PARTIAL o RECEIVED"]:::event
+  Q["Consulta: Purchases / History / Inventory"]:::query
+  A --> C --> O --> P --> B
+  B -->|"Guarda cabecera, línea, movimiento y acumulado"| E
+  E -.->|"La consulta posterior observa el commit"| Q
+  K["Leyenda: azul = comando · amarillo = regla o coordinación<br/>naranja = hecho del negocio · verde = consulta<br/>La creación de una orden no aumenta stock"]:::actor
+
+  classDef actor fill:#E8F1FB,stroke:#1D5F96,color:#102A43
+  classDef command fill:#DBEAFE,stroke:#1D4ED8,color:#102A43
+  classDef aggregate fill:#FEF3C7,stroke:#9A6700,color:#422006
+  classDef event fill:#FFEDD5,stroke:#C2410C,color:#431407
+  classDef query fill:#DCFCE7,stroke:#15803D,color:#14532D

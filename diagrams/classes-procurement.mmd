@@ -1,0 +1,34 @@
+---
+title: UML actual · Compra y recepción · CeTe API
+---
+classDiagram
+  class PurchaseOrder {
+    +Guid Id
+    +Guid SupplierId
+    +Guid WarehouseId
+    +string Status
+    +DateTimeOffset CreatedAt
+  }
+  class PurchaseOrderLine {
+    +Guid Id
+    +Guid PurchaseOrderId
+    +Guid ProductId
+    +decimal Quantity
+    +decimal UnitCost
+    +decimal ReceivedQuantity
+  }
+  class GoodsReceipt {
+    +Guid Id
+    +Guid PurchaseOrderId
+    +Guid UserId
+    +DateTimeOffset CreatedAt
+  }
+  class GoodsReceiptLine {
+    +Guid GoodsReceiptId
+    +Guid PurchaseOrderLineId
+    +decimal Quantity
+  }
+  PurchaseOrder "1" <-- "0..*" PurchaseOrderLine : PurchaseOrderId
+  PurchaseOrder "1" <-- "0..*" GoodsReceipt : PurchaseOrderId
+  GoodsReceipt "1" <-- "0..*" GoodsReceiptLine : GoodsReceiptId
+  PurchaseOrderLine "1" <-- "0..*" GoodsReceiptLine : PurchaseOrderLineId

@@ -1,0 +1,51 @@
+---
+title: ER físico · Expansión de devoluciones y notificaciones
+---
+erDiagram
+  Returns {
+    uuid Id PK
+    uuid SaleId FK
+    text Reason
+    timestamptz CreatedAt
+    uuid TenantId FK
+  }
+  ReturnLines {
+    uuid Id PK
+    uuid ReturnId FK
+    uuid SaleLineId FK
+    decimal Quantity
+    text Resolution
+    uuid TenantId FK
+  }
+  Sales {
+    uuid Id PK
+    text CustomerName
+    uuid WarehouseId FK
+    uuid UserId FK
+    decimal TotalAmount
+    text Status
+    text RequestHash
+    timestamptz CreatedAt
+    uuid TenantId FK
+  }
+  SaleLines {
+    uuid Id PK
+    uuid SaleId FK
+    uuid ProductId FK
+    text Sku
+    text Name
+    decimal Quantity
+    decimal UnitPrice
+    uuid TenantId FK
+  }
+  Notifications {
+    uuid Id PK
+    text Message
+    text EventKey
+    bool IsRead
+    uuid TenantId FK
+  }
+  Returns ||--o{ ReturnLines : "ReturnId"
+  SaleLines ||--o{ ReturnLines : "SaleLineId"
+  Sales ||--o{ Returns : "SaleId"
+  Sales ||--o{ SaleLines : "SaleId"

@@ -1,0 +1,30 @@
+---
+title: UML actual · Producto y saldo · CeTe API
+---
+classDiagram
+  class Product {
+    +Guid Id
+    +Guid TenantId
+    +string Sku
+    +string Name
+    +decimal UnitPrice
+    +decimal MinimumStock
+    +bool Active
+  }
+  class StockBalance {
+    +Guid ProductId
+    +Guid WarehouseId
+    +decimal Quantity [private set]
+    +Receive(decimal amount) void
+    +Remove(decimal amount) void
+  }
+  class InventoryMovement {
+    +Guid ProductId
+    +Guid WarehouseId
+    +Guid UserId
+    +decimal Quantity
+    +string Reason
+    +DateTimeOffset CreatedAt
+  }
+  Product "1" <-- "0..*" StockBalance : ProductId
+  Product "1" <-- "0..*" InventoryMovement : ProductId

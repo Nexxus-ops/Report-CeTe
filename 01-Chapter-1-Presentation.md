@@ -1,5 +1,7 @@
 # Capítulo I: Introducción
 
+[Startup Profile](#11-startup-profile) · [Solution Profile](#12-solution-profile) · [Segmentos objetivo](#13-segmentos-objetivo)
+
 ## 1.1. Startup Profile
 
 ### 1.1.1. Descripción de la Startup

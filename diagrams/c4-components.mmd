@@ -1,0 +1,33 @@
+---
+title: C4 · Nivel 3 · Componentes reales de CeTe API · AV2
+---
+flowchart TB
+  S["Aplicación web<br/>[Contenedor: Vue 3]<br/>Consume contratos de CeTe"]:::external
+  subgraph API["CeTe API · Contenedor ASP.NET Core 10"]
+    E["Canal HTTP y Minimal APIs<br/>[Componente: Program.cs]<br/>Aplica CORS, JWT, roles y traduce errores"]:::internal
+    AU["Authentication<br/>[Componente: C# / Infrastructure]<br/>Registra cuentas y revoca sesiones"]:::internal
+    CU["CurrentUser<br/>[Componente: C# / Infrastructure]<br/>Obtiene usuario y tenant desde claims"]:::internal
+    OP["Operations<br/>[Componente: C# / Application]<br/>Coordina inventario, compras, venta y despacho"]:::internal
+    DO["Modelo de dominio<br/>[Componente: C# / Domain]<br/>StockBalance, Sale, Dispatch y Rules"]:::internal
+    DB["CeTeDb<br/>[Componente: EF Core / Npgsql]<br/>Implementa ICeTeRepository y transacciones"]:::internal
+    EX["Consulta de tipo de cambio<br/>[Componente: Minimal API / HttpClient]<br/>Adapta respuesta USD/PEN y error 503"]:::internal
+  end
+  PG[("PostgreSQL 17<br/>[Contenedor de datos]<br/>Estado persistente")]:::external
+  XR["ExchangeRate-API<br/>[Sistema externo]<br/>Referencia cambiaria"]:::external
+  S -->|"Envía JSON/HTTPS con Bearer JWT"| E
+  E -->|"Delega registro, acceso y cierre"| AU
+  E -->|"Delega operaciones autorizadas"| OP
+  E -->|"Delega consulta de cotización"| EX
+  E -->|"Valida sesión JWT en EF Core"| DB
+  AU -->|"Persiste cuentas y sesiones directamente"| DB
+  OP -->|"Valida invariantes mediante métodos C#"| DO
+  OP -->|"Usa puerto ICeTeRepository"| DB
+  DB -->|"Lee TenantId por ICurrentUser"| CU
+  OP -->|"Obtiene identidad por ICurrentUser"| CU
+  DB -->|"Ejecuta SQL por Npgsql/TCP"| PG
+  EX -->|"Consulta JSON/HTTPS"| XR
+  K["Leyenda: azul = componente dentro de la API<br/>gris = contenedor o sistema externo · flecha = llamada actual"]:::external
+
+  classDef person fill:#0A2540,stroke:#0A2540,color:#FFFFFF
+  classDef internal fill:#E8F1FB,stroke:#1D5F96,color:#102A43
+  classDef external fill:#F1F3F5,stroke:#5B6470,color:#172B4D
