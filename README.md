@@ -38,7 +38,7 @@ Proyecto
 | U20241G031 | Montes Chang, Piero Francisco|
 | U202417747 | Salazar Marquina, Kevin Junior |
 | U202422620 | Salazar Quiche, Darikson Bill |
-
+ 
 <br>
 
 ### **Período 2026-02**
