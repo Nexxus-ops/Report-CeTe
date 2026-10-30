@@ -42,7 +42,7 @@ Proyecto
 <br>
 
 ### **Período 2026-02**
-### **Septiembre 2026**
+### **Octubre 2026**
 
 </div>
 
@@ -69,9 +69,14 @@ Proyecto
             <td>- Equipo Nexxus</td>
             <td>Desarrollo del <strong>Capítulo V</strong>. Despliegue de la Landing Page v1.0.0 (Sprint 1), adición de Student Outcome ABET y consolidación de la primera entrega (AV1).</td>
         </tr>
+        <tr><td><strong>AV2 (revisión técnica)</strong></td><td>29/10/2026</td><td>Revisión asistida solicitada por Kevin</td><td>Correcciones TB1, API propia, boleta, modelo de datos, backlog con TS y evidencias públicas. Aceptación y evidencias humanas pendientes.</td></tr>
     </table>
 </div>
 </div>
+
+> **Accesos AV2:** [Landing](https://cete-landing-av2.onrender.com/) · [Frontend](https://cete-web-av2.onrender.com/) · [Swagger](https://cete-api-av2.onrender.com/swagger).
+
+> **AV2 en revisión.** Sprint 1 y Sprint 2 conservan la entrega histórica. Las correcciones actuales están en 5.2.3 y [AV2](AV2/README.md). Las horas reales, participación y videos requieren evidencia del equipo. La implementación asistida no acredita aportes de otros integrantes.
 
 # Project Report Collaboration Insights
 
@@ -103,7 +108,7 @@ Repositorio de GitHub (Reporte): [Proyecto CeTe](https://github.com/Nexxus-ops/R
 - [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
 - [Project Report Collaboration Insights](#project-report-collaboration-insights)
 - [Student Outcome ABET 5](#abet---eac---student-outcome-5)
-- [Capítulo I: Introducción](01-Chapter-1.md)
+- [Capítulo I: Introducción](01-Chapter-1-Presentation.md)
 - [Capítulo II: Requirements Elicitation & Analysis](02-Chapter-2.md)
 - [Capítulo III: Requirements Specification](03-Chapter-3.md)
 - [Capítulo IV: Product Design](04-Chapter-4.md)
@@ -683,6 +688,8 @@ En esta sección se especifican los requisitos del sistema CeTe mediante un conj
 | **EPIC-08** | Perfil y preferencias | **Como** usuario registrado,<br>**deseo** administrar mis datos de empresa, contraseña e idioma,<br>**para** mantener mi cuenta actualizada y adaptar la interfaz. | **Escenario: Validación de perfil y preferencias**<br>**Given** que las historias US30, US31 y US33 pertenecen a este epic,<br>**When** el usuario modifica información permitida de su cuenta,<br>**Then** el sistema valida los cambios, conserva las restricciones de seguridad y persiste las preferencias admitidas como el idioma. | — |
 | **EPIC-09** | Landing page | **Como** visitante de CeTe,<br>**deseo** conocer la propuesta, funcionalidades, testimonios y planes,<br>**para** evaluar la solución antes de continuar a la plataforma. | **Escenario: Validación del contenido y navegación del landing page**<br>**Given** que las historias US05, US06, US07, US08, US32 y US34 pertenecen a este epic,<br>**When** el visitante navega por el landing page,<br>**Then** el contenido es accesible, no presenta funciones proyectadas como implementadas y permite continuar el recorrido de registro. | — |
 
+| **EPIC-10** | Abastecimiento | Como encargado de almacén, deseo controlar compras y recepciones, para reponer mercadería con trazabilidad. | Given una compra pendiente, When recibo físicamente, Then actualiza saldo y stock juntos. | — |
+
 ### USER STORIES and TECHNICAL STORIES
 
 | Story ID | Título | Descripción | Criterios de Aceptación | Epic ID |
@@ -725,33 +732,46 @@ En esta sección se especifican los requisitos del sistema CeTe mediante un conj
 | **US36** | Descuento Automático de Stock | **Como** dueño,<br>**deseo** que al confirmar una venta se reduzca automáticamente el inventario,<br>**para** evitar el doble registro manual y descuadres. | **Escenario 1: Flujo esperado**<br>**Given** una venta completada exitosamente,<br>**When** el sistema procesa el cierre de la transacción,<br>**Then** se descuentan atómicamente las unidades vendidas del stock del almacén.<br><br>**Escenario 2: Validación**<br>**Given** una venta que supera el stock físico de un producto en el último segundo,<br>**When** intenta descontar,<br>**Then** bloquea la finalización, aplica rollback y alerta al vendedor. | **EPIC-03** |
 | **US37** | Dashboard: Gráfico de Tendencias | **Como** dueño,<br>**deseo** visualizar un gráfico de barras/líneas con los ingresos en el tiempo,<br>**para** analizar el comportamiento financiero de la MYPE. | **Escenario 1: Flujo esperado**<br>**Given** transacciones históricas registradas,<br>**When** consulta el gráfico en el panel,<br>**Then** visualiza la tendencia de ventas agrupada por día o mes.<br><br>**Escenario 2: Validación**<br>**Given** un rango de fechas filtrado donde no hubo operaciones,<br>**When** filtra el gráfico,<br>**Then** muestra el lienzo en blanco con un mensaje amigable indicando que no hay datos. | **EPIC-05** |
 | **US38** | Dashboard: Panel de Resumen de Inventario | **Como** dueño,<br>**deseo** ver una sección en el dashboard que liste rápidamente los productos próximos a agotarse,<br>**para** tomar decisiones inmediatas de reabastecimiento. | **Escenario 1: Flujo esperado**<br>**Given** productos con stock por debajo de su cantidad mínima establecida,<br>**When** carga el panel principal,<br>**Then** los lista ordenados por nivel de criticidad (del más urgente al menos urgente).<br><br>**Escenario 2: Validación**<br>**Given** un inventario en estado óptimo,<br>**When** carga el panel de resumen,<br>**Then** muestra un indicador visual confirmando que todo el stock está saludable. | **EPIC-05** |
-| **TS01** | POST /api/v1/auth/register | **Como** Developer, **deseo** disponer de este contrato **para** soportar US01. | **Escenario 1: Flujo esperado**<br>**Given** solicitud válida,<br>**When** servidor procesa,<br>**Then** responde 201 Created con ID del tenant.<br><br>**Escenario 2: Validación**<br>**Given** condición inválida,<br>**When** procesa,<br>**Then** responde 409 si correo duplicado o 400 faltan datos. | **EPIC-01** |
-| **TS02** | POST /api/v1/auth/login | **Como** Developer, **deseo** disponer de este contrato **para** soportar US02. | **Escenario 1: Flujo esperado**<br>**Given** solicitud con credenciales válidas,<br>**When** servidor procesa,<br>**Then** responde 200 OK con accessToken.<br><br>**Escenario 2: Validación**<br>**Given** credenciales erróneas,<br>**When** procesa,<br>**Then** responde 401 genérico. | **EPIC-01** |
-| **TS03** | POST /api/v1/auth/logout | **Como** Developer, **deseo** disponer de este contrato **para** soportar US03. | **Escenario 1: Flujo esperado**<br>**Given** solicitud con token vigente,<br>**When** servidor procesa,<br>**Then** responde 204 No Content e invalida sesión.<br><br>**Escenario 2: Validación**<br>**Given** intento posterior con misma sesión,<br>**When** procesa,<br>**Then** responde 401 Unauthorized. | **EPIC-01** |
+| **US39** | Visualizar e imprimir boleta | Como vendedor, deseo consultar e imprimir el comprobante de una venta, para entregar al cliente el detalle de su compra. | Given una venta confirmada, When abro la boleta, Then veo empresa, RUC, orden, fecha/hora de Lima, dirección, vendedor, cliente, productos, cantidades, precios y total.<br>Given cambios posteriores de catálogo, When consulto la boleta, Then conserva sus datos históricos.<br>Given una venta ajena, When solicito la boleta, Then responde 404. | **EPIC-03** |
+| **US40** | Registrar orden de compra | Como encargado de almacén, deseo registrar una orden a un proveedor, para organizar el reabastecimiento sin confundirlo con la recepción física. | Given proveedor y un producto con cantidad y costo válidos, When creo la orden, Then queda pendiente sin modificar stock.<br>Given datos inválidos, When envío la orden, Then se rechaza sin crear registros. | **EPIC-10** |
+| **US41** | Recibir compra parcialmente | Como encargado de almacén, deseo registrar entregas parciales, para controlar el stock recibido y el saldo de una compra. | Given una compra de 10 unidades, When recibo 4 y luego 6, Then registra ambas recepciones y suma 10 al stock.<br>Given 6 pendientes, When intento recibir 7, Then rechaza sin modificar stock. | **EPIC-10** |
+| **US42** | Idioma de landing y recursos | Como visitante, deseo usar la landing y sus recursos en inglés o español, para comprender la propuesta y continuar al producto. | Given una primera visita, When abro la landing, Then usa en_US.<br>Given es_419 seleccionado, When recargo o abro guía, términos, privacidad y ética, Then conserva el español.<br>Given un móvil de 390px, When navego, Then el menú funciona sin desbordamiento. | **EPIC-09** |
+| **TS01** | POST /api/v1/authentication/sign-up | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** datos nuevos de cuenta y empresa,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con cuenta y empresa.<br><br>**Escenario 2: Validación**<br>**Given** correo o RUC duplicado,<br>**When** ejecuta el contrato,<br>**Then** obtiene 409. | **EPIC-01** |
+| **TS02** | POST /api/v1/authentication/sign-in | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** credenciales correctas,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con token y perfil.<br><br>**Escenario 2: Validación**<br>**Given** contraseña incorrecta,<br>**When** ejecuta el contrato,<br>**Then** obtiene 401 genérico. | **EPIC-01** |
+| **TS03** | POST /api/v1/authentication/sign-out | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** sesión vigente,<br>**When** ejecuta el contrato,<br>**Then** obtiene 204 y sesión revocada.<br><br>**Escenario 2: Validación**<br>**Given** token ya revocado en una consulta posterior,<br>**When** ejecuta el contrato,<br>**Then** obtiene 401. | **EPIC-01** |
 | **TS04** | POST /api/v1/auth/password-reset | **Como** Developer, **deseo** disponer de este contrato **para** soportar US04. | **Escenario 1: Flujo esperado**<br>**Given** solicitud válida,<br>**When** servidor procesa,<br>**Then** responde 202 Accepted genérico.<br><br>**Escenario 2: Validación**<br>**Given** solicitudes masivas,<br>**When** procesa,<br>**Then** limita reintentos por rate limiting. | **EPIC-01** |
-| **TS05** | GET /api/v1/inventory | **Como** Developer, **deseo** disponer de este contrato **para** soportar vistas generales. | **Escenario 1: Flujo esperado**<br>**Given** solicitud válida y autorizada,<br>**When** servidor procesa,<br>**Then** responde 200 OK con data paginada.<br><br>**Escenario 2: Validación**<br>**Given** falta de token,<br>**When** procesa,<br>**Then** responde 401 Unauthorized. | **EPIC-02** |
-| **TS06** | POST /api/v1/inventory | **Como** Developer, **deseo** disponer de este contrato **para** soportar US09. | **Escenario 1: Flujo esperado**<br>**Given** payload válido,<br>**When** servidor procesa,<br>**Then** responde 201 Created validando esquemas.<br><br>**Escenario 2: Validación**<br>**Given** SKU duplicado,<br>**When** procesa,<br>**Then** responde 409 Conflict. | **EPIC-02** |
-| **TS07** | POST /api/v1/inventory/{sku}/entries | **Como** Developer, **deseo** disponer de este contrato **para** soportar US10. | **Escenario 1: Flujo esperado**<br>**Given** cantidad positiva,<br>**When** servidor procesa,<br>**Then** responde 201 sumando stock atómicamente.<br><br>**Escenario 2: Validación**<br>**Given** SKU inexistente,<br>**When** procesa,<br>**Then** responde 404 Not Found. | **EPIC-02** |
-| **TS08** | POST /api/v1/inventory/{sku}/exits | **Como** Developer, **deseo** disponer de este contrato **para** soportar US11 y US12. | **Escenario 1: Flujo esperado**<br>**Given** cantidad a retirar y stock suficiente,<br>**When** servidor procesa,<br>**Then** responde 201 descontando stock.<br><br>**Escenario 2: Validación**<br>**Given** cantidad supera stock,<br>**When** procesa,<br>**Then** responde 422 Unprocessable Entity. | **EPIC-02** |
-| **TS09** | GET /api/v1/inventory/{sku}/history | **Como** Developer, **deseo** disponer de este contrato **para** soportar US14. | **Escenario 1: Flujo esperado**<br>**Given** solicitud de historial,<br>**When** servidor procesa,<br>**Then** responde 200 OK con movimientos cronológicos.<br><br>**Escenario 2: Validación**<br>**Given** condición inválida,<br>**When** procesa,<br>**Then** responde 404 si SKU no pertenece al tenant. | **EPIC-02** |
-| **TS10** | GET /api/v1/sales | **Como** Developer, **deseo** disponer de este contrato **para** soportar US17. | **Escenario 1: Flujo esperado**<br>**Given** solicitud válida con fechas,<br>**When** servidor procesa,<br>**Then** responde 200 OK con transacciones.<br><br>**Escenario 2: Validación**<br>**Given** fechas invertidas,<br>**When** procesa,<br>**Then** responde 400 Bad Request. | **EPIC-03** |
-| **TS11** | POST /api/v1/sales | **Como** Developer, **deseo** disponer de este contrato **para** soportar US15. | **Escenario 1: Flujo esperado**<br>**Given** líneas de detalle válidas,<br>**When** servidor procesa,<br>**Then** responde 201 Created con transacción atómica.<br><br>**Escenario 2: Validación**<br>**Given** quiebre de stock en un SKU,<br>**When** procesa,<br>**Then** ejecuta Rollback total y devuelve 422. | **EPIC-03** |
+| **TS05** | GET /api/v1/inventory | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** sesión vigente,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con productos de la empresa.<br><br>**Escenario 2: Validación**<br>**Given** petición sin token,<br>**When** ejecuta el contrato,<br>**Then** obtiene 401. | **EPIC-02** |
+| **TS06** | POST /api/v1/inventory | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** SKU nuevo y precio válido,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con producto de stock cero.<br><br>**Escenario 2: Validación**<br>**Given** SKU ya registrado,<br>**When** ejecuta el contrato,<br>**Then** obtiene 409. | **EPIC-02** |
+| **TS07** | POST /api/v1/inventory/{id}/entries | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** producto propio, cantidad positiva y motivo,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con stock y movimiento.<br><br>**Escenario 2: Validación**<br>**Given** producto de otra empresa,<br>**When** ejecuta el contrato,<br>**Then** obtiene 404. | **EPIC-02** |
+| **TS08** | POST /api/v1/inventory/{id}/exits | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** stock suficiente, cantidad positiva y motivo,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con stock y movimiento.<br><br>**Escenario 2: Validación**<br>**Given** cantidad mayor al stock,<br>**When** ejecuta el contrato,<br>**Then** obtiene 409 sin cambios parciales. | **EPIC-02** |
+| **TS09** | GET /api/v1/inventory/{id}/history | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** producto propio,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con historial.<br><br>**Escenario 2: Validación**<br>**Given** producto ajeno,<br>**When** ejecuta el contrato,<br>**Then** obtiene 404. | **EPIC-02** |
+| **TS10** | GET /api/v1/sales | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** sesión vigente,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con ventas propias.<br><br>**Escenario 2: Validación**<br>**Given** petición sin token,<br>**When** ejecuta el contrato,<br>**Then** obtiene 401. | **EPIC-03** |
+| **TS11** | POST /api/v1/sales | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** orden válida y stock suficiente,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con venta, pago registrado y boleta atómicos.<br><br>**Escenario 2: Validación**<br>**Given** stock insuficiente en una línea,<br>**When** ejecuta el contrato,<br>**Then** obtiene 409 y rollback completo. | **EPIC-03** |
 | **TS12** | GET /api/v1/sales/{id} | **Como** Developer, **deseo** disponer de este contrato **para** soportar detalle de venta. | **Escenario 1: Flujo esperado**<br>**Given** solicitud de ID,<br>**When** servidor procesa,<br>**Then** responde 200 OK con ítems asociados.<br><br>**Escenario 2: Validación**<br>**Given** venta de otro tenant,<br>**When** procesa,<br>**Then** responde 403 Forbidden. | **EPIC-03** |
-| **TS13** | PATCH /api/v1/sales/{id}/cancel | **Como** Developer, **deseo** disponer de este contrato **para** soportar US18. | **Escenario 1: Flujo esperado**<br>**Given** solicitud de anulación válida,<br>**When** servidor procesa,<br>**Then** responde 200 OK reintegrando inventario.<br><br>**Escenario 2: Validación**<br>**Given** venta ya anulada,<br>**When** procesa,<br>**Then** responde 409 Conflict. | **EPIC-03** |
-| **TS14** | GET /api/v1/dispatches | **Como** Developer, **deseo** disponer de este contrato **para** soportar vistas de despacho. | **Escenario 1: Flujo esperado**<br>**Given** solicitud de listado,<br>**When** servidor procesa,<br>**Then** responde 200 OK con manifiestos paginados.<br><br>**Escenario 2: Validación**<br>**Given** ausencia de token,<br>**When** procesa,<br>**Then** responde 401 Unauthorized. | **EPIC-04** |
-| **TS15** | POST /api/v1/dispatches | **Como** Developer, **deseo** disponer de este contrato **para** soportar US19. | **Escenario 1: Flujo esperado**<br>**Given** array de IDs de ventas,<br>**When** servidor procesa,<br>**Then** responde 201 Created asociando las ventas.<br><br>**Escenario 2: Validación**<br>**Given** ventas que ya tienen despacho,<br>**When** procesa,<br>**Then** responde 400 Bad Request. | **EPIC-04** |
-| **TS16** | PATCH /api/v1/dispatches/{id}/status | **Como** Developer, **deseo** disponer de este contrato **para** soportar US21. | **Escenario 1: Flujo esperado**<br>**Given** nuevo estado válido,<br>**When** servidor procesa,<br>**Then** responde 200 OK transicionando entidades.<br><br>**Escenario 2: Validación**<br>**Given** transición ilógica,<br>**When** procesa,<br>**Then** responde 409 Conflict. | **EPIC-04** |
-| **TS17** | POST /api/v1/dispatches/{id}/incidents | **Como** Developer, **deseo** disponer de este contrato **para** soportar US22. | **Escenario 1: Flujo esperado**<br>**Given** payload de reporte en ruta,<br>**When** servidor procesa,<br>**Then** responde 201 Created vinculando la nota.<br><br>**Escenario 2: Validación**<br>**Given** payload vacío,<br>**When** procesa,<br>**Then** responde 400 Bad Request. | **EPIC-04** |
-| **TS18** | GET /api/v1/analytics/dashboard | **Como** Developer, **deseo** disponer de este contrato **para** soportar US23 y US24. | **Escenario 1: Flujo esperado**<br>**Given** rango de fechas válido,<br>**When** servidor procesa,<br>**Then** ejecuta query agregada y retorna 200 OK con KPIs.<br><br>**Escenario 2: Validación**<br>**Given** rango inválido,<br>**When** procesa,<br>**Then** responde 400 Bad Request. | **EPIC-05** |
+| **TS13** | PATCH /api/v1/sales/{id}/cancel | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** administrador y venta completada sin despacho,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con anulación y reposición única.<br><br>**Escenario 2: Validación**<br>**Given** venta ya anulada,<br>**When** ejecuta el contrato,<br>**Then** obtiene 409 sin reponer nuevamente. | **EPIC-03** |
+| **TS14** | GET /api/v1/dispatches | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** sesión vigente,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con despachos propios.<br><br>**Escenario 2: Validación**<br>**Given** petición sin token,<br>**When** ejecuta el contrato,<br>**Then** obtiene 401. | **EPIC-04** |
+| **TS15** | POST /api/v1/dispatches | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** ventas y recursos disponibles,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con despacho y asociaciones.<br><br>**Escenario 2: Validación**<br>**Given** venta ya asignada,<br>**When** ejecuta el contrato,<br>**Then** obtiene 409. | **EPIC-04** |
+| **TS16** | PUT /api/v1/dispatches/{id} | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** despacho PENDING y estado solicitado IN_TRANSIT,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con transición.<br><br>**Escenario 2: Validación**<br>**Given** despacho PENDING y salto a DELIVERED,<br>**When** ejecuta el contrato,<br>**Then** obtiene 409. | **EPIC-04** |
+| **TS17** | POST /api/v1/dispatches/{id}/incidents | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** despacho IN_TRANSIT y descripción no vacía,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con incidencia y estado INCIDENT.<br><br>**Escenario 2: Validación**<br>**Given** descripción vacía,<br>**When** ejecuta el contrato,<br>**Then** obtiene 422. | **EPIC-04** |
+| **TS18** | GET /api/v1/analytics/dashboard | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** administrador autenticado,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con métricas propias y día de Lima.<br><br>**Escenario 2: Validación**<br>**Given** rol Warehouse,<br>**When** ejecuta el contrato,<br>**Then** obtiene 403. | **EPIC-05** |
 | **TS19** | GET /api/v1/notifications | **Como** Developer, **deseo** disponer de este contrato **para** soportar alertas de sistema. | **Escenario 1: Flujo esperado**<br>**Given** solicitud autorizada,<br>**When** servidor procesa,<br>**Then** responde 200 OK con array de alertas no leídas.<br><br>**Escenario 2: Validación**<br>**Given** sin sesión,<br>**When** procesa,<br>**Then** responde 401 Unauthorized sin cruzar datos. | **EPIC-06** |
 | **TS20** | PATCH /api/v1/notifications/{id}/read | **Como** Developer, **deseo** disponer de este contrato **para** marcar alertas leídas. | **Escenario 1: Flujo esperado**<br>**Given** ID de alerta válido,<br>**When** servidor procesa,<br>**Then** responde 200 OK actualizando isRead.<br><br>**Escenario 2: Validación**<br>**Given** alerta ajena,<br>**When** procesa,<br>**Then** responde 404 Not Found. | **EPIC-06** |
-| **TS21** | GET /api/v1/users | **Como** Developer, **deseo** disponer de este contrato **para** soportar la vista de equipo. | **Escenario 1: Flujo esperado**<br>**Given** solicitud de un Admin,<br>**When** servidor procesa,<br>**Then** responde 200 OK con lista de empleados del tenant.<br><br>**Escenario 2: Validación**<br>**Given** solicitud de Almacenero,<br>**When** procesa,<br>**Then** responde 403 Forbidden. | **EPIC-07** |
-| **TS22** | POST /api/v1/users/invite | **Como** Developer, **deseo** disponer de este contrato **para** soportar US28. | **Escenario 1: Flujo esperado**<br>**Given** payload de invitación válido,<br>**When** servidor procesa,<br>**Then** responde 201 Created disparando correo.<br><br>**Escenario 2: Validación**<br>**Given** correo existente en tenant,<br>**When** procesa,<br>**Then** responde 409 Conflict. | **EPIC-07** |
+| **TS21** | GET /api/v1/users | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** administrador autenticado,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con usuarios sin contraseñas ni hashes.<br><br>**Escenario 2: Validación**<br>**Given** rol Warehouse,<br>**When** ejecuta el contrato,<br>**Then** obtiene 403. | **EPIC-07** |
+| **TS22** | POST /api/v1/users | Como Developer, deseo disponer de este contrato para soportar el flujo de negocio asociado. | **Escenario 1: Flujo esperado**<br>**Given** administrador y empleado nuevo con rol permitido,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con perfil.<br><br>**Escenario 2: Validación**<br>**Given** rol no permitido,<br>**When** ejecuta el contrato,<br>**Then** obtiene 422. | **EPIC-07** |
 | **TS23** | GET /api/v1/users/profile | **Como** Developer, **deseo** disponer de este contrato **para** cargar la vista de cuenta. | **Escenario 1: Flujo esperado**<br>**Given** solicitud válida,<br>**When** servidor procesa,<br>**Then** responde 200 OK con datos personales e idioma.<br><br>**Escenario 2: Validación**<br>**Given** condición inválida,<br>**When** procesa,<br>**Then** responde 401 sin sesión válida. | **EPIC-08** |
 | **TS24** | PUT /api/v1/users/profile | **Como** Developer, **deseo** disponer de este contrato **para** soportar US30. | **Escenario 1: Flujo esperado**<br>**Given** datos editables válidos,<br>**When** servidor procesa,<br>**Then** responde 200 OK persistiendo cambios.<br><br>**Escenario 2: Validación**<br>**Given** payload inyectando cambio de rol,<br>**When** procesa,<br>**Then** ignora el campo o responde 400 Bad Request. | **EPIC-08** |
 | **TS25** | PUT /api/v1/users/password | **Como** Developer, **deseo** disponer de este contrato **para** soportar US31. | **Escenario 1: Flujo esperado**<br>**Given** claves correctas,<br>**When** servidor procesa,<br>**Then** responde 204 No Content hasheando y guardando.<br><br>**Escenario 2: Validación**<br>**Given** hash actual incorrecto,<br>**When** procesa,<br>**Then** responde 400 Bad Request sin alterar credenciales. | **EPIC-08** |
 | **TS26** | POST /api/v1/contact-messages | **Como** Developer, **deseo** disponer de este contrato **para** soportar US08. | **Escenario 1: Flujo esperado**<br>**Given** formulario público válido,<br>**When** servidor procesa,<br>**Then** responde 201 Created guardando solicitud.<br><br>**Escenario 2: Validación**<br>**Given** ataques por bots,<br>**When** procesa,<br>**Then** devuelve 429 Too Many Requests. | **EPIC-09** |
 | **TS27** | GET /api/v1/landing/plans | **Como** Developer, **deseo** disponer de este contrato **para** soportar US07. | **Escenario 1: Flujo esperado**<br>**Given** petición pública a la landing,<br>**When** servidor procesa,<br>**Then** responde 200 OK renderizando planes actuales.<br><br>**Escenario 2: Validación**<br>**Given** error de conectividad interna,<br>**When** procesa,<br>**Then** responde 500 Internal Server Error seguro. | **EPIC-09** |
+
+| **TS28** | GET /api/v1/sales/{id}/receipt | Como Developer, deseo soportar US39 mediante este habilitador. | **Escenario 1: Flujo esperado**<br>**Given** venta propia confirmada,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con instantánea histórica.<br><br>**Escenario 2: Validación**<br>**Given** venta de otra empresa,<br>**When** ejecuta el contrato,<br>**Then** obtiene 404. | **EPIC-03** |
+| **TS29** | GET y POST /api/v1/purchases | Como Developer, deseo soportar US40 mediante este habilitador. | **Escenario 1: Flujo esperado**<br>**Given** proveedor, producto, cantidad y costo válidos,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con orden sin aumentar stock.<br><br>**Escenario 2: Validación**<br>**Given** cantidad no positiva,<br>**When** ejecuta el contrato,<br>**Then** obtiene 422. | **EPIC-10** |
+| **TS30** | POST /api/v1/purchases/{id}/receive | Como Developer, deseo soportar US41 mediante este habilitador. | **Escenario 1: Flujo esperado**<br>**Given** compra con seis unidades pendientes y recepción de seis,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con compra recibida y stock actualizado.<br><br>**Escenario 2: Validación**<br>**Given** seis pendientes e intento de recibir siete,<br>**When** ejecuta el contrato,<br>**Then** obtiene 422 sin alterar stock. | **EPIC-10** |
+| **TS31** | Idempotencia y transacción serializable | Como Developer, deseo soportar US35 mediante este habilitador. | **Escenario 1: Flujo esperado**<br>**Given** UUID ya procesado y mismo contenido,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con la venta existente sin duplicar stock ni pago.<br><br>**Escenario 2: Validación**<br>**Given** mismo UUID con contenido diferente,<br>**When** ejecuta el contrato,<br>**Then** obtiene 409. | **EPIC-03** |
+| **TS32** | Docker y publicación de API y PostgreSQL | Como Developer, deseo soportar US01 mediante este habilitador. | **Escenario 1: Flujo esperado**<br>**Given** API y PostgreSQL configurados,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 en /health y persistencia tras reinicio.<br><br>**Escenario 2: Validación**<br>**Given** base inaccesible después de iniciar el servidor,<br>**When** ejecuta el contrato,<br>**Then** obtiene 503 en /health sin exponer secretos. | **EPIC-01** |
+| **TS33** | Aislamiento de empresa y relaciones compuestas | Como Developer, deseo soportar US29 mediante este habilitador. | **Escenario 1: Flujo esperado**<br>**Given** sesión de empresa A y recurso de A,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 para la operación permitida.<br><br>**Escenario 2: Validación**<br>**Given** sesión de A y boleta de B,<br>**When** ejecuta el contrato,<br>**Then** obtiene 404 sin revelar datos ajenos. | **EPIC-07** |
+| **TS34** | Pruebas de dominio, HTTP y navegador | Como Developer, deseo soportar US39 mediante este habilitador. | **Escenario 1: Flujo esperado**<br>**Given** servicios de prueba disponibles,<br>**When** ejecuta el contrato,<br>**Then** obtiene suite de dominio, HTTP y navegador aprobada.<br><br>**Escenario 2: Validación**<br>**Given** incumplimiento de un resultado esperado,<br>**When** ejecuta el contrato,<br>**Then** obtiene código de salida no cero y diagnóstico sin credenciales. | **EPIC-03** |
+| **TS35** | GET /api/v1/integrations/exchange-rates | Como Developer, deseo soportar US23 mediante este habilitador. | **Escenario 1: Flujo esperado**<br>**Given** proveedor externo disponible,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con USD/PEN, fuente y actualización.<br><br>**Escenario 2: Validación**<br>**Given** error HTTP o timeout del proveedor,<br>**When** ejecuta el contrato,<br>**Then** obtiene 503. | **EPIC-05** |
 
 ## 3.2. Impact Mapping
 
@@ -769,56 +789,103 @@ El Impact Mapping elaborado para CeTe ilustra de manera estratégica cómo las f
 - Por el lado del personal logístico/almaceneros, el impacto esperado es que adopten CeTe como su canal centralizado para registrar ingresos y salidas, abandonando totalmente los conteos manuales y reportes en cuadernos. Para facilitar este comportamiento, implementaremos un Módulo de Inventario Inteligente (Deliverable), soportado por funcionalidades que permiten registrar entradas y mermas en segundos, buscar artículos ágilmente y generar notificaciones automáticas de stock mínimo y vencimientos (US09, US10, US11, US12, US13, US14, US26, US27).
 - En cuanto a los visitantes MYPE, el impacto deseado es la comprensión rápida de la propuesta de valor para motivarlos a suscribirse. Para ello, implementaremos un Landing Page persuasivo (Deliverable), soportado por historias para visualizar planes, testimonios y el formulario de registro (US05, US06, US07, US08, US32, US34).
 
+### 3.2.1. Metas medibles de validación AV2
+
+Son hipótesis propuestas, todavía sin resultados ni línea base.
+
+| Meta y plazo | Actor e impacto | Medición | US |
+| :--- | :--- | :--- | :--- |
+| G1. Reducir 30% el tiempo de una venta durante la ronda AV2. | Vendedor entrega una boleta con menos pasos. | Cronometrar el mismo caso antes y con CeTe y comparar medianas. | US15, US35, US36, US39 |
+| G2. Lograr 90% de coincidencia del stock durante la validación AV2. | Operario distingue orden de compra y recepción física. | Conciliar inicial + recepciones - ventas - salidas + anulaciones con 3–5 operativos. | US10, US11, US14, US40, US41 |
+| G3. Lograr 80% de éxito sin ayuda al consultar boleta y cambiar idioma en AV2. | Ambos segmentos comprenden el producto. | Registrar éxito, tiempo y errores con 3–5 personas por segmento. | US33, US39, US42 |
+
 ## 3.3. Product Backlog
 
-A continuación, se presenta el Product Backlog del proyecto CeTe, organizado y priorizado de acuerdo con el valor que cada User Story aporta al negocio y al funcionamiento principal del producto. La priorización no representa necesariamente el orden exacto en el que se desarrollarán técnicamente las funcionalidades, sino el nivel de importancia que tienen para validar y entregar valor al usuario.
+La prioridad parte del valor de los flujos de venta, inventario, abastecimiento y entrega. La autenticación es una dependencia técnica. Esta revisión incluye 42 US y 35 TS como filas explícitas.
 
-| # Orden | Story ID | Título | Descripción | Story Points |
-| :---: | :---: | :--- | :--- | :---: |
-| 1 | US05 | Propuesta de valor en landing | Como visitante, deseo conocer la propuesta de valor de CeTe, para evaluar si soluciona mis problemas operativos. | 2 |
-| 2 | US06 | Funcionalidades de landing | Como visitante, deseo conocer las capacidades del producto, para comprobar si cubre mis necesidades de negocio. | 2 |
-| 3 | US07 | Modelo comercial y planes | Como visitante, deseo consultar modalidades y planes de suscripción, para evaluar una posible contratación para mi MYPE. | 2 |
-| 4 | US34 | Términos del Servicio | Como visitante, deseo leer las condiciones legales, para conocer el uso de mi data. | 2 |
-| 5 | US09 | Registro de Artículo (SKU) | Como operario, deseo dar de alta un nuevo producto, para que esté disponible para futuras transacciones. | 3 |
-| 6 | US10 | Ingreso de Mercadería | Como operario, deseo sumar unidades físicas a un SKU existente, para reflejar el abastecimiento del almacén. | 5 |
-| 7 | US13 | Buscador de Inventario | Como operario, deseo buscar productos por nombre o SKU, para localizarlos rápidamente sin listas largas. | 3 |
-| 8 | US11 | Salida Manual de Mercadería | Como operario, deseo registrar el retiro manual de productos, para reflejar consumos internos o ajustes. | 3 |
-| 9 | US15 | Armado de Orden de Venta | Como vendedor, deseo agregar y editar productos en un listado de nueva venta, para calcular el subtotal y total a cobrar. | 3 |
-| 10 | US16 | Validación Automática de Stock | Como vendedor, deseo bloqueo de productos agotados en caja, para no prometer mercadería inexistente. | 5 |
-| 11 | US35 | Procesamiento de Pago de Venta | Como vendedor, deseo confirmar el método de pago y finalizar la transacción, para formalizar el ingreso comercial. | 3 |
-| 12 | US36 | Descuento Automático de Stock | Como dueño, deseo que al confirmar una venta se reduzca automáticamente el inventario, para evitar el doble registro manual y descuadres. | 2 |
-| 13 | US23 | Dashboard: Tarjetas de Indicadores (KPIs) | Como dueño, deseo visualizar tarjetas numéricas con métricas clave (ingresos del día, número de ventas), para conocer el estado actual de un vistazo. | 3 |
-| 14 | US37 | Dashboard: Gráfico de Tendencias | Como dueño, deseo visualizar un gráfico de barras/líneas con los ingresos en el tiempo, para analizar el comportamiento financiero de la MYPE. | 3 |
-| 15 | US38 | Dashboard: Panel de Resumen de Inventario | Como dueño, deseo ver una sección en el dashboard que liste rápidamente los productos próximos a agotarse, para tomar decisiones inmediatas de reabastecimiento. | 2 |
-| 16 | US19 | Manifiesto de Despacho | Como logístico, deseo agrupar ventas en un manifiesto, para ordenar la ruta de entrega. | 5 |
-| 17 | US21 | Actualización de Estado | Como logístico, deseo cambiar el estado del envío, para notificar su entrega efectiva. | 3 |
-| 18 | US14 | Historial de Movimientos | Como participante autorizado, deseo ver el Kardex de un producto, para auditar discrepancias o mermas. | 3 |
-| 19 | US17 | Historial de Ventas | Como participante autorizado, deseo consultar transacciones pasadas, para llevar el control de ingresos diarios. | 3 |
-| 20 | US12 | Registro de Mermas | Como operario, deseo apartar productos dañados o caducados, para evitar que sean vendidos por error. | 2 |
-| 21 | US18 | Anulación de Venta | Como dueño, deseo revertir una venta equivocada, para corregir métricas y devolver stock. | 5 |
-| 22 | US26 | Alerta de Stock Mínimo | Como participante autorizado, deseo recibir avisos al acercarme a cero, para reponer mercadería a tiempo. | 5 |
-| 23 | US28 | Creación de Usuarios | Como administrador, deseo crear cuentas para mis trabajadores, para delegar accesos seguros. | 5 |
-| 24 | US29 | Restricción por Roles | Como administrador, deseo definir niveles de acceso operacionales, para bloquear módulos confidenciales. | 5 |
-| 25 | US01 | Registro de cuenta | Como visitante, deseo registrar los datos de mi empresa, para crear una cuenta administradora en CeTe. | 3 |
-| 26 | US02 | Inicio de sesión | Como usuario registrado, deseo autenticarme, para acceder al espacio de trabajo de mi empresa. | 3 |
-| 27 | US03 | Cierre de sesión | Como usuario autenticado, deseo terminar mi sesión, para proteger mi cuenta y la información del negocio. | 2 |
-| 28 | US04 | Recuperación de contraseña | Como usuario registrado, deseo restablecer mi contraseña, para recuperar acceso si la he olvidado. | 5 |
-| 29 | US08 | Contacto B2B | Como visitante corporativo, deseo enviar un mensaje a ventas, para solicitar una demostración personalizada. | 3 |
-| 30 | US32 | Testimonios (Landing) | Como visitante, deseo consultar experiencias de otras MYPES, para ganar confianza. | 2 |
-| 31 | US20 | Asignación de Conductor | Como logístico, deseo vincular recursos al manifiesto, para establecer responsables de entrega. | 3 |
-| 32 | US22 | Incidencia en Ruta | Como logístico, deseo anotar contratiempos logísticos, para auditar retrasos en entregas. | 3 |
-| 33 | US24 | Reporte de Top Productos | Como dueño, deseo identificar los artículos más vendidos, para priorizar abastecimiento. | 3 |
-| 34 | US25 | Exportación de Datos | Como participante autorizado, deseo descargar mis tablas a CSV, para enviarlas a contabilidad. | 5 |
-| 35 | US27 | Alerta de Producto Vencido | Como almacenero, deseo avisos preventivos de caducidad, para ofertar artículos perecibles. | 3 |
-| 36 | US30 | Edición de Perfil Empresa | Como administrador, deseo actualizar mis datos comerciales, para mantener facturas e interfaz personalizadas. | 2 |
-| 37 | US31 | Cambio de Contraseña | Como usuario registrado, deseo actualizar mi clave, para asegurar mi cuenta. | 3 |
-| 38 | US33 | Idioma de la aplicación | Como usuario, deseo elegir inglés o español, para comprender la interfaz a mi gusto. | 2 |
+Los SP propuestos estiman complejidad e incertidumbre, no horas. Las TS vinculadas se incluyen en sus US para evitar una doble suma. Las tareas de ingeniería y horas se presentan por separado en 5.2.3. Los estados locales requieren revisión de todos los criterios por parte del equipo.
 
-Para la estimación del esfuerzo se utiliza la secuencia de Fibonacci (1, 2, 3 y 5 Story Points), considerando factores como complejidad, esfuerzo, incertidumbre y dependencias técnicas. Las 34 User Stories representan una estimación total propuesta de 121 Story Points, la cual deberá ser revisada y acordada por el equipo durante las sesiones de refinamiento del Product Backlog.
+| Orden | ID | Tipo | Título | Valor / US asociada | SP propuestos | Estado verificable |
+| :---: | :--- | :--- | :--- | :--- | :---: | :--- |
+| 1 | US15 | US | Armado de Orden de Venta | Como vendedor,<br>deseo agregar y editar productos en un listado de nueva venta,<br>para calcular el subtotal y total a cobrar. | 3 | Local, aceptación del equipo pendiente |
+| 2 | US35 | US | Procesamiento de Pago de Venta | Como vendedor,<br>deseo confirmar el método de pago y finalizar la transacción,<br>para formalizar el ingreso comercial. | 3 | Parcial: pago registrado, sin pasarela |
+| 3 | TS11 | TS | POST /api/v1/sales | US35 | Incluido en US | Local, aceptación del equipo pendiente |
+| 4 | TS31 | TS | Idempotencia y transacción serializable | US35 | Incluido en US | Local, aceptación del equipo pendiente |
+| 5 | US36 | US | Descuento Automático de Stock | Como dueño,<br>deseo que al confirmar una venta se reduzca automáticamente el inventario,<br>para evitar el doble registro manual y descuadres. | 2 | Local, aceptación del equipo pendiente |
+| 6 | US39 | US | Visualizar e imprimir boleta | Como vendedor, deseo consultar e imprimir el comprobante de una venta, para entregar al cliente el detalle de su compra. | 5 | Local, aceptación del equipo pendiente |
+| 7 | TS12 | TS | GET /api/v1/sales/{id} | US39 | Incluido en US | Pendiente |
+| 8 | TS28 | TS | GET /api/v1/sales/{id}/receipt | US39 | Incluido en US | Local, aceptación del equipo pendiente |
+| 9 | TS34 | TS | Pruebas de dominio, HTTP y navegador | US39 | Incluido en US | Local, aceptación del equipo pendiente |
+| 10 | US09 | US | Registro de Artículo (SKU) | Como operario,<br>deseo dar de alta un nuevo producto,<br>para que esté disponible para futuras transacciones. | 3 | Local, aceptación del equipo pendiente |
+| 11 | TS06 | TS | POST /api/v1/inventory | US09 | Incluido en US | Local, aceptación del equipo pendiente |
+| 12 | US10 | US | Ingreso de Mercadería | Como operario,<br>deseo sumar unidades físicas a un SKU existente,<br>para reflejar el abastecimiento del almacén. | 5 | Local, aceptación del equipo pendiente |
+| 13 | TS07 | TS | POST /api/v1/inventory/{id}/entries | US10 | Incluido en US | Local, aceptación del equipo pendiente |
+| 14 | US11 | US | Salida Manual de Mercadería | Como operario,<br>deseo registrar el retiro manual de productos,<br>para reflejar consumos internos o ajustes. | 3 | Local, aceptación del equipo pendiente |
+| 15 | TS08 | TS | POST /api/v1/inventory/{id}/exits | US11 | Incluido en US | Local, aceptación del equipo pendiente |
+| 16 | US14 | US | Historial de Movimientos | Como participante autorizado,<br>deseo ver el Kardex de un producto,<br>para auditar discrepancias o mermas. | 3 | Local, aceptación del equipo pendiente |
+| 17 | TS09 | TS | GET /api/v1/inventory/{id}/history | US14 | Incluido en US | Local, aceptación del equipo pendiente |
+| 18 | US40 | US | Registrar orden de compra | Como encargado de almacén, deseo registrar una orden a un proveedor, para organizar el reabastecimiento sin confundirlo con la recepción física. | 5 | Local, aceptación del equipo pendiente |
+| 19 | TS29 | TS | GET y POST /api/v1/purchases | US40 | Incluido en US | Local, aceptación del equipo pendiente |
+| 20 | US41 | US | Recibir compra parcialmente | Como encargado de almacén, deseo registrar entregas parciales, para controlar el stock recibido y el saldo de una compra. | 5 | Local, aceptación del equipo pendiente |
+| 21 | TS30 | TS | POST /api/v1/purchases/{id}/receive | US41 | Incluido en US | Local, aceptación del equipo pendiente |
+| 22 | US19 | US | Manifiesto de Despacho | Como logístico,<br>deseo agrupar ventas en un manifiesto,<br>para ordenar la ruta de entrega. | 5 | Local, aceptación del equipo pendiente |
+| 23 | TS14 | TS | GET /api/v1/dispatches | US19 | Incluido en US | Local, aceptación del equipo pendiente |
+| 24 | TS15 | TS | POST /api/v1/dispatches | US19 | Incluido en US | Local, aceptación del equipo pendiente |
+| 25 | US20 | US | Asignación de Conductor | Como logístico,<br>deseo vincular recursos al manifiesto,<br>para establecer responsables de entrega. | 3 | Local, aceptación del equipo pendiente |
+| 26 | US21 | US | Actualización de Estado | Como logístico,<br>deseo cambiar el estado del envío,<br>para notificar su entrega efectiva. | 3 | Local, aceptación del equipo pendiente |
+| 27 | TS16 | TS | PUT /api/v1/dispatches/{id} | US21 | Incluido en US | Local, aceptación del equipo pendiente |
+| 28 | US22 | US | Incidencia en Ruta | Como logístico,<br>deseo anotar contratiempos logísticos,<br>para auditar retrasos en entregas. | 3 | Local, aceptación del equipo pendiente |
+| 29 | TS17 | TS | POST /api/v1/dispatches/{id}/incidents | US22 | Incluido en US | Local, aceptación del equipo pendiente |
+| 30 | US23 | US | Dashboard: Tarjetas de Indicadores (KPIs) | Como dueño,<br>deseo visualizar tarjetas numéricas con métricas clave (ingresos del día, número de ventas),<br>para conocer el estado actual de un vistazo. | 3 | Local, aceptación del equipo pendiente |
+| 31 | TS18 | TS | GET /api/v1/analytics/dashboard | US23 | Incluido en US | Local, aceptación del equipo pendiente |
+| 32 | TS35 | TS | GET /api/v1/integrations/exchange-rates | US23 | Incluido en US | Local, aceptación del equipo pendiente |
+| 33 | US38 | US | Dashboard: Panel de Resumen de Inventario | Como dueño,<br>deseo ver una sección en el dashboard que liste rápidamente los productos próximos a agotarse,<br>para tomar decisiones inmediatas de reabastecimiento. | 2 | Local, aceptación del equipo pendiente |
+| 34 | US17 | US | Historial de Ventas | Como participante autorizado,<br>deseo consultar transacciones pasadas,<br>para llevar el control de ingresos diarios. | 3 | Parcial: filtro de fechas pendiente |
+| 35 | TS10 | TS | GET /api/v1/sales | US17 | Incluido en US | Local, aceptación del equipo pendiente |
+| 36 | US18 | US | Anulación de Venta | Como dueño,<br>deseo revertir una venta equivocada,<br>para corregir métricas y devolver stock. | 5 | Local, aceptación del equipo pendiente |
+| 37 | TS13 | TS | PATCH /api/v1/sales/{id}/cancel | US18 | Incluido en US | Local, aceptación del equipo pendiente |
+| 38 | US26 | US | Alerta de Stock Mínimo | Como participante autorizado,<br>deseo recibir avisos al acercarme a cero,<br>para reponer mercadería a tiempo. | 5 | Parcial: alerta visual, bandeja pendiente |
+| 39 | TS19 | TS | GET /api/v1/notifications | US26 | Incluido en US | Pendiente |
+| 40 | TS20 | TS | PATCH /api/v1/notifications/{id}/read | US26 | Incluido en US | Pendiente |
+| 41 | US28 | US | Creación de Usuarios | Como administrador,<br>deseo crear cuentas para mis trabajadores,<br>para delegar accesos seguros. | 5 | Parcial: alta directa, correo de invitación pendiente |
+| 42 | TS21 | TS | GET /api/v1/users | US28 | Incluido en US | Local, aceptación del equipo pendiente |
+| 43 | TS22 | TS | POST /api/v1/users | US28 | Incluido en US | Local, aceptación del equipo pendiente |
+| 44 | US29 | US | Restricción por Roles | Como administrador,<br>deseo definir niveles de acceso operacionales,<br>para bloquear módulos confidenciales. | 5 | Local, aceptación del equipo pendiente |
+| 45 | TS33 | TS | Aislamiento de empresa y relaciones compuestas | US29 | Incluido en US | Local, aceptación del equipo pendiente |
+| 46 | US05 | US | Propuesta de valor en landing | Como visitante,<br>deseo conocer la propuesta de valor de CeTe,<br>para evaluar si soluciona mis problemas operativos. | 2 | Local, aceptación del equipo pendiente |
+| 47 | US06 | US | Funcionalidades de landing | Como visitante,<br>deseo conocer las capacidades del producto,<br>para comprobar si cubre mis necesidades de negocio. | 2 | Local, aceptación del equipo pendiente |
+| 48 | US42 | US | Idioma de landing y recursos | Como visitante, deseo usar la landing y sus recursos en inglés o español, para comprender la propuesta y continuar al producto. | 3 | Local, aceptación del equipo pendiente |
+| 49 | US34 | US | Términos del Servicio | Como visitante,<br>deseo leer las condiciones legales,<br>para conocer el uso de mi data. | 2 | Local, aceptación del equipo pendiente |
+| 50 | US07 | US | Modelo comercial y planes | Como visitante,<br>deseo consultar modalidades y planes de suscripción,<br>para evaluar una posible contratación para mi MYPE. | 2 | Parcial: propuesta sin suscripción ni cobro |
+| 51 | TS27 | TS | GET /api/v1/landing/plans | US07 | Incluido en US | Pendiente |
+| 52 | US01 | US | Registro de cuenta | Como visitante,<br>deseo registrar los datos de mi empresa,<br>para crear una cuenta administradora en CeTe. | 3 | Local, aceptación del equipo pendiente |
+| 53 | TS01 | TS | POST /api/v1/authentication/sign-up | US01 | Incluido en US | Local, aceptación del equipo pendiente |
+| 54 | TS32 | TS | Docker y publicación de API y PostgreSQL | US01 | Incluido en US | Público, aceptación del equipo pendiente |
+| 55 | US02 | US | Inicio de sesión | Como usuario registrado,<br>deseo autenticarme,<br>para acceder al espacio de trabajo de mi empresa. | 3 | Local, aceptación del equipo pendiente |
+| 56 | TS02 | TS | POST /api/v1/authentication/sign-in | US02 | Incluido en US | Local, aceptación del equipo pendiente |
+| 57 | US03 | US | Cierre de sesión | Como usuario autenticado,<br>deseo terminar mi sesión,<br>para proteger mi cuenta y la información del negocio. | 2 | Local, aceptación del equipo pendiente |
+| 58 | TS03 | TS | POST /api/v1/authentication/sign-out | US03 | Incluido en US | Local, aceptación del equipo pendiente |
+| 59 | US04 | US | Recuperación de contraseña | Como usuario registrado,<br>deseo restablecer mi contraseña,<br>para recuperar acceso si la he olvidado. | 5 | Pendiente |
+| 60 | TS04 | TS | POST /api/v1/auth/password-reset | US04 | Incluido en US | Pendiente |
+| 61 | US08 | US | Contacto B2B | Como visitante corporativo,<br>deseo enviar un mensaje a ventas,<br>para solicitar una demostración personalizada. | 3 | Parcial: contacto GitHub, sin formulario B2B |
+| 62 | TS26 | TS | POST /api/v1/contact-messages | US08 | Incluido en US | Pendiente |
+| 63 | US12 | US | Registro de Mermas | Como operario,<br>deseo apartar productos dañados o caducados,<br>para evitar que sean vendidos por error. | 2 | Pendiente |
+| 64 | US13 | US | Buscador de Inventario | Como operario,<br>deseo buscar productos por nombre o SKU,<br>para localizarlos rápidamente sin listas largas. | 3 | Local, aceptación del equipo pendiente |
+| 65 | TS05 | TS | GET /api/v1/inventory | US13 | Incluido en US | Local, aceptación del equipo pendiente |
+| 66 | US16 | US | Validación Automática de Stock | Como vendedor,<br>deseo bloqueo de productos agotados en caja,<br>para no prometer mercadería inexistente. | 5 | Local, aceptación del equipo pendiente |
+| 67 | US24 | US | Reporte de Top Productos | Como dueño,<br>deseo identificar los artículos más vendidos,<br>para priorizar abastecimiento. | 3 | Pendiente |
+| 68 | US25 | US | Exportación de Datos | Como participante autorizado,<br>deseo descargar mis tablas a CSV,<br>para enviarlas a contabilidad. | 5 | Pendiente |
+| 69 | US27 | US | Alerta de Producto Vencido | Como almacenero,<br>deseo avisos preventivos de caducidad,<br>para ofertar artículos perecibles. | 3 | Pendiente |
+| 70 | US30 | US | Edición de Perfil Empresa | Como administrador,<br>deseo actualizar mis datos comerciales,<br>para mantener facturas e interfaz personalizadas. | 2 | Pendiente |
+| 71 | TS23 | TS | GET /api/v1/users/profile | US30 | Incluido en US | Pendiente |
+| 72 | TS24 | TS | PUT /api/v1/users/profile | US30 | Incluido en US | Pendiente |
+| 73 | US31 | US | Cambio de Contraseña | Como usuario registrado,<br>deseo actualizar mi clave,<br>para asegurar mi cuenta. | 3 | Pendiente |
+| 74 | TS25 | TS | PUT /api/v1/users/password | US31 | Incluido en US | Pendiente |
+| 75 | US32 | US | Testimonios (Landing) | Como visitante,<br>deseo consultar experiencias de otras MYPES,<br>para ganar confianza. | 2 | Pendiente |
+| 76 | US33 | US | Idioma de la aplicación | Como usuario,<br>deseo elegir inglés o español,<br>para comprender la interfaz a mi gusto. | 2 | Local, aceptación del equipo pendiente |
+| 77 | US37 | US | Dashboard: Gráfico de Tendencias | Como dueño,<br>deseo visualizar un gráfico de barras/líneas con los ingresos en el tiempo,<br>para analizar el comportamiento financiero de la MYPE. | 3 | Parcial: tendencia diaria, filtros pendientes |
 
-Las Technical Stories (TS) se gestionan como trabajo técnico asociado a las User Stories correspondientes y no se suman nuevamente a los Story Points del Product Backlog, con el objetivo de evitar una doble estimación del mismo esfuerzo. Estas historias técnicas incluyen, principalmente, la implementación de endpoints, validaciones, mecanismos de autenticación, consultas y operaciones necesarias para soportar las funcionalidades definidas en las User Stories.
-
-Finalmente, la gestión y seguimiento del Product Backlog se realiza mediante Jira Software, donde las funcionalidades se organizan mediante una jerarquía de Epics, User Stories y Technical Stories, permitiendo administrar su prioridad, estimación, estado, dependencias y avance durante el desarrollo del proyecto.
+Las 42 US suman **139 SP propuestos**. Las 38 US anteriores sumaban 121 SP; se corrige el texto que indicaba 34 historias. El equipo debe ratificar las estimaciones y capacidad. El tablero histórico enlazado es Trello; una captura de Jira no demuestra uso actual de Jira. Actualizar la herramienta realmente utilizada.
 
 # Capítulo IV: Product Design
 
@@ -1088,7 +1155,7 @@ Nuestro prototipo navegable fue construido íntegramente en Figma, configurando 
 
 ## 4.6. Domain-Driven Software Architecture
 
-A partir del entendimiento general del negocio logrado en el Big Picture Event Storming, hemos profundizado en la arquitectura del software aplicando Domain-Driven Design (DDD). En esta sección presentamos la transición de los eventos de negocio hacia artefactos de software concretos y su representación estructural utilizando el Modelo C4. El diseño técnico subyacente se apoyará en un backend sólido desarrollado en C# con ASP.NET Core 8.
+A partir del entendimiento general del negocio logrado en el Big Picture Event Storming, hemos profundizado en la arquitectura del software aplicando Domain-Driven Design (DDD). En esta sección presentamos la transición de los eventos de negocio hacia artefactos de software concretos y su representación estructural utilizando el Modelo C4. El incremento incorpora una primera API C# con ASP.NET Core 10, EF Core y PostgreSQL. Los diagramas de detalle representan el diseño objetivo. El código actual separa Domain, Application e Infrastructure y debe consolidar los límites por bounded context.
 
 ## 4.6.1. Design-Level Event Storming
 
@@ -1192,7 +1259,7 @@ El Diagrama de Contenedores (Nivel 2 del Modelo C4) descompone el sistema centra
 
 * **Single Page Application (Frontend Container):** Desarrollada con Vue.js y PrimeVue. Provee la interfaz reactiva y se comunica asíncronamente vía JSON/HTTPS.
 
-* **RESTful API Application (Backend Container):** Desarrollada en C# con ASP.NET Core 8. Este contenedor expone los Endpoints y procesa la lógica de negocio orientada a dominio.
+* **RESTful API Application (Backend Container):** Desarrollada en C# con ASP.NET Core 10. Este contenedor expone los Endpoints y procesa la lógica de negocio orientada a dominio.
 
 * **Database Container:** Base de datos relacional (PostgreSQL) para persistir el estado transaccional del sistema.
 
@@ -1209,7 +1276,7 @@ flowchart TD
         
         SPA["<b>Single Page Application</b><br/>[Container: Vue.js, PrimeVue]<br/><i>Provee la interfaz reactiva<br/>para la gestión del sistema</i>"]
         
-        API["<b>RESTful API Application</b><br/>[Container: C#, ASP.NET Core 8]<br/><i>Expone los endpoints y procesa<br/>la lógica de negocio (DDD)</i>"]
+        API["<b>RESTful API Application</b><br/>[Container: C#, ASP.NET Core 10]<br/><i>Expone los endpoints y procesa<br/>la lógica de negocio (DDD)</i>"]
         
         DB[("<b>Database</b><br/>[Container: PostgreSQL]<br/><i>Base de datos relacional para<br/>persistir el estado transaccional</i>")]
     end
@@ -1468,98 +1535,57 @@ classDiagram
 
 ## 4.8. Database Design
 
-El diseño de nuestra base de datos relacional PostgreSQL, mapeada a través de **Entity Framework Core (C#)**, respeta la separación estricta de *Bounded Contexts*, garantizando escalabilidad y consistencia de los datos. Al ser CeTe una plataforma SaaS B2B, se ha implementado una arquitectura **Multi-Tenant** (Multi-inquilino), donde cada empresa cliente opera en un entorno de datos lógicamente aislado mediante el identificador `TenantId`.
+### 4.8.1. Esquema físico AV2
 
-### 4.8.1. Database Diagrams
+PostgreSQL contiene **35 tablas**, exportadas en [schema.sql](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/schema.sql). La ampliación agrega trazabilidad de compras, recepciones, stock, sesiones y comprobantes. La cantidad de tablas no sustituye la validación de relaciones ni acredita todos los flujos.
 
-A continuación, se presenta el Diagrama Entidad-Relación (ERD) que estructura el núcleo transaccional de CeTe, compuesto por 15 tablas distribuidas en cinco módulos lógicos (Bounded Contexts):
+| Contexto lógico | Tablas físicas | Alcance actual |
+| :--- | :--- | :--- |
+| Identidad y empresa (7) | Tenants, SubscriptionPlans, TenantSubscriptions, Users, Roles, UserRoles, UserSessions | Registro, roles y sesiones operativos. Suscripción pendiente. |
+| Inventario (8) | Warehouses, Locations, Categories, Products, ProductVariants, StockLots, StockBalances, InventoryMovements | Catálogo, saldo y movimientos operativos. Lotes, variantes y ubicaciones pendientes de flujo completo. |
+| Abastecimiento (5) | Suppliers, PurchaseOrders, PurchaseOrderLines, GoodsReceipts, GoodsReceiptLines | Orden de un SKU y recepción física parcial operativos. |
+| Ventas (5) | Customers, Sales, SaleLines, Payments, SalesReceipts | Venta, pago registrado y boleta operativos. Maestro de clientes pendiente. |
+| Logística (7) | Drivers, Vehicles, Dispatches, DispatchSales, DispatchStops, DeliveryAttempts, DispatchIncidents | Despacho, recursos por nombre/placa, estados e incidencias operativos. Maestros, paradas e intentos pendientes. |
+| Devoluciones (2) | Returns, ReturnLines | Modelo persistido. Flujo pendiente. |
+| Notificaciones (1) | Notifications | Modelo persistido. API y bandeja pendientes. |
 
-1. **Módulo SaaS y Seguridad:** `Tenants`, `SubscriptionPlans`, `Users`, `Roles`.
-2. **Módulo de Inventario (Core):** `InventoryItems`, `Categories`, `StockMovements`.
-3. **Módulo Comercial:** `Sales`, `SaleDetails`, `Customers`.
-4. **Módulo Logístico:** `Dispatches`, `DispatchSales`, `Drivers`, `DispatchIncidents`.
-5. **Módulo de Alertas:** `Notifications`.
+Las entidades de empresa comparten TenantId. Los filtros toman el tenant de la sesión. Las relaciones usan claves foráneas compuestas (TenantId, Id). Los índices únicos cubren SKU por empresa, saldo por producto/almacén, boleta por venta y exclusividad de venta en despacho.
+
+### 4.8.2. Relaciones transaccionales
 
 ```mermaid
 erDiagram
-    %% SaaS & Security Module
-    TENANTS ||--o{ USERS : has
-    SUBSCRIPTION_PLANS ||--o{ TENANTS : grants
-    ROLES ||--o{ USERS : assigns
-
-    %% Inventory Module
-    TENANTS ||--o{ INVENTORY_ITEMS : owns
-    TENANTS ||--o{ CATEGORIES : owns
-    CATEGORIES ||--o{ INVENTORY_ITEMS : categorizes
-    INVENTORY_ITEMS ||--o{ STOCK_MOVEMENTS : tracks
-    USERS ||--o{ STOCK_MOVEMENTS : registers
-
-    %% Commercial Module
-    TENANTS ||--o{ SALES : generates
-    TENANTS ||--o{ CUSTOMERS : manages
-    CUSTOMERS ||--o{ SALES : makes
-    USERS ||--o{ SALES : processes
-    SALES ||--|{ SALE_DETAILS : contains
-    INVENTORY_ITEMS ||--o{ SALE_DETAILS : included_in
-
-    %% Logistics Module
-    TENANTS ||--o{ DISPATCHES : organizes
-    TENANTS ||--o{ DRIVERS : employs
-    USERS ||--o{ DISPATCHES : creates
-    DRIVERS ||--o{ DISPATCHES : executes
-    DISPATCHES ||--|{ DISPATCH_SALES : groups
-    SALES ||--o| DISPATCH_SALES : assigned_to
-    DISPATCHES ||--o{ DISPATCH_INCIDENTS : records
-
-    %% Alerts Module
-    TENANTS ||--o{ NOTIFICATIONS : receives
-    USERS ||--o{ NOTIFICATIONS : notified_by
-
-    TENANTS {
-        uuid Id PK
-        string Name
-        string Ruc
-        uuid SubscriptionPlanId FK
-    }
-    USERS {
-        uuid Id PK
-        uuid TenantId FK
-        int RoleId FK
-        string FullName
-        string Email
-    }
-    INVENTORY_ITEMS {
-        uuid Id PK
-        uuid TenantId FK
-        uuid CategoryId FK
-        string Sku
-        int Quantity
-        decimal UnitPrice
-    }
-    STOCK_MOVEMENTS {
-        uuid Id PK
-        uuid InventoryItemId FK
-        uuid UserId FK
-        string MovementType
-        int Quantity
-        string Reason
-    }
-    SALES {
-        uuid Id PK
-        uuid TenantId FK
-        uuid CustomerId FK
-        uuid UserId FK
-        decimal TotalAmount
-        string Status
-    }
-    DISPATCHES {
-        uuid Id PK
-        uuid TenantId FK
-        uuid DriverId FK
-        uuid UserId FK
-        string Status
-    }
+    Products ||--o{ StockBalances : posee
+    Warehouses ||--o{ StockBalances : contiene
+    Products ||--o{ InventoryMovements : registra
+    Suppliers ||--o{ PurchaseOrders : recibe
+    PurchaseOrders ||--|{ PurchaseOrderLines : detalla
+    PurchaseOrders ||--o{ GoodsReceipts : recibe
+    GoodsReceipts ||--|{ GoodsReceiptLines : detalla
+    PurchaseOrderLines ||--o{ GoodsReceiptLines : satisface
 ```
+
+```mermaid
+erDiagram
+    Sales ||--|{ SaleLines : detalla
+    Products ||--o{ SaleLines : referencia
+    Sales ||--o{ Payments : registra
+    Sales ||--o| SalesReceipts : documenta
+    Sales ||--o| DispatchSales : asigna
+    Dispatches ||--|{ DispatchSales : agrupa
+    Dispatches ||--o{ DispatchIncidents : registra
+    Sales ||--o{ Returns : origina
+    Returns ||--|{ ReturnLines : detalla
+    SaleLines ||--o{ ReturnLines : referencia
+```
+
+### 4.8.3. Invariantes y evolución
+
+Crear una orden no modifica stock. La recepción física registra cabecera, líneas y movimiento juntos. Una venta confirma todas sus líneas o revierte todo. El servidor calcula precios y total. Dos ventas de la última unidad producen una confirmación y un conflicto 409, con stock final cero.
+
+Un UUID repetido no descuenta dos veces. La anulación repone stock una sola vez. La boleta conserva la instantánea comercial y sus líneas conservan nombre, SKU y precio históricos.
+
+Los modelos de expansión no se presentan como flujos terminados. Las siguientes evoluciones requieren migraciones versionadas y respaldo. La inicialización actual prepara una base vacía.
 
 # Capítulo V: Product Implementation, Validation & Deployment
 
@@ -1876,6 +1902,10 @@ El equipo gestionó el desarrollo utilizando repositorios de GitHub. Se aplicaro
 
 #### Sprint Backlog 2
 
+> **Aclaración TB1.** Las siete estimaciones suman 25 h (4 + 5 + 5 + 3 + 4 + 2 + 2). Esto no prueba 25 horas reales de trabajo. Tres actividades están por debajo de 4 h y varias agrupan módulos completos. Se conserva el registro histórico. Las asignaciones y estados requieren contraste con commits y tablero y no prueban por sí solos la participación declarada.
+
+
+
 | Story ID | Work Item / Task Title | Description | Est. (h) | Assigned To | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **US02** | Implementación de vistas de Autenticación y Guardias (IAM) | Desarrollo de `sign-in-form.vue`, `sign-up-form.vue` y protección de rutas con `authentication.guard.js` y persistencia en LocalStorage usando `iam.store.js`. | 4 | Anahua, Liz | Done |
@@ -2002,7 +2032,77 @@ El equipo gestionó el desarrollo utilizando repositorios de GitHub. Se aplicaro
 
 <div style="page-break-after: always"></div>
 
+### 5.2.3. Sprint 3 / consolidación AV2
+
+#### 5.2.3.1. Sprint Planning 3
+
+**Plan propuesto, pendiente de acuerdo del equipo.** Registrar sesión formal, fechas, capacidad y compromiso. Las correcciones asistidas existen en el código y requieren aceptación. Las horas siguientes estiman revisión y consolidación restante, y no reemplazan horas históricas.
+
+**Sprint Goal propuesto:** demostrar abastecimiento, venta y boleta con API propia y PostgreSQL públicos, validación con usuarios y al menos tres integrantes reales en frontend.
+
+**Confirmación:** recepción que actualiza stock, venta y boleta consultable/imprimible, rechazo de stock insuficiente y acceso ajeno, landing bilingüe, URL pública verificada y evidencias humanas completas.
+
+#### 5.2.3.2. Aspect Leaders and Collaborators
+
+Los responsables siguientes son propuestos, sujetos a acuerdo. No constituyen autoría ni constancia de trabajo realizado. Se recomienda la participación de los cinco integrantes y se requiere como mínimo tres en frontend según el feedback.
+
+#### 5.2.3.3. Sprint Backlog 3 propuesto
+
+| ID | US / TS | Engineering task | Est. restante (h) | Responsable propuesto | Estado |
+| :--- | :--- | :--- | :---: | :--- | :--- |
+| T3-01 | US35/36, TS11/31 | Revisar cierre atómico, reintento, rollback y última unidad | 8 | Kevin | To Review |
+| T3-02 | US39, TS28 | Revisar boleta, impresión, datos históricos y móvil | 6 | Diego | To Review |
+| T3-03 | US40/41, TS29/30 | Revisar compra, recepción parcial y movimiento asociado | 6 | Liz | To Review |
+| T3-04 | US10/11/14, TS07–09 | Revisar entradas, salidas, motivos e historial | 6 | Piero | To Review |
+| T3-05 | US19–22, TS15–17 | Revisar recursos, ventas asignadas, estados e incidencias | 6 | Darikson | To Review |
+| T3-06 | US42/34 | Revisar traducciones, footer, teclado y móvil | 6 | Diego | To Review |
+| T3-07 | US28/29, TS21/22 | Revisar empleados y permisos desde frontend y API | 6 | Liz | To Review |
+| T3-08 | TS33 | Contrastar esquema, relaciones y diagrama con PostgreSQL | 6 | Kevin | To Review |
+| T3-09 | TS34 | Revisar y ejecutar pruebas de dominio, HTTP y navegador | 8 | Piero | To Review |
+| T3-10 | TS32 | Completar publicación y verificar el recorrido público | 6 | Kevin | To Review |
+| T3-11 | Presentación | Revisar PPT y distinguir Sprint 2 de incremento AV2 | 4 | Darikson | To Review |
+| T3-12 | Validación | Realizar entrevistas con 3–5 personas por segmento | 6 | Equipo | To Do |
+| T3-13 | SO5 | Registrar acuerdos, revisión cruzada y aportes verificables | 4 | Equipo | To Do |
+| T3-14 | About-the-Product | Grabar y publicar demo del flujo desplegado | 6 | Darikson | To Do |
+| T3-15 | About-the-Team | Grabar aportes individuales y reflexión real | 6 | Equipo | To Do |
+| T3-16 | Comunicación | Revisar conclusiones, fuentes, ortografía y coherencia | 4 | Piero | To Review |
+
+Total propuesto: **94 horas-persona**, con tareas de 4 a 8 h. Ajustar a capacidad real. No registrar horas trabajadas sin evidencia. Estados: To Do, In Process, To Review y Done. Un revisor distinto del autor valida criterios y evidencia antes de Done.
+
+#### 5.2.3.4. Development Evidence for Sprint Review
+
+Las correcciones están en ramas codex/av2-corrections. La API nueva está en [CeTe-Api](https://github.com/Nexxus-ops/CeTe-Api). El [registro AV2](AV2/README.md) relaciona feedback, archivos, pruebas y pendientes. Esta asistencia técnica no se atribuye a otros integrantes.
+
+#### 5.2.3.5. Execution Evidence for Sprint Review
+
+Capturas de ejecución pública real con datos ficticios en Render. No acreditan entrevistas ni participación individual del equipo.
+
+![Dashboard AV2](AV2/evidence/dashboard-desktop.png)
+![Boleta AV2](AV2/evidence/receipt-desktop.png)
+![Boleta móvil AV2](AV2/evidence/receipt-mobile.png)
+![Landing AV2](AV2/evidence/landing-desktop.png)
+
+Pruebas aprobadas: invariantes de dominio; autenticación, permisos y tenant; SKU duplicado; compras y recepción parcial; rollback; UUID idempotente; boleta histórica; anulación única; sesión revocada; ventas simultáneas; exclusividad y recursos de despacho; transiciones e incidencias. La consulta externa USD/PEN respondió correctamente.
+
+Navegador aprobado: registro, acceso, venta en POS, boleta, español, recarga y móvil de 390px sin desbordamiento. Landing: idiomas, persistencia, cuatro recursos del footer, anclas y menú móvil.
+
+#![Compras y recepción AV2](AV2/evidence/purchases-desktop.png)
+
+### 5.2.3.6. Services Documentation Evidence for Sprint Review
+
+Swagger está en /swagger y /swagger/v1/swagger.json, con autenticación Bearer. El README de la API describe contratos y pruebas reproducibles. Los pagos son registros académicos, sin pasarela ni emisión fiscal.
+
+#### 5.2.3.7. Software Deployment Evidence for Sprint Review
+
+Docker Compose ejecuta API y PostgreSQL localmente. El mismo Dockerfile se publica en Render. La API, frontend y landing están publicados en Render. El recorrido público verifica registro, acceso, compra, recepción parcial, venta, selección por teclado, boleta, impresión y persistencia de idioma. Ver [resultado y commits](AV2/verificacion.md). La base Free vence el 29/11/2026 UTC.
+
+#### 5.2.3.8. Team Collaboration Insights during Sprint
+
+La entrega histórica solo acredita dos participantes de frontend. Esta asistencia técnica no resuelve esa observación. Registrar al menos tres autores reales con commits, archivos, US/TS, revisión y demo individual. [Registro humano AV2](AV2/evidencia-equipo.md) permanece pendiente. Se conserva la ficha histórica de performance y sus notas.
+
 ## 5.3. Validation Interviews
+
+> **AV2:** existe una validación registrada por segmento. Se requieren 3–5 por segmento con evidencia verificada. Ver [guía de validación](AV2/validacion.md). No se consideran realizadas las entrevistas pendientes.
 
 ### 5.3.1. Diseño de entrevistas
 
@@ -2057,12 +2157,12 @@ A partir del feedback recopilado, analizamos la interfaz basándonos en las heur
 
 ## Conclusiones
 
-* **Validación de Problema:** La investigación estructurada validó nuestros *Assumptions* principales: Las MYPES peruanas sufren pérdidas económicas reales por falta de trazabilidad y requieren urgentemente herramientas con cero fricción operativa, descartando los ERPs complejos.
-* **Diseño Centrado en el Usuario:** El diseño del Landing Page y el modelado de la Web App de CeTe lograron materializar las expectativas de nuestros User Personas. Se equilibró exitosamente la necesidad de simplicidad táctil para el operario logístico (Miguel) y el control financiero analítico para el dueño (Carlos).
-* **Arquitectura Sólida:** La aplicación de Domain-Driven Design (DDD) y la representación visual mediante el Modelo C4 nos permitieron establecer bases técnicas modulares y escalables (Vue.js + ASP.NET Core), preparando a la plataforma para el crecimiento transaccional y futuras integraciones IoT.
-* **Gestión Ágil:** La aplicación rigurosa de metodologías ágiles, evidenciada en nuestro Product Backlog, ceremonias Scrum y flujos de integración continua (GitFlow), aseguró entregas de valor constantes y un ambiente de colaboración profesional.
-
----
+1. El incremento conecta Vue con una API propia y PostgreSQL. El recorrido verificado genera una boleta con dirección, fecha/hora, detalle y total, que conserva precios y nombres históricos.
+2. La transacción serializable impide vender dos veces la última unidad. La prueba detectó y corrigió una respuesta 500 de un conflicto envuelto por EF, que ahora devuelve 409.
+3. La ampliación agrega compras y recepciones separadas, movimientos, comprobantes y sesiones. Las 35 tablas no implican que lotes, devoluciones, paradas y suscripciones estén terminados.
+4. La landing incorpora inglés/español persistentes, footer funcional y captura del producto. Las pruebas técnicas respaldan su funcionamiento y quedan por validar con usuarios.
+5. Las TS son visibles en el backlog y las 25 horas estimadas de Sprint 2 se conservan como registro histórico. El equipo debe acordar las nuevas estimaciones y responsabilidades.
+6. La publicación técnica está verificada. AV2 requiere al menos tres participantes reales en frontend, 3–5 validaciones por segmento y los videos del producto y equipo. El incremento todavía requiere ese cierre antes de evaluación.
 
 ## Video About-the-Team
 

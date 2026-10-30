@@ -176,8 +176,8 @@ Durante el Sprint 1, el equipo de Nexxus se concentró en la implementación y d
 | Location | Google Meet (reunión virtual) |
 | Prepared By | Salazar Marquina, Kevin Junior |
 | Attendees | Anahua Ancachi, Liz Maribel<br>Campoblanco Guzman, Diego Roberto<br>Montes Chang, Piero Francisco<br>Salazar Marquina, Kevin Junior<br>Salazar Quiche, Darikson Bill |
-| **Sprint 1 Review Summary** | Durante este primer ciclo el equipo consolidó los artefactos de UX definidos en los capítulos anteriores y los tradujo en una implementación web funcional. Se desarrolló y desplegó la primera versión de la Landing Page de CeTe, la cual comunica la propuesta de valor orientada a la centralización B2B de inventario y ventas. Se implementaron el Hero section, los planes de suscripción, diseño responsive y adaptabilidad móvil. |
-| **Sprint 1 Retrospective Summary** | El equipo evaluó positivamente la distribución del trabajo mediante la convención de ramas `feature/*` de GitFlow, reduciendo colisiones de código. Como oportunidad de mejora, se debe afinar la estimación de las tareas de internacionalización (i18n) para el próximo ciclo. |
+| **Sprint 1 Review Summary** | Durante este primer ciclo el equipo consolidó los artefactos de UX definidos en los capítulos anteriores y los tradujo en una implementación web funcional. Se desarrolló y desplegó la primera versión de la Landing Page de CeTe. Todo el ciclo de vida del desarrollo, desde la asignación de tareas hasta su paso a "Done", fue monitoreado y gestionado mediante nuestro tablero Kanban en Trello, garantizando transparencia en el avance. |
+| **Sprint 1 Retrospective Summary** | El equipo evaluó positivamente la distribución del trabajo mediante la convención de ramas feature/* de GitFlow, reduciendo colisiones de código. El uso de Trello facilitó la visualización de los cuellos de botella en la fase de revisión de los Pull Requests. Como oportunidad de mejora, se debe afinar la estimación de las tareas de internacionalización (i18n) en la herramienta para el próximo ciclo. |
 | **Sprint Goal & User Stories** | |
 | **Sprint 1 Goal** | *Our focus is on* publicar la primera versión funcional y responsive de la Landing Page de CeTe.<br>*We believe it delivers* a las MYPES una comprensión rápida de nuestra solución B2B.<br>*This will be confirmed when* el sitio sea accesible desde cualquier dispositivo, mostrando claramente la propuesta y los planes de suscripción. |
 | **Sprint 1 Velocity** | 24 |
@@ -203,6 +203,16 @@ Durante el Sprint 1, el equipo de Nexxus se concentró en la implementación y d
 | US29 | Implementación de navegación responsive | Desarrollo del header fijo, scroll suave y menú hamburguesa para móviles. | 4 | Campoblanco, Diego | Done |
 | US33 | Implementación del Footer Institucional | Creación del pie de página con enlaces legales y redes sociales. | 2 | Montes, Piero | Done |
 | US34 | Despliegue en GitHub Pages | Configuración del repositorio y publicación de la versión v1.0.0. | 2 | Campoblanco, Diego | Done |
+
+La gestión de las historias de usuario y tareas técnicas correspondientes a este Sprint se realizó a través de la herramienta Trello. A continuación, se presenta la evidencia del tablero Kanban utilizado durante la ejecución del Sprint:
+
+<p align="center">
+  <img src="Images/Trello-Backlog-1.png" width="800" alt="Evidencia-Produt-Backlog-Trello">
+</p>
+
+Tablero Kanban del Sprint 1 gestionado en Trello, mostrando el flujo de desarrollo de la Landing Page.
+
+Enlace al tablero: https://trello.com/invite/b/6ac45ef9360979a18e3bdcb8/ATTI9b6472f77acb5d72e55d42fac34aa3a7F2643D2F/cete-product-backlog-1
 
 <div style="page-break-after: always"></div>
 
@@ -274,7 +284,236 @@ El equipo gestionó el desarrollo utilizando repositorios de GitHub. Se aplicaro
 
 <div style="page-break-after: always"></div>
 
+### 5.2.2.1. Sprint Planning 2
+
+| Sprint # | Sprint 2 |
+| :--- | :--- |
+| **Sprint Planning Background** | |
+| Date | 06/10/2026 |
+| Time | 8:00 PM |
+| Location | Google Meet (reunión virtual) |
+| Prepared By | Campoblanco Guzman, Diego Roberto |
+| Attendees | Anahua Ancachi, Liz Maribel <br> Campoblanco Guzman, Diego Roberto <br> Montes Chang, Piero Francisco <br> Salazar Marquina, Kevin Junior <br> Salazar Quiche, Darikson Bill |
+| **Sprint 2 Review Summary** | Durante este segundo ciclo, el equipo materializó la arquitectura basada en Domain-Driven Design (DDD) construyendo la Web Application (Frontend) interactiva utilizando Vue.js 3, Vite, y PrimeVue. Se implementaron los Bounded Contexts core de la plataforma: IAM, Inventario, Ventas y Logística, integrados con un servidor de desarrollo mockeado (JSON-Server) para simular la persistencia de datos relacionales y las respuestas de la API. |
+| **Sprint 2 Retrospective Summary** | El equipo evaluó positivamente el uso de Pinia para la gestión del estado y la implementación de la Arquitectura Hexagonal en el frontend, lo cual permitió separar claramente la capa de dominio, infraestructura (API calls) y presentación (vistas/componentes). Como oportunidad de mejora, se debe planificar la sustitución progresiva del Mock Backend (`db.json`) por la integración oficial con el RESTful API en C# (ASP.NET Core) en el siguiente ciclo. |
+| **Sprint Goal & User Stories** | |
+| Sprint 2 Goal | **Our focus is on** publicar la primera versión funcional de la Single Page Application (SPA) para la gestión logística. <br><br> **We believe it delivers** a los operarios de almacén y dueños de MYPEs una interfaz de "cero fricción" para registrar inventarios, procesar ventas y programar rutas. <br><br> **This will be confirmed when** el sistema permita navegar fluidamente entre módulos mediante el Vue Router, proteger rutas con el `authentication.guard.js`, y soportar la internacionalización (ES/EN) de forma reactiva. |
+| Sprint 2 Velocity | 24 |
+| Sum of Story Points | 24 |
+
+#### Aspect Leaders and Collaborators
+
+| Team Member | Web App (Frontend) | Diseño UI/UX | Mock API / Arquitectura | Deployment |
+| :--- | :--- | :--- | :--- | :--- |
+| Anahua Ancachi, Liz | Lider | Colaborador | Colaborador | Colaborador |
+| Campoblanco, Diego | Colaborador | Colaborador | Lider | Colaborador |
+| Montes Chang, Piero | Colaborador | Colaborador | Colaborador | Lider |
+| Salazar, Kevin | Colaborador | Lider | Colaborador | Colaborador |
+| Salazar, Darikson | Colaborador | Colaborador | Colaborador | Colaborador |
+
+#### Sprint Backlog 2
+
+> **Aclaración TB1.** Las siete estimaciones suman 25 h (4 + 5 + 5 + 3 + 4 + 2 + 2). Esto no prueba 25 horas reales de trabajo. Tres actividades están por debajo de 4 h y varias agrupan módulos completos. Se conserva el registro histórico. Las asignaciones y estados requieren contraste con commits y tablero y no prueban por sí solos la participación declarada.
+
+
+
+| Story ID | Work Item / Task Title | Description | Est. (h) | Assigned To | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **US02** | Implementación de vistas de Autenticación y Guardias (IAM) | Desarrollo de `sign-in-form.vue`, `sign-up-form.vue` y protección de rutas con `authentication.guard.js` y persistencia en LocalStorage usando `iam.store.js`. | 4 | Anahua, Liz | Done |
+| **US09 / US10** | Desarrollo del Módulo Core de Inventario | Construcción de `inventory-list.vue` (Kardex interactivo) y `inventory-form.vue` para el registro/ajuste de stock de SKUs y manejo de mermas. | 5 | Montes, Piero | Done |
+| **US15 / US16** | Implementación del Punto de Venta (POS) interactivo | Desarrollo de `point-of-sale.vue` incluyendo un carrito de ventas reactivo, buscador integrado y validación/descuento automático de stock agotado (Stock Out). | 5 | Salazar, Darikson | Done |
+| **US17** | Maquetación del Historial de Ventas | Implementación de `sales-list.vue` utilizando `pv-data-table` para listar transacciones y procesar anulaciones mediante `sales.store.js`. | 3 | Salazar, Kevin | Done |
+| **US19 / US21** | Desarrollo del Módulo de Rutas y Despacho | Construcción de `dispatch-form.vue` para generar nuevos manifiestos asociando ventas completadas, y `dispatch-list.vue` para actualizar el monitoreo de las rutas. | 4 | Campoblanco, Diego | Done |
+| **US33** | Configuración de Internacionalización (i18n) | Implementación de `vue-i18n` cargando diccionarios dinámicos (`es.json` y `en.json`) y el componente `language-switcher.vue` para la barra superior. | 2 | Montes, Piero | Done |
+| **TS** | Configuración del Mock Backend (JSON-Server) | Creación de base de datos simulada (`db.json`) y rutas RESTful personalizadas (`routes.json`) en el puerto 5222 para proveer datos a la SPA sin depender del servidor C#. | 2 | Anahua, Liz | Done |
+
+
+<p align="center">
+  <img src="Images/Trello-Backlog-2.png" width="800" alt="Evidencia-Sprint-Backlog-2-Trello">
+</p>
+
+Tablero Kanban del Sprint 2 gestionado en Trello, mostrando el flujo de desarrollo del Frontend.
+
+Enlace al tablero: https://trello.com/invite/b/6ac48ac544b95ec0d7179e1b/ATTId5582c14f0a61ddde82968ca79935a3f89ED4899/cete-sprint-backlog-2
+
+### 5.2.2.4. Development Evidence for Sprint Review.
+
+Esta sección expone la evidencia técnica del progreso alcanzado. El Frontend de CeTe fue desarrollada utilizando JavaScript, Vue3, CSS y HTML haciendo uso de DDD.
+
+**Registro de commits del Sprint 1:**
+
+<p align="center">
+  <img src="Images/Registro-De-Commits-2.png" alt="Evidencia de Código" title="Development Evidence" width="700">
+</p>
+
+<p align="center">
+  <img src="Images/Codigo-Sprint-21.png" alt="Evidencia de Código" title="Development Evidence" width="700">
+</p>
+<p align="center">
+  <img src="Images/Codigo-Sprint-22.png" alt="Evidencia de Código" title="Development Evidence" width="700">
+</p>
+<p align="center">
+  <img src="Images/Codigo-Sprint-23.png" alt="Evidencia de Código" title="Development Evidence" width="700">
+</p>
+
+
+### 5.2.2.5. Execution Evidence for Sprint Review.
+
+Se validó el comportamiento del Frontend de la aplicacion que respondiera adecuadamente según las US propuestas para este sprint.
+
+<p align="center">
+  <img src="Images/Ejecucion-21.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-22.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-23.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-24.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-25.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-26.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-27.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-28.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-29.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-210.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-211.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-212.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-213.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-214.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-215.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-216.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-217.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-218.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+<p align="center">
+  <img src="Images/Ejecucion-219.jpg" alt="Ejecución Desktop 1" title="Execution Desktop" width="700">
+</p>
+
+<div style="page-break-after: always"></div>
+
+### 5.2.2.6. Services Documentation Evidence for Sprint Review.
+
+Durante el Sprint 2, la implementación de la Single Page Application (SPA) requirió el diseño de una capa de infraestructura robusta para el consumo de servicios web. Dado que el RESTful API oficial en ASP.NET Core se encuentra en fase de desarrollo, el equipo implementó un Fake API y construyó los Gateways de Infraestructura en el frontend siguiendo los principios de la Arquitectura Hexagonal. Esta separación asegura que el frontend esté listo para conectarse al backend real en los próximos sprints sin necesidad de refactorizar la lógica de negocio.
+
+### 5.2.2.7. Software Deployment Evidence for Sprint Review.
+
+La versión `v1.0.0` del Frontend fue publicada exitosamente utilizando GitHub Pages automatizando el despliegue a partir de la rama `main`.
+
+<p align="center">
+  <img src="Images/Deployment-Evidence.png" alt="Despliegue GitHub Pages" title="Deployment Evidence" width="700">
+</p>
+
+### 5.2.2.8. Team Collaboration Insights during Sprint.
+
+El equipo gestionó el desarrollo utilizando repositorios de GitHub. Se aplicaron Pull Requests con revisiones cruzadas. A continuación, las analíticas de colaboración:
+
+<p align="center">
+  <img src="Images/Sprint-2-Collaboration-Insight.png" alt="GitHub Insights" title="Collaboration Evidence" width="700">
+</p>
+
+<div style="page-break-after: always"></div>
+
+### 5.2.3. Sprint 3 / consolidación AV2
+
+#### 5.2.3.1. Sprint Planning 3
+
+**Plan propuesto, pendiente de acuerdo del equipo.** Registrar sesión formal, fechas, capacidad y compromiso. Las correcciones asistidas existen en el código y requieren aceptación. Las horas siguientes estiman revisión y consolidación restante, y no reemplazan horas históricas.
+
+**Sprint Goal propuesto:** demostrar abastecimiento, venta y boleta con API propia y PostgreSQL públicos, validación con usuarios y al menos tres integrantes reales en frontend.
+
+**Confirmación:** recepción que actualiza stock, venta y boleta consultable/imprimible, rechazo de stock insuficiente y acceso ajeno, landing bilingüe, URL pública verificada y evidencias humanas completas.
+
+#### 5.2.3.2. Aspect Leaders and Collaborators
+
+Los responsables siguientes son propuestos, sujetos a acuerdo. No constituyen autoría ni constancia de trabajo realizado. Se recomienda la participación de los cinco integrantes y se requiere como mínimo tres en frontend según el feedback.
+
+#### 5.2.3.3. Sprint Backlog 3 propuesto
+
+| ID | US / TS | Engineering task | Est. restante (h) | Responsable propuesto | Estado |
+| :--- | :--- | :--- | :---: | :--- | :--- |
+| T3-01 | US35/36, TS11/31 | Revisar cierre atómico, reintento, rollback y última unidad | 8 | Kevin | To Review |
+| T3-02 | US39, TS28 | Revisar boleta, impresión, datos históricos y móvil | 6 | Diego | To Review |
+| T3-03 | US40/41, TS29/30 | Revisar compra, recepción parcial y movimiento asociado | 6 | Liz | To Review |
+| T3-04 | US10/11/14, TS07–09 | Revisar entradas, salidas, motivos e historial | 6 | Piero | To Review |
+| T3-05 | US19–22, TS15–17 | Revisar recursos, ventas asignadas, estados e incidencias | 6 | Darikson | To Review |
+| T3-06 | US42/34 | Revisar traducciones, footer, teclado y móvil | 6 | Diego | To Review |
+| T3-07 | US28/29, TS21/22 | Revisar empleados y permisos desde frontend y API | 6 | Liz | To Review |
+| T3-08 | TS33 | Contrastar esquema, relaciones y diagrama con PostgreSQL | 6 | Kevin | To Review |
+| T3-09 | TS34 | Revisar y ejecutar pruebas de dominio, HTTP y navegador | 8 | Piero | To Review |
+| T3-10 | TS32 | Completar publicación y verificar el recorrido público | 6 | Kevin | To Review |
+| T3-11 | Presentación | Revisar PPT y distinguir Sprint 2 de incremento AV2 | 4 | Darikson | To Review |
+| T3-12 | Validación | Realizar entrevistas con 3–5 personas por segmento | 6 | Equipo | To Do |
+| T3-13 | SO5 | Registrar acuerdos, revisión cruzada y aportes verificables | 4 | Equipo | To Do |
+| T3-14 | About-the-Product | Grabar y publicar demo del flujo desplegado | 6 | Darikson | To Do |
+| T3-15 | About-the-Team | Grabar aportes individuales y reflexión real | 6 | Equipo | To Do |
+| T3-16 | Comunicación | Revisar conclusiones, fuentes, ortografía y coherencia | 4 | Piero | To Review |
+
+Total propuesto: **94 horas-persona**, con tareas de 4 a 8 h. Ajustar a capacidad real. No registrar horas trabajadas sin evidencia. Estados: To Do, In Process, To Review y Done. Un revisor distinto del autor valida criterios y evidencia antes de Done.
+
+#### 5.2.3.4. Development Evidence for Sprint Review
+
+Las correcciones están en ramas codex/av2-corrections. La API nueva está en [CeTe-Api](https://github.com/Nexxus-ops/CeTe-Api). El [registro AV2](AV2/README.md) relaciona feedback, archivos, pruebas y pendientes. Esta asistencia técnica no se atribuye a otros integrantes.
+
+#### 5.2.3.5. Execution Evidence for Sprint Review
+
+Capturas de ejecución pública real con datos ficticios en Render. No acreditan entrevistas ni participación individual del equipo.
+
+![Dashboard AV2](AV2/evidence/dashboard-desktop.png)
+![Boleta AV2](AV2/evidence/receipt-desktop.png)
+![Boleta móvil AV2](AV2/evidence/receipt-mobile.png)
+![Landing AV2](AV2/evidence/landing-desktop.png)
+
+Pruebas aprobadas: invariantes de dominio; autenticación, permisos y tenant; SKU duplicado; compras y recepción parcial; rollback; UUID idempotente; boleta histórica; anulación única; sesión revocada; ventas simultáneas; exclusividad y recursos de despacho; transiciones e incidencias. La consulta externa USD/PEN respondió correctamente.
+
+Navegador aprobado: registro, acceso, venta en POS, boleta, español, recarga y móvil de 390px sin desbordamiento. Landing: idiomas, persistencia, cuatro recursos del footer, anclas y menú móvil.
+
+#![Compras y recepción AV2](AV2/evidence/purchases-desktop.png)
+
+### 5.2.3.6. Services Documentation Evidence for Sprint Review
+
+Swagger está en /swagger y /swagger/v1/swagger.json, con autenticación Bearer. El README de la API describe contratos y pruebas reproducibles. Los pagos son registros académicos, sin pasarela ni emisión fiscal.
+
+#### 5.2.3.7. Software Deployment Evidence for Sprint Review
+
+Docker Compose ejecuta API y PostgreSQL localmente. El mismo Dockerfile se publica en Render. La API, frontend y landing están publicados en Render. El recorrido público verifica registro, acceso, compra, recepción parcial, venta, selección por teclado, boleta, impresión y persistencia de idioma. Ver [resultado y commits](AV2/verificacion.md). La base Free vence el 29/11/2026 UTC.
+
+#### 5.2.3.8. Team Collaboration Insights during Sprint
+
+La entrega histórica solo acredita dos participantes de frontend. Esta asistencia técnica no resuelve esa observación. Registrar al menos tres autores reales con commits, archivos, US/TS, revisión y demo individual. [Registro humano AV2](AV2/evidencia-equipo.md) permanece pendiente. Se conserva la ficha histórica de performance y sus notas.
+
 ## 5.3. Validation Interviews
+
+> **AV2:** existe una validación registrada por segmento. Se requieren 3–5 por segmento con evidencia verificada. Ver [guía de validación](AV2/validacion.md). No se consideran realizadas las entrevistas pendientes.
 
 ### 5.3.1. Diseño de entrevistas
 
@@ -326,33 +565,3 @@ A partir del feedback recopilado, analizamos la interfaz basándonos en las heur
 **Enlace del Video Promocional:** [PROMO - CeTe (YouTube)](https://youtu.be/EBS8s4CFWRo)
 
 ---
-
-## Conclusiones
-
-* **Validación de Problema:** La investigación estructurada validó nuestros *Assumptions* principales: Las MYPES peruanas sufren pérdidas económicas reales por falta de trazabilidad y requieren urgentemente herramientas con cero fricción operativa, descartando los ERPs complejos.
-* **Diseño Centrado en el Usuario:** El diseño del Landing Page y el modelado de la Web App de CeTe lograron materializar las expectativas de nuestros User Personas. Se equilibró exitosamente la necesidad de simplicidad táctil para el operario logístico (Miguel) y el control financiero analítico para el dueño (Carlos).
-* **Arquitectura Sólida:** La aplicación de Domain-Driven Design (DDD) y la representación visual mediante el Modelo C4 nos permitieron establecer bases técnicas modulares y escalables (Vue.js + ASP.NET Core), preparando a la plataforma para el crecimiento transaccional y futuras integraciones IoT.
-* **Gestión Ágil:** La aplicación rigurosa de metodologías ágiles, evidenciada en nuestro Product Backlog, ceremonias Scrum y flujos de integración continua (GitFlow), aseguró entregas de valor constantes y un ambiente de colaboración profesional.
-
----
-
-## Video About-the-Team
-
-*Enlace del Video About The Theam: https://drive.google.com/drive/folders/1xVEEo9wgbIuEtw1UIYaJLxzBtxMa2upI?usp=sharing *
-
----
-
-## Bibliografía
-
-* Instituto Nacional de Estadística e Informática. (2022). *Producción nacional: Informe técnico*. INEI. https://www.inei.gob.pe/media/MenuRecursivo/boletines/boletin-estadistico-del-sector-servicios-n-12-diciembre-2022.pdf
-* Evans, E. (2003). *Domain-Driven Design: Tackling Complexity in the Heart of Software*. Addison-Wesley Professional.
-* Centro Nacional de Planeamiento Estratégico. (2023). *Políticas y estrategias nacionales de desarrollo agroalimentario*. CEPLAN. https://www.ceplan.gob.pe/documentos_/politicas-y-estrategias-nacionales/
-* Ministerio de Trabajo y Promoción del Empleo. (2023). *Informe anual del empleo en el Perú 2022*. MTPE. https://cdn.www.gob.pe/uploads/document/file/4558080/Informe_Anual_del_Empleo_Peru_2022.pdf
-* Ministerio de Transportes y Comunicaciones. (2022). *Anuario estadístico 2022*. MTC. https://portal.mtc.gob.pe/estadisticas/publicaciones/anuarios/ANUARIO_ESTADISTICO_2022.pdf
-
----
-
-## Anexos
-
-* **Repositorio de Landing Page:** https://github.com/Nexxus-ops/nexxus-landing-page.git
-* **Link de video promocional:** https://youtu.be/EBS8s4CFWRo

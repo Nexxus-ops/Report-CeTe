@@ -20,8 +20,6 @@ Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
-*[Placeholder: Fotos del equipo]*
-
 <table border="1" cellspacing="0" cellpadding="8" style="border-collapse: collapse; width: 100%;">
 <thead>
 <tr style="background-color: #f2f2f2; text-align: center;">
@@ -35,6 +33,7 @@ Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos
 <td align="center" valign="middle">
   <b>Anahua Ancachi, Liz Maribel</b><br>
   <small>Código: U202421123</small>
+  <img src="Images/Foto-Liz.jpeg" alt="Logo de la Universidad" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
 <td>Estudiante con sólidos conocimientos en el desarrollo frontend y backend. Aporta al equipo habilidades en la implementación de arquitecturas orientadas a dominio (DDD).</td>
@@ -43,6 +42,7 @@ Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos
 <td align="center" valign="middle">
   <b>Campoblanco Guzman, Diego Roberto</b><br>
   <small>Código: U202414313</small>
+    <img src="Images/Foto-Diego.png" alt="Logo de la Universidad" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
 <td>Actualmente estudio la carrera de Ingeniería de Software en la UPC. Soy una persona apasionada por la programación, enfocada en la creación de aplicaciones modulares y en la simulación de infraestructuras de red y dispositivos IoT. Busco garantizar que la integración del hardware se comunique de manera eficiente con las bases de datos y la plataforma web.</td>
@@ -51,14 +51,16 @@ Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos
 <td align="center" valign="middle">
   <b>Montes Chang, Piero</b><br>
   <small>Código: U202411324</small>
+    <img src="Images/Foto-Piero.jpg" alt="Logo de la Universidad" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
-<td>[escriban algo pue]</td>
+<td>Estudiante de 5to ciclo con conocimientos en DDD.</td>
 </tr>
 <tr>
 <td align="center" valign="middle">
   <b>Salazar Marquina, Kevin Junior</b><br>
   <small>Código: U202417747</small>
+    <img src="Images/Foto-Kevin.jpg" alt="Logo de la Universidad" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
 <td>Estudiante con sólidos conocimientos en el desarrollo frontend y backend. Aporta al equipo habilidades en el uso de frameworks como Angular y Spring Boot, enfocado en asegurar la escalabilidad del sistema B2B.</td>
@@ -67,9 +69,10 @@ Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos
 <td align="center" valign="middle">
   <b>Salazar Quiche, Darikson Bill</b><br>
   <small>Código: U202422620</small>
+    <img src="Images/Foto-Darikson.jpg" alt="Logo de la Universidad" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
-<td>[escriban algo pue]</td>
+<td>Estudiante con desarrollo de figma avanzado</td>
 </tr>
 </tbody>
 </table>
