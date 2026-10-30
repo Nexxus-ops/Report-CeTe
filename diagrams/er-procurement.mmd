@@ -1,0 +1,72 @@
+---
+title: ER físico · Abastecimiento y sus referencias
+---
+erDiagram
+  Suppliers {
+    uuid Id PK
+    text Name
+    text Contact
+    uuid TenantId FK
+  }
+  PurchaseOrders {
+    uuid Id PK
+    uuid SupplierId FK
+    uuid WarehouseId FK
+    text Status
+    timestamptz CreatedAt
+    uuid TenantId FK
+  }
+  PurchaseOrderLines {
+    uuid Id PK
+    uuid PurchaseOrderId FK
+    uuid ProductId FK
+    decimal Quantity
+    decimal UnitCost
+    decimal ReceivedQuantity
+    uuid TenantId FK
+  }
+  GoodsReceipts {
+    uuid Id PK
+    uuid PurchaseOrderId FK
+    uuid UserId FK
+    timestamptz CreatedAt
+    uuid TenantId FK
+  }
+  GoodsReceiptLines {
+    uuid Id PK
+    uuid GoodsReceiptId FK
+    uuid PurchaseOrderLineId FK
+    decimal Quantity
+    uuid TenantId FK
+  }
+  Products {
+    uuid Id PK
+    text Sku
+    text Name
+    decimal UnitPrice
+    decimal MinimumStock
+    bool Active
+    uuid TenantId FK
+  }
+  Warehouses {
+    uuid Id PK
+    text Name
+    text Address
+    uuid TenantId FK
+  }
+  Users {
+    uuid Id PK
+    text Username
+    text PasswordHash
+    text Role
+    bool Active
+    uuid TenantId FK
+  }
+  GoodsReceipts ||--o{ GoodsReceiptLines : "GoodsReceiptId"
+  PurchaseOrderLines ||--o{ GoodsReceiptLines : "PurchaseOrderLineId"
+  PurchaseOrders ||--o{ GoodsReceipts : "PurchaseOrderId"
+  Users ||--o{ GoodsReceipts : "UserId"
+  Products ||--o{ PurchaseOrderLines : "ProductId"
+  PurchaseOrders ||--o{ PurchaseOrderLines : "PurchaseOrderId"
+  Suppliers ||--o{ PurchaseOrders : "SupplierId"
+  Warehouses ||--o{ PurchaseOrders : "WarehouseId"

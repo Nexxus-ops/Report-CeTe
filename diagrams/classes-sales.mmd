@@ -1,0 +1,41 @@
+---
+title: UML actual · Venta y comprobante · CeTe API
+---
+classDiagram
+  class Sale {
+    +Guid Id
+    +Guid WarehouseId
+    +Guid UserId
+    +string CustomerName
+    +string RequestHash
+    +decimal TotalAmount [private set]
+    +string Status [private set]
+    +Confirm(IEnumerable~SaleLine~ lines) void
+    +Cancel() void
+  }
+  class SaleLine {
+    +Guid SaleId
+    +Guid ProductId
+    +string Sku
+    +string Name
+    +decimal Quantity
+    +decimal UnitPrice
+  }
+  class Payment {
+    +Guid SaleId
+    +string Method
+    +decimal Amount
+    +string Status
+  }
+  class SalesReceipt {
+    +Guid SaleId
+    +string Number
+    +string CompanyName
+    +string Ruc
+    +string Address
+    +string Cashier
+    +DateTimeOffset IssuedAt
+  }
+  Sale "1" <-- "0..*" SaleLine : SaleId
+  Sale "1" <-- "0..*" Payment : SaleId
+  Sale "1" <-- "0..1" SalesReceipt : SaleId

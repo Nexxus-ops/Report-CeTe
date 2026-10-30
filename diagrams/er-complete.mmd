@@ -1,0 +1,176 @@
+---
+title: ER físico completo · 35 tablas y 67 claves foráneas
+---
+erDiagram
+  Categories {
+    uuid Id PK
+  }
+  Customers {
+    uuid Id PK
+  }
+  DeliveryAttempts {
+    uuid Id PK
+  }
+  DispatchIncidents {
+    uuid Id PK
+  }
+  DispatchSales {
+    uuid Id PK
+  }
+  DispatchStops {
+    uuid Id PK
+  }
+  Dispatches {
+    uuid Id PK
+  }
+  Drivers {
+    uuid Id PK
+  }
+  GoodsReceiptLines {
+    uuid Id PK
+  }
+  GoodsReceipts {
+    uuid Id PK
+  }
+  InventoryMovements {
+    uuid Id PK
+  }
+  Locations {
+    uuid Id PK
+  }
+  Notifications {
+    uuid Id PK
+  }
+  Payments {
+    uuid Id PK
+  }
+  ProductVariants {
+    uuid Id PK
+  }
+  Products {
+    uuid Id PK
+  }
+  PurchaseOrderLines {
+    uuid Id PK
+  }
+  PurchaseOrders {
+    uuid Id PK
+  }
+  ReturnLines {
+    uuid Id PK
+  }
+  Returns {
+    uuid Id PK
+  }
+  Roles {
+    uuid Id PK
+  }
+  SaleLines {
+    uuid Id PK
+  }
+  Sales {
+    uuid Id PK
+  }
+  SalesReceipts {
+    uuid Id PK
+  }
+  StockBalances {
+    uuid Id PK
+  }
+  StockLots {
+    uuid Id PK
+  }
+  SubscriptionPlans {
+    uuid Id PK
+  }
+  Suppliers {
+    uuid Id PK
+  }
+  TenantSubscriptions {
+    uuid Id PK
+  }
+  Tenants {
+    uuid Id PK
+  }
+  UserRoles {
+    uuid Id PK
+  }
+  UserSessions {
+    uuid Id PK
+  }
+  Users {
+    uuid Id PK
+  }
+  Vehicles {
+    uuid Id PK
+  }
+  Warehouses {
+    uuid Id PK
+  }
+  Tenants ||--o{ Categories : "TenantId"
+  Tenants ||--o{ Customers : "TenantId"
+  Tenants ||--o{ DeliveryAttempts : "TenantId"
+  DispatchStops ||--o{ DeliveryAttempts : "DispatchStopId"
+  Tenants ||--o{ DispatchIncidents : "TenantId"
+  Dispatches ||--o{ DispatchIncidents : "DispatchId"
+  Tenants ||--o{ DispatchSales : "TenantId"
+  Dispatches ||--o{ DispatchSales : "DispatchId"
+  Sales ||--o| DispatchSales : "SaleId"
+  Tenants ||--o{ DispatchStops : "TenantId"
+  Dispatches ||--o{ DispatchStops : "DispatchId"
+  Tenants ||--o{ Dispatches : "TenantId"
+  Tenants ||--o{ Drivers : "TenantId"
+  Tenants ||--o{ GoodsReceiptLines : "TenantId"
+  GoodsReceipts ||--o{ GoodsReceiptLines : "GoodsReceiptId"
+  PurchaseOrderLines ||--o{ GoodsReceiptLines : "PurchaseOrderLineId"
+  Tenants ||--o{ GoodsReceipts : "TenantId"
+  PurchaseOrders ||--o{ GoodsReceipts : "PurchaseOrderId"
+  Users ||--o{ GoodsReceipts : "UserId"
+  Tenants ||--o{ InventoryMovements : "TenantId"
+  Products ||--o{ InventoryMovements : "ProductId"
+  Users ||--o{ InventoryMovements : "UserId"
+  Warehouses ||--o{ InventoryMovements : "WarehouseId"
+  Tenants ||--o{ Locations : "TenantId"
+  Warehouses ||--o{ Locations : "WarehouseId"
+  Tenants ||--o{ Notifications : "TenantId"
+  Tenants ||--o{ Payments : "TenantId"
+  Sales ||--o{ Payments : "SaleId"
+  Tenants ||--o{ ProductVariants : "TenantId"
+  Products ||--o{ ProductVariants : "ProductId"
+  Tenants ||--o{ Products : "TenantId"
+  Tenants ||--o{ PurchaseOrderLines : "TenantId"
+  Products ||--o{ PurchaseOrderLines : "ProductId"
+  PurchaseOrders ||--o{ PurchaseOrderLines : "PurchaseOrderId"
+  Tenants ||--o{ PurchaseOrders : "TenantId"
+  Suppliers ||--o{ PurchaseOrders : "SupplierId"
+  Warehouses ||--o{ PurchaseOrders : "WarehouseId"
+  Tenants ||--o{ ReturnLines : "TenantId"
+  Returns ||--o{ ReturnLines : "ReturnId"
+  SaleLines ||--o{ ReturnLines : "SaleLineId"
+  Tenants ||--o{ Returns : "TenantId"
+  Sales ||--o{ Returns : "SaleId"
+  Tenants ||--o{ Roles : "TenantId"
+  Tenants ||--o{ SaleLines : "TenantId"
+  Products ||--o{ SaleLines : "ProductId"
+  Sales ||--o{ SaleLines : "SaleId"
+  Tenants ||--o{ Sales : "TenantId"
+  Users ||--o{ Sales : "UserId"
+  Warehouses ||--o{ Sales : "WarehouseId"
+  Tenants ||--o{ SalesReceipts : "TenantId"
+  Sales ||--o| SalesReceipts : "SaleId"
+  Tenants ||--o{ StockBalances : "TenantId"
+  Products ||--o{ StockBalances : "ProductId"
+  Warehouses ||--o{ StockBalances : "WarehouseId"
+  Tenants ||--o{ StockLots : "TenantId"
+  Products ||--o{ StockLots : "ProductId"
+  Tenants ||--o{ Suppliers : "TenantId"
+  SubscriptionPlans ||--o{ TenantSubscriptions : "SubscriptionPlanId"
+  Tenants ||--o{ TenantSubscriptions : "TenantId"
+  Tenants ||--o{ UserRoles : "TenantId"
+  Roles ||--o{ UserRoles : "RoleId"
+  Users ||--o{ UserRoles : "UserId"
+  Tenants ||--o{ UserSessions : "TenantId"
+  Users ||--o{ UserSessions : "UserId"
+  Tenants ||--o{ Users : "TenantId"
+  Tenants ||--o{ Vehicles : "TenantId"
+  Tenants ||--o{ Warehouses : "TenantId"

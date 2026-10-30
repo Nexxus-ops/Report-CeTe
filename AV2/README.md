@@ -3,7 +3,7 @@
 | Feedback TB1 | Corrección verificable | Pendiente |
 | :--- | :--- | :--- |
 | Sprint 2 suma 25 h y tareas amplias. | Aclaración histórica y tareas propuestas de 4–8 h en 5.2.3. | Refinamiento, capacidad y tablero real. |
-| Landing sin mejora de idioma y footer incompleto. | Inglés/español persistentes, cuatro recursos y menú móvil verificados. | Publicar y validar con usuarios. |
+| Landing sin mejora de idioma y footer incompleto. | Inglés/español persistentes, cuatro recursos y menú móvil verificados. | Validar con usuarios. |
 | Technical Stories fuera del backlog. | 35 TS visibles junto a 42 US, vinculadas sin doble suma de SP. | Aceptación y herramienta ágil. |
 | 15 tablas y funcionalidad insuficiente. | 35 tablas físicas, compras, recepción parcial, movimientos, sesiones y boleta. | Flujos futuros y migraciones. |
 | PPT sin Sprint 2 ni conclusiones. | Nueva PPT editable con evidencia histórica, pruebas AV2 y conclusiones. | Ensayo y demo pública. |
@@ -35,3 +35,7 @@ Las capturas de evidence son de ejecución pública real con datos ficticios. No
 ## Revalidación antes de commit y push
 
 [Resultados del 30/10/2026](revalidacion-2026-10-30.md): API, dominio, navegador completo local/público, landing, dependencias e integridad documental. Incluye los ajustes de errores visibles y accesibilidad encontrados durante las pruebas.
+
+## Revisión visual y de arquitectura del informe
+
+La [revisión del 30/10/2026](revision-informe.md) corrige tablas, jerarquía y presentación de evidencias; contrasta DDD, C4 y UML con el código, y documenta las 35 tablas en el [diccionario de datos](diccionario-datos.md). El [atlas de diagramas](../diagrams/README.md) contiene fuentes editables y SVG ampliables. Los hallazgos de implementación y los acuerdos pendientes se distinguen de las correcciones documentales.

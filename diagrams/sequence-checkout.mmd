@@ -1,0 +1,32 @@
+---
+title: Vista dinámica · Venta atómica e idempotente · AV2
+---
+sequenceDiagram
+  actor U as Vendedor
+  participant V as SPA Vue
+  participant A as Minimal API
+  participant O as Operations
+  participant D as Dominio
+  participant P as CeTeDb / PostgreSQL
+  U->>V: Confirma la compra
+  V->>A: POST /sales + JWT + UUID
+  A->>A: Verifica JWT, sesión y rol
+  A->>O: Checkout(input)
+  O->>P: BEGIN SERIALIZABLE
+  O->>P: Busca venta por UUID y tenant
+  alt UUID existente con mismo hash
+    P-->>O: Venta ya registrada
+    O->>P: Finaliza transacción sin nuevo descuento
+    O-->>A: Venta existente
+  else UUID nuevo
+    O->>P: Lee producto, precio y saldo propios
+    O->>D: StockBalance.Remove y Sale.Confirm
+    D-->>O: Reglas aceptadas
+    O->>P: Guarda venta, líneas, movimiento, pago y boleta
+    O->>P: COMMIT
+    O-->>A: Venta confirmada
+  end
+  A-->>V: 200 y venta
+  V->>A: GET /sales/{id}/receipt
+  A-->>V: 200 y datos históricos para visualizar/imprimir
+  Note over O,P: Ante regla incumplida o conflicto: rollback.<br/>409 para stock/concurrencia o UUID con otro contenido.<br/>422 para datos inválidos. No se publica un evento asíncrono.

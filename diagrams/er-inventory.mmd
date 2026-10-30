@@ -1,0 +1,68 @@
+---
+title: ER físico · Inventario
+---
+erDiagram
+  Warehouses {
+    uuid Id PK
+    text Name
+    text Address
+    uuid TenantId FK
+  }
+  Locations {
+    uuid Id PK
+    uuid WarehouseId FK
+    text Code
+    uuid TenantId FK
+  }
+  Categories {
+    uuid Id PK
+    text Name
+    uuid TenantId FK
+  }
+  Products {
+    uuid Id PK
+    text Sku
+    text Name
+    decimal UnitPrice
+    decimal MinimumStock
+    bool Active
+    uuid TenantId FK
+  }
+  ProductVariants {
+    uuid Id PK
+    uuid ProductId FK
+    text Sku
+    text AttributesJson
+    uuid TenantId FK
+  }
+  StockLots {
+    uuid Id PK
+    uuid ProductId FK
+    text Code
+    timestamptz ExpiresAt
+    uuid TenantId FK
+  }
+  StockBalances {
+    uuid Id PK
+    uuid ProductId FK
+    uuid WarehouseId FK
+    decimal Quantity
+    uuid TenantId FK
+  }
+  InventoryMovements {
+    uuid Id PK
+    uuid ProductId FK
+    uuid WarehouseId FK
+    uuid UserId FK
+    decimal Quantity
+    text Reason
+    timestamptz CreatedAt
+    uuid TenantId FK
+  }
+  Products ||--o{ InventoryMovements : "ProductId"
+  Warehouses ||--o{ InventoryMovements : "WarehouseId"
+  Warehouses ||--o{ Locations : "WarehouseId"
+  Products ||--o{ ProductVariants : "ProductId"
+  Products ||--o{ StockBalances : "ProductId"
+  Warehouses ||--o{ StockBalances : "WarehouseId"
+  Products ||--o{ StockLots : "ProductId"

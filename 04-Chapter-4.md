@@ -1,6 +1,8 @@
 # Capítulo IV: Product Design
 
-En este capítulo detallamos las directrices visuales, arquitectónicas y de experiencia de usuario que guiarán el desarrollo de CeTe. El diseño se fundamenta en heurísticas de usabilidad estandarizadas, garantizando una curva de aprendizaje mínima y alta eficiencia operativa.
+[Estilo](#41-style-guidelines) · [UX/UI](#44-web-applications-uxui-design) · [DDD y C4](#46-domain-driven-software-architecture) · [Clases](#47-software-object-oriented-design) · [Base de datos](#48-database-design)
+
+En este capítulo detallamos las directrices visuales, arquitectónicas y de experiencia de usuario que guiarán el desarrollo de CeTe. El diseño se fundamenta en heurísticas de usabilidad estandarizadas, con el objetivo de facilitar el aprendizaje y las tareas operativas; estas metas requieren validación con usuarios.
 
 ## 4.1. Style Guidelines
 
@@ -29,7 +31,7 @@ La tipografía de CeTe ha sido definida con el objetivo de mantener una interfaz
 La paleta de colores de CeTe transmite estabilidad y guía el flujo operativo del usuario mediante altos contrastes:
 * **Primary Blue (`#0A2540`):** Azul marino oscuro y elegante. Denota estabilidad, seguridad de la información y profesionalismo corporativo.
 * **Secondary Blue (`#204066`):** Utilizado para fondos secundarios y jerarquización visual de componentes.
-* **Accent Orange (`#FF6A00`):** Un naranja vibrante, reservado estrictamente para llamar la atención en *Call-to-Actions* (CTAs) y botones principales.
+* **Accent Orange:** el diseño inicial usa `#FF6A00`; la landing AV2 utiliza `#A94300` en CTAs y foco para mejorar el contraste con texto blanco.
 * **Backgrounds (`#F6F9FC` & `#FFFFFF`):** Tonos muy claros y neutros para mantener la limpieza visual del sistema.
 * **Semantic Colors:** Colores de estado para retroalimentación. Rojo para errores o quiebres de stock (*Stock Out*), y Verde para confirmaciones o transacciones exitosas.
 
@@ -51,7 +53,7 @@ Aplicaremos diferentes esquemas de organización dependiendo de la vista y la in
 ### 4.2.2. Labeling Systems
 
 Para asegurar la claridad, nuestras etiquetas reflejan fielmente el **Ubiquitous Language** del dominio operativo, evitando jergas técnicas:
-* En lugar del genérico "Crear un nuevo ítem", usaremos la etiqueta directa **"Registrar Entrada"**.
+* **"Registrar producto"** crea la identidad del SKU; **"Registrar entrada"** aumenta la existencia de un producto ya registrado. Son acciones distintas.
 * En lugar de "Módulo de envíos", usaremos **"Despacho y Trazabilidad"**.
 * Los botones de confirmación tendrán etiquetas precisas sobre la acción exacta, por ejemplo: **"Aprobar Manifiesto"**.
 
@@ -70,9 +72,9 @@ Dada la cantidad de mercadería que maneja una MYPE, el sistema de búsqueda es 
 
 | Criterio | Descripción |
 | :--- | :--- |
-| **Búsqueda Global** | Ubicada en la barra superior. Permite localizar un producto en segundos escaneando su código de barras o escribiendo su SKU/nombre. |
-| **Búsqueda Facetada (Filtros)** | Integrada en las tablas de datos, permite aplicar filtros simultáneos y combinados (ej. filtrar por categoría y estado de stock). |
-| **Presentación de Resultados** | Muestra resultados en tiempo real con resaltado visual del término buscado. Incluye mensajes claros de *"Not Found"* para evitar confusión. |
+| **Búsqueda por nombre o SKU** | Disponible en las listas y el POS. El escaneo por cámara o código de barras es una evolución pendiente. |
+| **Filtros facetados propuestos** | El filtrado combinado por categoría y estado requiere completar el modelo y su implementación; no se acredita como función actual. |
+| **Presentación de resultados** | Las listas permiten filtrar resultados; el resaltado de coincidencias forma parte del diseño propuesto. |
 
 <p align="center"><em>Nota. La tabla detalla los mecanismos de búsqueda diseñados para acelerar las tareas de los operarios de almacén.</em></p>
 
@@ -165,6 +167,8 @@ Los mock-ups de alta fidelidad aplican nuestro *Design System*. Se evidencia el 
 
 ## 4.4. Web Applications UX/UI Design
 
+> **Alcance de los artefactos visuales.** Los wireframes, wireflows y mockups siguientes conservan el diseño inicial. Las capacidades implementadas y las pendientes se distinguen en las secciones 4.6–4.8 y en las evidencias del incremento AV2.
+
 El diseño de la aplicación web interna centra su enfoque en la eficiencia del usuario operativo, minimizando la carga de memoria (reconocer en lugar de recordar) y aplicando una fuerte prevención de errores.
 
 ### 4.4.1. Web Applications Wireframes
@@ -256,7 +260,7 @@ El usuario Colaborador puede acceder a su perfil, ver los proyectos o tareas asi
 
 ![Vista General del User Flow](Images/imagenpiero5.png)
 
-### 4.5. Web Applications Prototyping
+## 4.5. Web Applications Prototyping
 
 Nuestro prototipo navegable fue construido íntegramente en Figma, configurando estados reactivos y modales interactivos para brindar retroalimentación inmediata, simulando con precisión el comportamiento ágil de una SPA (*Single Page Application*).
 
@@ -266,434 +270,248 @@ Nuestro prototipo navegable fue construido íntegramente en Figma, configurando 
 
 ## 4.6. Domain-Driven Software Architecture
 
-A partir del entendimiento general del negocio logrado en el Big Picture Event Storming, hemos profundizado en la arquitectura del software aplicando Domain-Driven Design (DDD). En esta sección presentamos la transición de los eventos de negocio hacia artefactos de software concretos y su representación estructural utilizando el Modelo C4. El incremento incorpora una primera API C# con ASP.NET Core 10, EF Core y PostgreSQL. Los diagramas de detalle representan el diseño objetivo. El código actual separa Domain, Application e Infrastructure y debe consolidar los límites por bounded context.
+El incremento AV2 tiene una API única en ASP.NET Core 10, una base PostgreSQL y una SPA Vue. Separamos las responsabilidades del negocio mediante DDD, pero los límites son todavía **lógicos**: las operaciones comparten `Operations`, `ICeTeRepository`, `CeTeDb` y un mismo proceso. La separación en carpetas `Domain`, `Application` e `Infrastructure` constituye una base para evolucionar; aún no impide dependencias entre contextos.
 
-## 4.6.1. Design-Level Event Storming
+**Criterio de lectura.** Los diagramas C4, de clases y de datos siguientes describen el código actual. Los eventos de EventStorming nombran hechos del negocio para el análisis; no representan clases de eventos publicadas, colas ni consistencia eventual. Las mejoras propuestas se identifican al final de cada sección. Todos los diagramas tienen [fuente editable y versión SVG](diagrams/README.md).
 
-El equipo llevó a cabo una sesión de Design-Level Event Storming para refinar los eventos descubiertos y agruparlos lógicamente. Identificamos los Commands (acciones, notas azules) que disparan los eventos, los Aggregates (entidades de dominio, notas amarillas) que validan las reglas, y las Queries (notas verdes) necesarias para renderizar la UI.
+### 4.6.1. Design-Level Event Storming
 
-A partir de este análisis, definimos los Bounded Contexts principales del sistema:
+#### 4.6.1.1. Subdominios y límites de responsabilidad
 
-* **Warehouse Management (Core Domain):** Gobierna el control de stock, ingresos, salidas y mermas.
-* **Sales & Billing:** Administra el ciclo de vida de las transacciones comerciales.
+El núcleo diferenciador es la coherencia entre existencia física y operación comercial. Por eso Inventario conserva la autoridad sobre el saldo, mientras Abastecimiento y Ventas solicitan sus cambios dentro de una transacción coordinada. Una recepción y una venta no son el mismo concepto, aunque ambas generen movimientos.
 
-```mermaid
-flowchart LR
-    %% Paleta de colores estándar de Event Storming
-    classDef command fill:#87b4e5,stroke:#2b578c,color:#000,rx:5px,ry:5px
-    classDef aggregate fill:#f9e076,stroke:#a68910,color:#000,rx:5px,ry:5px
-    classDef event fill:#f4b163,stroke:#c46c0b,color:#000,rx:5px,ry:5px
-    classDef query fill:#a5d790,stroke:#387c1c,color:#000,rx:5px,ry:5px
-    classDef policy fill:#d5a8e3,stroke:#7c3d91,color:#000,rx:5px,ry:5px
+| Contexto lógico | Responsabilidad y lenguaje propio | Entidades principales | Alcance AV2 |
+| :--- | :--- | :--- | :--- |
+| **Inventario — núcleo** | Identificar productos y controlar saldos por almacén. SKU, saldo, ingreso, salida y movimiento. | `Product`, `Warehouse`, `StockBalance`, `InventoryMovement` | Catálogo, entradas/salidas, archivo e historial. |
+| **Abastecimiento — soporte** | Registrar lo pedido y distinguirlo de lo recibido físicamente. Orden, pendiente y recepción. | `Supplier`, `PurchaseOrder`, `PurchaseOrderLine`, `GoodsReceipt`, `GoodsReceiptLine` | Una línea por orden y recepciones parciales. |
+| **Ventas — soporte** | Confirmar una transacción con precios del servidor y conservar su documento histórico. Venta, detalle, pago registrado y boleta. | `Sale`, `SaleLine`, `Payment`, `SalesReceipt` | Venta atómica, consulta, anulación y boleta académica. |
+| **Logística — soporte** | Agrupar ventas elegibles, asignar recursos y controlar el estado de entrega. Despacho e incidencia. | `Dispatch`, `DispatchSale`, `DispatchIncident` | Conductor/placa como texto, exclusividad y transiciones. |
+| **Identidad y empresa — genérico** | Resolver quién opera, para qué empresa y con qué permisos. Cuenta, rol, sesión y tenant. | `Tenant`, `User`, `Role`, `UserRole`, `UserSession` | Registro, acceso, cierre, alta de empleados y autorización. |
 
-    subgraph Warehouse["Warehouse Management (Core Domain)"]
-        direction LR
-        W_Cmd1["<b>Command</b><br/>Register Stock Input"]:::command
-        W_Agg1["<b>Aggregate</b><br/>InventoryItem"]:::aggregate
-        W_Evt1["<b>Domain Event</b><br/>Stock Added"]:::event
-        W_Qry1["<b>Query / Read Model</b><br/>Inventory View"]:::query
+El dashboard es una **proyección de lectura transversal**, no un agregado de rentabilidad: suma ventas completadas y consulta existencias y despachos. Todavía no calcula costo de ventas, margen neto ni pérdida contable por merma. Suscripciones, devoluciones y notificaciones tienen tablas preparadas, pero sus flujos no están implementados. La landing comunica la propuesta; no constituye un contexto transaccional de la API.
 
-        W_Cmd1 -->|"Invoca"| W_Agg1 -->|"Emite"| W_Evt1 -.->|"Actualiza"| W_Qry1
+#### 4.6.1.2. Mapa de contextos
 
-        W_Cmd2["<b>Command</b><br/>Decrease Stock"]:::command
-        W_Agg2["<b>Aggregate</b><br/>InventoryItem"]:::aggregate
-        W_Evt2["<b>Domain Event</b><br/>Stock Decreased"]:::event
+![Mapa lógico de contextos DDD](diagrams/ddd-context-map.svg)
 
-        W_Cmd2 -->|"Invoca"| W_Agg2 -->|"Emite"| W_Evt2
-    end
+*Las flechas señalan al proveedor de información y a su consumidor. No representan microservicios ni contratos de integración independientes.* [Ampliar](diagrams/ddd-context-map.svg) · [Fuente editable](diagrams/ddd-context-map.mmd)
 
-    subgraph Sales["Sales & Billing (Bounded Context)"]
-        direction LR
-        S_Cmd1["<b>Command</b><br/>Create Sale"]:::command
-        S_Agg1["<b>Aggregate</b><br/>Sale"]:::aggregate
-        S_Evt1["<b>Domain Event</b><br/>Sale Confirmed"]:::event
-        S_Qry1["<b>Query / Read Model</b><br/>Sales Dashboard"]:::query
+La relación Inventario–Ventas y la relación Inventario–Abastecimiento se coordinan hoy en el mismo caso de uso y la misma base. El vínculo Ventas–Logística permite comprobar elegibilidad y bloquear anulaciones de ventas asignadas. Identidad proporciona `TenantId`, usuario y rol a todas las operaciones protegidas. Antes de separar módulos, se requieren contratos explícitos para cambiar saldos y consultar ventas, evitando acceso arbitrario al repositorio genérico.
 
-        S_Cmd1 -->|"Invoca"| S_Agg1 -->|"Emite"| S_Evt1 -.->|"Actualiza"| S_Qry1
-    end
+#### 4.6.1.3. Comandos, reglas, hechos y consultas
 
-    %% Regla de negocio cruzada (Policy / Process Manager)
-    Policy["<b>Policy</b><br/>Deduct Stock on Sale"]:::policy
-    
-    S_Evt1 -.->|"Desencadena"| Policy
-    Policy -->|"Ejecuta automáticamente"| W_Cmd2
-```
+![EventStorming de diseño de la venta](diagrams/event-storming-sale.svg)
 
-*Nota. Representación del tablero de Design-Level Event Storming ilustrando el flujo desde los comandos hasta la actualización de los modelos de lectura, separados por Bounded Context y conectados mediante una Política (Policy).*
+*El descuento y la confirmación pertenecen a una única transacción. Si falla una validación o el commit, el conjunto se revierte.* [Ampliar](diagrams/event-storming-sale.svg) · [Fuente editable](diagrams/event-storming-sale.mmd)
 
-## 4.6.2. Software Architecture Context Diagram
+![EventStorming de diseño de la recepción](diagrams/event-storming-receipt.svg)
 
-En esta sección se presenta el diagrama de contexto correspondiente al Nivel 1 del Modelo C4. El propósito es ilustrar a CeTe en el centro de su entorno, interactuando con actores y sistemas externos.
+*Crear la orden no modifica existencias. Cada recepción registra su cantidad y aumenta el saldo físico una sola vez por operación confirmada.* [Ampliar](diagrams/event-storming-receipt.svg) · [Fuente editable](diagrams/event-storming-receipt.mmd)
 
-* **Usuarios:** Business Owner (dueño con perfil gerencial) y Warehouse Operator (almacenero o vendedor).
+Estos diagramas refinan el [Big Picture del capítulo II](02-Chapter-2.md#24-big-picture-eventstorming). Las consultas leen el estado confirmado de PostgreSQL. No hay publicación de eventos de dominio, outbox ni proyecciones asíncronas implementadas.
 
-* **Sistemas Externos:** El ecosistema se integra con la SUNAT API (para la validación de comprobantes) y con un Email Gateway (para envío de alertas preventivas).
+### 4.6.2. Software Architecture Context Diagram
 
-```mermaid
-flowchart TD
-    %% Actors
-    OWNER(("<b>Business Owner</b><br/>[Person]<br/><i>Dueño con perfil<br/>gerencial</i>"))
-    OPERATOR(("<b>Warehouse Operator</b><br/>[Person]<br/><i>Almacenero o vendedor</i>"))
-    
-    %% Core System
-    CETE("<b>CeTe SaaS System</b><br/>[Software System]<br/><i>Plataforma principal de gestión<br/>de inventario, ventas y logística</i>")
-    
-    %% External Systems
-    SUNAT["<b>SUNAT API</b><br/>[Software System]<br/><i>Servicio gubernamental para la<br/>validación de comprobantes</i>"]
-    EMAIL["<b>Email Gateway</b><br/>[Software System]<br/><i>Servicio externo para envío de<br/>alertas preventivas y notificaciones</i>"]
-    
-    %% Relationships
-    OWNER -.->|"Supervisa el negocio,<br/>revisa métricas y reportes"| CETE
-    OPERATOR -.->|"Gestiona operaciones<br/>diarias y registra ventas"| CETE
-    
-    CETE -.->|"Valida y emite<br/>comprobantes electrónicos"| SUNAT
-    CETE -.->|"Delega el envío de<br/>correos electrónicos"| EMAIL
-    
-    %% C4 Model Styling
-    classDef person fill:#08427b,stroke:#052e56,color:#ffffff,stroke-width:2px
-    classDef system fill:#1168bd,stroke:#0b4884,color:#ffffff,rx:10px,ry:10px,stroke-width:2px
-    classDef external fill:#999999,stroke:#6b6b6b,color:#ffffff,rx:10px,ry:10px,stroke-width:2px
-    
-    class OWNER,OPERATOR person
-    class CETE system
-    class SUNAT,EMAIL external
+El nivel 1 del modelo C4 ubica a CeTe como sistema único frente a sus personas y su integración externa actual. El personal operativo se distingue por los roles `Warehouse`, `Sales` y `Logistics`; `Admin` administra la empresa y consulta indicadores.
 
-```
+![C4 nivel 1: contexto actual de CeTe](diagrams/c4-context.svg)
 
-*Nota. Diagrama de Contexto del Sistema elaborado aplicando el Modelo C4.*
+*La integración externa implementada es ExchangeRate-API. SUNAT y un gateway de correo no forman parte del despliegue AV2.* [Ampliar](diagrams/c4-context.svg) · [Fuente editable](diagrams/c4-context.mmd)
 
-## 4.6.3. Software Architecture Container Diagrams
+La consulta de tipo de cambio es informativa: no convierte importes ni altera la moneda de la venta, que permanece en PEN. La boleta es un comprobante académico de demostración; no acredita emisión electrónica fiscal.
 
-El Diagrama de Contenedores (Nivel 2 del Modelo C4) descompone el sistema central en unidades de despliegue independientes, reflejando nuestras decisiones tecnológicas:
+### 4.6.3. Software Architecture Container Diagrams
 
-* **Landing Page:** Frontend estático público (HTML5, CSS3, JS).
+El nivel 2 distingue las unidades de ejecución y persistencia. En C4, «contenedor» significa una aplicación o almacén de datos; no exige que cada elemento use Docker. La landing y el frontend se publican como sitios estáticos; la API usa una imagen Docker y PostgreSQL es administrado por Render.
 
-* **Single Page Application (Frontend Container):** Desarrollada con Vue.js y PrimeVue. Provee la interfaz reactiva y se comunica asíncronamente vía JSON/HTTPS.
+![C4 nivel 2: contenedores de CeTe](diagrams/c4-containers.svg)
 
-* **RESTful API Application (Backend Container):** Desarrollada en C# con ASP.NET Core 10. Este contenedor expone los Endpoints y procesa la lógica de negocio orientada a dominio.
+*Las relaciones indican responsabilidad, dirección y protocolo. La landing enlaza al frontend; no llama a una API de planes ni de contacto.* [Ampliar](diagrams/c4-containers.svg) · [Fuente editable](diagrams/c4-containers.mmd)
 
-* **Database Container:** Base de datos relacional (PostgreSQL) para persistir el estado transaccional del sistema.
+**Vista complementaria de despliegue.** El navegador descarga la SPA y realiza las peticiones a la API. El sitio estático no actúa como proxy. La API accede a PostgreSQL mediante la conexión interna configurada en Render.
 
-```mermaid
-flowchart TD
-    %% Actors
-    USER(("<b>Web User</b><br/>[Person]<br/><i>Usuario público o<br/>cliente autenticado (Tenant)</i>"))
-    
-    %% System Boundary
-    subgraph SystemBoundary ["CeTe SaaS System [Software System]"]
-        direction TB
-        
-        LP["<b>Landing Page</b><br/>[Container: HTML5, CSS3, JS]<br/><i>Sitio web público informativo<br/>y portal de entrada</i>"]
-        
-        SPA["<b>Single Page Application</b><br/>[Container: Vue.js, PrimeVue]<br/><i>Provee la interfaz reactiva<br/>para la gestión del sistema</i>"]
-        
-        API["<b>RESTful API Application</b><br/>[Container: C#, ASP.NET Core 10]<br/><i>Expone los endpoints y procesa<br/>la lógica de negocio (DDD)</i>"]
-        
-        DB[("<b>Database</b><br/>[Container: PostgreSQL]<br/><i>Base de datos relacional para<br/>persistir el estado transaccional</i>")]
-    end
+![Despliegue público AV2](diagrams/c4-deployment.svg)
 
-    %% Relationships
-    USER -.->|"Visita sitio público<br/>[HTTPS]"| LP
-    USER -.->|"Interactúa con la plataforma<br/>[HTTPS]"| SPA
-    SPA -.->|"Realiza peticiones API<br/>[JSON/HTTPS]"| API
-    API -.->|"Lee y escribe datos<br/>[SQL/Entity Framework]"| DB
+*La ejecución local con Docker Compose contiene API y PostgreSQL; el navegador usa los servidores locales de frontend y landing.* [Ampliar](diagrams/c4-deployment.svg) · [Fuente editable](diagrams/c4-deployment.mmd)
 
-    %% C4 Model Styling
-    classDef person fill:#08427b,stroke:#052e56,color:#ffffff,rx:5px,ry:5px
-    classDef container fill:#1168bd,stroke:#0b4884,color:#ffffff,rx:5px,ry:5px
-    classDef database fill:#1168bd,stroke:#0b4884,color:#ffffff
-    classDef boundary fill:#ffffff,stroke:#1168bd,stroke-width:2px,stroke-dasharray: 5 5,color:#1168bd
+| Recurso | Dirección pública | Función verificable |
+| :--- | :--- | :--- |
+| Landing | [cete-landing-av2.onrender.com](https://cete-landing-av2.onrender.com/) | Propuesta, idiomas y acceso a la aplicación. |
+| Frontend | [cete-web-av2.onrender.com](https://cete-web-av2.onrender.com/) | Interfaz de operación autenticada. |
+| API | [Swagger](https://cete-api-av2.onrender.com/swagger) · [Health](https://cete-api-av2.onrender.com/health) | Contratos y estado de conexión a la base. |
 
-    class USER person
-    class LP,SPA,API container
-    class DB database
-    class SystemBoundary boundary
+La evidencia de ejecución se encuentra en [la verificación AV2](AV2/verificacion.md). La base Free tiene vencimiento registrado para el **28/11/2026 a las 22:30, hora de Lima** (29/11/2026, 03:30 UTC). La continuidad posterior requiere respaldo y renovación o migración; el diagrama no implica disponibilidad permanente.
 
-```
+### 4.6.4. Software Architecture Components Diagrams
 
-*Nota. Diagrama de Contenedores ilustrando el stack tecnológico de CeTe.*
+El nivel 3 amplía exclusivamente el contenedor CeTe API. Los nombres corresponden a archivos y tipos existentes: Minimal APIs en `Program.cs`, `Operations`, `Authentication`, `CurrentUser`, entidades de dominio y `CeTeDb`. El puerto `ICeTeRepository` está definido en `Application/Ports.cs` y EF Core lo implementa en infraestructura.
 
+![C4 nivel 3: componentes reales de la API](diagrams/c4-components.svg)
 
-## 4.6.4. Software Architecture Components Diagrams
+*Se muestran dependencias efectivas, incluido el acceso directo de Authentication a CeTeDb. No existen InventoryController, InventoryService ni InventoryRepository especializados en esta versión.* [Ampliar](diagrams/c4-components.svg) · [Fuente editable](diagrams/c4-components.mmd)
 
-El Diagrama de Componentes (Nivel 3 del Modelo C4) hace un acercamiento al interior del contenedor del RESTful API (C#). Este diagrama muestra el flujo de ejecución: las peticiones HTTP entrantes son interceptadas por el SecurityMiddleware, canalizadas hacia un InventoryController (API endpoint), procesadas por el InventoryService (lógica de dominio) y finalmente persistidas utilizando el InventoryRepository (apoyado robustamente en Entity Framework Core).
+La inversión de dependencias está aplicada en los casos de uso que consumen `ICeTeRepository` e `ICurrentUser`. La arquitectura hexagonal sigue siendo **parcial**: autenticación depende directamente de EF Core, y la consulta cambiaria reside en un endpoint con `HttpClient`. La mejora prevista es extraer puertos y adaptadores específicos, separar casos de uso por contexto y conservar las pruebas de integración como criterio de regresión.
 
-```mermaid
-flowchart LR
-    SPA["<b>Single Page Application</b><br/>[Container: Frontend]<br/><i>Interfaz de usuario responsiva</i>"]
-    
-    subgraph API ["RESTful API Application [Container]"]
-        direction LR
-        MW["<b>SecurityMiddleware</b><br/>[Component: .NET Core Auth]<br/><i>Valida autenticación y tokens JWT</i>"]
-        CTRL["<b>InventoryController</b><br/>[Component: C# REST Controller]<br/><i>Recibe peticiones HTTP GET/POST para el almacén</i>"]
-        SVC["<b>InventoryService</b><br/>[Component: C# Service]<br/><i>Aplica lógica y validaciones de negocio</i>"]
-        REPO["<b>InventoryRepository</b><br/>[Component: Entity Framework Core]<br/><i>Mapea objetos y ejecuta consultas</i>"]
-        
-        MW -->|"Pasa peticiones<br/>autorizadas"| CTRL
-        CTRL -->|"Invoca métodos<br/>del dominio"| SVC
-        SVC -->|"Persiste o consulta<br/>información"| REPO
-    end
-    
-    DB[("<b>Database</b><br/>[Container: PostgreSQL]<br/><i>Almacena el estado relacional de<br/>inventarios y transacciones</i>")]
+#### 4.6.4.1. Vista dinámica de la venta
 
-    SPA -.->|"Envía peticiones HTTP cifradas<br/>con Bearer Token"| MW
-    REPO -.->|"Ejecuta consultas<br/>SQL / ORM"| DB
+![Secuencia de venta, idempotencia y boleta](diagrams/sequence-checkout.svg)
 
-    %% C4 Model Styling
-    classDef container fill:#1168bd,stroke:#0b4884,color:#ffffff,rx:5px,ry:5px
-    classDef component fill:#85bbf0,stroke:#5b93c5,color:#000000,rx:5px,ry:5px
-    classDef database fill:#1168bd,stroke:#0b4884,color:#ffffff
-    classDef boundary fill:#ffffff,stroke:#1168bd,stroke-width:2px,color:#1168bd
-
-    class SPA container
-    class MW,CTRL,SVC,REPO component
-    class DB database
-    class API boundary
-
-```
-
-*Nota. Diagrama de Componentes del Backend API de CeTe.*
+*El UUID identifica la solicitud de venta; el hash distingue un reintento idéntico de una reutilización incompatible. El token de acceso nunca se incluye en el informe.* [Ampliar](diagrams/sequence-checkout.svg) · [Fuente editable](diagrams/sequence-checkout.mmd)
 
 ## 4.7. Software Object-Oriented Design
 
-En esta sección detallamos cómo los conceptos identificados en el DDD (Domain-Driven Design) se traducen en código C#. El diseño orientado a objetos en CeTe protege rigurosamente los invariantes encapsulando el estado y exponiendo únicamente métodos con significado de dominio.
+El diseño táctico se evalúa por sus reglas y límites de consistencia. Una tabla o una clase no constituye automáticamente un agregado. Actualmente, `StockBalance`, `Sale` y `Dispatch` encapsulan parte de su estado; las demás entidades mantienen propiedades mutables y varias reglas se coordinan desde `Operations`.
 
 ### 4.7.1. Class Diagrams
 
-Los Diagramas de Clases UML mapean de manera precisa nuestras entidades del backend, respetando la separación por *Bounded Contexts*. 
+Los diagramas siguientes muestran **tipos y miembros existentes**, con atributos relevantes para cada operación. `Id` y, salvo `Tenant` y `SubscriptionPlan`, `TenantId` se heredan de `Entity` y `TenantEntity`; no se repiten en todas las cajas. Las asociaciones indican referencias por identificador, no colecciones de navegación ni composición implementada. Los estados marcados `[private set]` tienen lectura pública y escritura restringida.
 
-Como regla general de nuestra arquitectura, las propiedades de estado utilizan el modificador de acceso privado `-` (implementado como `{ get; private set; }` en C#) para evitar mutaciones externas directas. Las interacciones con las entidades se realizan exclusivamente a través de métodos públicos `+` ricos en significado de dominio (ej. `AddStock(int amount)` o `CalculateTaxes()`), los cuales evalúan las reglas lógicas internamente antes de alterar el estado.
+#### 4.7.1.1. Inventario
 
-A continuación, se presenta el modelo de dominio principal:
+![Clases actuales de inventario](diagrams/classes-inventory.svg)
 
-```mermaid
-classDiagram
-    %% ==========================================
-    %% SAAS & SECURITY MODULE
-    %% ==========================================
-    namespace SaasAndSecurity {
-        class Tenant {
-            -Id: Guid
-            -Name: string
-            -Ruc: string
-            -SubscriptionPlanId: Guid
-            +ChangeSubscription(planId: Guid): void
-            +UpdateDetails(name: string, ruc: string): void
-        }
+*Product identifica y describe el SKU; StockBalance conserva su cantidad por almacén. No existe una clase InventoryItem en la API: ese nombre se conserva en algunos DTO del frontend por compatibilidad.* [Ampliar](diagrams/classes-inventory.svg) · [Fuente editable](diagrams/classes-inventory.mmd)
 
-        class SubscriptionPlan {
-            -Id: Guid
-            -Name: string
-            -Price: decimal
-            -MaxUsers: int
-        }
+#### 4.7.1.2. Ventas
 
-        class User {
-            -Id: Guid
-            -TenantId: Guid
-            -RoleId: int
-            -FullName: string
-            -Email: string
-            +AssignRole(roleId: int): void
-        }
+![Clases actuales de ventas](diagrams/classes-sales.svg)
 
-        class Role {
-            -Id: int
-            -Name: string
-        }
-    }
+*Sale.Confirm calcula el total y Sale.Cancel protege el estado. Operations coordina las líneas, el movimiento, el pago y la boleta en la misma transacción.* [Ampliar](diagrams/classes-sales.svg) · [Fuente editable](diagrams/classes-sales.mmd)
 
-    %% ==========================================
-    %% INVENTORY MODULE (CORE)
-    %% ==========================================
-    namespace Inventory {
-        class InventoryItem {
-            <<Aggregate Root>>
-            -Id: Guid
-            -TenantId: Guid
-            -CategoryId: Guid
-            -Sku: string
-            -Quantity: int
-            -UnitPrice: decimal
-            +AddStock(amount: int): void
-            +DecreaseStock(amount: int): void
-            +UpdatePrice(newPrice: decimal): void
-        }
+#### 4.7.1.3. Abastecimiento
 
-        class Category {
-            -Id: Guid
-            -TenantId: Guid
-            -Name: string
-        }
+![Clases actuales de abastecimiento](diagrams/classes-procurement.svg)
 
-        class StockMovement {
-            -Id: Guid
-            -InventoryItemId: Guid
-            -UserId: Guid
-            -MovementType: string
-            -Quantity: int
-            -Reason: string
-        }
-    }
+*Las clases de compra son datos persistentes; la validación de cantidades y el estado parcial se implementan en Operations.Receive. La API actual admite una línea por orden.* [Ampliar](diagrams/classes-procurement.svg) · [Fuente editable](diagrams/classes-procurement.mmd)
 
-    %% ==========================================
-    %% COMMERCIAL MODULE
-    %% ==========================================
-    namespace Commercial {
-        class Sale {
-            <<Aggregate Root>>
-            -Id: Guid
-            -TenantId: Guid
-            -CustomerId: Guid
-            -UserId: Guid
-            -TotalAmount: decimal
-            -Status: string
-            +AddDetail(itemId: Guid, qty: int, price: decimal): void
-            +CalculateTaxes(): decimal
-            +ConfirmSale(): void
-        }
+#### 4.7.1.4. Logística
 
-        class SaleDetail {
-            -Id: Guid
-            -SaleId: Guid
-            -InventoryItemId: Guid
-            -Quantity: int
-            -UnitPrice: decimal
-            +GetSubtotal(): decimal
-        }
+![Clases actuales de logística](diagrams/classes-logistics.svg)
 
-        class Customer {
-            -Id: Guid
-            -TenantId: Guid
-            -Name: string
-            -ContactInfo: string
-        }
-    }
+*Dispatch.Transition protege las transiciones. DriverName y LicensePlate son instantáneas de texto; aún no son relaciones a los maestros Driver y Vehicle.* [Ampliar](diagrams/classes-logistics.svg) · [Fuente editable](diagrams/classes-logistics.mmd)
 
-    %% ==========================================
-    %% LOGISTICS MODULE
-    %% ==========================================
-    namespace Logistics {
-        class Dispatch {
-            <<Aggregate Root>>
-            -Id: Guid
-            -TenantId: Guid
-            -DriverId: Guid
-            -UserId: Guid
-            -Status: string
-            +AssignDriver(driverId: Guid): void
-            +CompleteDispatch(): void
-        }
+### 4.7.2. Agregados, invariantes y responsabilidad
 
-        class DispatchSale {
-            -DispatchId: Guid
-            -SaleId: Guid
-        }
+| Límite de consistencia | Regla actual y responsable | Diferencia frente al diseño objetivo |
+| :--- | :--- | :--- |
+| **Saldo de un SKU en un almacén** | `StockBalance.Receive/Remove`: cantidad positiva; salida no mayor al saldo. Índice único `(TenantId, ProductId, WarehouseId)`. | Candidato a raíz de agregado. Extraer un contrato de inventario para impedir modificaciones ajenas al contexto. |
+| **Venta y documentos asociados** | `Sale.Confirm/Cancel` valida total y estado; `Operations.Checkout/CancelSale` coordina detalle, saldo, movimiento, pago y boleta. | La raíz aún no contiene ni controla una colección de líneas. La atomicidad depende del caso de uso y la transacción. |
+| **Orden y recepciones** | `Operations.Receive` exige `0 < cantidad ≤ pendiente`; guarda recepción, acumulado y movimiento juntos. | `PurchaseOrder` todavía no encapsula estas reglas. Extraer métodos de dominio y definir recepción de varias líneas antes de ampliar la API. |
+| **Despacho y ventas agrupadas** | `Dispatch.Transition` controla estados; `Operations.CreateDispatch` verifica ventas completadas, recursos libres y exclusividad. | La agrupación vive en aplicación. Antes de usar los maestros, incorporar referencias estables a conductor y vehículo. |
+| **Acceso de una empresa** | JWT validado contra `UserSession`; roles en endpoints; filtros y FK compuestas por tenant. | `User.Role` gobierna la autorización y también existen `Roles/UserRoles`. Debe definirse una única fuente para futuros cambios de rol. |
 
-        class Driver {
-            -Id: Guid
-            -TenantId: Guid
-            -Name: string
-            -License: string
-        }
+**Dinero.** `Rules.Money` redondea a dos decimales con `AwayFromZero`; las columnas decimales usan `numeric(18,2)`. El precio de venta se obtiene del servidor. No existe un objeto de valor `Money` ni cálculo fiscal `CalculateTaxes()` en el código actual.
 
-        class DispatchIncident {
-            -Id: Guid
-            -DispatchId: Guid
-            -Description: string
-            -OccurredAt: DateTime
-        }
-    }
+**Persistencia y concurrencia.** `CeTeDb.Transaction` usa aislamiento serializable. Un conflicto de concurrencia se traduce a HTTP 409 y requiere volver a consultar/reintentar; no se declara un mecanismo automático de reintentos. Las pruebas registradas comprueban que dos ventas de la última unidad producen una confirmación y un conflicto, con saldo final cero.
 
-    %% ==========================================
-    %% ALERTS MODULE
-    %% ==========================================
-    namespace Alerts {
-        class Notification {
-            -Id: Guid
-            -TenantId: Guid
-            -UserId: Guid
-            -Message: string
-            -IsRead: boolean
-            +MarkAsRead(): void
-        }
-    }
+### 4.7.3. Estados y reglas de transición
 
-    %% ==========================================
-    %% RELATIONSHIPS
-    %% ==========================================
-    
-    %% Compositions (Aggregates)
-    Sale *-- "1..*" SaleDetail : contains
-    Dispatch *-- "1..*" DispatchSale : groups
-    Dispatch *-- "0..*" DispatchIncident : records
-    
-    %% Associations
-    Tenant "1" --> "*" User : has
-    Tenant "1" --> "*" InventoryItem : owns
-    SubscriptionPlan "1" --> "*" Tenant : grants
-    Role "1" --> "*" User : assigns
-    
-    InventoryItem "1" --> "*" StockMovement : tracks
-    Category "1" --> "*" InventoryItem : categorizes
-    
-    SaleDetail "0..*" --> "1" InventoryItem : references
-    Customer "1" --> "*" Sale : makes
-    
-    Dispatch "1" --> "*" Driver : executes
-    DispatchSale "*" --> "1" Sale : assigned_to
-```
+![Estados implementados del despacho](diagrams/state-dispatch.svg)
+
+*La incidencia se registra desde IN_TRANSIT y permite reanudar la ruta. Las transiciones no dibujadas son rechazadas.* [Ampliar](diagrams/state-dispatch.svg) · [Fuente editable](diagrams/state-dispatch.mmd)
+
+| Entidad | Estados actuales | Regla de transición |
+| :--- | :--- | :--- |
+| `Sale` | `COMPLETED`, `CANCELLED` | La anulación se realiza una sola vez, repone stock y marca pagos `REVERSED`. Se bloquea si la venta tiene cualquier asignación de despacho. |
+| `PurchaseOrder` | `ORDERED`, `PARTIAL`, `RECEIVED` | La recepción aumenta el acumulado; alcanzar lo pedido finaliza la orden. Una orden recibida rechaza otra recepción. |
+| `Payment` | `PAID`, `REVERSED` | Registro académico al confirmar/anular venta. No son estados de una pasarela bancaria. |
+| `UserSession` | Vigente, vencida o revocada | Se evalúan `ExpiresAt` y `Revoked` al validar el JWT. |
 
 ## 4.8. Database Design
 
 ### 4.8.1. Esquema físico AV2
 
-PostgreSQL contiene **35 tablas**, exportadas en [schema.sql](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/schema.sql). La ampliación agrega trazabilidad de compras, recepciones, stock, sesiones y comprobantes. La cantidad de tablas no sustituye la validación de relaciones ni acredita todos los flujos.
+El esquema contiene **35 tablas, 182 columnas, 35 claves primarias, 33 claves alternativas por empresa, 67 claves foráneas y ocho índices únicos de negocio**. La comparación del SQL versionado con una exportación estructural de PostgreSQL local coincide en estos elementos. El [diccionario completo](AV2/diccionario-datos.md) detalla cada campo, tipo, nulabilidad, clave y relación.
 
-| Contexto lógico | Tablas físicas | Alcance actual |
+| Área lógica | Tablas | Capacidad operativa actual |
+| :--- | :---: | :--- |
+| Identidad y empresa | 7 | Registro, roles, sesiones y empleados. Suscripciones pendientes. |
+| Inventario | 8 | Catálogo, saldo, entradas/salidas e historial. Categorías, ubicaciones, variantes y lotes pendientes de flujo completo. |
+| Abastecimiento | 5 | Proveedor por nombre, orden de un SKU y recepción parcial. |
+| Ventas | 5 | Venta, pago registrado y boleta histórica. Maestro de clientes pendiente. |
+| Logística | 7 | Despacho, recursos por texto, estados e incidencias. Maestros, paradas e intentos pendientes. |
+| Devoluciones | 2 | Estructura persistente; sin flujo de devolución. |
+| Notificaciones | 1 | Estructura persistente; sin generación operativa ni bandeja. |
+| **Total** | **35** | **La existencia de una tabla no acredita una funcionalidad completa.** |
+
+**Aislamiento.** Las tablas de empresa incluyen `TenantId`, una FK a `Tenants` y la clave alternativa `(TenantId, Id)`. Las referencias entre ellas usan ambas columnas; así, una fila no puede relacionarse con el identificador de otra empresa. Los filtros EF Core restringen las consultas habituales. El registro, el acceso y la validación de sesiones tienen accesos explícitos que omiten filtros bajo sus comprobaciones específicas; no existe Row-Level Security en PostgreSQL.
+
+**Tipos y eliminación.** Los identificadores son UUID; los importes y cantidades usan `numeric(18,2)`; las fechas usan `timestamp with time zone`. Las FK emplean `ON DELETE RESTRICT`. Archivar un producto cambia `Active` y requiere saldo cero; no borra su historia. Todos los campos son obligatorios salvo `StockLots.ExpiresAt`.
+
+### 4.8.2. Diagramas entidad–relación por área
+
+Los diagramas se derivan de las FK del SQL. `||` significa un padre obligatorio; `o{`, cero o muchos dependientes; `o|`, cero o un dependiente por restricción única. Una FK no exige que una cabecera tenga al menos una línea: ese mínimo lo impone el caso de uso. En las vistas por área se omite el vínculo repetido a `Tenants`, excepto en Identidad; **todas las tablas de empresa conservan esa FK**.
+
+#### 4.8.2.1. Identidad y empresa
+
+![ER físico de identidad y empresa](diagrams/er-identity.svg)
+
+*Tenants y SubscriptionPlans son globales. Roles, cuentas, asociaciones y sesiones están delimitados por empresa.* [Ampliar](diagrams/er-identity.svg) · [Fuente editable](diagrams/er-identity.mmd)
+
+#### 4.8.2.2. Inventario
+
+![ER físico de inventario](diagrams/er-inventory.svg)
+
+*Categories no tiene vínculo con Products. Variantes y lotes referencian Product, pero no participan todavía en StockBalance ni en InventoryMovement.* [Ampliar](diagrams/er-inventory.svg) · [Fuente editable](diagrams/er-inventory.mmd)
+
+#### 4.8.2.3. Abastecimiento
+
+![ER físico de abastecimiento](diagrams/er-procurement.svg)
+
+*Cada recepción referencia una orden; cada línea recibida referencia una línea pedida. El ingreso físico y el movimiento se coordinan en aplicación.* [Ampliar](diagrams/er-procurement.svg) · [Fuente editable](diagrams/er-procurement.mmd)
+
+#### 4.8.2.4. Ventas
+
+![ER físico de ventas](diagrams/er-sales.svg)
+
+*La unicidad de SalesReceipts por venta impone 0..1. Payments admite 0..N en SQL, aunque el caso de uso crea exactamente uno. Customers permanece separado de Sales.* [Ampliar](diagrams/er-sales.svg) · [Fuente editable](diagrams/er-sales.mmd)
+
+#### 4.8.2.5. Logística
+
+![ER físico de logística](diagrams/er-logistics.svg)
+
+*DispatchSales implementa la asociación venta–despacho. El índice único por venta impide asignarla otra vez. Los maestros Drivers y Vehicles no tienen FK hacia Dispatches.* [Ampliar](diagrams/er-logistics.svg) · [Fuente editable](diagrams/er-logistics.mmd)
+
+#### 4.8.2.6. Devoluciones y notificaciones
+
+![ER físico de estructuras de expansión](diagrams/er-returns.svg)
+
+*Las tablas existen en el esquema; todavía no tienen casos de uso publicados. Notifications solo referencia a la empresa.* [Ampliar](diagrams/er-returns.svg) · [Fuente editable](diagrams/er-returns.mmd)
+
+El [diagrama físico completo](diagrams/er-complete.svg), con [fuente editable](diagrams/er-complete.mmd), reúne las 35 tablas y todas sus FK. Se entrega como vista ampliable; las vistas anteriores son las recomendadas para lectura y sustentación.
+
+### 4.8.3. Integridad y reglas verificables
+
+| Invariante | Protección actual | Evidencia o límite |
 | :--- | :--- | :--- |
-| Identidad y empresa (7) | Tenants, SubscriptionPlans, TenantSubscriptions, Users, Roles, UserRoles, UserSessions | Registro, roles y sesiones operativos. Suscripción pendiente. |
-| Inventario (8) | Warehouses, Locations, Categories, Products, ProductVariants, StockLots, StockBalances, InventoryMovements | Catálogo, saldo y movimientos operativos. Lotes, variantes y ubicaciones pendientes de flujo completo. |
-| Abastecimiento (5) | Suppliers, PurchaseOrders, PurchaseOrderLines, GoodsReceipts, GoodsReceiptLines | Orden de un SKU y recepción física parcial operativos. |
-| Ventas (5) | Customers, Sales, SaleLines, Payments, SalesReceipts | Venta, pago registrado y boleta operativos. Maestro de clientes pendiente. |
-| Logística (7) | Drivers, Vehicles, Dispatches, DispatchSales, DispatchStops, DeliveryAttempts, DispatchIncidents | Despacho, recursos por nombre/placa, estados e incidencias operativos. Maestros, paradas e intentos pendientes. |
-| Devoluciones (2) | Returns, ReturnLines | Modelo persistido. Flujo pendiente. |
-| Notificaciones (1) | Notifications | Modelo persistido. API y bandeja pendientes. |
+| Un SKU por empresa | Índice único `(TenantId, Sku)` en `Products`. | Se permiten SKU iguales en empresas distintas. |
+| Un saldo por producto y almacén | Índice único `(TenantId, ProductId, WarehouseId)`. | Las cantidades no se almacenan en `Product`. |
+| Venta completa o ninguna modificación | Transacción serializable del caso de uso. | Stock insuficiente revierte detalles, pago y boleta. |
+| Reintento sin descuento duplicado | `Sales.Id` como PK y `RequestHash` validado por aplicación. | Un UUID con contenido diferente devuelve 409. |
+| Boleta única e histórica | UQ por venta y por número; instantáneas en `SalesReceipts` y `SaleLines`. | No tiene validez fiscal ni serie SUNAT. |
+| Una venta en un solo despacho | UQ `(TenantId, SaleId)` en `DispatchSales`. | No permite reasignación por eliminación/cancelación en este incremento. |
+| Anulación con una sola restitución | `Sale.Cancel`, bloqueo de asignaciones y transacción. | El flujo de devoluciones aún está pendiente. |
+| Recepción sin exceder lo pedido | Validación de pendiente y transacción en `Operations.Receive`. | Cantidad recibida, saldo y movimiento se guardan juntos. |
 
-Las entidades de empresa comparten TenantId. Los filtros toman el tenant de la sesión. Las relaciones usan claves foráneas compuestas (TenantId, Id). Los índices únicos cubren SKU por empresa, saldo por producto/almacén, boleta por venta y exclusividad de venta en despacho.
+### 4.8.4. Hallazgos y evolución del diseño
 
-### 4.8.2. Relaciones transaccionales
+La revisión identifica mejoras del código y del esquema que no se resuelven cambiando el diagrama. Se registran como **trabajo pendiente**, sin presentarlas como capacidades actuales.
 
-```mermaid
-erDiagram
-    Products ||--o{ StockBalances : posee
-    Warehouses ||--o{ StockBalances : contiene
-    Products ||--o{ InventoryMovements : registra
-    Suppliers ||--o{ PurchaseOrders : recibe
-    PurchaseOrders ||--|{ PurchaseOrderLines : detalla
-    PurchaseOrders ||--o{ GoodsReceipts : recibe
-    GoodsReceipts ||--|{ GoodsReceiptLines : detalla
-    PurchaseOrderLines ||--o{ GoodsReceiptLines : satisface
-```
+| Prioridad | Hallazgo concreto | Evolución y criterio de cierre |
+| :---: | :--- | :--- |
+| Alta | Inicialización con `EnsureCreated`; no hay migraciones versionadas. | Adoptar migraciones EF Core, respaldo y ensayo de actualización conservando datos. |
+| Alta | Precios, cantidades y estados no tienen restricciones `CHECK` en SQL. | Incorporar restricciones compatibles con cantidades firmadas de movimientos y con cada máquina de estados; probar inserciones inválidas. |
+| Alta | `User.Role` y `UserRoles` representan permisos en dos formas. | Definir una fuente de autorización, sincronizar o retirar la redundancia y probar cambios de rol sobre sesiones vigentes. |
+| Alta | Las FK de `GoodsReceiptLines` no garantizan que recepción y línea pertenezcan a la misma orden. | Reforzar el vínculo al diseñar órdenes de varias líneas y probar cruces inválidos. El flujo actual elige la única línea de la orden. |
+| Media | Categories, Customers, Drivers y Vehicles no están conectados al flujo que sus nombres sugieren. | Añadir FK y contratos de maestros cuando se implementen esos casos de uso; conservar las instantáneas históricas que correspondan. |
+| Media | Lotes, variantes y ubicaciones no intervienen en el saldo. | Definir la unidad de control de stock antes de activar vencimientos, picking o trazabilidad por lote. |
+| Media | Movimientos enlazan a su origen mediante `Reason` textual. | Separar motivo y referencia de origen para consultas/auditoría, sin perder registros anteriores. |
+| Media | El esquema admite varios pagos y la consulta de boleta espera uno. | Mantener explícito el pago único o implementar pagos divididos con suma y estados consistentes. |
+| Media | Repositorio genérico y lecturas completas sin paginación. | Extraer consultas por contexto, filtrar/agrupar en SQL y medir con volúmenes representativos. |
+| Media | Entidades mayormente mutables y reglas dispersas en `Operations`. | Encapsular compras y agrupaciones; proteger colecciones y probar invariantes desde el dominio. |
 
-```mermaid
-erDiagram
-    Sales ||--|{ SaleLines : detalla
-    Products ||--o{ SaleLines : referencia
-    Sales ||--o{ Payments : registra
-    Sales ||--o| SalesReceipts : documenta
-    Sales ||--o| DispatchSales : asigna
-    Dispatches ||--|{ DispatchSales : agrupa
-    Dispatches ||--o{ DispatchIncidents : registra
-    Sales ||--o{ Returns : origina
-    Returns ||--|{ ReturnLines : detalla
-    SaleLines ||--o{ ReturnLines : referencia
-```
+### 4.8.5. Fuentes de diseño y trazabilidad
 
-### 4.8.3. Invariantes y evolución
+La notación emplea los niveles de [C4](https://c4model.com/diagrams) y sus [recomendaciones de lectura](https://c4model.com/diagrams/notation). Los límites de responsabilidad se contrastan con la [guía de análisis de dominio](https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis); su uso aquí no implica adoptar microservicios. Las FK compuestas siguen las posibilidades de [EF Core](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/foreign-and-principal-keys) y los ER usan [notación Mermaid](https://mermaid.js.org/syntax/entityRelationshipDiagram.html).
 
-Crear una orden no modifica stock. La recepción física registra cabecera, líneas y movimiento juntos. Una venta confirma todas sus líneas o revierte todo. El servidor calcula precios y total. Dos ventas de la última unidad producen una confirmación y un conflicto 409, con stock final cero.
-
-Un UUID repetido no descuenta dos veces. La anulación repone stock una sola vez. La boleta conserva la instantánea comercial y sus líneas conservan nombre, SKU y precio históricos.
-
-Los modelos de expansión no se presentan como flujos terminados. Las siguientes evoluciones requieren migraciones versionadas y respaldo. La inicialización actual prepara una base vacía.
+Las fuentes del proyecto son [entidades](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/Domain/Entities.cs), [casos de uso](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/Application/Operations.cs), [puertos](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/Application/Ports.cs), [endpoints](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/Program.cs), [mapeo EF Core](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/Infrastructure/CeTeDb.cs) y [esquema SQL](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/schema.sql). El [registro de revisión del informe](AV2/revision-informe.md) resume las correcciones documentales y los asuntos que requieren acuerdo del equipo.

@@ -1,0 +1,44 @@
+{
+  "startOnLoad": false,
+  "htmlLabels": false,
+  "markdownAutoWrap": false,
+  "theme": "base",
+  "look": "classic",
+  "layout": "dagre",
+  "securityLevel": "strict",
+  "fontFamily": "Arial",
+  "fontSize": 16,
+  "maxTextSize": 200000,
+  "themeVariables": {
+    "background": "#FFFFFF",
+    "primaryColor": "#E8F1FB",
+    "primaryTextColor": "#102A43",
+    "primaryBorderColor": "#1D5F96",
+    "lineColor": "#526475",
+    "secondaryColor": "#FFF7ED",
+    "tertiaryColor": "#F6F8FA",
+    "mainBkg": "#E8F1FB",
+    "textColor": "#102A43",
+    "titleColor": "#0A2540",
+    "nodeTextColor": "#102A43"
+  },
+  "flowchart": {
+    "wrappingWidth": 240,
+    "minNodeWidth": 180,
+    "useMaxWidth": true,
+    "nodeSpacing": 35,
+    "rankSpacing": 50,
+    "curve": "linear",
+    "padding": 18
+  },
+  "er": {
+    "theme": "base",
+    "look": "classic",
+    "layout": "dagre",
+    "useMaxWidth": true,
+    "nodeSpacing": 30,
+    "rankSpacing": 50
+  },
+  "sequence": { "useMaxWidth": true, "wrap": true },
+  "class": { "useMaxWidth": true }
+}

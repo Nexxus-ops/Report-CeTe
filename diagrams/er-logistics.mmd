@@ -1,0 +1,67 @@
+---
+title: ER físico · Logística y ventas
+---
+erDiagram
+  Drivers {
+    uuid Id PK
+    text Name
+    text License
+    uuid TenantId FK
+  }
+  Vehicles {
+    uuid Id PK
+    text LicensePlate
+    decimal Capacity
+    uuid TenantId FK
+  }
+  Dispatches {
+    uuid Id PK
+    text DriverName
+    text LicensePlate
+    text Status
+    timestamptz CreatedAt
+    uuid TenantId FK
+  }
+  DispatchSales {
+    uuid Id PK
+    uuid DispatchId FK
+    uuid SaleId FK
+    uuid TenantId FK
+  }
+  DispatchStops {
+    uuid Id PK
+    uuid DispatchId FK
+    text Address
+    int Sequence
+    uuid TenantId FK
+  }
+  DeliveryAttempts {
+    uuid Id PK
+    uuid DispatchStopId FK
+    text Outcome
+    timestamptz CreatedAt
+    uuid TenantId FK
+  }
+  DispatchIncidents {
+    uuid Id PK
+    uuid DispatchId FK
+    text Description
+    timestamptz CreatedAt
+    uuid TenantId FK
+  }
+  Sales {
+    uuid Id PK
+    text CustomerName
+    uuid WarehouseId FK
+    uuid UserId FK
+    decimal TotalAmount
+    text Status
+    text RequestHash
+    timestamptz CreatedAt
+    uuid TenantId FK
+  }
+  DispatchStops ||--o{ DeliveryAttempts : "DispatchStopId"
+  Dispatches ||--o{ DispatchIncidents : "DispatchId"
+  Dispatches ||--o{ DispatchSales : "DispatchId"
+  Sales ||--o| DispatchSales : "SaleId"
+  Dispatches ||--o{ DispatchStops : "DispatchId"

@@ -1,0 +1,15 @@
+---
+title: Máquina de estados implementada · Dispatch.Transition
+---
+stateDiagram-v2
+  [*] --> PENDING : Creación de despacho
+  PENDING --> IN_TRANSIT : Inicio de ruta
+  IN_TRANSIT --> DELIVERED : Entrega confirmada
+  IN_TRANSIT --> INCIDENT : Incidencia
+  INCIDENT --> IN_TRANSIT : Reanudación
+  DELIVERED --> [*]
+  note right of PENDING
+    Se rechaza PENDING a DELIVERED.
+    No existe cancelación ni retorno
+    a PENDING en este incremento.
+  end note

@@ -1,0 +1,21 @@
+---
+title: Big Picture · Recorrido operativo del incremento AV2
+---
+flowchart TB
+  P["Orden de compra registrada<br/>Abastecimiento · sin aumento de stock"]:::command
+  G["Mercadería recibida parcial o totalmente<br/>Abastecimiento e inventario"]:::event
+  B["Stock disponible actualizado<br/>Inventario"]:::event
+  S["Venta confirmada y stock descontado<br/>Ventas e inventario"]:::event
+  R["Boleta académica disponible<br/>Ventas · sin emisión fiscal"]:::query
+  D["Ventas agrupadas en despacho<br/>Logística"]:::event
+  T["Despacho en tránsito y entregado<br/>Logística"]:::event
+  P -->|"Recepción física"| G --> B
+  B -->|"Confirmación atómica"| S --> R
+  S -->|"Solo ventas completadas y sin asignación previa"| D --> T
+  K["Hechos del negocio nombrados para el análisis<br/>No son clases de eventos publicadas por la API"]:::actor
+
+  classDef actor fill:#E8F1FB,stroke:#1D5F96,color:#102A43
+  classDef command fill:#DBEAFE,stroke:#1D4ED8,color:#102A43
+  classDef aggregate fill:#FEF3C7,stroke:#9A6700,color:#422006
+  classDef event fill:#FFEDD5,stroke:#C2410C,color:#431407
+  classDef query fill:#DCFCE7,stroke:#15803D,color:#14532D

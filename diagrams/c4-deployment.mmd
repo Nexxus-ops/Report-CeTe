@@ -1,0 +1,22 @@
+---
+title: C4 complementario · Despliegue actual de CeTe · AV2
+---
+flowchart TB
+  B["Navegador del usuario<br/>[Nodo cliente]<br/>Ejecuta JavaScript y conserva sesión"]:::person
+  subgraph R["Render · Entorno AV2 público"]
+    L["Static Site · Landing<br/>[HTML, CSS, JS]<br/>cete-landing-av2.onrender.com"]:::internal
+    S["Static Site · Frontend<br/>[Compilado Vite / Vue]<br/>cete-web-av2.onrender.com"]:::internal
+    A["Web Service · API<br/>[Imagen Docker / .NET 10]<br/>cete-api-av2.onrender.com"]:::internal
+    P[("PostgreSQL administrado<br/>[PostgreSQL 17 / plan Free]<br/>Persistencia relacional")]:::internal
+  end
+  X["ExchangeRate-API<br/>[Sistema externo]<br/>open.er-api.com"]:::external
+  B -->|"Solicita recursos por HTTPS"| L
+  B -->|"Solicita y ejecuta SPA por HTTPS"| S
+  B -->|"SPA envía JSON/HTTPS y JWT"| A
+  A -->|"Npgsql/TCP por conexión interna"| P
+  A -->|"Consulta JSON/HTTPS"| X
+  K["Leyenda: oscuro = nodo cliente · azul = recurso Render<br/>gris = proveedor externo · flecha = comunicación de ejecución"]:::external
+
+  classDef person fill:#0A2540,stroke:#0A2540,color:#FFFFFF
+  classDef internal fill:#E8F1FB,stroke:#1D5F96,color:#102A43
+  classDef external fill:#F1F3F5,stroke:#5B6470,color:#172B4D

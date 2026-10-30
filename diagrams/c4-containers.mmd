@@ -1,0 +1,24 @@
+---
+title: C4 · Nivel 2 · Contenedores de CeTe · AV2
+---
+flowchart TB
+  V["Visitante<br/>[Persona]<br/>Evalúa CeTe"]:::person
+  U["Usuario autenticado<br/>[Persona]<br/>Opera con rol y empresa"]:::person
+  subgraph C["CeTe · Límite del sistema de software"]
+    L["Landing Page<br/>[Contenedor: HTML, CSS y JavaScript]<br/>Comunica propuesta y acceso al producto"]:::internal
+    S["Aplicación web<br/>[Contenedor: Vue 3 y PrimeVue]<br/>Presenta los flujos operativos"]:::internal
+    A["CeTe API<br/>[Contenedor: ASP.NET Core 10]<br/>Autoriza, valida y coordina transacciones"]:::internal
+    D[("Base de datos<br/>[Contenedor: PostgreSQL 17]<br/>Persiste 35 tablas con separación por empresa")]:::internal
+  end
+  X["ExchangeRate-API<br/>[Sistema externo]<br/>Referencia cambiaria"]:::external
+  V -->|"Visita por HTTPS"| L
+  L -->|"Enlace HTTPS a registro o acceso"| S
+  U -->|"Interactúa en navegador por HTTPS"| S
+  S -->|"Solicita operaciones: JSON/HTTPS y JWT"| A
+  A -->|"Consulta y modifica: Npgsql/SQL sobre TCP"| D
+  A -->|"Consulta: JSON/HTTPS"| X
+  K["Leyenda: oscuro = persona · azul = contenedor de CeTe<br/>gris = sistema externo · flecha = relación actual"]:::external
+
+  classDef person fill:#0A2540,stroke:#0A2540,color:#FFFFFF
+  classDef internal fill:#E8F1FB,stroke:#1D5F96,color:#102A43
+  classDef external fill:#F1F3F5,stroke:#5B6470,color:#172B4D
