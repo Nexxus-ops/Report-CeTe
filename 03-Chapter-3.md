@@ -192,7 +192,7 @@ Los SP propuestos estiman complejidad e incertidumbre, no horas. Las TS vinculad
 | 51 | TS27 | TS | GET /api/v1/landing/plans | US07 | Incluido en US | Pendiente |
 | 52 | US01 | US | Registro de cuenta | Como visitante,<br>deseo registrar los datos de mi empresa,<br>para crear una cuenta administradora en CeTe. | 3 | Local, aceptación del equipo pendiente |
 | 53 | TS01 | TS | POST /api/v1/authentication/sign-up | US01 | Incluido en US | Local, aceptación del equipo pendiente |
-| 54 | TS32 | TS | Docker y publicación de API y PostgreSQL | US01 | Incluido en US | Publicación en proceso |
+| 54 | TS32 | TS | Docker y publicación de API y PostgreSQL | US01 | Incluido en US | Público, aceptación del equipo pendiente |
 | 55 | US02 | US | Inicio de sesión | Como usuario registrado,<br>deseo autenticarme,<br>para acceder al espacio de trabajo de mi empresa. | 3 | Local, aceptación del equipo pendiente |
 | 56 | TS02 | TS | POST /api/v1/authentication/sign-in | US02 | Incluido en US | Local, aceptación del equipo pendiente |
 | 57 | US03 | US | Cierre de sesión | Como usuario autenticado,<br>deseo terminar mi sesión,<br>para proteger mi cuenta y la información del negocio. | 2 | Local, aceptación del equipo pendiente |

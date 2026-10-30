@@ -860,7 +860,7 @@ Los SP propuestos estiman complejidad e incertidumbre, no horas. Las TS vinculad
 | 51 | TS27 | TS | GET /api/v1/landing/plans | US07 | Incluido en US | Pendiente |
 | 52 | US01 | US | Registro de cuenta | Como visitante,<br>deseo registrar los datos de mi empresa,<br>para crear una cuenta administradora en CeTe. | 3 | Local, aceptación del equipo pendiente |
 | 53 | TS01 | TS | POST /api/v1/authentication/sign-up | US01 | Incluido en US | Local, aceptación del equipo pendiente |
-| 54 | TS32 | TS | Docker y publicación de API y PostgreSQL | US01 | Incluido en US | Publicación en proceso |
+| 54 | TS32 | TS | Docker y publicación de API y PostgreSQL | US01 | Incluido en US | Público, aceptación del equipo pendiente |
 | 55 | US02 | US | Inicio de sesión | Como usuario registrado,<br>deseo autenticarme,<br>para acceder al espacio de trabajo de mi empresa. | 3 | Local, aceptación del equipo pendiente |
 | 56 | TS02 | TS | POST /api/v1/authentication/sign-in | US02 | Incluido en US | Local, aceptación del equipo pendiente |
 | 57 | US03 | US | Cierre de sesión | Como usuario autenticado,<br>deseo terminar mi sesión,<br>para proteger mi cuenta y la información del negocio. | 2 | Local, aceptación del equipo pendiente |
@@ -2059,7 +2059,7 @@ Los responsables siguientes son propuestos, sujetos a acuerdo. No constituyen au
 | T3-07 | US28/29, TS21/22 | Revisar empleados y permisos desde frontend y API | 6 | Liz | To Review |
 | T3-08 | TS33 | Contrastar esquema, relaciones y diagrama con PostgreSQL | 6 | Kevin | To Review |
 | T3-09 | TS34 | Revisar y ejecutar pruebas de dominio, HTTP y navegador | 8 | Piero | To Review |
-| T3-10 | TS32 | Completar publicación y verificar el recorrido público | 6 | Kevin | In Process |
+| T3-10 | TS32 | Completar publicación y verificar el recorrido público | 6 | Kevin | To Review |
 | T3-11 | Presentación | Revisar PPT y distinguir Sprint 2 de incremento AV2 | 4 | Darikson | To Review |
 | T3-12 | Validación | Realizar entrevistas con 3–5 personas por segmento | 6 | Equipo | To Do |
 | T3-13 | SO5 | Registrar acuerdos, revisión cruzada y aportes verificables | 4 | Equipo | To Do |

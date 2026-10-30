@@ -470,7 +470,7 @@ Los responsables siguientes son propuestos, sujetos a acuerdo. No constituyen au
 | T3-07 | US28/29, TS21/22 | Revisar empleados y permisos desde frontend y API | 6 | Liz | To Review |
 | T3-08 | TS33 | Contrastar esquema, relaciones y diagrama con PostgreSQL | 6 | Kevin | To Review |
 | T3-09 | TS34 | Revisar y ejecutar pruebas de dominio, HTTP y navegador | 8 | Piero | To Review |
-| T3-10 | TS32 | Completar publicación y verificar el recorrido público | 6 | Kevin | In Process |
+| T3-10 | TS32 | Completar publicación y verificar el recorrido público | 6 | Kevin | To Review |
 | T3-11 | Presentación | Revisar PPT y distinguir Sprint 2 de incremento AV2 | 4 | Darikson | To Review |
 | T3-12 | Validación | Realizar entrevistas con 3–5 personas por segmento | 6 | Equipo | To Do |
 | T3-13 | SO5 | Registrar acuerdos, revisión cruzada y aportes verificables | 4 | Equipo | To Do |
