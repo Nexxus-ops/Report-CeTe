@@ -22,3 +22,7 @@ La base Free vence el 29/11/2026 UTC. Render Free puede tardar cerca de un minut
 Siguen pendientes aceptación por el equipo, al menos tres autores reales de frontend, validaciones con usuarios, videos y ficha de performance revisada por el coordinador.
 
 Registro generado: 2026-10-29T23:50:40-05:00 (Lima).
+
+## Control posterior
+
+La [revalidación del 30/10/2026](revalidacion-2026-10-30.md) actualiza los resultados y referencias de código. El frontend incluye una prueba de navegador reproducible mediante npm run test:e2e.

@@ -31,3 +31,7 @@ Las capturas de evidence son de ejecución pública real con datos ficticios. No
 ## Material de sustentación
 
 [PowerPoint editable de 16 diapositivas](CeTe-AV2-revision-tecnica.pptx). Incluye evidencia histórica de Sprint 2, ejecución pública de AV2, pruebas y conclusiones. Las diapositivas de participación y validación identifican evidencia pendiente y deben completarse tras realizar esas actividades.
+
+## Revalidación antes de commit y push
+
+[Resultados del 30/10/2026](revalidacion-2026-10-30.md): API, dominio, navegador completo local/público, landing, dependencias e integridad documental. Incluye los ajustes de errores visibles y accesibilidad encontrados durante las pruebas.
