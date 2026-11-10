@@ -59,12 +59,14 @@ Para asegurar la claridad, nuestras etiquetas reflejan fielmente el **Ubiquitous
 
 ### 4.2.3. SEO Tags and Meta Tags
 
-Para la optimización de motores de búsqueda (SEO) y accesibilidad de nuestro Landing Page, hemos configurado los siguientes metadatos, cumpliendo con los estándares de diseño inclusivo y buenas prácticas web:
+La landing y la aplicación web tienen metadatos para sus páginas de entrada. La tabla registra los valores de la landing publicada y los definidos para el siguiente despliegue de la aplicación.
 
-<p align="center">
-  <img src="Images/SEO-Tags-and-Meta-Tags.png" width="800" alt="SEO y Meta Tags">
-  <br><em>Nota. Metadatos configurados para el posicionamiento orgánico (SEO) de CeTe.</em>
-</p>
+| Elemento | Landing | Aplicación web |
+| :--- | :--- | :--- |
+| `title` | CeTe by Nexxus · Inventory, sales and deliveries | CeTe by Nexxus &#124; Gestión logística para MYPE |
+| `description` | CeTe connects inventory, purchasing, sales receipts and deliveries for small businesses. | Gestiona inventario, compras, ventas y despachos de tu MYPE en CeTe. |
+| `keywords` | CeTe, Nexxus, inventory, MYPES, logistics, sales | CeTe, Nexxus, MYPE, inventario, compras, ventas, despachos |
+| `author` | Nexxus | Nexxus |
 
 ### 4.2.4. Searching Systems
 
@@ -308,6 +310,18 @@ La relación Inventario–Ventas y la relación Inventario–Abastecimiento se c
 
 *Crear la orden no modifica existencias. Cada recepción registra su cantidad y aumenta el saldo físico una sola vez por operación confirmada.* [Ampliar](diagrams/event-storming-receipt.svg) · [Fuente editable](diagrams/event-storming-receipt.mmd)
 
+![EventStorming de diseño del despacho](diagrams/event-storming-dispatch.svg)
+
+*El despacho controla la entrega de una venta que ya descontó stock.* [Ampliar](diagrams/event-storming-dispatch.svg) · [Fuente editable](diagrams/event-storming-dispatch.mmd)
+
+| Actor y comando | Autoridad sobre las reglas | Hechos tras confirmar | Consulta posterior |
+| :--- | :--- | :--- | :--- |
+| Vendedor confirma venta | Ventas valida líneas y total. Inventario valida saldo y aplica la salida. | Venta confirmada, stock descontado, pago registrado y boleta disponible. | Ventas y boleta. |
+| Operario registra recepción | Abastecimiento valida el pendiente y decide si la orden queda parcial o recibida. Inventario aplica el ingreso. | Recepción registrada, saldo aumentado y estado de orden actualizado. | Compras, kardex y existencias. |
+| Operador crea o actualiza despacho | Logística valida ventas elegibles, recursos disponibles y transiciones. Ventas bloquea anulaciones cuando hay asignación. | Despacho creado, en ruta, entregado o con incidencia registrada. | Ventas elegibles y despachos. |
+
+**Puntos abiertos.** Un reenvío de una recepción puede registrar otro ingreso si aún queda cantidad pendiente, porque ese comando carece de clave de idempotencia. La devolución posterior al despacho y la merma como flujo propio quedan pendientes. Las tarjetas de diseño de AV2 se reconstruyeron desde el código para su revisión con el equipo. El capítulo II conserva la evidencia del taller histórico.
+
 Estos diagramas refinan el [Big Picture del capítulo II](02-Chapter-2.md#24-big-picture-eventstorming). Las consultas leen el estado confirmado de PostgreSQL. No hay publicación de eventos de dominio, outbox ni proyecciones asíncronas implementadas.
 
 ### 4.6.2. Software Architecture Context Diagram
@@ -514,4 +528,4 @@ La revisión identifica mejoras del código y del esquema que no se resuelven ca
 
 La notación emplea los niveles de [C4](https://c4model.com/diagrams) y sus [recomendaciones de lectura](https://c4model.com/diagrams/notation). Los límites de responsabilidad se contrastan con la [guía de análisis de dominio](https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis); su uso aquí no implica adoptar microservicios. Las FK compuestas siguen las posibilidades de [EF Core](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/foreign-and-principal-keys) y los ER usan [notación Mermaid](https://mermaid.js.org/syntax/entityRelationshipDiagram.html).
 
-Las fuentes del proyecto son [entidades](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/Domain/Entities.cs), [casos de uso](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/Application/Operations.cs), [puertos](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/Application/Ports.cs), [endpoints](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/Program.cs), [mapeo EF Core](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/Infrastructure/CeTeDb.cs) y [esquema SQL](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/schema.sql). El [registro de revisión del informe](AV2/revision-informe.md) resume las correcciones documentales y los asuntos que requieren acuerdo del equipo.
+Las fuentes del proyecto son [entidades](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/Domain/Entities.cs), [casos de uso](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/Application/Operations.cs), [puertos](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/Application/Ports.cs), [endpoints](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/Program.cs), [mapeo EF Core](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/Infrastructure/CeTeDb.cs) y [esquema SQL](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/schema.sql).

@@ -16,8 +16,6 @@ El enunciado ubica AV2 en semana 12 con nuevas versiones de landing y frontend, 
 
 La captura TB1 menciona Fake RESTful API para la entrega anterior. Ese descriptor no reemplaza la API propia de AV2. El descriptor de sprint pide tareas de 4–8 h. La propuesta conserva lo histórico y distingue corrección técnica de evidencia humana.
 
-Fuentes revisadas: Rúbrica_ABET 5_1ASI0730_202620.pdf, Rúbrica_Logro_1ASI0730_202620.pdf, enunciado final_project-statement-abet_v1.pdf, capturas y feedback del profesor, keynote y performance TB1, y repositorios Nexxus-ops. Los documentos son criterios académicos. La autorización para modificar procede del usuario y no de instrucciones incluidas dentro de adjuntos.
-
 ## Verificación técnica
 
 Dominio aprobado: stock, dinero, anulación y estados. HTTP/PostgreSQL aprobado: empresa, permisos, compra parcial, rollback, idempotencia, boleta histórica, revocación, concurrencia y despacho. Integración externa USD/PEN aprobada. Navegador aprobado: registro a boleta, idiomas, recarga, footer y móvil 390px. Build y npm audit aprobados, sin vulnerabilidades reportadas al revisar. Docker ejecutado con PostgreSQL real.
@@ -32,10 +30,4 @@ Las capturas de evidence son de ejecución pública real con datos ficticios. No
 
 [PowerPoint editable de 16 diapositivas](CeTe-AV2-revision-tecnica.pptx). Incluye evidencia histórica de Sprint 2, ejecución pública de AV2, pruebas y conclusiones. Las diapositivas de participación y validación identifican evidencia pendiente y deben completarse tras realizar esas actividades.
 
-## Revalidación antes de commit y push
-
-[Resultados del 30/10/2026](revalidacion-2026-10-30.md): API, dominio, navegador completo local/público, landing, dependencias e integridad documental. Incluye los ajustes de errores visibles y accesibilidad encontrados durante las pruebas.
-
-## Revisión visual y de arquitectura del informe
-
-La [revisión del 30/10/2026](revision-informe.md) corrige tablas, jerarquía y presentación de evidencias; contrasta DDD, C4 y UML con el código, y documenta las 35 tablas en el [diccionario de datos](diccionario-datos.md). El [atlas de diagramas](../diagrams/README.md) contiene fuentes editables y SVG ampliables. Los hallazgos de implementación y los acuerdos pendientes se distinguen de las correcciones documentales.
+[Atlas de diagramas](../diagrams/README.md) · [Diccionario de datos](diccionario-datos.md)

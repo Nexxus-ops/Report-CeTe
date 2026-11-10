@@ -10,7 +10,6 @@ flowchart TB
   E["Hechos tras commit<br/>Recepción registrada · stock aumentado<br/>Orden PARTIAL o RECEIVED"]:::event
   Q["Consulta: Purchases / History / Inventory"]:::query
   A --> C --> O --> P --> B
-  B -->|"Guarda cabecera, línea, movimiento y acumulado"| E
   E -.->|"La consulta posterior observa el commit"| Q
   K["Leyenda: azul = comando · amarillo = regla o coordinación<br/>naranja = hecho del negocio · verde = consulta<br/>La creación de una orden no aumenta stock"]:::actor
 
@@ -19,3 +18,11 @@ flowchart TB
   classDef aggregate fill:#FEF3C7,stroke:#9A6700,color:#422006
   classDef event fill:#FFEDD5,stroke:#C2410C,color:#431407
   classDef query fill:#DCFCE7,stroke:#15803D,color:#14532D
+  F["Política: recibido acumulado igual a solicitado<br/>Orden RECEIVED, en caso contrario PARTIAL"]:::policy
+  X["Hotspot: pedido cerrado o cantidad excedida<br/>Sin recepción ni movimiento"]:::hotspot
+  R["Hotspot: no hay clave de idempotencia de recepción<br/>Si aún queda saldo, un reenvío puede registrar otra recepción"]:::hotspot
+  P -.-> X
+  O -.-> R
+  B --> F -->|"Guarda cabecera, línea, movimiento y acumulado"| E
+  classDef policy fill:#EDE9FE,stroke:#6D28D9,color:#2E1065
+  classDef hotspot fill:#FCE7F3,stroke:#BE185D,color:#500724

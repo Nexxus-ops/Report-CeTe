@@ -152,18 +152,16 @@ Como regla transversal, **toda la nomenclatura técnica (identificadores, clases
 
 ### 5.1.4. Software Deployment Configuration
 
-La configuración actual de AV2 utiliza Render para las tres aplicaciones públicas y PostgreSQL administrado. GitHub Pages corresponde al despliegue histórico de la landing documentado en Sprint 1.
+El incremento AV2 se publica en Render. La landing y el frontend se sirven como sitios estáticos. La API se ejecuta en Docker y se conecta internamente a PostgreSQL administrado.
 
-| Producto | Construcción y ejecución | Publicación AV2 |
-| :--- | :--- | :--- |
-| Landing | Archivos estáticos HTML, CSS y JavaScript. | [Static Site en Render](https://cete-landing-av2.onrender.com/). |
-| Frontend | Vue/Vite: instalación desde lockfile y compilación a `dist`; navegación por hash. | [Static Site en Render](https://cete-web-av2.onrender.com/). |
-| API | Imagen Docker con ASP.NET Core 10, configuración de CORS, JWT y conexión por variables de entorno. | [Web Service en Render](https://cete-api-av2.onrender.com/swagger). |
-| Base de datos | PostgreSQL 17; conexión interna desde la API. | Instancia administrada Free con vencimiento registrado en 5.2.3.7. |
+| Producto | Construcción y ejecución | Publicación AV2 | Captura |
+| :--- | :--- | :--- | :--- |
+| Landing | HTML, CSS y JavaScript. Rama `develop`. | [Sitio público](https://cete-landing-av2.onrender.com/) · [Release v1.1.0](https://github.com/Nexxus-ops/nexxus-landing-page/releases/tag/v1.1.0). | [<img src="AV2/evidence/landing-desktop.png" alt="Landing publicada de CeTe" width="260">](AV2/evidence/landing-desktop.png) |
+| Frontend | Vue/Vite, compilación a `dist` y navegación por hash. Rama `main`. | [Aplicación pública](https://cete-web-av2.onrender.com/) · [Release v1.1.0](https://github.com/Nexxus-ops/FrontEnd-CeTe/releases/tag/v1.1.0). | [<img src="AV2/evidence/dashboard-desktop.png" alt="Dashboard publicado con datos ficticios" width="260">](AV2/evidence/dashboard-desktop.png) |
+| API | Docker, ASP.NET Core 10, CORS, JWT y configuración por variables de entorno. Rama `main`. | [Swagger público](https://cete-api-av2.onrender.com/swagger) · [Salud](https://cete-api-av2.onrender.com/health). | [<img src="AV2/evidence/api-swagger-public.png" alt="Swagger servido por la API pública" width="260">](AV2/evidence/api-swagger-public.png) |
+| Base de datos | PostgreSQL 17. Conexión interna desde la API. | Servicio administrado. El endpoint de salud comprueba la conexión. | La evidencia se observa a través de la API y sus flujos persistidos. |
 
-En desarrollo, Docker Compose levanta API y PostgreSQL; frontend y landing se ejecutan con sus servidores locales. Docker empaqueta el servicio y Render proporciona alojamiento público. Las credenciales se guardan fuera de Git; los archivos de ejemplo contienen solo nombres y valores de referencia. El [README de la API](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/README.md) incluye el procedimiento reproducible.
-
-La [vista de despliegue](04-Chapter-4.md#463-software-architecture-container-diagrams) muestra comunicaciones y responsabilidades. Los resultados de construcción, ejecución y persistencia se registran en la [verificación AV2](AV2/verificacion.md); la configuración por sí sola no acredita disponibilidad ni alta disponibilidad.
+Para desarrollo, Docker Compose inicia la API y PostgreSQL. La [vista de despliegue](04-Chapter-4.md#463-software-architecture-container-diagrams) detalla la comunicación entre servicios. El [README de la API](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/README.md) incluye los pasos reproducibles. La captura del dashboard utiliza datos ficticios.
 
 ## 5.2. Landing Page, Services & Applications Implementation
 
@@ -490,7 +488,19 @@ Total propuesto: **94 horas-persona**, con tareas de 4 a 8 h. Ajustar a capacida
 
 #### 5.2.3.4. Development Evidence for Sprint Review
 
-Las correcciones se encuentran en las ramas `codex/av2-corrections`. La API propia se documenta en [CeTe-Api](https://github.com/Nexxus-ops/CeTe-Api). El [registro AV2](AV2/README.md) vincula cada observación con sus archivos, pruebas y pendientes. Las contribuciones individuales se acreditan por separado con commits y revisión.
+Los siguientes commits acreditan el incremento técnico. Los mensajes seleccionados constan de asunto y carecen de cuerpo.
+
+| Repositorio | Rama integrada | Commit | Mensaje | Cuerpo | Fecha |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| CeTe-Api | `main` | [`8c81227`](https://github.com/Nexxus-ops/CeTe-Api/commit/8c81227) | feat: implement CeTe AV2 API with PostgreSQL and Docker | — | 29/10/2026 |
+| FrontEnd-CeTe | `main` | [`7075e28`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/7075e28) | feat: connect CeTe AV2 to real API and add historical sales receipts | — | 29/10/2026 |
+| FrontEnd-CeTe | `main` | [`711fe93`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/711fe93) | feat: receive purchase orders partially from the web interface | — | 29/10/2026 |
+| nexxus-landing-page | `develop` | [`13326ec`](https://github.com/Nexxus-ops/nexxus-landing-page/commit/13326ec) | feat: improve CeTe landing internationalization and functional resources | — | 29/10/2026 |
+| Report-CeTe | `main` | [`8d87183`](https://github.com/Nexxus-ops/Report-CeTe/commit/8d87183) | docs: reconcile CeTe AV2 backlog, evidence and presentation | — | 29/10/2026 |
+
+La recepción parcial valida el pendiente, registra el movimiento y actualiza el saldo dentro de una transacción. [Código versionado](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/Application/Operations.cs#L235-L250)
+
+![Código de la recepción parcial](AV2/evidence/api-receive-source.png)
 
 #### 5.2.3.5. Execution Evidence for Sprint Review
 
@@ -532,13 +542,23 @@ Las siguientes capturas corresponden a ejecución pública con datos ficticios e
 | Grupo de pruebas | Resultado registrado | Evidencia |
 | :--- | :--- | :--- |
 | Dominio y API | Aprobado: stock, tenant, permisos, recepción parcial, rollback, idempotencia, boleta histórica, anulación, revocación, concurrencia y despacho. | [Verificación técnica](AV2/verificacion.md). |
-| Integración externa | Consulta de referencia USD/PEN aprobada. | [Resultados y alcance](AV2/revalidacion-2026-10-30.md). |
-| Navegador | Recorrido local y público, POS por teclado, boleta, impresión, idiomas, recarga y móvil de 390 px aprobados. | [Pruebas reproducibles](https://github.com/Nexxus-ops/FrontEnd-CeTe/blob/codex/av2-corrections/tests/browser/full-flow.cjs). |
-| Landing | Dos idiomas persistentes, cuatro recursos del footer, anclas, captura y menú móvil aprobados. | [Revalidación](AV2/revalidacion-2026-10-30.md). |
+| Integración externa | Consulta de referencia USD/PEN aprobada. | [Resultados y alcance](AV2/verificacion.md). |
+| Navegador | Recorrido local y público, POS por teclado, boleta, impresión, idiomas, recarga y móvil de 390 px aprobados. | [Pruebas reproducibles](https://github.com/Nexxus-ops/FrontEnd-CeTe/blob/a1e594fc0f6b3d6d8bc8376955c36c9000cc4179/tests/browser/full-flow.cjs). |
+| Landing | Dos idiomas persistentes, cuatro recursos del footer, anclas, captura y menú móvil aprobados. | [Revalidación](AV2/verificacion.md). |
 
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review
 
-La documentación pública está en [Swagger UI](https://cete-api-av2.onrender.com/swagger) y en el [contrato OpenAPI](https://cete-api-av2.onrender.com/swagger/v1/swagger.json). Los endpoints protegidos requieren autenticación Bearer. El [README de la API](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/README.md) contiene instalación y pruebas reproducibles. Los pagos son registros académicos, sin pasarela ni emisión fiscal.
+El flujo integrado de AV2 se documenta en [Swagger](https://cete-api-av2.onrender.com/swagger) y en el [contrato OpenAPI](https://cete-api-av2.onrender.com/swagger/v1/swagger.json). Los endpoints de la tabla requieren token Bearer y los permisos del contexto. Los ejemplos son extractos ilustrativos de las respuestas.
+
+| Método y ruta | Datos de entrada | Respuesta de ejemplo |
+| :--- | :--- | :--- |
+| `POST /api/v1/purchases` | `supplierName`, `productId` (UUID), `quantity`, `unitCost` y `warehouseId` opcional. | `200 {"status":"ORDERED"}` — crea la orden sin mover stock. |
+| `POST /api/v1/purchases/{id}/receive` | `id` de la orden y cuerpo `{"quantity":2}`. | `200 {"status":"PARTIAL"}` — conserva saldo pendiente cuando aún faltan unidades. |
+| `POST /api/v1/sales` | `id` de idempotencia, `customerName`, `items` con `inventoryItemId` y `quantity`, `paymentMethod` y `warehouseId` opcional. | `200 {"status":"COMPLETED","totalAmount":290}` — confirma la venta y registra el pago académico. |
+| `GET /api/v1/sales/{id}/receipt` | `id` de la venta en la ruta. | `200 {"currency":"PEN","total":290,"documentType":"DEMONSTRATION_RECEIPT"}` — además devuelve el detalle histórico. |
+| `POST /api/v1/dispatches` | `driverName`, `licensePlate` y `saleIds` como lista de UUID. | `200 {"status":"PENDING"}` — asigna ventas elegibles sin descontar nuevamente el stock. |
+
+La captura de Swagger en [5.1.4](#514-software-deployment-configuration) muestra los servicios publicados. El commit [`8c81227`](https://github.com/Nexxus-ops/CeTe-Api/commit/8c81227) incorpora la API. La [boleta del recorrido de prueba](AV2/evidence/receipt-document.png) muestra el resultado del contrato de consulta desde la aplicación.
 
 #### 5.2.3.7. Software Deployment Evidence for Sprint Review
 
@@ -546,11 +566,11 @@ Docker Compose ejecuta API y PostgreSQL localmente. El mismo Dockerfile se publi
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
 
-La revisión del docente identifica dos participantes acreditados en frontend. Para cerrar la observación se requiere la participación real de al menos tres integrantes, sustentada con commits, archivos, US/TS, revisión cruzada y demostración individual. El [registro de contribuciones AV2](AV2/evidencia-equipo.md) está pendiente de completar con esa evidencia. La ficha histórica de performance conserva sus calificaciones.
+El [registro de colaboración](README.md#project-report-collaboration-insights) vincula a los cinco integrantes con sus aportes verificables a lo largo del proyecto. El equipo está realizando las entrevistas de validación de Sprint 3. Se incorporarán las fichas y enlaces al recibir las grabaciones y confirmar qué tareas completó cada integrante. La observación de al menos tres participantes en frontend sigue abierta hasta contar con evidencia atribuible al Sprint.
 
 ## 5.3. Validation Interviews
 
-> **Estado de validación AV2:** se conserva una entrevista registrada por segmento. La ronda requiere 3–5 participantes por segmento con evidencia verificable; las sesiones faltantes siguen pendientes. El protocolo y los criterios de registro se encuentran en la [guía de validación](AV2/validacion.md).
+> **Validación AV2 en curso.** El informe conserva un registro por segmento. La nueva ronda requiere de 3 a 5 participantes por segmento usando la landing y la aplicación desplegadas, con tareas, captura, enlace a Stream, marcas de tiempo y hallazgos según el Anexo D.
 
 ### 5.3.1. Diseño de entrevistas
 

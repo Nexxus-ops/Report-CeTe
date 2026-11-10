@@ -21,3 +21,9 @@ flowchart TB
   classDef aggregate fill:#FEF3C7,stroke:#9A6700,color:#422006
   classDef event fill:#FFEDD5,stroke:#C2410C,color:#431407
   classDef query fill:#DCFCE7,stroke:#15803D,color:#14532D
+  R["Hotspot: reintento de venta<br/>Mismo UUID y payload devuelve la venta existente<br/>Mismo UUID y payload distinto: conflicto 409"]:::hotspot
+  X["Rechazo: stock insuficiente, producto archivado<br/>o conflicto de concurrencia · sin confirmación"]:::hotspot
+  O -.-> R
+  B -.-> X
+  S -.-> X
+  classDef hotspot fill:#FCE7F3,stroke:#BE185D,color:#500724
