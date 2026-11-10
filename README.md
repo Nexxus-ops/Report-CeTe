@@ -81,7 +81,9 @@ Proyecto
 
 # Project Report Collaboration Insights
 
-El historial distingue los aportes anteriores de las evidencias específicas de Sprint 3.
+El equipo trabajó tanto en GitHub como en sesiones presenciales y por mensajería. Parte del trabajo se integró desde la cuenta de Kevin, que centralizó la publicación. El registro separa los commits con autoría individual visible de los aportes informados por el equipo que se integraron en conjunto.
+
+## Aportes con autoría visible en GitHub
 
 | Integrante | Aporte registrado | Evidencia |
 | :--- | :--- | :--- |
@@ -90,6 +92,17 @@ El historial distingue los aportes anteriores de las evidencias específicas de 
 | Piero Montes | Flujos de usuario y actualización del capítulo IV. | [Report-CeTe · `867158a`](https://github.com/Nexxus-ops/Report-CeTe/commit/867158a) |
 | Kevin Salazar | API, integración del frontend y recursos bilingües de la landing para AV2. | [CeTe-Api · `8c81227`](https://github.com/Nexxus-ops/CeTe-Api/commit/8c81227) · [FrontEnd-CeTe · `7075e28`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/7075e28) · [Landing · `13326ec`](https://github.com/Nexxus-ops/nexxus-landing-page/commit/13326ec) |
 | Darikson Salazar | Diseño C4 y lineamientos UI/UX. | [Report-CeTe · `58fafe9`](https://github.com/Nexxus-ops/Report-CeTe/commit/58fafe9) |
+
+## Colaboración por producto
+
+La distribución siguiente se basa en el relato de Kevin sobre el trabajo del equipo. Los enlaces ubican los resultados integrados. Cuando el trabajo se hizo en conjunto, el historial identifica quién publicó el commit y la tabla recoge el rol de cada participante.
+
+| Producto | Aportes informados por el equipo | Resultado integrado |
+| :--- | :--- | :--- |
+| **API** | Piero Montes trabajó en la estructura del backend. Kevin Salazar conectó e integró la API con asistencia técnica. Diego Campoblanco acompañó la revisión y auditoría del código en las sesiones locales. | [Implementación inicial de la API](https://github.com/Nexxus-ops/CeTe-Api/commit/8c81227) |
+| **Landing** | Liz Anahua diseñó la versión original. Diego Campoblanco colaboró en el contenido de inventario y en las secciones. Kevin Salazar implementó e integró el resto del sitio. | [Secciones originales](https://github.com/Nexxus-ops/nexxus-landing-page/commit/7385c80) |
+| **Frontend** | Liz propuso la boleta y definió su flujo. Darikson Salazar trabajó en despacho y ventas y propuso ampliar el modelo de datos para esos flujos. Piero trabajó en la presentación visual. Kevin integró los cambios con asistencia técnica. Diego acompañó la revisión del incremento y orientó las decisiones con DDD. | [Incremento integrado del frontend](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/7075e28) |
+| **Informe** | Diego revisa y completa secciones y coordina las entrevistas junto con Piero. Darikson trabaja en Figma y la presentación visual. Liz colabora en los modelos C4 y DDD. Kevin consolida la documentación general con asistencia técnica. | [Diseño e informe de AV2](04-Chapter-4.md) · [Registro de validación](05-Chapter-5.md#53-validation-interviews) |
 
 El estado del Sprint 3 se presenta en [5.2.3.8](#5238-team-collaboration-insights-during-sprint). [Organización Nexxus](https://github.com/Nexxus-ops)
 
@@ -2026,7 +2039,9 @@ Docker Compose ejecuta API y PostgreSQL localmente. El mismo Dockerfile se publi
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
 
-El [registro de colaboración](README.md#project-report-collaboration-insights) vincula a los cinco integrantes con sus aportes verificables a lo largo del proyecto. El equipo está realizando las entrevistas de validación de Sprint 3. Se incorporarán las fichas y enlaces al recibir las grabaciones y confirmar qué tareas completó cada integrante. La observación de al menos tres participantes en frontend sigue abierta hasta contar con evidencia atribuible al Sprint.
+Los cinco integrantes aportaron al incremento mediante diseño, implementación, integración o revisión técnica. La [matriz de colaboración por producto](README.md#colaboración-por-producto) identifica los roles informados por el equipo y enlaza los resultados integrados. La autoría individual visible en GitHub se registra por separado.
+
+La participación de frontend debe respaldarse con evidencia verificable por integrante. El equipo puede asociar los diseños, versiones locales, revisiones o demostraciones que ya tenga a la historia y al cambio correspondiente. Diego y Piero coordinan las entrevistas. Los resultados se incorporarán cuando se reciban las grabaciones y fichas.
 
 ## 5.3. Validation Interviews
 

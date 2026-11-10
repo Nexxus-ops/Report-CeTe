@@ -566,7 +566,9 @@ Docker Compose ejecuta API y PostgreSQL localmente. El mismo Dockerfile se publi
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
 
-El [registro de colaboración](README.md#project-report-collaboration-insights) vincula a los cinco integrantes con sus aportes verificables a lo largo del proyecto. El equipo está realizando las entrevistas de validación de Sprint 3. Se incorporarán las fichas y enlaces al recibir las grabaciones y confirmar qué tareas completó cada integrante. La observación de al menos tres participantes en frontend sigue abierta hasta contar con evidencia atribuible al Sprint.
+Los cinco integrantes aportaron al incremento mediante diseño, implementación, integración o revisión técnica. La [matriz de colaboración por producto](README.md#colaboración-por-producto) identifica los roles informados por el equipo y enlaza los resultados integrados. La autoría individual visible en GitHub se registra por separado.
+
+La participación de frontend debe respaldarse con evidencia verificable por integrante. El equipo puede asociar los diseños, versiones locales, revisiones o demostraciones que ya tenga a la historia y al cambio correspondiente. Diego y Piero coordinan las entrevistas. Los resultados se incorporarán cuando se reciban las grabaciones y fichas.
 
 ## 5.3. Validation Interviews
 
