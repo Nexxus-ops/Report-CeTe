@@ -68,7 +68,7 @@ for file in ROOT.rglob('*.md'):
             check(anchor in targets, f'Missing anchor: {file.relative_to(ROOT)} -> {link}')
 
 sources=list((ROOT/'diagrams').glob('*.mmd'))
-check(len(sources)==21, 'Expected 21 editable diagram sources')
+check(len(sources)==22, 'Expected 22 editable diagram sources')
 for source in sources:
     image=source.with_suffix('.svg')
     check(image.exists(), f'Missing SVG: {source.name}')
@@ -101,4 +101,4 @@ if args.api_root:
 if errors:
     print('\n'.join('FAIL '+e for e in errors))
     sys.exit(1)
-print('PASS: chapters synchronized; 10 epics; 42 US; 35 TS; 77 backlog entries; 139 SP; tables, links, 21 SVG/source pairs and 35 dictionary tables valid.' + (' API SQL matched.' if args.api_root else ''))
+print('PASS: chapters synchronized; 10 epics; 42 US; 35 TS; 77 backlog entries; 139 SP; tables, links, 22 SVG/source pairs and 35 dictionary tables valid.' + (' API SQL matched.' if args.api_root else ''))

@@ -1,6 +1,6 @@
 # Diccionario de datos · CeTe AV2
 
-[Volver al diseño](../04-Chapter-4.md#48-database-design) · [Revisión técnica](revision-informe.md)
+[Volver al diseño](../04-Chapter-4.md#48-database-design)
 
 Este diccionario describe el esquema físico de `CeTe-Api/schema.sql`. Se contrastó con un `pg_dump --schema-only` de PostgreSQL local el 30/10/2026: coinciden tablas, columnas, claves y los ocho índices únicos de negocio. No contiene registros ni credenciales.
 
@@ -635,6 +635,6 @@ Los vínculos entre tablas de empresa usan FK compuestas `(TenantId, XId) → (T
 
 ## Fuentes verificables
 
-- [Esquema SQL](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/schema.sql).
-- [Configuración EF Core](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/Infrastructure/CeTeDb.cs).
-- [Entidades](https://github.com/Nexxus-ops/CeTe-Api/blob/codex/av2-corrections/Domain/Entities.cs).
+- [Esquema SQL](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/schema.sql).
+- [Configuración EF Core](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/Infrastructure/CeTeDb.cs).
+- [Entidades](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/Domain/Entities.cs).

@@ -27,6 +27,7 @@ Cada diagrama tiene una fuente Mermaid (`.mmd`) y un SVG ampliable. Las imágene
 | ER físico | ER físico · Ventas y sus referencias | [SVG](er-sales.svg) | [Mermaid](er-sales.mmd) |
 | DDD / comportamiento | EventStorming de diseño · Recepción parcial · CeTe AV2 | [SVG](event-storming-receipt.svg) | [Mermaid](event-storming-receipt.mmd) |
 | DDD / comportamiento | EventStorming de diseño · Confirmar venta · CeTe AV2 | [SVG](event-storming-sale.svg) | [Mermaid](event-storming-sale.mmd) |
+| DDD / comportamiento | EventStorming de diseño · Despacho de ventas · CeTe AV2 | [SVG](event-storming-dispatch.svg) | [Mermaid](event-storming-dispatch.mmd) |
 | DDD / comportamiento | Vista dinámica · Venta atómica e idempotente · AV2 | [SVG](sequence-checkout.svg) | [Mermaid](sequence-checkout.mmd) |
 | UML | Máquina de estados implementada · Dispatch.Transition | [SVG](state-dispatch.svg) | [Mermaid](state-dispatch.mmd) |
 
