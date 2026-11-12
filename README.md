@@ -88,7 +88,7 @@ El equipo trabajó tanto en GitHub como en sesiones presenciales y por mensajer�
 | Integrante | Aporte registrado | Evidencia |
 | :--- | :--- | :--- |
 | Liz Anahua | Needfinding y análisis competitivo del capítulo II. | [Report-CeTe · `8a4f7e8`](https://github.com/Nexxus-ops/Report-CeTe/commit/8a4f7e8) |
-| Diego Campoblanco | Configuración de Fake API para TB1 y documentación del desarrollo del Sprint 2. | [FrontEnd-CeTe · `b081cb6`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/b081cb6) · [Report-CeTe · `4ca7ec7`](https://github.com/Nexxus-ops/Report-CeTe/commit/4ca7ec7) |
+| Diego Campoblanco | Configuración de Fake API para TB1 y documentación del desarrollo del Sprint 2. Entrevistas de validación a Raúl y Carmen para AV2. | [FrontEnd-CeTe · `b081cb6`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/b081cb6) · [Report-CeTe · `4ca7ec7`](https://github.com/Nexxus-ops/Report-CeTe/commit/4ca7ec7) · [Entrevistas AV2](05-Chapter-5.md#532-registro-de-entrevistas) |
 | Piero Montes | Flujos de usuario y actualización del capítulo IV. | [Report-CeTe · `867158a`](https://github.com/Nexxus-ops/Report-CeTe/commit/867158a) |
 | Kevin Salazar | API, integración del frontend y recursos bilingües de la landing para AV2. | [CeTe-Api · `8c81227`](https://github.com/Nexxus-ops/CeTe-Api/commit/8c81227) · [FrontEnd-CeTe · `7075e28`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/7075e28) · [Landing · `13326ec`](https://github.com/Nexxus-ops/nexxus-landing-page/commit/13326ec) |
 | Darikson Salazar | Diseño C4 y lineamientos UI/UX. | [Report-CeTe · `58fafe9`](https://github.com/Nexxus-ops/Report-CeTe/commit/58fafe9) |
@@ -2041,11 +2041,11 @@ Docker Compose ejecuta API y PostgreSQL localmente. El mismo Dockerfile se publi
 
 Los cinco integrantes aportaron al incremento mediante diseño, implementación, integración o revisión técnica. La [matriz de colaboración por producto](README.md#colaboración-por-producto) identifica los roles informados por el equipo y enlaza los resultados integrados. La autoría individual visible en GitHub se registra por separado.
 
-La participación de frontend debe respaldarse con evidencia verificable por integrante. El equipo puede asociar los diseños, versiones locales, revisiones o demostraciones que ya tenga a la historia y al cambio correspondiente. Diego y Piero coordinan las entrevistas. Los resultados se incorporarán cuando se reciban las grabaciones y fichas.
+La participación de frontend debe respaldarse con evidencia verificable por integrante. El equipo puede asociar los diseños, versiones locales, revisiones o demostraciones que ya tenga a la historia y al cambio correspondiente. Diego y Piero coordinan las entrevistas. Diego aportó las grabaciones, capturas y resúmenes de Raúl y Carmen, incorporados en el [registro de entrevistas](#532-registro-de-entrevistas). Las fichas restantes se incorporarán conforme se reciban.
 
 ## 5.3. Validation Interviews
 
-> **Validación AV2 en curso.** El informe conserva un registro por segmento. La nueva ronda requiere de 3 a 5 participantes por segmento usando la landing y la aplicación desplegadas, con tareas, captura, enlace a Stream, marcas de tiempo y hallazgos según el Anexo D.
+> **Validación AV2 en curso.** Se conservan dos entrevistas históricas y se incorporan las entrevistas de Raúl y Carmen, realizadas por Diego Campoblanco para el segmento de dueños y administradores. La ronda requiere de 3 a 5 participantes por segmento usando la landing y la aplicación desplegadas, con tareas, captura, enlace a Stream, marcas de tiempo y hallazgos según el Anexo D.
 
 ### 5.3.1. Diseño de entrevistas
 
@@ -2078,6 +2078,38 @@ Para el proceso de validación, hemos diseñado sesiones interactivas donde los 
 
 * **Resumen de la evaluación:**
   El usuario interactuó con los mockups de alta fidelidad en Figma. Identificó intuitivamente el menú lateral para la "Gestión de Inventario" y el botón para "Registrar Entrada". Al evaluar el formulario de ingreso, sugirió implementar una función para escanear códigos de barras con la cámara del celular, a fin de agilizar el proceso y evitar errores de tipeo. Al analizar la pantalla de alertas, observó que falta un flujo o botón específico para registrar "Mermas" o productos dañados, lo cual es crítico para no alterar los reportes.
+
+#### Entrevistas de validación aportadas por Diego Campoblanco
+
+Diego Campoblanco realizó las dos entrevistas y elaboró los siguientes resúmenes. Las grabaciones corresponden al segmento de dueños y administradores. Los enlaces conservan el destino de Google Drive entregado por el entrevistador.
+
+**Entrevista de Validación 3 (Segmento 1 - Dueño/Administrador)**
+
+* **Nombre:** Raúl
+* **Edad:** 48 años
+* **Distrito:** San Juan de Lurigancho
+* **URL del Video:** [Ver entrevista en Google Drive](https://drive.google.com/file/d/1Gbca9G1cy2FEQeqxRSqb1tDTqoGmf4Eq/view?usp=sharing)
+<p align="center">
+  <img src="Images/Validation/raul-av2.png" width="600" alt="Captura de la entrevista de validación a Raúl">
+</p>
+
+* **Resumen de la evaluación:** El usuario interactuó con la Landing Page y la plataforma de prueba. Comprendió rápidamente que el sistema busca centralizar el control del almacén y la caja, reemplazando su actual método con cuadernos. Destacó como muy valiosa la visualización directa de las ventas del día ("Revenue today") en la pantalla de inicio. Sin embargo, encontró confusa y abrumadora la navegación por el menú lateral para ver detalles de boletas o registrar ingresos manuales. Como sugerencias críticas, enfatizó la necesidad de recibir notificaciones y alertas automáticas directas sobre pedidos incompletos, y recalcó que el sistema debe estar pensado para un uso cien por ciento móvil, ya que él opera exclusivamente desde su celular.
+
+---
+
+**Entrevista de Validación 4 (Segmento 1 - Dueña/Administradora)**
+
+* **Nombre:** Carmen
+* **Edad:** 52 años
+* **Distrito:** Los Olivos
+* **URL del Video:** [Ver entrevista en Google Drive](https://drive.google.com/file/d/1wLylfhxjysJQac-Uy6r0eAj5kVPu48L1/view?usp=sharing)
+<p align="center">
+  <img src="Images/Validation/carmen-av2.png" width="600" alt="Captura de la entrevista de validación a Carmen">
+</p>
+
+* **Resumen de la evaluación:** La usuaria interactuó con la Landing Page y valoró positivamente la propuesta de unificar compras y ventas, especialmente para monitorear el negocio a distancia. Destacó el Dashboard por su facilidad para visualizar los ingresos diarios al instante. No obstante, mostró frustración con el flujo de registro de mercancías por ser manual y basado en texto, recordando las razones por las que abandonó Excel. Como sugerencias críticas, exigió la integración de una función para escanear códigos de barras usando la cámara del celular, la necesidad imperativa de un campo para rastrear fechas de vencimiento, y la implementación de alertas visuales automáticas para productos pendientes o a punto de quebrar stock.
+
+Las fichas aún requieren la fecha de realización, las marcas de tiempo, la duración y el enlace a Microsoft Stream solicitado en el enunciado. Los resúmenes recogen las apreciaciones de los entrevistados y se utilizarán para la siguiente evaluación de usabilidad.
 
 ### 5.3.3. Evaluaciones según heurísticas
 
