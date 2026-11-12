@@ -1941,38 +1941,75 @@ Material de sustentación: [presentación técnica AV2 editable](AV2/CeTe-AV2-re
 
 #### 5.2.3.1. Sprint Planning 3
 
-**Plan propuesto, pendiente de acuerdo del equipo.** Registrar sesión formal, fechas, capacidad y compromiso. Las correcciones asistidas existen en el código y requieren aceptación. Las horas siguientes estiman revisión y consolidación restante, y no reemplazan horas históricas.
+Este registro consolida el incremento AV2 y su situación al **12/11/2026**. Integra la reunión informada por el equipo, los cambios versionados y las pruebas realizadas. El calendario se estima a solicitud de Kevin porque el equipo no conserva las fechas exactas; no se presenta como un acta de planificación redactada al inicio del sprint.
 
-**Sprint Goal propuesto:** demostrar abastecimiento, venta y boleta con API propia y PostgreSQL públicos, validación con usuarios y al menos tres integrantes reales en frontend.
+| Sprint # | Sprint 3 · AV2 |
+| :--- | :--- |
+| **Sprint Planning Background** | **Registro de consolidación** |
+| Fecha de reunión informada | Martes **03/11/2026**, confirmada por Kevin. |
+| Horario y lugar | Pendientes de confirmación. |
+| Preparado por | Salazar Marquina, Kevin Junior, el 12/11/2026. |
+| Asistentes | Pendiente la confirmación de la lista de asistentes. La matriz siguiente describe al equipo y sus aportes; no sustituye la asistencia a esta sesión. |
+| Calendario estimado | **16/10/2026–12/11/2026**, 28 días calendario inclusivos. Se toma como referencia el intervalo de 28 días entre las planificaciones históricas del 08/09 y 06/10 y se fija el corte en la entrega AV2 del 12/11. Es una aproximación pendiente de confirmación, no una duración histórica comprobada. |
+| **Sprint 2 Review Summary** | El registro TB1 muestra el frontend integrado con una Fake API. El feedback exige revisar las estimaciones, internacionalización y footer, Technical Stories, modelo de datos, evidencias de ejecución, boleta y participación de al menos tres integrantes en frontend. |
+| **Sprint 2 Retrospective Summary** | La revisión del feedback evidencia la necesidad de conectar el flujo completo a una API persistente, contrastar DDD con el código y vincular cada tarea con criterios y pruebas. Es la síntesis documental del feedback recibido; no se atribuyen acuerdos verbales a la reunión del 03/11. |
+| Sprint 3 Goal | **Our focus is on** permitir a una MYPE registrar abastecimiento, vender con stock consistente y entregar una boleta consultable, accediendo desde una landing bilingüe. **We believe it delivers** trazabilidad de compras y ventas y menor doble registro para el dueño y el operario. **This will be confirmed when** el recorrido público conserve los datos, rechace stock insuficiente y acceso ajeno, y las validaciones de ambos segmentos documenten resultados y mejoras. |
+| Sprint 3 Velocity | **Pendiente de cierre y aceptación por el equipo.** Las pruebas técnicas no permiten asignar automáticamente puntos a historias con criterios incompletos. La velocidad declarada de Sprint 2 fue 24 SP; no se extrapola como resultado de Sprint 3. |
+| Sum of Story Points | **60 SP de alcance de referencia** en 16 US: US10, US11, US14, US19–22, US28–29, US34–36 y US39–42. Son las estimaciones existentes del Product Backlog, no un compromiso retrospectivo ni puntos terminados. Las TS no suman puntos adicionales. |
+| Capacidad | **94 horas-persona estimadas**, distribuidas en tareas de 4 a 8 h. No existe un registro consolidado de horas efectivamente trabajadas ni disponibilidad individual para contrastar la capacidad. |
 
-**Confirmación:** recepción que actualiza stock, venta y boleta consultable/imprimible, rechazo de stock insuficiente y acceso ajeno, landing bilingüe, URL pública verificada y evidencias humanas completas.
+**Criterios de aceptación del incremento.** Crear una compra sin incrementar stock; recibir parcialmente y conservar el saldo; vender una sola vez ante reintentos; consultar e imprimir una boleta histórica; aislar empresas y permisos; navegar en ambos idiomas y desde móvil. Los casos técnicos se documentan en 5.2.3.5. La validación con usuarios, los videos y la aceptación de historias parciales mantienen su estado pendiente o en curso.
+
+**Definition of Done de una tarea técnica.** Cambio integrado en la rama de publicación, criterio de la tarea comprobado y evidencia enlazada. Esto no cierra toda una US ni acredita validación de usabilidad. Para el cierre del sprint, el equipo debe aceptar el alcance, registrar la revisión y completar los entregables académicos restantes.
 
 #### 5.2.3.2. Aspect Leaders and Collaborators
 
-Los responsables siguientes son propuestos, sujetos a acuerdo. No constituyen autoría ni constancia de trabajo realizado. Se recomienda la participación de los cinco integrantes y se requiere como mínimo tres en frontend según el feedback.
+Los aspectos se organizan por bounded context y por los productos que permiten demostrar el flujo. La matriz LACX refleja el reparto explicado por Kevin y los aportes integrados. **L** indica liderazgo del aspecto; **C**, colaboración; **—**, sin responsabilidad específica informada. Diego coordina la revisión DDD transversal. La matriz no equivale a un conteo de commits ni atribuye a todos la autoría de todos los archivos.
 
-#### 5.2.3.3. Sprint Backlog 3 propuesto
+| Team Member (Last Name, First Name) | GitHub Username | Estructura DDD / Inventory | Procurement / Identity e integración | Sales / Logistics | UI/UX, boleta y landing | Informe / validación |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| Anahua Ancachi, Liz Maribel | [lizzanahua-rgb](https://github.com/lizzanahua-rgb) | C | — | C | L | C |
+| Campoblanco Guzman, Diego Roberto | [diegocampoblancog-droid](https://github.com/diegocampoblancog-droid) | L | C | C | C | L |
+| Montes Chang, Piero Francisco | [PieroMchang](https://github.com/PieroMchang) | L | C | — | C | C |
+| Salazar Marquina, Kevin Junior | [AresSalamar](https://github.com/AresSalamar) | C | L | C | C | L |
+| Salazar Quiche, Darikson Bill | [darikson26](https://github.com/darikson26) | — | — | L | C | C |
 
-| ID | US / TS | Engineering task | Est. restante (h) | Responsable propuesto | Estado |
-| :--- | :--- | :--- | :---: | :--- | :--- |
-| T3-01 | US35/36, TS11/31 | Revisar cierre atómico, reintento, rollback y última unidad | 8 | Kevin | To Review |
-| T3-02 | US39, TS28 | Revisar boleta, impresión, datos históricos y móvil | 6 | Diego | To Review |
-| T3-03 | US40/41, TS29/30 | Revisar compra, recepción parcial y movimiento asociado | 6 | Liz | To Review |
-| T3-04 | US10/11/14, TS07–09 | Revisar entradas, salidas, motivos e historial | 6 | Piero | To Review |
-| T3-05 | US19–22, TS15–17 | Revisar recursos, ventas asignadas, estados e incidencias | 6 | Darikson | To Review |
-| T3-06 | US42/34 | Revisar traducciones, footer, teclado y móvil | 6 | Diego | To Review |
-| T3-07 | US28/29, TS21/22 | Revisar empleados y permisos desde frontend y API | 6 | Liz | To Review |
-| T3-08 | TS33 | Contrastar esquema, relaciones y diagrama con PostgreSQL | 6 | Kevin | To Review |
-| T3-09 | TS34 | Revisar y ejecutar pruebas de dominio, HTTP y navegador | 8 | Piero | To Review |
-| T3-10 | TS32 | Completar publicación y verificar el recorrido público | 6 | Kevin | To Review |
-| T3-11 | Presentación | Revisar PPT y distinguir Sprint 2 de incremento AV2 | 4 | Darikson | To Review |
-| T3-12 | Validación | Realizar entrevistas con 3–5 personas por segmento | 6 | Equipo | To Do |
-| T3-13 | SO5 | Registrar acuerdos, revisión cruzada y aportes verificables | 4 | Equipo | To Do |
-| T3-14 | About-the-Product | Grabar y publicar demo del flujo desplegado | 6 | Darikson | To Do |
-| T3-15 | About-the-Team | Grabar aportes individuales y reflexión real | 6 | Equipo | To Do |
-| T3-16 | Comunicación | Revisar conclusiones, fuentes, ortografía y coherencia | 4 | Piero | To Review |
+Piero estructura los contextos y las reglas de inventario; Kevin integra abastecimiento, identidad, frontend/API y publicación; Darikson aporta Ventas y Logística; Liz aporta el flujo de boleta y diseño e integra las mejoras de acceso y metadatos; Diego revisa los límites DDD y coordina con Piero las entrevistas. Los commits y PR enlazados en 5.2.3.4 permiten distinguir la implementación, la integración y la revisión informadas por el equipo.
 
-Total propuesto: **94 horas-persona**, con tareas de 4 a 8 h. Ajustar a capacidad real. No registrar horas trabajadas sin evidencia. Estados: To Do, In Process, To Review y Done. Un revisor distinto del autor valida criterios y evidencia antes de Done.
+#### 5.2.3.3. Sprint Backlog 3
+
+El backlog descompone el objetivo en tareas de ingeniería y entregables de validación, colaboración y comunicación. El [tablero público del Sprint 3](https://github.com/orgs/Nexxus-ops/projects/1/views/1) se creó el **12/11/2026** para registrar el estado actual. No se presenta como evidencia de movimientos anteriores en Trello ni como un historial reconstruido de trabajo diario.
+
+![Tablero del Sprint 3: tareas pendientes y en proceso](AV2/evidence/sprint3-board.png)
+
+*Vista izquierda: To Do e In Process, con validaciones, colaboración y comunicación en curso.*
+
+![Tablero del Sprint 3: tareas completadas y en revisión](AV2/evidence/sprint3-review.png)
+
+*Vista derecha: Done y To Review. Las dos capturas corresponden al mismo tablero; las tarjetas detallan el criterio, responsable, estimación y evidencia enlazada.*
+
+| US / TS y título | Task ID | Task Title | Task Description / resultado al corte | Estimation (h) | Assigned To | Status |
+| :--- | :--- | :--- | :--- | :---: | :--- | :--- |
+| US35/36 · Pago registrado y descuento de stock; TS11/31 | T3-01 | Sales: cierre atómico e idempotencia | Comprobar rollback, reintento y última unidad. Pruebas aprobadas; US35 conserva el límite de pago académico sin pasarela. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/commit/bc369f5). | 8 | Kevin | To Review |
+| US39 · Visualizar e imprimir boleta; TS28 | T3-02 | Sales: boleta histórica e impresión | Contrastar cabecera, detalle, consulta histórica e impresión móvil con el flujo de diseño aportado por Liz. Ejecución aprobada; aceptación de usabilidad pendiente. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/commit/f1b4799). | 6 | Liz | To Review |
+| US40/41 · Orden de compra y recepción parcial; TS29/30 | T3-03 | Procurement: compra y recepción parcial | Verificar que crear una orden no mueva stock y que cada recepción incremente solo lo recibido. Flujo público y rechazo de exceso comprobados. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/commit/00c1ec3). | 6 | Kevin | Done |
+| US10/11/14 · Entradas, salidas e historial; TS07–09 | T3-04 | Inventory: entradas, salidas e historial | Verificar invariantes de saldo, motivo e historial y el contrato IInventoryFacade. Reglas encapsuladas y pruebas de stock aprobadas. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/commit/f8f2eb3). | 6 | Piero | Done |
+| US19–22 · Despachos, recursos, estados e incidencias; TS14–17 | T3-05 | Logistics: recursos, estados e incidencias | Contrastar elegibilidad de ventas y transiciones con el frontend. API probada; revisión funcional del conjunto de historias pendiente. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/commit/84f14c7). | 6 | Darikson | To Review |
+| US42/34 · Idioma y términos de la landing | T3-06 | Landing: idioma, footer y acceso por segmento | Verificar ambos idiomas, recarga, cuatro recursos del footer, teclado y 390 px; comprobar CTA de dueño a registro y operario a acceso. Publicación comprobada. [Evidencia](https://github.com/Nexxus-ops/nexxus-landing-page/pull/3). | 6 | Liz | Done |
+| US28/29 · Usuarios y roles; TS21/22 | T3-07 | Identity: empleados y permisos | Verificar alta directa y aislamiento desde cliente y API. Pruebas aprobadas; correo de invitación de US28 todavía pendiente. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/commit/2930433). | 6 | Kevin | To Review |
+| US29 · Restricción por roles; TS33 | T3-08 | Datos: esquema y aislamiento de empresa | Contrastar las 35 tablas, 182 columnas y 67 claves foráneas con diccionario, diagrama y código; comprobar aislamiento por empresa. Verificación técnica aprobada. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/AV2/diccionario-datos.md). | 6 | Piero | Done |
+| TS34 · Pruebas de dominio, HTTP y navegador | T3-09 | Calidad: pruebas de dominio, HTTP y navegador | Ejecutar compilación, reglas, integración con PostgreSQL y flujo público. Comprobar continuidad de sesión/boleta e idempotencia tras desplegar. Resultado aprobado el 12/11. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/tests/api_smoke.py). | 8 | Kevin | Done |
+| TS32 · Docker y publicación | T3-10 | Deployment: publicación y recorrido público | Publicar API refactorizada, frontend integrado y landing por segmento. Confirmar los commits desplegados y acceso público. Continuidad futura de PostgreSQL fuera de este cierre. [Evidencia](https://github.com/Nexxus-ops/FrontEnd-CeTe/pull/4). | 6 | Kevin | Done |
+| Presentación · Evidencia del incremento | T3-11 | Presentación: incremento AV2 y Sprint 2 | Existe una presentación técnica editable. Faltan revisión conjunta, actualización de resultados de validación y preparación de la sustentación final. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/AV2/CeTe-AV2-revision-tecnica.pptx). | 4 | Darikson | To Review |
+| Validación · Dos segmentos | T3-12 | Validación: 3–5 entrevistas por segmento | Diego entregó dos entrevistas nuevas del segmento dueño/administrador, incorporadas al informe. Piero está realizando la siguiente ronda; faltan fichas y cobertura por segmento. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/05-Chapter-5.md#532-registro-de-entrevistas). | 6 | Diego y Piero | In Process |
+| SO5 · Colaboración y revisión | T3-13 | Colaboración: acuerdos y evidencias SO5 | Vincular aportes, revisión y resultados con evidencia individual. Reunión del 03/11 informada por Kevin; faltan horario, lugar, asistentes confirmados y acuerdos de la sesión. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe#colaboración-por-producto). | 4 | Diego | In Process |
+| About-the-Product · Video del producto | T3-14 | About-the-Product: verificar video y enlace | Kevin informa que el video ya está realizado. Recibir URL, duración y captura, comprobar navegación pública y asociar testimonios. No se acredita publicación sin el enlace. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/05-Chapter-5.md#54-video-about-the-product). | 6 | Darikson | To Review |
+| About-the-Team · Video del equipo | T3-15 | About-the-Team: aportes y reflexión | Preparar y publicar la primera versión requerida para AV2 con participación y reflexión de cada integrante. Grabación y enlaces aún no recibidos. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/06-Conclusions.md). | 6 | Equipo | To Do |
+| Comunicación · Informe y conclusiones | T3-16 | Comunicación: conclusiones y coherencia | Se corrigieron formato, diagramas y correspondencia DDD/código. Falta cierre conjunto de conclusiones, bibliografía y resultados de validación antes de exportar la entrega. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/pull/22). | 4 | Kevin | In Process |
+
+**Total estimado: 94 horas-persona.** Se conserva la base de estimación de la versión anterior; no es tiempo restante ni tiempo efectivamente consumido. Las tareas técnicas completadas suman 38 h estimadas, no 38 h trabajadas. El resto del esfuerzo sigue distribuido entre revisión y entregables pendientes. Los responsables identifican la coordinación de cada tarea y pueden recibir los aportes indicados en la matriz LACX.
+
+**Estado al corte:** 6 tareas Done, 6 To Review, 3 In Process y 1 To Do. US35 conserva el alcance de pago académico sin pasarela y US28 mantiene pendiente el correo de invitación. Los estados de las tareas no elevan estas historias a completadas. Faltan por confirmar el horario, lugar, asistentes y acuerdos de la reunión; estos datos no se estiman.
 
 #### 5.2.3.4. Development Evidence for Sprint Review
 
@@ -1994,6 +2031,12 @@ Los siguientes commits acreditan el incremento técnico. Los mensajes selecciona
 | CeTe-Api | `main` | [`2930433`](https://github.com/Nexxus-ops/CeTe-Api/commit/2930433) | refactor(identity): isolate account services and credential adapters | — | 12/11/2026 |
 | CeTe-Api | `main` | [`b5a6ad6`](https://github.com/Nexxus-ops/CeTe-Api/commit/b5a6ad6) | refactor(integrations): move exchange rate endpoint to REST adapter | — | 12/11/2026 |
 | CeTe-Api | `main` | [`dc266f9`](https://github.com/Nexxus-ops/CeTe-Api/commit/dc266f9) | refactor(shared): integrate context boundaries and compatibility checks | — | 12/11/2026 |
+| FrontEnd-CeTe | `main` | [`9cc78f6`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/9cc78f6) | fix(web): complete application metadata | — | 10/11/2026 |
+| FrontEnd-CeTe | `main` | [`f7449ac`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/f7449ac) | fix(web): integrate metadata and preserve title during navigation | — | 12/11/2026 |
+| nexxus-landing-page | `develop` | [`b5bb09e`](https://github.com/Nexxus-ops/nexxus-landing-page/commit/b5bb09e) | feat: add audience-specific landing CTAs | — | 11/11/2026 |
+| nexxus-landing-page | `develop` | [`6495243`](https://github.com/Nexxus-ops/nexxus-landing-page/commit/6495243) | feat(landing): integrate audience-specific access paths | — | 12/11/2026 |
+
+Las integraciones de frontend y landing fueron incorporadas mediante [PR #4 de FrontEnd-CeTe](https://github.com/Nexxus-ops/FrontEnd-CeTe/pull/4) y [PR #3 de la landing](https://github.com/Nexxus-ops/nexxus-landing-page/pull/3). Liz figura como autora de la integración; se conservaron los commits originales de Kevin y Darikson. El frontend conserva el título y los metadatos al navegar, y la landing distingue el acceso de dueños y operarios en ambos idiomas.
 
 La recepción parcial ejecuta `PurchaseOrder.Receive`, registra su evidencia y solicita el ingreso mediante `IInventoryFacade`, dentro de la transacción de `IUnitOfWork`. [Código versionado](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/Procurement/Application/Internal/CommandServices/ProcurementCommandService.cs)
 
@@ -2047,7 +2090,9 @@ La revalidación del **12/11/2026** comprobó la API refactorizada mediante comp
 | Dominio y API | Aprobado: stock, tenant, permisos, recepción parcial, rollback, idempotencia, boleta histórica, anulación, revocación, concurrencia y despacho. | [Pruebas HTTP](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/tests/api_smoke.py) · [Comprobaciones de dominio](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/tests/Domain/Program.cs). |
 | Integración externa | Consulta informativa USD/PEN aprobada; no modifica la moneda de las ventas. | [Adaptador cambiario](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/Integrations/Interfaces/REST/ExchangeRatesController.cs) y caso incluido en las pruebas HTTP. |
 | Navegador | Recorrido local y público, POS por teclado, boleta, impresión, idiomas, recarga y móvil de 390 px aprobados. | [Pruebas reproducibles](https://github.com/Nexxus-ops/FrontEnd-CeTe/blob/a1e594fc0f6b3d6d8bc8376955c36c9000cc4179/tests/browser/full-flow.cjs). |
-| Landing | Dos idiomas persistentes, cuatro recursos del footer, anclas, captura y menú móvil aprobados. | [Captura del producto](AV2/evidence/landing-desktop.png) · [Landing publicada](https://cete-landing-av2.onrender.com/). |
+| Landing | Dos idiomas persistentes, cuatro recursos del footer, anclas, captura, menú móvil y CTA por segmento aprobados. | [Captura del producto](AV2/evidence/landing-desktop.png) · [Landing publicada](https://cete-landing-av2.onrender.com/). |
+
+La comprobación adicional del 12/11/2026 sobre las integraciones publicadas verificó las etiquetas y destinos de los CTA en `en_US` y `es_419`, navegación por teclado, persistencia de idioma, los cuatro recursos del footer, menú móvil y ausencia de desbordamiento a 390 px. Se comprobó el título del frontend al pasar entre acceso y registro. Se repitió el recorrido desde la landing de Render y la publicación de GitHub Pages.
 
 Las pruebas utilizan empresas y datos ficticios. Acreditan los casos registrados; no equivalen a una auditoría integral de accesibilidad, rendimiento o preparación para producción. El build del frontend informa un bundle principal mayor de 500 kB, pendiente de optimización. El cliente espera hasta 90 s al iniciar la API Free; conviene comprobar Swagger antes de la sustentación. Las instrucciones para reproducir las pruebas están en el [README de la API](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/README.md).
 
@@ -2069,13 +2114,19 @@ La captura de Swagger en [5.1.4](#514-software-deployment-configuration) muestra
 
 Docker Compose ejecuta API y PostgreSQL localmente. El mismo Dockerfile se publica en Render. La API, frontend y landing están publicados en Render. El recorrido público verifica registro, acceso, compra, recepción parcial, venta, selección por teclado, boleta, impresión y persistencia de idioma. Ver [resultados de ejecución](#5235-execution-evidence-for-sprint-review) y [commits del incremento](#5234-development-evidence-for-sprint-review). La base Free tiene vencimiento registrado para el **28/11/2026 a las 22:30, hora de Lima** (29/11/2026 a las 03:30 UTC).
 
+| Producto | Rama y commit publicado | Fecha/hora de publicación (Lima) | Acceso |
+| :--- | :--- | :--- | :--- |
+| API | `main` · [`4df092e`](https://github.com/Nexxus-ops/CeTe-Api/commit/4df092e49cef5033476add1c7b2caf410d35eac9) | 12/11/2026 · 11:35 | [Swagger](https://cete-api-av2.onrender.com/swagger) |
+| Frontend | `main` · [`0eac94e`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/0eac94e7b929a7f5579313988cbfc3f724e764cc) | 12/11/2026 · 13:06 | [Aplicación](https://cete-web-av2.onrender.com/) |
+| Landing | `develop` · [`389ac46`](https://github.com/Nexxus-ops/nexxus-landing-page/commit/389ac468182c5967406d22f48c4a7ff8b31201dc) | 12/11/2026 · 14:43 | [Landing](https://cete-landing-av2.onrender.com/) |
+
 **Respaldo comprobado.** El 12/11/2026 se exportó la base pública con `pg_dump` 17 en formato custom y TLS con verificación del servidor. El archivo se restauró con `pg_restore --exit-on-error` en un PostgreSQL 17 aislado: se recuperaron las 35 tablas y 67 claves foráneas, además de ventas, boletas y sesiones. La autorización de red externa se retiró al finalizar. El respaldo y su manifiesto SHA-256 se conservan de forma privada fuera de Git. Esta prueba acredita recuperación al momento de la copia; siguen pendientes una periodicidad de respaldo y la continuidad del servicio antes del vencimiento Free.
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
 
 Los cinco integrantes aportaron al incremento mediante diseño, implementación, integración o revisión técnica. La [matriz de colaboración por producto](README.md#colaboración-por-producto) identifica los roles informados por el equipo y enlaza los resultados integrados. La autoría individual visible en GitHub se registra por separado.
 
-La participación de frontend debe respaldarse con evidencia verificable por integrante. El equipo puede asociar los diseños, versiones locales, revisiones o demostraciones que ya tenga a la historia y al cambio correspondiente. Diego y Piero coordinan las entrevistas. Diego aportó las grabaciones, capturas y resúmenes de Raúl y Carmen, incorporados en el [registro de entrevistas](#532-registro-de-entrevistas). Las fichas restantes se incorporarán conforme se reciban.
+El historial integrado de frontend contiene aportes visibles de Kevin, Diego y Liz. El PR #4 incorpora la integración de Liz y conserva el cambio previo de Kevin; el informe mantiene separados los roles de diseño y revisión de la autoría Git. La participación y los resultados individuales todavía deben completarse en el cierre de colaboración y Student Outcome 5. Diego y Piero coordinan las entrevistas. Diego aportó las grabaciones, capturas y resúmenes de Raúl y Carmen, incorporados en el [registro de entrevistas](#532-registro-de-entrevistas). Las fichas restantes se incorporarán conforme se reciban.
 
 ## 5.3. Validation Interviews
 
