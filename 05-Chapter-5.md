@@ -163,7 +163,7 @@ El incremento AV2 se publica en Render. La landing y el frontend se sirven como 
 
 Para desarrollo, Docker Compose inicia la API y PostgreSQL. La [vista de despliegue](04-Chapter-4.md#463-software-architecture-container-diagrams) detalla la comunicación entre servicios. El [README de la API](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/README.md) incluye los pasos reproducibles. Las capturas del frontend corresponden a la revalidación pública del 12/11/2026 con datos ficticios.
 
-**Versión de API publicada.** La refactorización DDD integrada por el equipo en [PR #2](https://github.com/Nexxus-ops/CeTe-Api/pull/2) se desplegó desde `main`, commit [`4df092e`](https://github.com/Nexxus-ops/CeTe-Api/commit/4df092e49cef5033476add1c7b2caf410d35eac9), el 12/11/2026 a las 11:35 (Lima). Se conservaron las 28 operaciones HTTP y el esquema físico. La prueba de continuidad recuperó una sesión y una boleta creadas antes del despliegue. El registro técnico se mantiene en [Verificación AV2](AV2/verificacion.md).
+**Versión de API publicada.** La refactorización DDD integrada por el equipo en [PR #2](https://github.com/Nexxus-ops/CeTe-Api/pull/2) se desplegó desde `main`, commit [`4df092e`](https://github.com/Nexxus-ops/CeTe-Api/commit/4df092e49cef5033476add1c7b2caf410d35eac9), el 12/11/2026 a las 11:35 (Lima). Se conservaron las 28 operaciones HTTP y el esquema físico. La prueba de continuidad recuperó una sesión y una boleta creadas antes del despliegue. Sus resultados se presentan en [5.2.3.5. Execution Evidence](#5235-execution-evidence-for-sprint-review).
 
 ## 5.2. Landing Page, Services & Applications Implementation
 
@@ -453,6 +453,8 @@ El equipo gestionó el desarrollo utilizando repositorios de GitHub. Se aplicaro
 
 ### 5.2.3. Sprint 3 / consolidación AV2
 
+Material de sustentación: [presentación técnica AV2 editable](AV2/CeTe-AV2-revision-tecnica.pptx). Las evidencias de participación y validación se completan en sus secciones correspondientes.
+
 #### 5.2.3.1. Sprint Planning 3
 
 **Plan propuesto, pendiente de acuerdo del equipo.** Registrar sesión formal, fechas, capacidad y compromiso. Las correcciones asistidas existen en el código y requieren aceptación. Las horas siguientes estiman revisión y consolidación restante, y no reemplazan horas históricas.
@@ -521,6 +523,8 @@ El contrato de Inventario entrega instantáneas y concentra los ajustes de saldo
 
 Las siguientes capturas corresponden a ejecución pública con datos ficticios en Render. Presentan el producto y su resultado; la evidencia de participación y validación con usuarios se registra en sus secciones específicas.
 
+La revalidación del **12/11/2026** comprobó la API refactorizada mediante compilación, pruebas de dominio, suite HTTP con PostgreSQL y el recorrido completo desde el frontend publicado. Las capturas de dashboard, compras y boleta se renovaron durante esa ejecución. La prueba de continuidad recuperó, después del despliegue, una sesión y una boleta creadas previamente; reenviar la venta con el mismo UUID no volvió a descontar stock. `/health` respondió HTTP 200 con estado `healthy`. El endpoint conserva `version: 0.2.0`; el commit publicado en [5.1.4](#514-software-deployment-configuration) identifica la revisión del código.
+
 **E1 · Dashboard operativo**
 
 ![Dashboard AV2 con indicadores de operación](AV2/evidence/dashboard-desktop.png)
@@ -556,10 +560,12 @@ Las siguientes capturas corresponden a ejecución pública con datos ficticios e
 
 | Grupo de pruebas | Resultado registrado | Evidencia |
 | :--- | :--- | :--- |
-| Dominio y API | Aprobado: stock, tenant, permisos, recepción parcial, rollback, idempotencia, boleta histórica, anulación, revocación, concurrencia y despacho. | [Verificación técnica](AV2/verificacion.md). |
-| Integración externa | Consulta de referencia USD/PEN aprobada. | [Resultados y alcance](AV2/verificacion.md). |
+| Dominio y API | Aprobado: stock, tenant, permisos, recepción parcial, rollback, idempotencia, boleta histórica, anulación, revocación, concurrencia y despacho. | [Pruebas HTTP](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/tests/api_smoke.py) · [Comprobaciones de dominio](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/tests/Domain/Program.cs). |
+| Integración externa | Consulta informativa USD/PEN aprobada; no modifica la moneda de las ventas. | [Adaptador cambiario](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/Integrations/Interfaces/REST/ExchangeRatesController.cs) y caso incluido en las pruebas HTTP. |
 | Navegador | Recorrido local y público, POS por teclado, boleta, impresión, idiomas, recarga y móvil de 390 px aprobados. | [Pruebas reproducibles](https://github.com/Nexxus-ops/FrontEnd-CeTe/blob/a1e594fc0f6b3d6d8bc8376955c36c9000cc4179/tests/browser/full-flow.cjs). |
-| Landing | Dos idiomas persistentes, cuatro recursos del footer, anclas, captura y menú móvil aprobados. | [Revalidación](AV2/verificacion.md). |
+| Landing | Dos idiomas persistentes, cuatro recursos del footer, anclas, captura y menú móvil aprobados. | [Captura del producto](AV2/evidence/landing-desktop.png) · [Landing publicada](https://cete-landing-av2.onrender.com/). |
+
+Las pruebas utilizan empresas y datos ficticios. Acreditan los casos registrados; no equivalen a una auditoría integral de accesibilidad, rendimiento o preparación para producción. El build del frontend informa un bundle principal mayor de 500 kB, pendiente de optimización. El cliente espera hasta 90 s al iniciar la API Free; conviene comprobar Swagger antes de la sustentación. Las instrucciones para reproducir las pruebas están en el [README de la API](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/README.md).
 
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review
 
@@ -577,7 +583,7 @@ La captura de Swagger en [5.1.4](#514-software-deployment-configuration) muestra
 
 #### 5.2.3.7. Software Deployment Evidence for Sprint Review
 
-Docker Compose ejecuta API y PostgreSQL localmente. El mismo Dockerfile se publica en Render. La API, frontend y landing están publicados en Render. El recorrido público verifica registro, acceso, compra, recepción parcial, venta, selección por teclado, boleta, impresión y persistencia de idioma. Ver [resultado y commits](AV2/verificacion.md). La base Free tiene vencimiento registrado para el **28/11/2026 a las 22:30, hora de Lima** (29/11/2026 a las 03:30 UTC).
+Docker Compose ejecuta API y PostgreSQL localmente. El mismo Dockerfile se publica en Render. La API, frontend y landing están publicados en Render. El recorrido público verifica registro, acceso, compra, recepción parcial, venta, selección por teclado, boleta, impresión y persistencia de idioma. Ver [resultados de ejecución](#5235-execution-evidence-for-sprint-review) y [commits del incremento](#5234-development-evidence-for-sprint-review). La base Free tiene vencimiento registrado para el **28/11/2026 a las 22:30, hora de Lima** (29/11/2026 a las 03:30 UTC).
 
 **Respaldo comprobado.** El 12/11/2026 se exportó la base pública con `pg_dump` 17 en formato custom y TLS con verificación del servidor. El archivo se restauró con `pg_restore --exit-on-error` en un PostgreSQL 17 aislado: se recuperaron las 35 tablas y 67 claves foráneas, además de ventas, boletas y sesiones. La autorización de red externa se retiró al finalizar. El respaldo y su manifiesto SHA-256 se conservan de forma privada fuera de Git. Esta prueba acredita recuperación al momento de la copia; siguen pendientes una periodicidad de respaldo y la continuidad del servicio antes del vencimiento Free.
 

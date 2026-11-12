@@ -364,7 +364,7 @@ El nivel 2 distingue las unidades de ejecución y persistencia. En C4, «contene
 | Frontend | [cete-web-av2.onrender.com](https://cete-web-av2.onrender.com/) | Interfaz de operación autenticada. |
 | API | [Swagger](https://cete-api-av2.onrender.com/swagger) · [Health](https://cete-api-av2.onrender.com/health) | Contratos y estado de conexión a la base. |
 
-La evidencia de ejecución se encuentra en [la verificación AV2](AV2/verificacion.md). La base Free tiene vencimiento registrado para el **28/11/2026 a las 22:30, hora de Lima** (29/11/2026, 03:30 UTC). La continuidad posterior requiere respaldo y renovación o migración; el diagrama no implica disponibilidad permanente.
+La evidencia de ejecución se encuentra en [5.2.3.5. Execution Evidence](05-Chapter-5.md#5235-execution-evidence-for-sprint-review). La base Free tiene vencimiento registrado para el **28/11/2026 a las 22:30, hora de Lima** (29/11/2026, 03:30 UTC). La continuidad posterior requiere respaldo y renovación o migración; el diagrama no implica disponibilidad permanente.
 
 ### 4.6.4. Software Architecture Components Diagrams
 
