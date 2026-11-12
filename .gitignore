@@ -1,1 +1,5 @@
 /tools/node_modules/
+
+# Internal correction and progress notes are kept outside this repository.
+/AV2/README.md
+/AV2/verificacion.md
