@@ -4,12 +4,12 @@ title: EventStorming de diseño · Recepción parcial · CeTe AV2
 flowchart TB
   A["Operario de almacén autorizado"]:::actor
   C["Comando: recibir cantidad de una compra"]:::command
-  O["Operations.Receive<br/>Coordina orden, recepción y saldo"]:::aggregate
-  P["Validación: cantidad positiva<br/>y no mayor que el pendiente"]:::aggregate
-  B["StockBalance.Receive<br/>Incrementa existencias del almacén"]:::aggregate
+  O["ProcurementCommandService.Receive<br/>Coordina recepción y saldo con IUnitOfWork"]:::aggregate
+  P["PurchaseOrder.Receive y PurchaseOrderLine.Receive<br/>Estado abierto, pertenencia y cantidad pendiente"]:::aggregate
+  B["Inventario vía IInventoryFacade<br/>StockBalance.Receive aumenta el saldo"]:::aggregate
   E["Hechos tras commit<br/>Recepción registrada · stock aumentado<br/>Orden PARTIAL o RECEIVED"]:::event
   Q["Consulta: Purchases / History / Inventory"]:::query
-  A --> C --> O --> P --> B
+  A --> C --> O --> P
   E -.->|"La consulta posterior observa el commit"| Q
   K["Leyenda: azul = comando · amarillo = regla o coordinación<br/>naranja = hecho del negocio · verde = consulta<br/>La creación de una orden no aumenta stock"]:::actor
 
@@ -23,6 +23,6 @@ flowchart TB
   R["Hotspot: no hay clave de idempotencia de recepción<br/>Si aún queda saldo, un reenvío puede registrar otra recepción"]:::hotspot
   P -.-> X
   O -.-> R
-  B --> F -->|"Guarda cabecera, línea, movimiento y acumulado"| E
+  P --> F --> B -->|"Guarda cabecera, línea, movimiento y acumulado"| E
   classDef policy fill:#EDE9FE,stroke:#6D28D9,color:#2E1065
   classDef hotspot fill:#FCE7F3,stroke:#BE185D,color:#500724

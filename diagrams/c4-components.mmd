@@ -3,31 +3,34 @@ title: C4 · Nivel 3 · Componentes reales de CeTe API · AV2
 ---
 flowchart TB
   S["Aplicación web<br/>[Contenedor: Vue 3]<br/>Consume contratos de CeTe"]:::external
-  subgraph API["CeTe API · Contenedor ASP.NET Core 10"]
-    E["Canal HTTP y Minimal APIs<br/>[Componente: Program.cs]<br/>Aplica CORS, JWT, roles y traduce errores"]:::internal
-    AU["Authentication<br/>[Componente: C# / Infrastructure]<br/>Registra cuentas y revoca sesiones"]:::internal
-    CU["CurrentUser<br/>[Componente: C# / Infrastructure]<br/>Obtiene usuario y tenant desde claims"]:::internal
-    OP["Operations<br/>[Componente: C# / Application]<br/>Coordina inventario, compras, venta y despacho"]:::internal
-    DO["Modelo de dominio<br/>[Componente: C# / Domain]<br/>StockBalance, Sale, Dispatch y Rules"]:::internal
-    DB["CeTeDb<br/>[Componente: EF Core / Npgsql]<br/>Implementa ICeTeRepository y transacciones"]:::internal
-    EX["Consulta de tipo de cambio<br/>[Componente: Minimal API / HttpClient]<br/>Adapta respuesta USD/PEN y error 503"]:::internal
+  subgraph API["CeTe API · Monolito modular ASP.NET Core 10"]
+    E["Interfaces REST<br/>[Controladores MVC y ensambladores]<br/>Recursos HTTP, autorización y comandos tipados"]:::internal
+    APP["Servicios de aplicación por contexto<br/>[Identity, Inventory, Procurement, Sales, Logistics]<br/>CommandServices y QueryServices"]:::internal
+    DO["Modelos de dominio por contexto<br/>[Agregados, comandos y consultas C#]<br/>Product, StockBalance, PurchaseOrder, Sale, Dispatch"]:::internal
+    RP["Repositorios EF Core por contexto<br/>[Adaptadores de persistencia]<br/>Implementan contratos de repositorio propios"]:::internal
+    DB["CeTeDb<br/>[EF Core / Npgsql]<br/>Implementa IUnitOfWork y filtros por empresa"]:::internal
+    AU["Adaptadores de identidad<br/>[PasswordService, TokenService, SessionValidator]<br/>Credenciales, JWT y validación de sesión"]:::internal
+    CU["CurrentUser<br/>[Adaptador de ICurrentUser]<br/>Resuelve claims de usuario y empresa"]:::internal
+    RE["ReportingQueryService<br/>[Proyección de lectura EF Core]<br/>Indicadores por empresa"]:::internal
+    EX["ExchangeRatesController<br/>[Adaptador REST / HttpClient]<br/>Referencia USD/PEN y error 503"]:::internal
   end
-  PG[("PostgreSQL 17<br/>[Contenedor de datos]<br/>Estado persistente")]:::external
+  PG[("PostgreSQL 17<br/>[Contenedor de datos]<br/>35 tablas compartidas")]:::external
   XR["ExchangeRate-API<br/>[Sistema externo]<br/>Referencia cambiaria"]:::external
-  S -->|"Envía JSON/HTTPS con Bearer JWT"| E
-  E -->|"Delega registro, acceso y cierre"| AU
-  E -->|"Delega operaciones autorizadas"| OP
-  E -->|"Delega consulta de cotización"| EX
-  E -->|"Valida sesión JWT en EF Core"| DB
-  AU -->|"Persiste cuentas y sesiones directamente"| DB
-  OP -->|"Valida invariantes mediante métodos C#"| DO
-  OP -->|"Usa puerto ICeTeRepository"| DB
-  DB -->|"Lee TenantId por ICurrentUser"| CU
-  OP -->|"Obtiene identidad por ICurrentUser"| CU
-  DB -->|"Ejecuta SQL por Npgsql/TCP"| PG
-  EX -->|"Consulta JSON/HTTPS"| XR
-  K["Leyenda: azul = componente dentro de la API<br/>gris = contenedor o sistema externo · flecha = llamada actual"]:::external
-
-  classDef person fill:#0A2540,stroke:#0A2540,color:#FFFFFF
+  S -->|"JSON/HTTPS y Bearer JWT"| E
+  E -->|"Delega comandos y consultas"| APP
+  APP -->|"Invoca reglas y métodos"| DO
+  APP -->|"Usa contratos de repositorio"| RP
+  APP -->|"Coordina IUnitOfWork"| DB
+  APP -->|"Usa IPasswordService e ITokenService"| AU
+  APP -->|"Obtiene ICurrentUser"| CU
+  RP -->|"Consulta y registra entidades"| DB
+  AU -->|"Valida sesiones persistidas"| DB
+  DB -->|"Obtiene TenantId por ICurrentUser"| CU
+  E -->|"Consulta indicadores por interfaz"| RE
+  RE -->|"Solo lectura con filtros por tenant"| DB
+  E -->|"Ruta de integración externa"| EX
+  DB -->|"Npgsql/TCP, conexión interna"| PG
+  EX -->|"JSON/HTTPS"| XR
+  K["Program.cs configura DI, middleware y JWT.<br/>La colaboración entre contextos usa IInventoryFacade,<br/>ISalesQueryService, ISaleDispatchPolicy e ICompanyQueryService.<br/>Azul = componente interno · gris = contenedor o sistema externo"]:::external
   classDef internal fill:#E8F1FB,stroke:#1D5F96,color:#102A43
   classDef external fill:#F1F3F5,stroke:#5B6470,color:#172B4D

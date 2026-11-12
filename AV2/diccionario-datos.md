@@ -635,6 +635,6 @@ Los vínculos entre tablas de empresa usan FK compuestas `(TenantId, XId) → (T
 
 ## Fuentes verificables
 
-- [Esquema SQL](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/schema.sql).
-- [Configuración EF Core](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/Infrastructure/CeTeDb.cs).
-- [Entidades](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/Domain/Entities.cs).
+- [Esquema SQL](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/schema.sql).
+- [Configuración EF Core](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/Shared/Infrastructure/Persistence/EFC/Configuration/CeTeDb.cs).
+- [Modelo por bounded context](https://github.com/Nexxus-ops/CeTe-Api/tree/4df092e49cef5033476add1c7b2caf410d35eac9). La refactorización conserva el esquema físico; la restauración del respaldo público del 12/11/2026 recuperó las 35 tablas y 67 FK.

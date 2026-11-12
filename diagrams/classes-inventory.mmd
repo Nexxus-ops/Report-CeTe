@@ -5,11 +5,13 @@ classDiagram
   class Product {
     +Guid Id
     +Guid TenantId
-    +string Sku
-    +string Name
-    +decimal UnitPrice
-    +decimal MinimumStock
-    +bool Active
+    +string Sku [private set]
+    +string Name [private set]
+    +decimal UnitPrice [private set]
+    +decimal MinimumStock [private set]
+    +bool Active [private set]
+    +UpdateDetails(Sku sku, string name, Money unitPrice, decimal minimumStock) void
+    +Archive(bool hasStock) void
   }
   class StockBalance {
     +Guid ProductId
@@ -26,5 +28,15 @@ classDiagram
     +string Reason
     +DateTimeOffset CreatedAt
   }
+  class Sku {
+    +string Value [get only]
+    +Sku(string value)
+  }
+  class Money {
+    +decimal Amount [get only]
+    +Money(decimal amount)
+  }
+  Product ..> Sku : UpdateDetails
+  Product ..> Money : UpdateDetails
   Product "1" <-- "0..*" StockBalance : ProductId
   Product "1" <-- "0..*" InventoryMovement : ProductId

@@ -5,7 +5,7 @@ flowchart TB
   A["Operador de logística o administrador"]:::actor
   Q["Consulta: listar ventas elegibles y despachos"]:::query
   C["Comando: crear despacho<br/>Ventas, conductor y placa"]:::command
-  V["Reglas de asignación<br/>Ventas completadas y sin asignación previa"]:::aggregate
+  V["LogisticsCommandService.CreateDispatch<br/>ISalesQueryService: venta completada<br/>Recursos libres y sin asignación previa"]:::aggregate
   E["Hecho: despacho creado y ventas asignadas<br/>Estado PENDING"]:::event
   M["Comandos: cambiar estado o registrar incidencia"]:::command
   D["Dispatch.Transition valida la transición"]:::aggregate

@@ -38,7 +38,7 @@ Cada diagrama tiene una fuente Mermaid (`.mmd`) y un SVG ampliable. Las imágene
 3. Contrastar los ER con `schema.sql` y el mapeo de EF Core; no añadir asociaciones que solo se deducen por el nombre de una tabla.
 4. Mantener las mismas imágenes en el README y en los capítulos. El texto del capítulo es la explicación del alcance, no una sustitución de las reglas del código.
 
-La revisión de 30/10/2026 usa Mermaid 12.2.0, con notación clásica y disposición Dagre. Los C4 se expresan con flowcharts tipados; C4 no exige una herramienta de dibujo concreta. Las fuentes no contienen secretos ni datos de clientes.
+La revisión de 12/11/2026 usa Mermaid 12.2.0, con notación clásica y disposición Dagre. C4, contratos, secuencia y clases se contrastan con la API desplegada en `4df092e49cef5033476add1c7b2caf410d35eac9`; los ER conservan el mismo esquema de 35 tablas y 67 FK. Los C4 se expresan con flowcharts tipados; C4 no exige una herramienta de dibujo concreta. Las fuentes no contienen secretos ni datos de clientes.
 
 ## Regeneración local
 

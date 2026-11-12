@@ -22,7 +22,7 @@ Dominio aprobado: stock, dinero, anulación y estados. HTTP/PostgreSQL aprobado:
 
 ## Cierre
 
-API, frontend y landing publicados y verificados. Ver [URLs, commits y resultados](verificacion.md). La base Free vence el 29/11/2026 UTC.
+API, frontend y landing publicados y verificados. La API refactorizada por bounded contexts se integró y desplegó el 12/11/2026; se conservaron contratos y datos. El respaldo privado de PostgreSQL se restauró en una instancia aislada y recuperó sus 35 tablas y 67 FK. Ver [URLs, commits y resultados](verificacion.md). La base Free vence el 28/11/2026 a las 22:30 Lima (29/11/2026 UTC); falta definir continuidad y respaldo periódico.
 
 Las capturas de evidence son de ejecución pública real con datos ficticios. No equivalen a entrevistas. Se mantienen pendientes videos, validaciones, aportes reales y revisión de performance por el coordinador. No se modifican notas históricas.
 
