@@ -71,6 +71,7 @@ Proyecto
         </tr>
         <tr><td><strong>AV2 (revisión técnica)</strong></td><td>29/10/2026</td><td>Revisión asistida solicitada por Kevin</td><td>Correcciones TB1, API propia, boleta, modelo de datos, backlog con TS y evidencias públicas. Aceptación y evidencias humanas pendientes.</td></tr>
         <tr><td><strong>AV2 (actualización del informe)</strong></td><td>10/11/2026</td><td>Revisión asistida solicitada por Kevin</td><td>EventStorming de diseño, evidencia de despliegue, trazabilidad de commits y catálogo unificado. Validación del equipo en curso.</td></tr>
+        <tr><td><strong>AV2 (DDD y continuidad)</strong></td><td>12/11/2026</td><td>Kevin Salazar · consolidación técnica</td><td>Sincronización de C4, EventStorming, clases y contratos con la API refactorizada integrada por el equipo. Despliegue y regresión públicos verificados; respaldo privado restaurado en PostgreSQL aislado.</td></tr>
     </table>
 </div>
 </div>
@@ -87,11 +88,11 @@ El equipo trabajó tanto en GitHub como en sesiones presenciales y por mensajer�
 
 | Integrante | Aporte registrado | Evidencia |
 | :--- | :--- | :--- |
-| Liz Anahua | Needfinding y análisis competitivo del capítulo II. | [Report-CeTe · `8a4f7e8`](https://github.com/Nexxus-ops/Report-CeTe/commit/8a4f7e8) |
-| Diego Campoblanco | Configuración de Fake API para TB1 y documentación del desarrollo del Sprint 2. Entrevistas de validación a Raúl y Carmen para AV2. | [FrontEnd-CeTe · `b081cb6`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/b081cb6) · [Report-CeTe · `4ca7ec7`](https://github.com/Nexxus-ops/Report-CeTe/commit/4ca7ec7) · [Entrevistas AV2](05-Chapter-5.md#532-registro-de-entrevistas) |
-| Piero Montes | Flujos de usuario y actualización del capítulo IV. | [Report-CeTe · `867158a`](https://github.com/Nexxus-ops/Report-CeTe/commit/867158a) |
-| Kevin Salazar | API, integración del frontend y recursos bilingües de la landing para AV2. | [CeTe-Api · `8c81227`](https://github.com/Nexxus-ops/CeTe-Api/commit/8c81227) · [FrontEnd-CeTe · `7075e28`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/7075e28) · [Landing · `13326ec`](https://github.com/Nexxus-ops/nexxus-landing-page/commit/13326ec) |
-| Darikson Salazar | Diseño C4 y lineamientos UI/UX. | [Report-CeTe · `58fafe9`](https://github.com/Nexxus-ops/Report-CeTe/commit/58fafe9) |
+| Liz Anahua | Needfinding y análisis competitivo del capítulo II. Consulta histórica de boletas en el backend refactorizado. | [Report-CeTe · `8a4f7e8`](https://github.com/Nexxus-ops/Report-CeTe/commit/8a4f7e8) · [CeTe-Api · `f1b4799`](https://github.com/Nexxus-ops/CeTe-Api/commit/f1b4799) |
+| Diego Campoblanco | Configuración de Fake API para TB1 y documentación del desarrollo del Sprint 2. Entrevistas de validación a Raúl y Carmen para AV2. Integración de límites de contexto y comprobaciones de compatibilidad DDD. | [FrontEnd-CeTe · `b081cb6`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/b081cb6) · [Report-CeTe · `4ca7ec7`](https://github.com/Nexxus-ops/Report-CeTe/commit/4ca7ec7) · [Entrevistas AV2](05-Chapter-5.md#532-registro-de-entrevistas) · [CeTe-Api · `dc266f9`](https://github.com/Nexxus-ops/CeTe-Api/commit/dc266f9) |
+| Piero Montes | Flujos de usuario y actualización del capítulo IV. Organización del dominio y contratos de Inventario. | [Report-CeTe · `867158a`](https://github.com/Nexxus-ops/Report-CeTe/commit/867158a) · [CeTe-Api · `f8f2eb3`](https://github.com/Nexxus-ops/CeTe-Api/commit/f8f2eb3) |
+| Kevin Salazar | API, integración del frontend y recursos bilingües de la landing para AV2. Separación de Abastecimiento, Identidad e integración externa. | [CeTe-Api · `8c81227`](https://github.com/Nexxus-ops/CeTe-Api/commit/8c81227) · [FrontEnd-CeTe · `7075e28`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/7075e28) · [Landing · `13326ec`](https://github.com/Nexxus-ops/nexxus-landing-page/commit/13326ec) · [CeTe-Api · `00c1ec3`](https://github.com/Nexxus-ops/CeTe-Api/commit/00c1ec3) |
+| Darikson Salazar | Diseño C4 y lineamientos UI/UX. Separación de comandos y repositorios de Ventas y Logística. | [Report-CeTe · `58fafe9`](https://github.com/Nexxus-ops/Report-CeTe/commit/58fafe9) · [CeTe-Api · `84f14c7`](https://github.com/Nexxus-ops/CeTe-Api/commit/84f14c7) |
 
 ## Colaboración por producto
 
@@ -1213,7 +1214,9 @@ Nuestro prototipo navegable fue construido íntegramente en Figma, configurando 
 
 ## 4.6. Domain-Driven Software Architecture
 
-El incremento AV2 tiene una API única en ASP.NET Core 10, una base PostgreSQL y una SPA Vue. Separamos las responsabilidades del negocio mediante DDD, pero los límites son todavía **lógicos**: las operaciones comparten `Operations`, `ICeTeRepository`, `CeTeDb` y un mismo proceso. La separación en carpetas `Domain`, `Application` e `Infrastructure` constituye una base para evolucionar; aún no impide dependencias entre contextos.
+El incremento AV2 tiene una API en ASP.NET Core 10, PostgreSQL y una SPA Vue. La refactorización integrada en [PR #2](https://github.com/Nexxus-ops/CeTe-Api/pull/2), publicada el **12/11/2026**, organiza cinco contextos operativos: `Inventory`, `Procurement`, `Sales`, `Logistics` e `Identity`. Cada contexto separa dominio, aplicación, infraestructura e interfaces REST, con contratos de repositorio y servicios de comandos y consultas. Se retiraron el coordinador global `Operations` y el puerto genérico `ICeTeRepository`.
+
+La arquitectura es un **monolito modular con DDD**: los contextos comparten proceso, `CeTeDb` y una unidad de trabajo. Los contratos delimitan la colaboración entre módulos; la base no está separada por contexto ni se implementa mensajería distribuida. El código de referencia corresponde al commit desplegado [`4df092e`](https://github.com/Nexxus-ops/CeTe-Api/commit/4df092e49cef5033476add1c7b2caf410d35eac9).
 
 **Criterio de lectura.** Los diagramas C4, de clases y de datos siguientes describen el código actual. Los eventos de EventStorming nombran hechos del negocio para el análisis; no representan clases de eventos publicadas, colas ni consistencia eventual. Las mejoras propuestas se identifican al final de cada sección. Todos los diagramas tienen [fuente editable y versión SVG](diagrams/README.md).
 
@@ -1223,7 +1226,7 @@ El incremento AV2 tiene una API única en ASP.NET Core 10, una base PostgreSQL y
 
 El núcleo diferenciador es la coherencia entre existencia física y operación comercial. Por eso Inventario conserva la autoridad sobre el saldo, mientras Abastecimiento y Ventas solicitan sus cambios dentro de una transacción coordinada. Una recepción y una venta no son el mismo concepto, aunque ambas generen movimientos.
 
-| Contexto lógico | Responsabilidad y lenguaje propio | Entidades principales | Alcance AV2 |
+| Bounded context | Responsabilidad y lenguaje propio | Entidades principales | Alcance AV2 |
 | :--- | :--- | :--- | :--- |
 | **Inventario — núcleo** | Identificar productos y controlar saldos por almacén. SKU, saldo, ingreso, salida y movimiento. | `Product`, `Warehouse`, `StockBalance`, `InventoryMovement` | Catálogo, entradas/salidas, archivo e historial. |
 | **Abastecimiento — soporte** | Registrar lo pedido y distinguirlo de lo recibido físicamente. Orden, pendiente y recepción. | `Supplier`, `PurchaseOrder`, `PurchaseOrderLine`, `GoodsReceipt`, `GoodsReceiptLine` | Una línea por orden y recepciones parciales. |
@@ -1237,9 +1240,17 @@ El dashboard es una **proyección de lectura transversal**, no un agregado de re
 
 ![Mapa lógico de contextos DDD](diagrams/ddd-context-map.svg)
 
-*Las flechas señalan al proveedor de información y a su consumidor. No representan microservicios ni contratos de integración independientes.* [Ampliar](diagrams/ddd-context-map.svg) · [Fuente editable](diagrams/ddd-context-map.mmd)
+*Las flechas señalan al proveedor y a su consumidor. Los contratos se ejecutan dentro de la misma API; cada contexto conserva su responsabilidad de negocio.* [Ampliar](diagrams/ddd-context-map.svg) · [Fuente editable](diagrams/ddd-context-map.mmd)
 
-La relación Inventario–Ventas y la relación Inventario–Abastecimiento se coordinan hoy en el mismo caso de uso y la misma base. El vínculo Ventas–Logística permite comprobar elegibilidad y bloquear anulaciones de ventas asignadas. Identidad proporciona `TenantId`, usuario y rol a todas las operaciones protegidas. Antes de separar módulos, se requieren contratos explícitos para cambiar saldos y consultar ventas, evitando acceso arbitrario al repositorio genérico.
+Ventas y Abastecimiento consumen `IInventoryFacade`: reciben instantáneas de producto y almacén y solicitan ajustes de stock dentro de la unidad de trabajo del caso de uso. Logística consulta el estado de venta mediante `ISalesQueryService`; Ventas consulta asignaciones mediante `ISaleDispatchPolicy`, implementado en la capa anticorrupción de Logística. Identidad aporta `ICurrentUser` y `ICompanyQueryService`. Los módulos consumidores no modifican directamente los repositorios de otros contextos.
+
+| Contrato entre contextos | Proveedor | Consumidor y responsabilidad |
+| :--- | :--- | :--- |
+| `IInventoryFacade` | Inventario | Ventas y Abastecimiento consultan instantáneas y solicitan movimientos; Identidad aprovisiona el almacén inicial. |
+| `ISalesQueryService` | Ventas | Logística verifica que cada venta esté completada. |
+| `ISaleDispatchPolicy` | Puerto de Ventas, adaptador de Logística | Ventas comprueba asignaciones antes de anular. |
+| `ICompanyQueryService` | Identidad | Ventas obtiene los datos de empresa para la instantánea de la boleta. |
+| `ICurrentUser` / `IUnitOfWork` | Contratos compartidos | Identidad resuelve los claims; EF Core implementa la transacción que integra las modificaciones. |
 
 #### 4.6.1.3. Comandos, reglas, hechos y consultas
 
@@ -1299,13 +1310,13 @@ La evidencia de ejecución se encuentra en [la verificación AV2](AV2/verificaci
 
 ### 4.6.4. Software Architecture Components Diagrams
 
-El nivel 3 amplía exclusivamente el contenedor CeTe API. Los nombres corresponden a archivos y tipos existentes: Minimal APIs en `Program.cs`, `Operations`, `Authentication`, `CurrentUser`, entidades de dominio y `CeTeDb`. El puerto `ICeTeRepository` está definido en `Application/Ports.cs` y EF Core lo implementa en infraestructura.
+El nivel 3 amplía exclusivamente el contenedor CeTe API. `Program.cs` configura inyección de dependencias, CORS, JWT, Swagger y middleware; los controladores de `Interfaces/REST` reciben recursos HTTP y los ensambladores crean comandos. Los servicios de aplicación coordinan el dominio a través de contratos de repositorio propios y de `IUnitOfWork`.
 
 ![C4 nivel 3: componentes reales de la API](diagrams/c4-components.svg)
 
-*Se muestran dependencias efectivas, incluido el acceso directo de Authentication a CeTeDb. No existen InventoryController, InventoryService ni InventoryRepository especializados en esta versión.* [Ampliar](diagrams/c4-components.svg) · [Fuente editable](diagrams/c4-components.mmd)
+*Los componentes agrupan tipos por responsabilidad para conservar la legibilidad. Los repositorios EF Core implementan los puertos de cada contexto; SessionValidator consulta CeTeDb desde infraestructura.* [Ampliar](diagrams/c4-components.svg) · [Fuente editable](diagrams/c4-components.mmd)
 
-La inversión de dependencias está aplicada en los casos de uso que consumen `ICeTeRepository` e `ICurrentUser`. La arquitectura hexagonal sigue siendo **parcial**: autenticación depende directamente de EF Core, y la consulta cambiaria reside en un endpoint con `HttpClient`. La mejora prevista es extraer puertos y adaptadores específicos, separar casos de uso por contexto y conservar las pruebas de integración como criterio de regresión.
+La aplicación depende de interfaces de repositorio y de servicios, sin importar EF Core ni infraestructura. `IPasswordService` e `ITokenService` se implementan en los adaptadores de autenticación de Identidad. `ExchangeRatesController` adapta la consulta HTTP al proveedor cambiario. Reporting conserva una proyección transversal de solo lectura en infraestructura. Permanecen pendientes las migraciones versionadas, la paginación y una separación más estricta de la propiedad de los datos; los contratos actuales no equivalen a bases independientes ni a aislamiento físico entre módulos.
 
 #### 4.6.4.1. Vista dinámica de la venta
 
@@ -1315,7 +1326,7 @@ La inversión de dependencias está aplicada en los casos de uso que consumen `I
 
 ## 4.7. Software Object-Oriented Design
 
-El diseño táctico se evalúa por sus reglas y límites de consistencia. Una tabla o una clase no constituye automáticamente un agregado. Actualmente, `StockBalance`, `Sale` y `Dispatch` encapsulan parte de su estado; las demás entidades mantienen propiedades mutables y varias reglas se coordinan desde `Operations`.
+El diseño táctico se evalúa por sus reglas y límites de consistencia. Una tabla o una clase ubicada en `Model/Aggregates` no constituye automáticamente una raíz de agregado. `Product`, `StockBalance`, `Sale`, `PurchaseOrder`, `PurchaseOrderLine` y `Dispatch` protegen reglas mediante métodos de dominio y escritura restringida. Los servicios de aplicación coordinan las operaciones que afectan varios objetos dentro de una transacción.
 
 ### 4.7.1. Class Diagrams
 
@@ -1325,19 +1336,19 @@ Los diagramas siguientes muestran **tipos y miembros existentes**, con atributos
 
 ![Clases actuales de inventario](diagrams/classes-inventory.svg)
 
-*Product identifica y describe el SKU; StockBalance conserva su cantidad por almacén. No existe una clase InventoryItem en la API: ese nombre se conserva en algunos DTO del frontend por compatibilidad.* [Ampliar](diagrams/classes-inventory.svg) · [Fuente editable](diagrams/classes-inventory.mmd)
+*Product.UpdateDetails recibe los objetos de valor Sku y Money; Product.Archive exige ausencia de stock. StockBalance controla ingresos y salidas. InventoryItemResult es un DTO de compatibilidad, no una entidad de dominio.* [Ampliar](diagrams/classes-inventory.svg) · [Fuente editable](diagrams/classes-inventory.mmd)
 
 #### 4.7.1.2. Ventas
 
 ![Clases actuales de ventas](diagrams/classes-sales.svg)
 
-*Sale.Confirm calcula el total y Sale.Cancel protege el estado. Operations coordina las líneas, el movimiento, el pago y la boleta en la misma transacción.* [Ampliar](diagrams/classes-sales.svg) · [Fuente editable](diagrams/classes-sales.mmd)
+*Sale.Confirm valida la pertenencia de las líneas y calcula el total; Sale.Cancel protege el estado. SalesCommandService coordina movimiento, pago y boleta en la misma transacción. SaleLine y SalesReceipt conservan sus instantáneas con escritura restringida.* [Ampliar](diagrams/classes-sales.svg) · [Fuente editable](diagrams/classes-sales.mmd)
 
 #### 4.7.1.3. Abastecimiento
 
 ![Clases actuales de abastecimiento](diagrams/classes-procurement.svg)
 
-*Las clases de compra son datos persistentes; la validación de cantidades y el estado parcial se implementan en Operations.Receive. La API actual admite una línea por orden.* [Ampliar](diagrams/classes-procurement.svg) · [Fuente editable](diagrams/classes-procurement.mmd)
+*PurchaseOrder.Receive comprueba el estado y que la línea pertenezca a la orden. PurchaseOrderLine.Receive valida la cantidad pendiente. ProcurementCommandService registra la recepción y solicita el ingreso a Inventario. La API actual admite una línea por orden.* [Ampliar](diagrams/classes-procurement.svg) · [Fuente editable](diagrams/classes-procurement.mmd)
 
 #### 4.7.1.4. Logística
 
@@ -1349,13 +1360,13 @@ Los diagramas siguientes muestran **tipos y miembros existentes**, con atributos
 
 | Límite de consistencia | Regla actual y responsable | Diferencia frente al diseño objetivo |
 | :--- | :--- | :--- |
-| **Saldo de un SKU en un almacén** | `StockBalance.Receive/Remove`: cantidad positiva; salida no mayor al saldo. Índice único `(TenantId, ProductId, WarehouseId)`. | Candidato a raíz de agregado. Extraer un contrato de inventario para impedir modificaciones ajenas al contexto. |
-| **Venta y documentos asociados** | `Sale.Confirm/Cancel` valida total y estado; `Operations.Checkout/CancelSale` coordina detalle, saldo, movimiento, pago y boleta. | La raíz aún no contiene ni controla una colección de líneas. La atomicidad depende del caso de uso y la transacción. |
-| **Orden y recepciones** | `Operations.Receive` exige `0 < cantidad ≤ pendiente`; guarda recepción, acumulado y movimiento juntos. | `PurchaseOrder` todavía no encapsula estas reglas. Extraer métodos de dominio y definir recepción de varias líneas antes de ampliar la API. |
-| **Despacho y ventas agrupadas** | `Dispatch.Transition` controla estados; `Operations.CreateDispatch` verifica ventas completadas, recursos libres y exclusividad. | La agrupación vive en aplicación. Antes de usar los maestros, incorporar referencias estables a conductor y vehículo. |
+| **Saldo de un SKU en un almacén** | `StockBalance.Receive/Remove`: cantidad positiva; salida no mayor al saldo. `IInventoryFacade` delimita los ajustes de otros contextos. Índice único `(TenantId, ProductId, WarehouseId)`. | Consolidar la propiedad del saldo y medir el comportamiento con mayor volumen; el almacenamiento continúa compartido. |
+| **Venta y documentos asociados** | `Sale.Confirm/Cancel` valida líneas, total y estado; `SalesCommandService.Checkout/CancelSale` coordina detalle, saldo, movimiento, pago y boleta. | La raíz valida las líneas recibidas, pero no mantiene una colección propia. La atomicidad depende también de la unidad de trabajo. |
+| **Orden y recepciones** | `PurchaseOrder.Receive` protege el estado y la pertenencia de la línea; `PurchaseOrderLine.Receive` exige `0 < cantidad ≤ pendiente`. `ProcurementCommandService` coordina recepción y stock. | Extender a varias líneas e introducir idempotencia de recepción antes de ampliar el contrato. |
+| **Despacho y ventas agrupadas** | `Dispatch.Transition` controla estados; `LogisticsCommandService.CreateDispatch` verifica ventas completadas mediante `ISalesQueryService`, recursos libres y exclusividad. | La agrupación vive en aplicación. Antes de usar los maestros, incorporar referencias estables a conductor y vehículo. |
 | **Acceso de una empresa** | JWT validado contra `UserSession`; roles en endpoints; filtros y FK compuestas por tenant. | `User.Role` gobierna la autorización y también existen `Roles/UserRoles`. Debe definirse una única fuente para futuros cambios de rol. |
 
-**Dinero.** `Rules.Money` redondea a dos decimales con `AwayFromZero`; las columnas decimales usan `numeric(18,2)`. El precio de venta se obtiene del servidor. No existe un objeto de valor `Money` ni cálculo fiscal `CalculateTaxes()` en el código actual.
+**Objetos de valor.** `Money` rechaza importes negativos y redondea con `Rules.Money` a dos decimales usando `AwayFromZero`; las columnas decimales usan `numeric(18,2)`. `Sku` normaliza espacios exteriores y mayúsculas y rechaza valores vacíos. El precio de venta proviene del servidor. `Money` todavía no modela una moneda ni impuestos: la operación actual usa PEN y boletas académicas.
 
 **Persistencia y concurrencia.** `CeTeDb.Transaction` usa aislamiento serializable. Un conflicto de concurrencia se traduce a HTTP 409 y requiere volver a consultar/reintentar; no se declara un mecanismo automático de reintentos. Las pruebas registradas comprueban que dos ventas de la última unidad producen una confirmación y un conflicto, con saldo final cero.
 
@@ -1367,7 +1378,7 @@ Los diagramas siguientes muestran **tipos y miembros existentes**, con atributos
 
 | Entidad | Estados actuales | Regla de transición |
 | :--- | :--- | :--- |
-| `Sale` | `COMPLETED`, `CANCELLED` | La anulación se realiza una sola vez, repone stock y marca pagos `REVERSED`. Se bloquea si la venta tiene cualquier asignación de despacho. |
+| `Sale` | `DRAFT` durante construcción; `COMPLETED` y `CANCELLED` persistidos | Confirmar valida y totaliza las líneas. La anulación se realiza una sola vez, repone stock y marca pagos `REVERSED`; se bloquea si existe cualquier asignación de despacho. |
 | `PurchaseOrder` | `ORDERED`, `PARTIAL`, `RECEIVED` | La recepción aumenta el acumulado; alcanzar lo pedido finaliza la orden. Una orden recibida rechaza otra recepción. |
 | `Payment` | `PAID`, `REVERSED` | Registro académico al confirmar/anular venta. No son estados de una pasarela bancaria. |
 | `UserSession` | Vigente, vencida o revocada | Se evalúan `ExpiresAt` y `Revoked` al validar el JWT. |
@@ -1446,7 +1457,7 @@ El [diagrama físico completo](diagrams/er-complete.svg), con [fuente editable](
 | Boleta única e histórica | UQ por venta y por número; instantáneas en `SalesReceipts` y `SaleLines`. | No tiene validez fiscal ni serie SUNAT. |
 | Una venta en un solo despacho | UQ `(TenantId, SaleId)` en `DispatchSales`. | No permite reasignación por eliminación/cancelación en este incremento. |
 | Anulación con una sola restitución | `Sale.Cancel`, bloqueo de asignaciones y transacción. | El flujo de devoluciones aún está pendiente. |
-| Recepción sin exceder lo pedido | Validación de pendiente y transacción en `Operations.Receive`. | Cantidad recibida, saldo y movimiento se guardan juntos. |
+| Recepción sin exceder lo pedido | `PurchaseOrder.Receive`, `PurchaseOrderLine.Receive` y transacción en `ProcurementCommandService.Receive`. | Cantidad recibida, saldo y movimiento se guardan juntos. |
 
 ### 4.8.4. Hallazgos y evolución del diseño
 
@@ -1454,7 +1465,7 @@ La revisión identifica mejoras del código y del esquema que no se resuelven ca
 
 | Prioridad | Hallazgo concreto | Evolución y criterio de cierre |
 | :---: | :--- | :--- |
-| Alta | Inicialización con `EnsureCreated`; no hay migraciones versionadas. | Adoptar migraciones EF Core, respaldo y ensayo de actualización conservando datos. |
+| Alta | Inicialización con `EnsureCreated`; no hay migraciones versionadas. | Adoptar migraciones EF Core y ensayar la actualización conservando datos. El respaldo manual del 12/11/2026 ya fue restaurado en un PostgreSQL aislado; no sustituye las migraciones ni un plan periódico. |
 | Alta | Precios, cantidades y estados no tienen restricciones `CHECK` en SQL. | Incorporar restricciones compatibles con cantidades firmadas de movimientos y con cada máquina de estados; probar inserciones inválidas. |
 | Alta | `User.Role` y `UserRoles` representan permisos en dos formas. | Definir una fuente de autorización, sincronizar o retirar la redundancia y probar cambios de rol sobre sesiones vigentes. |
 | Alta | Las FK de `GoodsReceiptLines` no garantizan que recepción y línea pertenezcan a la misma orden. | Reforzar el vínculo al diseñar órdenes de varias líneas y probar cruces inválidos. El flujo actual elige la única línea de la orden. |
@@ -1462,14 +1473,14 @@ La revisión identifica mejoras del código y del esquema que no se resuelven ca
 | Media | Lotes, variantes y ubicaciones no intervienen en el saldo. | Definir la unidad de control de stock antes de activar vencimientos, picking o trazabilidad por lote. |
 | Media | Movimientos enlazan a su origen mediante `Reason` textual. | Separar motivo y referencia de origen para consultas/auditoría, sin perder registros anteriores. |
 | Media | El esquema admite varios pagos y la consulta de boleta espera uno. | Mantener explícito el pago único o implementar pagos divididos con suma y estados consistentes. |
-| Media | Repositorio genérico y lecturas completas sin paginación. | Extraer consultas por contexto, filtrar/agrupar en SQL y medir con volúmenes representativos. |
-| Media | Entidades mayormente mutables y reglas dispersas en `Operations`. | Encapsular compras y agrupaciones; proteger colecciones y probar invariantes desde el dominio. |
+| Media | Los repositorios ya están separados por contexto, pero varias consultas cargan colecciones completas sin paginación. | Filtrar/agrupar en SQL, paginar y medir con volúmenes representativos. |
+| Media | Las cabeceras principales encapsulan reglas, pero las colecciones y algunas entidades auxiliares siguen coordinadas en aplicación. | Consolidar límites de agregado y métodos de colección sin alterar la atomicidad entre operaciones de inventario y negocio. |
 
 ### 4.8.5. Fuentes de diseño y trazabilidad
 
 La notación emplea los niveles de [C4](https://c4model.com/diagrams) y sus [recomendaciones de lectura](https://c4model.com/diagrams/notation). Los límites de responsabilidad se contrastan con la [guía de análisis de dominio](https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis); su uso aquí no implica adoptar microservicios. Las FK compuestas siguen las posibilidades de [EF Core](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/foreign-and-principal-keys) y los ER usan [notación Mermaid](https://mermaid.js.org/syntax/entityRelationshipDiagram.html).
 
-Las fuentes del proyecto son [entidades](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/Domain/Entities.cs), [casos de uso](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/Application/Operations.cs), [puertos](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/Application/Ports.cs), [endpoints](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/Program.cs), [mapeo EF Core](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/Infrastructure/CeTeDb.cs) y [esquema SQL](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/schema.sql).
+Las fuentes se fijan al commit desplegado `4df092e49cef5033476add1c7b2caf410d35eac9`: [dominio de ventas](https://github.com/Nexxus-ops/CeTe-Api/tree/4df092e49cef5033476add1c7b2caf410d35eac9/Sales/Domain/Model/Aggregates), [servicio de venta](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/Sales/Application/Internal/CommandServices/SalesCommandService.cs), [contrato de inventario](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/Inventory/Application/Services/IInventoryFacade.cs), [controlador REST](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/Sales/Interfaces/REST/SalesController.cs), [unidad de trabajo](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/Shared/Domain/Repositories/IUnitOfWork.cs), [mapeo EF Core](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/Shared/Infrastructure/Persistence/EFC/Configuration/CeTeDb.cs) y [esquema SQL](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/schema.sql).
 
 # Capítulo V: Product Implementation, Validation & Deployment
 
@@ -1634,7 +1645,9 @@ El incremento AV2 se publica en Render. La landing y el frontend se sirven como 
 | API | Docker, ASP.NET Core 10, CORS, JWT y configuración por variables de entorno. Rama `main`. | [Swagger público](https://cete-api-av2.onrender.com/swagger) · [Salud](https://cete-api-av2.onrender.com/health). | [<img src="AV2/evidence/api-swagger-public.png" alt="Swagger servido por la API pública" width="260">](AV2/evidence/api-swagger-public.png) |
 | Base de datos | PostgreSQL 17. Conexión interna desde la API. | Servicio administrado. El endpoint de salud comprueba la conexión. | La evidencia se observa a través de la API y sus flujos persistidos. |
 
-Para desarrollo, Docker Compose inicia la API y PostgreSQL. La [vista de despliegue](04-Chapter-4.md#463-software-architecture-container-diagrams) detalla la comunicación entre servicios. El [README de la API](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/README.md) incluye los pasos reproducibles. La captura del dashboard utiliza datos ficticios.
+Para desarrollo, Docker Compose inicia la API y PostgreSQL. La [vista de despliegue](04-Chapter-4.md#463-software-architecture-container-diagrams) detalla la comunicación entre servicios. El [README de la API](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/README.md) incluye los pasos reproducibles. Las capturas del frontend corresponden a la revalidación pública del 12/11/2026 con datos ficticios.
+
+**Versión de API publicada.** La refactorización DDD integrada por el equipo en [PR #2](https://github.com/Nexxus-ops/CeTe-Api/pull/2) se desplegó desde `main`, commit [`4df092e`](https://github.com/Nexxus-ops/CeTe-Api/commit/4df092e49cef5033476add1c7b2caf410d35eac9), el 12/11/2026 a las 11:35 (Lima). Se conservaron las 28 operaciones HTTP y el esquema físico. La prueba de continuidad recuperó una sesión y una boleta creadas antes del despliegue. El registro técnico se mantiene en [Verificación AV2](AV2/verificacion.md).
 
 ## 5.2. Landing Page, Services & Applications Implementation
 
@@ -1961,7 +1974,7 @@ Total propuesto: **94 horas-persona**, con tareas de 4 a 8 h. Ajustar a capacida
 
 #### 5.2.3.4. Development Evidence for Sprint Review
 
-Los siguientes commits acreditan el incremento técnico. Los mensajes seleccionados constan de asunto y carecen de cuerpo.
+Los siguientes commits acreditan el incremento técnico. Los mensajes seleccionados constan de asunto y carecen de cuerpo. Los registros de octubre documentan la implementación inicial; la refactorización del 12/11/2026 fue integrada en `main` mediante el commit `4df092e`.
 
 | Repositorio | Rama integrada | Commit | Mensaje | Cuerpo | Fecha |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -1970,10 +1983,23 @@ Los siguientes commits acreditan el incremento técnico. Los mensajes selecciona
 | FrontEnd-CeTe | `main` | [`711fe93`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/711fe93) | feat: receive purchase orders partially from the web interface | — | 29/10/2026 |
 | nexxus-landing-page | `develop` | [`13326ec`](https://github.com/Nexxus-ops/nexxus-landing-page/commit/13326ec) | feat: improve CeTe landing internationalization and functional resources | — | 29/10/2026 |
 | Report-CeTe | `main` | [`8d87183`](https://github.com/Nexxus-ops/Report-CeTe/commit/8d87183) | docs: reconcile CeTe AV2 backlog, evidence and presentation | — | 29/10/2026 |
+| CeTe-Api | `main` | [`5c38d2b`](https://github.com/Nexxus-ops/CeTe-Api/commit/5c38d2b) | refactor(domain): organize existing models by bounded context | — | 12/11/2026 |
+| CeTe-Api | `main` | [`f8f2eb3`](https://github.com/Nexxus-ops/CeTe-Api/commit/f8f2eb3) | refactor(inventory): encapsulate stock rules and expose context contracts | — | 12/11/2026 |
+| CeTe-Api | `main` | [`f1b4799`](https://github.com/Nexxus-ops/CeTe-Api/commit/f1b4799) | refactor(receipts): isolate historical receipt queries and snapshots | — | 12/11/2026 |
+| CeTe-Api | `main` | [`bc369f5`](https://github.com/Nexxus-ops/CeTe-Api/commit/bc369f5) | refactor(sales): separate checkout commands and sales persistence | — | 12/11/2026 |
+| CeTe-Api | `main` | [`84f14c7`](https://github.com/Nexxus-ops/CeTe-Api/commit/84f14c7) | refactor(logistics): isolate dispatch lifecycle and sales integration | — | 12/11/2026 |
+| CeTe-Api | `main` | [`00c1ec3`](https://github.com/Nexxus-ops/CeTe-Api/commit/00c1ec3) | refactor(procurement): separate purchase and receiving use cases | — | 12/11/2026 |
+| CeTe-Api | `main` | [`2930433`](https://github.com/Nexxus-ops/CeTe-Api/commit/2930433) | refactor(identity): isolate account services and credential adapters | — | 12/11/2026 |
+| CeTe-Api | `main` | [`b5a6ad6`](https://github.com/Nexxus-ops/CeTe-Api/commit/b5a6ad6) | refactor(integrations): move exchange rate endpoint to REST adapter | — | 12/11/2026 |
+| CeTe-Api | `main` | [`dc266f9`](https://github.com/Nexxus-ops/CeTe-Api/commit/dc266f9) | refactor(shared): integrate context boundaries and compatibility checks | — | 12/11/2026 |
 
-La recepción parcial valida el pendiente, registra el movimiento y actualiza el saldo dentro de una transacción. [Código versionado](https://github.com/Nexxus-ops/CeTe-Api/blob/d073e3dc47a5e4de3db18e674caf5812482f3084/Application/Operations.cs#L235-L250)
+La recepción parcial ejecuta `PurchaseOrder.Receive`, registra su evidencia y solicita el ingreso mediante `IInventoryFacade`, dentro de la transacción de `IUnitOfWork`. [Código versionado](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/Procurement/Application/Internal/CommandServices/ProcurementCommandService.cs)
 
-![Código de la recepción parcial](AV2/evidence/api-receive-source.png)
+![Extracto versionado de ProcurementCommandService.Receive](AV2/evidence/api-receive-source.png)
+
+El contrato de Inventario entrega instantáneas y concentra los ajustes de saldo solicitados por otros contextos. La captura siguiente reproduce el [contrato de la versión publicada](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/Inventory/Application/Services/IInventoryFacade.cs).
+
+![Contrato IInventoryFacade entre bounded contexts](AV2/evidence/api-inventory-contract.png)
 
 #### 5.2.3.5. Execution Evidence for Sprint Review
 
@@ -2031,11 +2057,13 @@ El flujo integrado de AV2 se documenta en [Swagger](https://cete-api-av2.onrende
 | `GET /api/v1/sales/{id}/receipt` | `id` de la venta en la ruta. | `200 {"currency":"PEN","total":290,"documentType":"DEMONSTRATION_RECEIPT"}` — además devuelve el detalle histórico. |
 | `POST /api/v1/dispatches` | `driverName`, `licensePlate` y `saleIds` como lista de UUID. | `200 {"status":"PENDING"}` — asigna ventas elegibles sin descontar nuevamente el stock. |
 
-La captura de Swagger en [5.1.4](#514-software-deployment-configuration) muestra los servicios publicados. El commit [`8c81227`](https://github.com/Nexxus-ops/CeTe-Api/commit/8c81227) incorpora la API. La [boleta del recorrido de prueba](AV2/evidence/receipt-document.png) muestra el resultado del contrato de consulta desde la aplicación.
+La captura de Swagger en [5.1.4](#514-software-deployment-configuration) muestra los servicios publicados. El commit [`4df092e`](https://github.com/Nexxus-ops/CeTe-Api/commit/4df092e49cef5033476add1c7b2caf410d35eac9) integra los controladores, recursos y resultados tipados sin cambiar las rutas consumidas por el frontend. La [boleta del recorrido de prueba](AV2/evidence/receipt-document.png) muestra el resultado del contrato de consulta desde la aplicación.
 
 #### 5.2.3.7. Software Deployment Evidence for Sprint Review
 
 Docker Compose ejecuta API y PostgreSQL localmente. El mismo Dockerfile se publica en Render. La API, frontend y landing están publicados en Render. El recorrido público verifica registro, acceso, compra, recepción parcial, venta, selección por teclado, boleta, impresión y persistencia de idioma. Ver [resultado y commits](AV2/verificacion.md). La base Free tiene vencimiento registrado para el **28/11/2026 a las 22:30, hora de Lima** (29/11/2026 a las 03:30 UTC).
+
+**Respaldo comprobado.** El 12/11/2026 se exportó la base pública con `pg_dump` 17 en formato custom y TLS con verificación del servidor. El archivo se restauró con `pg_restore --exit-on-error` en un PostgreSQL 17 aislado: se recuperaron las 35 tablas y 67 claves foráneas, además de ventas, boletas y sesiones. La autorización de red externa se retiró al finalizar. El respaldo y su manifiesto SHA-256 se conservan de forma privada fuera de Git. Esta prueba acredita recuperación al momento de la copia; siguen pendientes una periodicidad de respaldo y la continuidad del servicio antes del vencimiento Free.
 
 #### 5.2.3.8. Team Collaboration Insights during Sprint
 

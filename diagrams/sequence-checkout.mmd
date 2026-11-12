@@ -4,29 +4,38 @@ title: Vista dinámica · Venta atómica e idempotente · AV2
 sequenceDiagram
   actor U as Vendedor
   participant V as SPA Vue
-  participant A as Minimal API
-  participant O as Operations
-  participant D as Dominio
-  participant P as CeTeDb / PostgreSQL
-  U->>V: Confirma la compra
-  V->>A: POST /sales + JWT + UUID
-  A->>A: Verifica JWT, sesión y rol
-  A->>O: Checkout(input)
-  O->>P: BEGIN SERIALIZABLE
-  O->>P: Busca venta por UUID y tenant
-  alt UUID existente con mismo hash
-    P-->>O: Venta ya registrada
-    O->>P: Finaliza transacción sin nuevo descuento
-    O-->>A: Venta existente
+  participant A as SalesController
+  participant O as SalesCommandService
+  participant R as ISalesRepository
+  participant I as IInventoryFacade
+  participant D as Sale
+  participant P as IUnitOfWork / CeTeDb
+  U->>V: Confirma la venta
+  V->>A: POST /api/v1/sales + JWT + UUID
+  A->>A: JWT, sesión y rol, Resource a Command
+  A->>O: Checkout(ConfirmSaleCommand)
+  O->>P: Transaction: BEGIN SERIALIZABLE
+  O->>R: FindSale(UUID), filtrado por tenant
+  alt UUID existente y mismo hash
+    R-->>O: Venta ya registrada
+    O->>O: ISalesQueryService.SaleView
+    O-->>P: Resultado existente, sin otro ajuste
   else UUID nuevo
-    O->>P: Lee producto, precio y saldo propios
-    O->>D: StockBalance.Remove y Sale.Confirm
-    D-->>O: Reglas aceptadas
-    O->>P: Guarda venta, líneas, movimiento, pago y boleta
-    O->>P: COMMIT
-    O-->>A: Venta confirmada
+    O->>I: GetWarehouse y GetProduct, precio del servidor
+    O->>I: AdjustStock por cada línea
+    I->>I: StockBalance.Remove y nuevo movimiento
+    O->>D: Confirm(lines), valida pertenencia y total
+    O->>R: AddSale, AddLine, AddPayment y AddReceipt
+    Note over O,R: Empresa por ICompanyQueryService.<br/>Boleta y líneas conservan instantáneas.
+    O->>P: Save, aún dentro de la transacción
+    O->>O: ISalesQueryService.SaleView
+    O-->>P: Resultado confirmado
   end
-  A-->>V: 200 y venta
-  V->>A: GET /sales/{id}/receipt
-  A-->>V: 200 y datos históricos para visualizar/imprimir
-  Note over O,P: Ante regla incumplida o conflicto: rollback.<br/>409 para stock/concurrencia o UUID con otro contenido.<br/>422 para datos inválidos. No se publica un evento asíncrono.
+  P->>P: Save y COMMIT
+  P-->>O: Finaliza Transaction
+  O-->>A: SaleResult
+  A-->>V: HTTP 200 y venta
+  V->>A: GET /api/v1/sales/{id}/receipt
+  A->>A: ISalesQueryService.Receipt
+  A-->>V: HTTP 200, datos históricos para visualizar/imprimir
+  Note over O,P: Ante una regla incumplida o conflicto: rollback.<br/>409 para stock/concurrencia o UUID incompatible.<br/>422 para datos inválidos. Sin publicación asíncrona de eventos.
