@@ -2696,7 +2696,7 @@ El Sprint 3 consolida el incremento técnico y su documentación, con seis entre
 
 El About-the-Team documentará el proceso real de trabajo de Nexxus: distribución de responsabilidades, decisiones de diseño con DDD, revisión de cambios, integración y aprendizajes individuales. Incluirá escenas de sesiones reales de trabajo acompañadas de narración y el testimonio ante cámara de los cinco integrantes.
 
-**Montaje en curso:** [About-the-Team en Canva · vista del diseño]([https://www.canva.com/d/mA3bW8S9nOk7TK0](https://canva.link/ay2xgbp06554f8c)). Al revisar el diseño se comprobaron clips del equipo ya insertados. Es la fuente de edición y no sustituye los enlaces de la versión final en Stream y YouTube. El acceso conserva los permisos del diseño; no se modificó su configuración de uso compartido. La [carpeta de evidencias](https://drive.google.com/drive/folders/1xVEEo9wgbIuEtw1UIYaJLxzBtxMa2upI?usp=sharing) se mantiene como recurso complementario.
+**Montaje en curso:** [About-the-Team en Canva · vista del diseño]([https://www.canva.com/d/mA3bW8S9nOk7TK0]). Al revisar el diseño se comprobaron clips del equipo ya insertados. Es la fuente de edición y no sustituye los enlaces de la versión final en Stream y YouTube. El acceso conserva los permisos del diseño; no se modificó su configuración de uso compartido. La [carpeta de evidencias](https://drive.google.com/drive/folders/1xVEEo9wgbIuEtw1UIYaJLxzBtxMa2upI?usp=sharing) se mantiene como recurso complementario.
 
 | Evidencia de entrega | Estado |
 | :--- | :--- |
