@@ -519,8 +519,8 @@ El backlog descompone el objetivo en tareas de ingeniería y entregables de vali
 | Presentación · Evidencia del incremento | T3-11 | Presentación: incremento AV2 y Sprint 2 | Existe una presentación técnica editable. Faltan revisión conjunta, actualización de resultados de validación y preparación de la sustentación final. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/AV2/CeTe-AV2-revision-tecnica.pptx). | 4 | Darikson | To Review |
 | Validación · Dos segmentos | T3-12 | Validación: 3–5 entrevistas por segmento | Diego entregó dos entrevistas nuevas del segmento dueño/administrador, incorporadas al informe. Piero está realizando la siguiente ronda; faltan fichas y cobertura por segmento. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/05-Chapter-5.md#532-registro-de-entrevistas). | 6 | Diego y Piero | In Process |
 | SO5 · Colaboración y revisión | T3-13 | Colaboración: acuerdos y evidencias SO5 | Vincular aportes, revisión y resultados con evidencia individual. Reunión del 03/11 informada por Kevin; faltan horario, lugar, asistentes confirmados y acuerdos de la sesión. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe#colaboración-por-producto). | 4 | Diego | In Process |
-| About-the-Product · Video del producto | T3-14 | About-the-Product: verificar video y enlace | Kevin informa que el video ya está realizado. Recibir URL, duración y captura, comprobar navegación pública y asociar testimonios. No se acredita publicación sin el enlace. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/05-Chapter-5.md#54-video-about-the-product). | 6 | Darikson | To Review |
-| About-the-Team · Video del equipo | T3-15 | About-the-Team: aportes y reflexión | Preparar y publicar la primera versión requerida para AV2 con participación y reflexión de cada integrante. Grabación y enlaces aún no recibidos. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/06-Conclusions.md). | 6 | Equipo | To Do |
+| About-the-Product · Video del producto | T3-14 | About-the-Product: verificar video y enlace | El enlace recibido corresponde al promocional de 10 segundos. Preparar la versión AV2 de 1–3 minutos con interacción real y una opinión por segmento; publicar en Stream y YouTube e incrustar en la landing. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/05-Chapter-5.md#54-video-about-the-product). | 6 | Darikson | To Review |
+| About-the-Team · Video del equipo | T3-15 | About-the-Team: aportes y reflexión | Kevin confirma que todavía no se ha grabado. Preparar la retrospectiva y los cinco testimonios, publicar en Stream y YouTube e incrustar en la landing. No se acredita publicación con una carpeta de evidencias. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/06-Conclusions.md). | 6 | Equipo | To Do |
 | Comunicación · Informe y conclusiones | T3-16 | Comunicación: conclusiones y coherencia | Se corrigieron formato, diagramas y correspondencia DDD/código. Falta cierre conjunto de conclusiones, bibliografía y resultados de validación antes de exportar la entrega. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/pull/22). | 4 | Kevin | In Process |
 
 **Total estimado: 94 horas-persona.** Se conserva la base de estimación de la versión anterior; no es tiempo restante ni tiempo efectivamente consumido. Las tareas técnicas completadas suman 38 h estimadas, no 38 h trabajadas. El resto del esfuerzo sigue distribuido entre revisión y entregables pendientes. Los responsables identifican la coordinación de cada tarea y pueden recibir los aportes indicados en la matriz LACX.
@@ -736,6 +736,22 @@ A partir del feedback recopilado, analizamos la interfaz basándonos en las heur
 
 ## 5.4. Video About-the-Product
 
-**Enlace del Video Promocional:** [PROMO - CeTe (YouTube)](https://youtu.be/EBS8s4CFWRo)
+CeTe cuenta con un recurso promocional introductorio que presenta la identidad del producto. La versión de AV2 debe ampliar esta presentación con el modelo de negocio, las características y beneficios, escenas de interacción con la aplicación y al menos una opinión real por cada segmento objetivo.
+
+**Recurso disponible:** [PROMO - CeTe (YouTube)](https://youtu.be/EBS8s4CFWRo). El reproductor indica una duración de **00:00:10**, comprobada el 12/11/2026. Se conserva como promocional introductorio; todavía no acredita el About-the-Product de **1 a 3 minutos** solicitado en el Anexo C del enunciado.
+
+<p align="center">
+  <img src="AV2/evidence/product-promo-existing.png" width="820" alt="Reproductor del promocional introductorio PROMO - CeTe, con duración de diez segundos">
+</p>
+
+| Evidencia de entrega | Estado al 12/11/2026 |
+| :--- | :--- |
+| Versión AV2 de 1–3 minutos | Pendiente de edición y publicación. Puede reutilizarse el promocional como introducción. |
+| Interacción con el producto y opiniones | Incorporar una demostración real y al menos una opinión de dueño/administrador y otra de operario de almacén. Las entrevistas de Raúl y Carmen corresponden al primer segmento. |
+| Publicación en Microsoft Stream y YouTube | El enlace disponible corresponde al recurso de diez segundos; faltan los enlaces de la versión AV2 completa. |
+| Captura y duración del video AV2 | La captura anterior documenta el recurso existente; reemplazar o complementar con evidencia de la edición final. |
+| Incrustación en la landing | Pendiente de disponer del video AV2 publicado. |
+
+La publicación del promocional y la ejecución técnica de CeTe no sustituyen esta evidencia audiovisual. Los ejemplos de la aplicación utilizan datos ficticios y la boleta es académica, sin emisión fiscal.
 
 ---
