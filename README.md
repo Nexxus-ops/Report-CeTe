@@ -78,6 +78,7 @@ Proyecto
         <tr><td><strong>AV2 (entrevistas de Piero)</strong></td><td>12/11/2026</td><td>Piero Montes · entrevistas y resúmenes; Kevin Salazar · integración</td><td>Fichas 5 y 6, capturas, enlaces y duraciones verificadas; Jaime registrado con 29 años por corrección confirmada. Cobertura por segmento y evaluación documental de seis hallazgos nuevos; cierre de validación aún pendiente.</td></tr>
         <tr><td><strong>AV2 (cierre documental de Sprint 3)</strong></td><td>12/11/2026</td><td>Kevin Salazar · integración del equipo</td><td>Planificación y esfuerzo retrospectivos identificados como estimaciones; cierre del incremento implementado y de las seis fichas entregadas; análisis y continuidad para TF. Montaje de Team en Canva enlazado como material en edición.</td></tr>
         <tr><td><strong>AV2 (revisión final del informe)</strong></td><td>12/11/2026</td><td>Kevin Salazar · consolidación editorial</td><td>Control de fuentes de descubrimiento y comparación comercial, escenario inválido de recepción, trazabilidad de wireflows con AV2, clases de Identidad, captura del tablero al cierre y enlace de Team corregido. Exportación completa con carátula, índice navegable y verificación visual de páginas.</td></tr>
+        <tr><td><strong>AV2 (About-the-Product publicado)</strong></td><td>13/11/2026</td><td>Kevin Salazar · edición y publicación; Piero Montes · entrevistas de validación</td><td>Montaje de aproximadamente 2:20 con demostración real y dos segmentos, narración y créditos. Publicación no listada en YouTube, captura de reproducción y pauta de contenido incorporadas. Se mantienen pendientes Stream e incrustación en la landing.</td></tr>
     </table>
 </div>
 </div>
@@ -2287,13 +2288,15 @@ El backlog descompone el objetivo en tareas de ingeniería y entregables de vali
 | Presentación · Evidencia del incremento | T3-11 | Presentación: incremento AV2 y Sprint 2 | Existe una presentación técnica editable. Faltan revisión conjunta, actualización de resultados de validación y preparación de la sustentación final. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/AV2/CeTe-AV2-revision-tecnica.pptx). | 4 | Darikson | To Review |
 | Validación · Dos segmentos | T3-12 | Validación: seis fichas AV2 y análisis | Se incorporan las seis fichas entregadas, incluidas las entrevistas de Diego y Piero, con cobertura y análisis diferenciados. La ampliación de la muestra operativa y las mediciones comparativas se trasladan a TF. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/pull/28). | 6 | Diego y Piero | Done |
 | SO5 · Colaboración y revisión | T3-13 | Colaboración: trazabilidad y revisión retrospectiva | Matriz LACX, aportes por producto, commits e integraciones consolidados. La síntesis de revisión y coordinación se documenta retrospectivamente; no se reconstruyen horarios ni asistencias. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/pull/25). | 4 | Diego | Done |
-| About-the-Product · Video del producto | T3-14 | About-the-Product: verificar video y enlace | El enlace recibido corresponde al promocional de 10 segundos. Preparar la versión AV2 de 1–3 minutos con interacción real y una opinión por segmento; publicar en Stream y YouTube e incrustar en la landing. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/05-Chapter-5.md#54-video-about-the-product). | 6 | Darikson | To Review |
+| About-the-Product · Video del producto | T3-14 | About-the-Product: verificar video y enlace | Al corte del 12/11 solo estaba el promocional de diez segundos. Actualización 13/11: montaje de aproximadamente 2:20 editado y publicado en YouTube, con demostración real y opiniones de Nicol y Jaime. Siguen pendientes Stream e incrustación en la landing. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/05-Chapter-5.md#54-video-about-the-product). | 6 | Darikson | To Review |
 | About-the-Team · Video del equipo | T3-15 | About-the-Team: aportes y reflexión | Montaje del equipo en Canva con clips recibidos y edición en curso. Completar la versión final, revisar los cinco testimonios y publicar enlaces definitivos. [Montaje](https://www.canva.com/d/mA3bW8S9nOk7TK0). | 6 | Equipo | In Process |
 | Comunicación · Informe y conclusiones | T3-16 | Comunicación: conclusiones y coherencia | Informe consolidado: estimaciones retrospectivas, cierre de alcance AV2, seis entrevistas, hallazgos, conclusiones y roadmap para TF. Revisión de estructura y coherencia completada antes de la exportación. [Informe](https://github.com/Nexxus-ops/Report-CeTe). | 4 | Kevin | Done |
 
 **Esfuerzo estimado de referencia: 94 horas-persona.** Las 13 tareas técnicas y documentales cerradas representan **78 h estimadas**; los tres materiales en edición o revisión, **16 h estimadas**. No son horas trabajadas ni esfuerzo restante medido. Las 4 h de T3-13 dimensionan preparación, seguimiento y documentación de coordinación dentro del modelo de esfuerzo.
 
-**Balance de cierre:** 13 tareas Done, 2 To Review y 1 In Process. Los materiales de presentación, Product y Team continúan como complementos de publicación de AV2. US35 mantiene el pago académico y US28 el alta directa sin correo de invitación; no se elevan a historias completas por cerrar sus tareas técnicas.
+**Balance al corte del 12/11:** 13 tareas Done, 2 To Review y 1 In Process. Los materiales de presentación, Product y Team continúan como complementos de publicación de AV2. US35 mantiene el pago académico y US28 el alta directa sin correo de invitación; no se elevan a historias completas por cerrar sus tareas técnicas.
+
+**Actualización audiovisual del 13/11.** El About-the-Product ya está editado y [publicado en YouTube](https://youtu.be/V49TZ5P5Rsk). T3-14 continúa en revisión por su alcance completo: falta la publicación en Stream y la incrustación en la landing. La actualización no modifica las estimaciones ni reconstruye estados anteriores del tablero.
 
 **Revisión de la coordinación.** El reparto y los resultados se sustentan en la matriz y en los artefactos. Se conserva la fecha confirmada de la sesión y se sintetiza la coordinación a partir de las fuentes disponibles. Para las siguientes iteraciones se incorpora el registro oportuno de acuerdos, asistencia y aportes individuales como mejora del proceso.
 
@@ -2654,23 +2657,52 @@ Las capturas aportadas por Piero se incluyen en las fichas 5 y 6. Son capturas c
 
 ## 5.4. Video About-the-Product
 
-CeTe cuenta con un recurso promocional introductorio que presenta la identidad del producto. La versión de AV2 debe ampliar esta presentación con el modelo de negocio, las características y beneficios, escenas de interacción con la aplicación y al menos una opinión real por cada segmento objetivo.
+**[Ver About-the-Product AV2 de CeTe en YouTube](https://youtu.be/V49TZ5P5Rsk)**
 
-**Recurso disponible:** [PROMO - CeTe (YouTube)](https://youtu.be/EBS8s4CFWRo). El reproductor indica una duración de **00:00:10**, comprobada el 12/11/2026. Se conserva como promocional introductorio; todavía no acredita el About-the-Product de **1 a 3 minutos** solicitado en el Anexo C del enunciado.
+La versión AV2 presenta el problema de los registros dispersos en la MYPE, el recorrido integrado de CeTe y la propuesta comercial del equipo. El montaje incluye una demostración real del software con datos ficticios y fragmentos auténticos de las entrevistas de Nicol Loyola, del segmento de dueños y administradores, y de Jaime Ronceros, del segmento operativo. Las entrevistas fueron realizadas por Piero Montes.
 
-<p align="center">
-  <img src="AV2/evidence/product-promo-existing.png" width="820" alt="Reproductor del promocional introductorio PROMO - CeTe, con duración de diez segundos">
-</p>
+El video fue editado y publicado el **13/11/2026**, después del corte documental del 12/11. Tiene una duración aproximada de **00:02:20** —139,96 segundos en el MP4— y resolución **1920 × 1080**. Se publica como **no listado**: cualquier persona con el enlace puede verlo. La reproducción se comprobó desde la página del video y YouTube completó su revisión inicial de derechos de autor sin encontrar problemas.
 
-| Evidencia de entrega | Estado al 12/11/2026 |
+[![About-the-Product de CeTe publicado en YouTube, con título y visibilidad no listada](AV2/evidence/product-video-youtube.jpg)](https://youtu.be/V49TZ5P5Rsk)
+
+*Captura de la reproducción publicada. El título identifica la entrega AV2 y la descripción enlaza al producto, al informe y a las fuentes de las entrevistas.*
+
+### Pauta de contenido del video publicado
+
+Las marcas de inicio corresponden al montaje exportado y se redondean al segundo para facilitar la navegación.
+
+| Inicio aproximado | Sección | Contenido |
+| :---: | :--- | :--- |
+| `00:00:00` | Problema y presentación | Registros dispersos, público objetivo y propuesta de CeTe. Las escenas ilustrativas están identificadas como generadas con IA. |
+| `00:00:16` | Indicadores | Vista real del inicio de la aplicación con una empresa ficticia. |
+| `00:00:23` | Compra y recepción parcial | Orden de diez unidades; recepción de cuatro y seis pendientes. El stock cambia al recibir físicamente. |
+| `00:00:34` | Venta | Carrito, método de pago registrado y confirmación de dos unidades de café. |
+| `00:00:44` | Boleta académica | Detalle histórico de la venta por S/37,00 y acceso al documento. Sin emisión fiscal. |
+| `00:00:52` | Despacho | Asignación y seguimiento de la entrega sin descontar nuevamente el inventario. |
+| `00:01:00` | Opinión de dueña o administradora | Fragmento de Nicol Loyola; conserva su valoración del registro y la dificultad de adaptación inicial. |
+| `00:01:25` | Opinión de operario | Fragmento de Jaime Ronceros; conserva su valoración de los pendientes y la dificultad de digitación de varios productos. |
+| `00:01:52` | Modelo comercial | Propuesta académica SaaS B2B de S/80 por empresa al mes; todavía no se cobran suscripciones. |
+| `00:02:06` | Invitación | Acceso a la landing y presentación de los flujos conectados. |
+| `00:02:15` | Créditos | Identificación de las escenas de IA, la locución sintética, la demostración y las entrevistas reales. |
+
+### Evidencia y alcance de la demostración
+
+![Detalle de la boleta real de demostración incluido en el video](AV2/evidence/product-video-receipt.png)
+
+La grabación utiliza el frontend y la API del proyecto en un entorno local aislado. La empresa, el cliente, el proveedor y las operaciones son ficticios. El caso inicia con veinte unidades de café, recibe cuatro, vende dos y termina con **veintidós unidades**, una boleta de **S/37,00** y el despacho entregado. La secuencia se contrastó con el estado de la API; no se trata de una animación que simula una interfaz ni de una operación comercial real. Esta grabación complementa las evidencias de despliegue público de 5.2.3.5.
+
+Las opiniones proceden de las [entrevistas de validación de Nicol y Jaime](#532-registro-de-entrevistas). Sus fragmentos no se presentan como una garantía de ahorro, adopción o rendimiento medido. La voz narradora es sintética y las escenas de almacén de apertura y cierre son ilustraciones generadas con IA; los créditos y la descripción del video lo indican.
+
+| Evidencia de entrega | Estado actualizado al 13/11/2026 |
 | :--- | :--- |
-| Versión AV2 de 1–3 minutos | Pendiente de edición y publicación. Además del promocional disponible, se generaron tres clips ilustrativos de aproximadamente diez segundos cada uno, conservados localmente como material de montaje. No representan navegación real ni testimonios. |
-| Interacción con el producto y opiniones | Incorporar una demostración real y al menos una opinión de dueño/administrador y otra de operario de almacén. Las entrevistas de Raúl, Carmen y Nicol corresponden al primer segmento; la de Jaime aporta la perspectiva operativa. Seleccionar fragmentos reales y autorizados para la edición. |
-| Publicación en Microsoft Stream y YouTube | El enlace disponible corresponde al recurso de diez segundos; faltan los enlaces de la versión AV2 completa. |
-| Captura y duración del video AV2 | La captura anterior documenta el recurso existente; reemplazar o complementar con evidencia de la edición final. |
-| Incrustación en la landing | Pendiente de disponer del video AV2 publicado. |
+| Montaje AV2 de 1–3 minutos | Editado, exportado y comprobado: aproximadamente 2:20, Full HD, video H.264 y audio AAC. |
+| Interacción real y opiniones de ambos segmentos | Incluidas: demostración con datos ficticios y fragmentos reales de Nicol Loyola y Jaime Ronceros. |
+| YouTube | Publicado como no listado en [V49TZ5P5Rsk](https://youtu.be/V49TZ5P5Rsk); reproducción comprobada y revisión inicial sin problemas detectados. |
+| Microsoft Stream | Publicación pendiente; no se consigna un enlace hasta disponer del archivo publicado. |
+| Captura y duración | Captura de YouTube y vista de boleta incorporadas; duración del MP4 verificada. |
+| Incrustación en la landing | Pendiente de integración. La publicación en YouTube permite incorporación, pero no acredita que el sitio ya la incluya. |
 
-La publicación del promocional y la ejecución técnica de CeTe no sustituyen esta evidencia audiovisual. Los ejemplos de la aplicación utilizan datos ficticios y la boleta es académica, sin emisión fiscal.
+**Antecedente conservado.** El [promocional introductorio anterior](https://youtu.be/EBS8s4CFWRo), de diez segundos, permanece como recurso histórico. El enlace principal de esta sección corresponde al montaje AV2 completo.
 
 ---
 
@@ -2706,7 +2738,7 @@ El registro contiene seis fichas: cuatro de dueños/administradores —Jesús, R
 | Prioridad | Próximo resultado | Criterio para considerarlo cerrado |
 | :--- | :--- | :--- |
 | Cierre documental de AV2 | Incorporar la ronda de seis entrevistas y sus hallazgos. | Fichas y capturas integradas, cobertura diferenciada y evaluación documental registrada. Ampliación de muestra y revalidación programadas para TF. |
-| Cierre de AV2 | Editar y publicar Product, grabar Team y enlazar la navegación del incremento. | Evidencias en los destinos solicitados, capturas y tiempos reales; Product y Team incrustados en la landing. Los clips de IA son solo material ilustrativo. |
+| Cierre de AV2 | Completar la distribución audiovisual de Product y Team y enlazar la navegación del incremento. | Product editado y publicado en [YouTube](https://youtu.be/V49TZ5P5Rsk) el 13/11/2026, con duración aproximada de 2:20. Quedan Stream, incrustación en la landing y publicación final de Team. Los clips de IA se identifican como ilustraciones. |
 | Cierre de AV2 | Consolidar colaboración y entregables. | Aportes y evidencias documentados; estimaciones retrospectivas identificadas. Performance actualizado con la evaluación de 20/20 para los cinco integrantes indicada por el equipo; conservar coherencia entre informe, PDF, presentación y videos. |
 | Siguiente iteración | Evaluar la navegación móvil, el ingreso manual y las alertas priorizadas por usuarios. | Prototipar y validar una solución, vincularla al backlog y medir si disminuye la dificultad observada. |
 | Siguiente iteración | Evolucionar agregados, integridad y mantenimiento de datos. | Aplicar los criterios del capítulo IV: migraciones ensayadas, restricciones consistentes, referencias de origen y responsabilidades de contexto verificadas. |
@@ -2762,5 +2794,6 @@ La primera versión se solicita desde AV2, conforme a las consideraciones de ent
 **Recursos audiovisuales registrados:**
 
 * **Repositorio de Landing Page:** https://github.com/Nexxus-ops/nexxus-landing-page.git
-* **Promocional introductorio de 10 segundos:** https://youtu.be/EBS8s4CFWRo
+* **About-the-Product AV2 publicado (aprox. 2:20):** https://youtu.be/V49TZ5P5Rsk
+* **Promocional introductorio histórico de 10 segundos:** https://youtu.be/EBS8s4CFWRo
 * **Carpeta registrada de evidencias (no acredita About-the-Team publicado):** https://drive.google.com/drive/folders/1xVEEo9wgbIuEtw1UIYaJLxzBtxMa2upI?usp=sharing
