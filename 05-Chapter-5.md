@@ -745,7 +745,49 @@ Diego Campoblanco realizó las dos entrevistas y elaboró los siguientes resúme
 
 * **Resumen de la evaluación:** La usuaria interactuó con la Landing Page y valoró positivamente la propuesta de unificar compras y ventas, especialmente para monitorear el negocio a distancia. Destacó el Dashboard por su facilidad para visualizar los ingresos diarios al instante. No obstante, mostró frustración con el flujo de registro de mercancías por ser manual y basado en texto, recordando las razones por las que abandonó Excel. Como sugerencias críticas, exigió la integración de una función para escanear códigos de barras usando la cámara del celular, la necesidad imperativa de un campo para rastrear fechas de vencimiento, y la implementación de alertas visuales automáticas para productos pendientes o a punto de quebrar stock.
 
-Las fichas aún requieren la fecha de realización, las marcas de tiempo, la duración y el enlace a Microsoft Stream solicitado en el enunciado. Los resúmenes recogen las apreciaciones de los entrevistados y se utilizarán para la siguiente evaluación de usabilidad.
+#### Entrevistas de validación aportadas por Piero Montes
+
+Piero Montes entregó las fichas, enlaces y capturas de las siguientes entrevistas. La entrevista de Nicol corresponde al segmento de dueños y administradores; la de Jaime, al de operarios. Los resúmenes se incorporan como material del entrevistador. Se comprobaron los títulos y las duraciones de los videos, sin atribuirles una evaluación independiente del contenido completo.
+
+**Entrevista de Validación 5 (Segmento 1 - Dueña/Administradora)**
+
+* **Nombre:** Nicol Loyola
+* **Edad:** 34 años
+* **Distrito:** Santiago de Surco
+* **Fecha de realización:** 07/11/2026, confirmada por Kevin al incorporar la ficha.
+* **Entrevistador y autor del resumen:** Piero Montes.
+* **URL del video:** [Ver entrevista en YouTube](https://youtu.be/b9s07-VS1xE).
+* **Duración del archivo individual:** `00:05:27`, comprobada en el reproductor el 12/11/2026.
+* **Referencia temporal:** archivo individual desde `00:00:00`; inicio en el video consolidado de validaciones pendiente de registrar.
+* **Microsoft Stream:** enlace pendiente de incorporar.
+
+<p align="center">
+  <img src="Images/Validation/nicol-av2.jpeg" width="820" alt="Captura aportada por Piero de la entrevista de validación a Nicol Loyola con la aplicación CeTe">
+</p>
+
+* **Resumen de la evaluación (aportado por Piero):** La usuaria interactuó con la Landing Page y la plataforma de prueba asumiendo el rol de dueña de negocio. Comprendió de inmediato el valor de la herramienta para centralizar el control de stock, compras y ventas, destacando que le permitiría dejar de usar hojas de Excel y sumar todo automáticamente en tiempo real. Valoró mucho encontrar el resumen de "Ventas del día" apenas ingresó al Dashboard. Sin embargo, al realizar la tarea de buscar el detalle de una boleta, presentó una leve confusión intuitiva: intentó hacer clic sobre la fila entera de la venta en lugar de usar el botón específico de "Ver detalle / Comprobante" a la derecha. Como sugerencias críticas, mencionó la necesidad de visualizar de forma más grande y clara el método de pago utilizado (Yape, tarjeta, efectivo) y el estado de envío del comprobante. Además, recomendó fuertemente que el cuadro de "Ventas del día" en el inicio sea cliqueable, para que la dirija directamente a las boletas de la fecha sin necesidad de navegar a través del menú lateral.
+
+---
+
+**Entrevista de Validación 6 (Segmento 2 - Operario de Almacén)**
+
+* **Nombre:** Jaime Ronceros
+* **Edad:** 29 años
+* **Distrito:** Callao
+* **Fecha de realización:** 11/11/2026, confirmada por Kevin al incorporar la ficha.
+* **Entrevistador y autor del resumen:** Piero Montes.
+* **URL del video:** [Ver entrevista en YouTube](https://youtu.be/9EMUt0QUeOk).
+* **Duración del archivo individual:** `00:05:43`, comprobada en el reproductor el 12/11/2026.
+* **Referencia temporal:** archivo individual desde `00:00:00`; inicio en el video consolidado de validaciones pendiente de registrar.
+* **Microsoft Stream:** enlace pendiente de incorporar.
+
+<p align="center">
+  <img src="Images/Validation/jaime-av2.jpeg" width="820" alt="Captura aportada por Piero de la entrevista de validación a Jaime Ronceros con la aplicación CeTe">
+</p>
+
+* **Resumen de la evaluación (aportado por Piero):** El usuario interactuó con la Landing Page y la plataforma de prueba asumiendo el rol de operario de almacén. Comprendió rápidamente que el sistema está enfocado en organizar la parte operativa, controlando entradas, salidas y órdenes de compra. Durante la tarea de registrar una recepción parcial de mercadería (llegaron 4 de 10 unidades), presentó una leve confusión en la navegación inicial: se dirigió primero a la pestaña de "Inventario" intentando sumar los productos de forma directa, hasta darse cuenta de que debía ir a "Compras" para descontar desde el pedido original al proveedor. Valoró mucho que el sistema actualice los saldos pendientes al instante, ya que esto le evitaría tener que marcar guías físicas y avisar por WhatsApp a otras áreas. Como sugerencias críticas, señaló que hace falta un mensaje de alerta visible tras guardar que confirme el nuevo stock total ("El stock subió de X a Y"), para no tener que ir a verificarlo al inventario. Además, recomendó implementar un botón de acceso directo en el inicio que diga "Recibir mercadería pendiente" para agilizar la recepción cuando el proveedor ya está en la puerta.
+
+Las cuatro primeras fichas conservan pendientes sus fechas, marcas de tiempo, duración y enlaces a Microsoft Stream. Las fichas 5 y 6 incorporan las fechas confirmadas y la duración de cada archivo individual; el video consolidado en Stream y sus marcas de inicio siguen pendientes. Los resúmenes recogen apreciaciones de los entrevistados, no métricas de efectividad medidas por el equipo.
 
 ### 5.3.3. Evaluaciones según heurísticas
 
