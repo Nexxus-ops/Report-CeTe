@@ -2,7 +2,7 @@
 
 ### Conclusiones y recomendaciones
 
-El incremento AV2 conecta la aplicación Vue con una API propia en C# y PostgreSQL y amplía el recorrido de inventario, compras, recepción, ventas, boletas y despachos. Las pruebas técnicas y las fichas de entrevistas aportan evidencias diferentes: las primeras comprueban comportamientos del software; las segundas permiten identificar dificultades de uso y revisar las hipótesis del producto. Este cierre se basa en lo documentado al 12/11/2026; no atribuye resultados a entrevistas aún no recibidas.
+El incremento AV2 conecta la aplicación Vue con una API propia en C# y PostgreSQL y amplía el recorrido de inventario, compras, recepción, ventas, boletas y despachos. Las pruebas técnicas y las fichas de entrevistas aportan evidencias diferentes: las primeras comprueban comportamientos del software; las segundas permiten identificar dificultades de uso y revisar las hipótesis del producto. Este cierre se basa en el código y las seis fichas disponibles al 12/11/2026, conservando la diferencia entre descubrimiento, validación del prototipo y uso de la aplicación.
 
 #### Resultados técnicos del incremento
 
@@ -31,7 +31,7 @@ El registro contiene seis fichas: cuatro de dueños/administradores —Jesús, R
 | :--- | :--- | :--- |
 | Cierre documental de AV2 | Incorporar la ronda de seis entrevistas y sus hallazgos. | Fichas y capturas integradas, cobertura diferenciada y evaluación documental registrada. Ampliación de muestra y revalidación programadas para TF. |
 | Cierre de AV2 | Editar y publicar Product, grabar Team y enlazar la navegación del incremento. | Evidencias en los destinos solicitados, capturas y tiempos reales; Product y Team incrustados en la landing. Los clips de IA son solo material ilustrativo. |
-| Cierre de AV2 | Consolidar colaboración y entregables. | Aportes y evidencias documentados; estimaciones retrospectivas identificadas. Revisar performance con el líder y conservar coherencia entre informe, PDF, presentación y videos. |
+| Cierre de AV2 | Consolidar colaboración y entregables. | Aportes y evidencias documentados; estimaciones retrospectivas identificadas. Performance actualizado con la evaluación de 20/20 para los cinco integrantes indicada por el equipo; conservar coherencia entre informe, PDF, presentación y videos. |
 | Siguiente iteración | Evaluar la navegación móvil, el ingreso manual y las alertas priorizadas por usuarios. | Prototipar y validar una solución, vincularla al backlog y medir si disminuye la dificultad observada. |
 | Siguiente iteración | Evolucionar agregados, integridad y mantenimiento de datos. | Aplicar los criterios del capítulo IV: migraciones ensayadas, restricciones consistentes, referencias de origen y responsabilidades de contexto verificadas. |
 
@@ -41,15 +41,12 @@ El Sprint 3 consolida el incremento técnico y su documentación, con seis entre
 
 El About-the-Team documentará el proceso real de trabajo de Nexxus: distribución de responsabilidades, decisiones de diseño con DDD, revisión de cambios, integración y aprendizajes individuales. Incluirá escenas de sesiones reales de trabajo acompañadas de narración y el testimonio ante cámara de los cinco integrantes.
 
-**Montaje en curso:** [About-the-Team en Canva · vista del diseño](https://www.canva.com/d/mA3bW8S9nOk7TK0). Al revisar el diseño se comprobaron clips del equipo ya insertados. Es la fuente de edición y no sustituye los enlaces de la versión final en Stream y YouTube. El acceso conserva los permisos del diseño; no se modificó su configuración de uso compartido. La [carpeta de evidencias](https://drive.google.com/drive/folders/1xVEEo9wgbIuEtw1UIYaJLxzBtxMa2upI?usp=sharing) se mantiene como recurso complementario.
+**Montaje en curso:** [About-the-Team en Canva · vista del diseño](https://www.canva.com/d/mA3bW8S9nOk7TK0). Al revisar el diseño se comprobaron clips del equipo ya insertados. Es la fuente de edición y no sustituye los enlaces de la versión final en Stream y YouTube. La [carpeta de evidencias](https://drive.google.com/drive/folders/1xVEEo9wgbIuEtw1UIYaJLxzBtxMa2upI?usp=sharing) se mantiene como recurso complementario.
 
 | Evidencia de entrega | Estado |
 | :--- | :--- |
 | Retrospectiva grupal y escenas reales de trabajo | Material en preparación y edición dentro del montaje. |
 | Testimonio individual | Clips recibidos en el montaje. Al terminar se comprobará la participación de Diego, Piero, Darikson, Liz y Kevin y la correspondencia de sus aportes. |
-| Duración | Por registrar tras la edición. El Anexo C orienta a considerar cinco minutos de retrospectiva y un minuto por integrante; la duración depende del contenido. |
-| Pauta de secuencias | Pendiente de registrar los inicios reales de cada sección en formato `hh:mm:ss`. |
 | Captura representativa y enlaces | Canva enlazado como material en edición. La captura definitiva y los enlaces de Stream y YouTube se añadirán después de exportar y publicar. |
-| Incrustación en la landing | Pendiente de disponer del video publicado. |
 
 La primera versión se solicita desde AV2, conforme a las consideraciones de entrega y al Anexo C del enunciado. Las descripciones documentadas de los aportes y las capturas de GitHub complementan esta evidencia, pero no reemplazan los testimonios ni permiten dar por completado el video.

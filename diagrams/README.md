@@ -13,6 +13,7 @@ Cada diagrama tiene una fuente Mermaid (`.mmd`) y un SVG ampliable. Las imágene
 | C4 | C4 · Nivel 2 · Contenedores de CeTe · AV2 | [SVG](c4-containers.svg) | [Mermaid](c4-containers.mmd) |
 | C4 | C4 · Nivel 1 · Contexto actual de CeTe · AV2 | [SVG](c4-context.svg) | [Mermaid](c4-context.mmd) |
 | C4 | C4 complementario · Despliegue actual de CeTe · AV2 | [SVG](c4-deployment.svg) | [Mermaid](c4-deployment.mmd) |
+| UML | UML actual · Identidad y empresa · CeTe API | [SVG](classes-identity.svg) | [Mermaid](classes-identity.mmd) |
 | UML | UML actual · Producto y saldo · CeTe API | [SVG](classes-inventory.svg) | [Mermaid](classes-inventory.mmd) |
 | UML | UML actual · Despacho e incidencias · CeTe API | [SVG](classes-logistics.svg) | [Mermaid](classes-logistics.mmd) |
 | UML | UML actual · Compra y recepción · CeTe API | [SVG](classes-procurement.svg) | [Mermaid](classes-procurement.mmd) |

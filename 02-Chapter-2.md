@@ -4,56 +4,42 @@
 
 ## 2.1. Competidores
 
-Para validar nuestra propuesta de valor en el ecosistema B2B SaaS, hemos identificado a tres competidores principales que ofrecen soluciones de digitalización para MYPES en la región.
+El análisis compara tres alternativas utilizadas como referencia funcional: Wally, Alegra y Odoo. Las capacidades que declara cada proveedor se distinguen de las hipótesis de diferenciación del equipo. La comparación no equivale a una prueba exhaustiva de esos productos.
 
-1. **Wally POS:** Startup peruana enfocada fuertemente en el punto de venta (POS) y facturación, orientada principalmente a restaurantes y *retail*.
-2. **Alegra:** Plataforma SaaS colombiana enfocada principalmente en la contabilidad y administración financiera para pequeñas empresas, integrando módulos de inventario básicos.
-3. **Odoo:** Un sistema ERP de código abierto con módulos para ventas, almacén y manufactura. Representa a la competencia de software robusto, complejo y de difícil adopción.
+1. **Wally:** solución de punto de venta, facturación electrónica y gestión de inventario. [Sitio oficial](https://miwally.com/).
+2. **Alegra:** suite con soluciones de contabilidad, facturación y punto de venta para pequeñas empresas. [Planes de Contabilidad en Perú](https://www.alegra.com/peru/contabilidad/precios/).
+3. **Odoo:** conjunto de aplicaciones de gestión empresarial, con opciones de contratación y alojamiento diferentes. [Planes oficiales](https://www.odoo.com/pricing).
 
 ### 2.1.1. Análisis competitivo
 
-**¿Por qué llevar a cabo este análisis?**
-Entender el panorama actual para identificar cómo CeTe puede diferenciarse siendo una plataforma más generalizable, amigable y menos restrictiva que un ERP tradicional.
+| Dimensión | Wally | Alegra | Odoo | CeTe de Nexxus |
+| :--- | :--- | :--- | :--- | :--- |
+| **Overview** | Punto de venta y gestión comercial. | Gestión contable y comercial mediante distintas soluciones. | Suite modular de gestión empresarial. | Incremento académico para conectar compras, stock, ventas y despachos en MYPES. |
+| **Mercado de referencia** | Negocios que necesitan vender y emitir comprobantes en Perú. | Pequeñas empresas que requieren ordenar facturación, contabilidad e inventario. | Empresas que requieren integrar varias aplicaciones de gestión. | Dueños, administradores y personal operativo de pequeñas empresas con registros dispersos. |
+| **Capacidades publicadas** | POS, facturación electrónica, inventario e indicadores. | Contabilidad, comprobantes, reportes e inventario, según solución y plan. | Ventas, inventario, compras y otras aplicaciones, según edición y configuración. | Catálogo, movimientos, recepción parcial, venta y boleta académica, despacho e indicadores; alcance detallado en el capítulo V. |
+| **Modelo comercial** | Planes y condiciones que deben consultarse con el proveedor. | Planes con distintos límites de comprobantes, usuarios y funciones. | Opciones por aplicación y planes comerciales por usuario; revisar condiciones de alojamiento e implementación. | Hipótesis comercial de S/80 por empresa al mes; no hay suscripción ni cobro implementado. |
+| **Fortalezas de referencia** | Oferta enfocada en operación comercial y comprobantes. | Funciones contables y comerciales documentadas. | Amplitud y modularidad de aplicaciones. | Trazabilidad del flujo compra–recepción–stock–venta–despacho en una misma demostración. |
+| **Aspecto que debe evaluarse en una prueba** | Adecuación de la recepción parcial y los despachos al caso de la MYPE. | Facilidad de los flujos operativos para personal de almacén. | Configuración necesaria y esfuerzo de aprendizaje para el negocio. | Comprensión de la navegación, ingreso manual, conciliación de stock y utilidad de los indicadores. |
+| **Oportunidad y riesgo para CeTe** | Diferenciar el recorrido logístico sin atribuir carencias no comprobadas al competidor. | Evaluar la experiencia del operario sin reducir la propuesta de Alegra a contabilidad. | Delimitar un alcance pequeño y validar su utilidad, sin afirmar que todos los despliegues requieren consultoría. | La utilidad percibida aún necesita medición de uso repetido y disposición a pagar; la emisión fiscal está fuera del incremento. |
 
-| | Nombre | Wally POS | Alegra | Odoo | CeTe (Nexxus) |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Perfil** | **Ventaja competitiva** | Súper simplificado para el punto de venta (POS) rápido. | Enfoque contable maduro, ideal para contadores. | Altamente modular y robusto (ERP completo). | "Plantilla" adaptable, unificando almacén y logística como sistema nervioso central intuitivo. |
-| | **¿Qué valor ofrece?** | Vender rápido en tiendas y cumplir con la SUNAT. | Mantener las finanzas e impuestos en orden. | Tener todas las aplicaciones de gestión interconectadas. | Eliminar los cuadernos y excels, sabiendo exactamente dónde está la mercadería y ahorrando horas. |
-| | **Mercado objetivo** | Restaurantes y tiendas minoristas en Perú. | MYPES que priorizan el orden contable. | Desde PYMES hasta grandes corporaciones globales. | Dueños y operarios de MYPES (consorcios, textiles, restaurantes) agobiados por procesos manuales. |
-| **Producto** | **Productos & Servicios** | Punto de venta web, inventario básico, facturación. | Facturación, contabilidad, gestión de inventario. | CRM, eCommerce, Almacén avanzado, Contabilidad. | Gestión de Almacén, Ventas, Despacho, Dashboard en tiempo real y proyección IoT. |
-| | **Precios & Costos** | Desde S/ 149.00/mes (Plan Básico 1 caja). Hardware y terminales extra se cotizan por separado. | Desde S/ 99.00/mes (Plan Pyme con límite de facturas). Plan Pro (inventario full) escala a S/ 249.00/mes. | Versión Standard Cloud: $24.90 (S/ 95 aprox.) por usuario/mes. Requiere alto costo de consultoría para la implementación inicial. | Tarifa plana MYPE: S/ 80.00/mes. Sin cobro por usuario adicional operativo. Implementación a costo cero (Plug & Play). |
-| | **Distribución** | Web Application y App móvil POS. | Plataforma Web Cloud. | Plataforma Web, Apps móviles y software de escritorio. | Web Application (Cloud) responsiva (Mobile/Desktop). |
-| **SWOT** | **Fortalezas** | Excelente usabilidad y presencia local. | Gran ecosistema de integraciones contables. | Código abierto, infinidad de funcionalidades. | Diseño inspirado en dolores reales, alta adaptabilidad (plantilla general). |
-| | **Debilidades** | Módulo logístico básico, no apto para distribución compleja. | Enfoque muy administrativo, pesado para el almacenero. | Configuración inicial compleja, requiere consultores. | Startup emergente sin marca establecida aún. |
-| | **Oportunidades** | MYPES buscando formalizarse y facturar rápido. | Leyes de facturación electrónica en LATAM. | Empresas en crecimiento que necesitan unificar sistemas. | Alta tasa de negocios que aún usan cuadernos y buscan dar su primer salto digital. |
-| | **Amenazas** | Nuevos competidores POS de bajo costo. | Cambios en normativas tributarias. | Soluciones locales de nicho. | Resistencia al cambio del personal acostumbrado al papel. |
-
-<p align="center"><em>Nota: Análisis competitivo de CeTe en comparación con las principales soluciones del mercado.</em></p>
+Las tres referencias se consultan en sus sitios oficiales. Las valoraciones sobre aprendizaje, adecuación al flujo y diferenciación son **criterios de investigación del equipo**, no resultados de un estudio comparativo con usuarios.
 
 #### 2.1.1.1. Análisis de Modelos Tarifarios (Pricing)
 
-Para sustentar la viabilidad comercial y el diseño de la tarifa plana de CeTe, se investigó el modelo de monetización de los competidores directos, evidenciando barreras económicas estructurales para la adopción tecnológica en el segmento MYPE:
+La comparación comercial requiere el mismo alcance: número de usuarios, volumen de comprobantes, funciones, impuestos, hardware, alojamiento y apoyo de implementación. No es válido concluir que abrir un segundo almacén duplica automáticamente el precio ni comparar una tarifa por usuario con una tarifa por empresa sin especificar esas condiciones.
 
-* **Cobro por Terminal de Venta (Wally POS):** El mercado de POS tradicional exige un pago base aproximado de S/ 149.00 mensuales anclado a un único dispositivo o punto de emisión. Si una MYPE (ej. un consorcio de alimentos) necesita aperturar un almacén secundario o una segunda caja, el costo de suscripción se duplica automáticamente, penalizando la expansión física del negocio.
-* **Cobro por Volumen de Transacciones (Alegra):** Los sistemas con enfoque contable atraen a las MYPES con planes de entrada (S/ 99.00/mes) que imponen límites estrictos en la cantidad de comprobantes emitidos. Para que un negocio acceda a métricas gerenciales completas y gestión multi-almacén, es forzado a migrar al plan Pro (S/ 249.00/mes), lo que representa un salto financiero superior al 150%.
-* **Cobro por Usuario Nombrado (Odoo):** El modelo tradicional de ERP en la nube cobra una licencia individual por cada trabajador. Aunque la tarifa base ronda los S/ 95.00 mensuales ($24.90 USD), una pequeña empresa que requiera accesos para un administrador, dos almaceneros y dos vendedores enfrentaría un costo operativo de S/ 475.00 mensuales, sin contar las elevadas horas de consultoría necesarias para parametrizar el ecosistema.
-* **Nuestra Propuesta de Valor (CeTe):** Se introduce un modelo SaaS de *Tarifa Plana* de S/ 80.00 mensuales diseñado para la realidad financiera peruana. CeTe absorbe la ventaja competitiva al no cobrar licencias adicionales por cada operario logístico registrado ni limitar el volumen de ingresos de SKUs. Esto elimina la fricción económica y permite que el dueño del negocio digitalice a toda su fuerza laboral de almacén bajo una sola suscripción centralizada.eTe en comparación con las principales soluciones del mercado.</em></p>
+* **Wally:** revisar la propuesta y las condiciones del plan aplicable al negocio en su [sitio oficial](https://miwally.com/). No se conserva como vigente el precio de S/149 consignado en una versión anterior porque no se dispone de una cotización fechada que lo respalde.
+* **Alegra:** la [página oficial de planes para Perú](https://www.alegra.com/peru/contabilidad/precios/) diferencia límites de comprobantes, usuarios y funciones. Las cifras históricas de S/99 y S/249 se retiran de la comparación; los importes y condiciones deben consultarse antes de tomar una decisión comercial.
+* **Odoo:** sus [planes oficiales](https://www.odoo.com/pricing) distinguen opciones por aplicación y planes comerciales. La moneda, periodicidad, usuarios, alojamiento y servicios de implementación deben especificarse en cualquier comparación de costo.
+* **CeTe:** S/80 por empresa al mes es una **hipótesis de precio**, comunicada de forma uniforme en la landing. No acredita viabilidad financiera, usuarios ilimitados, instalación gratuita, una suscripción activa ni disposición de pago validada.
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-A partir del análisis competitivo, el equipo de Nexxus ha identificado las siguientes estrategias para posicionar a CeTe en el mercado:
-
-**Estrategia 1: Profundidad en el módulo logístico**
-* *Frente a:* Wally POS.
-* *Táctica:* Resaltaremos la profundidad de nuestro módulo logístico y de despacho, atrayendo a quienes la gestión de almacén de un POS básico ya les quedó corta (ej. Consorcios de alimentos).
-
-**Estrategia 2: Accesibilidad y despliegue inmediato (Plug & Play)**
-* *Frente a:* Odoo.
-* *Táctica:* Promoveremos CeTe como un sistema "plantilla" lista para usar que no requiere semanas de parametrización ni consultores costosos, eliminando la fricción de entrada tecnológica.
-
-**Estrategia 3: Usabilidad centrada en el operario logístico**
-* *Frente a:* Alegra.
-* *Táctica:* Centraremos nuestra usabilidad en el operario de almacén. Si el sistema es fácil para el usuario final (cero fricción), los reportes llegarán solos al dueño, diferenciándonos de los sistemas diseñados exclusivamente para contadores.
+| Estrategia del equipo | Acción propuesta | Evidencia para evaluarla |
+| :--- | :--- | :--- |
+| Enfocar el recorrido logístico de la MYPE | Mostrar el paso de orden a recepción parcial y su efecto en stock, venta y despacho. | Observar si un operario distingue esos conceptos y completa el caso sin ayuda. |
+| Reducir la dificultad de entrada | Preparar un recorrido guiado con datos ficticios y acciones visibles según el rol. | Registrar errores y tiempo de primera ejecución; contrastar con el proceso actual del negocio. |
+| Comunicar el alcance comercial con claridad | Mantener S/80 como propuesta de investigación y explicar las capacidades del incremento académico. | Entrevistar a dueños sobre utilidad, condiciones de contratación y disposición a pagar. |
 
 ## 2.2. Entrevistas
 
@@ -82,7 +68,7 @@ Para recolectar información cualitativa y descubrir competidores reales, hemos 
 
 ### 2.2.2. Registro de entrevistas
 
-Como evidencia de nuestra investigación cualitativa, hemos consolidado las entrevistas de nuestros dos segmentos
+Se conservan ocho fichas de descubrimiento de las entregas anteriores. Su existencia no implica que todas dispongan de un video identificable y de una captura contrastada. El control de fuentes siguiente separa las fichas de la evidencia disponible; las entrevistas de validación de AV2 se registran en 5.3.
 
 #### Segmento 1: Tomadores de Decisión (Dueños, Administradores, Gerentes)
 
@@ -156,25 +142,29 @@ Como evidencia de nuestra investigación cualitativa, hemos consolidado las entr
 | **Nombres y Apellidos** | Jorge Quispe |
 | **ID** | E-S2-03 |
 | **Edad / Distrito** | 31 años / Ate Vitarte |
-| **Enlace del video** | [Ver entrevista de Jorge Quispe](https://www.youtube.com/watch?v=AItYU4_ckvU) |
-| **Evidencia fotográfica** | <p align="center"><img src="Images/Raul Delgado.jpeg" width="400" alt="Jorge Quispe"></p> |
+| **Enlace del video** | Pendiente de identificar: el enlace anterior duplicaba el de Sebastián Ramírez. |
+| **Evidencia fotográfica** | Pendiente de contrastar: se retiró la imagen cuyo archivo identifica a Raúl Delgado. |
 | **Resumen descriptivo** | Jorge es encargado de despachos en un consorcio de alimentos. Tiene habilidades tecnológicas moderadas y prefiere herramientas simples. Su dolor principal radica en el registro de mermas y devoluciones: el trámite en papel es tan tedioso que a veces no lo anota, generando el descuadre. Desea un sistema que con dos toques le permita registrar una merma. |
 
 ### 2.2.3. Análisis de entrevistas
 
-Con base en la información cualitativa extraída de las 8 entrevistas registradas, hemos realizado un análisis estadístico para definir las características que moldearán nuestros User Personas.
+El análisis utiliza las ocho **fichas de descubrimiento** conservadas. Se trata de una lectura cualitativa de sus resúmenes, no de un análisis estadístico ni de una estimación representativa de todas las MYPES. No se mantienen porcentajes del 100% porque no hay una matriz de respuestas y codificación que permita reproducirlos.
 
-**Análisis del Segmento 1: Tomadores de Decisión (Dueños/Administradores)**
-* **Demografía y Perfil:** El 100% de los entrevistados tiene entre 26 y 52 años. La mayoría tiene responsabilidades familiares y administra su propio negocio.
-* **Tecnología y Canales:** El 100% utiliza Smartphones para la supervisión diaria. WhatsApp es la herramienta de comunicación dominante para negocios.
-* **Dolores (Pain Points):** El 100% coincide en que la **"falta de transparencia en los datos"** y los **"descuadres entre compras y caja"** son su mayor dolor. El alto nivel de estrés por registros manuales es una constante.
-* **Expectativas (Gains):** El 100% espera visibilidad del negocio a distancia (Dashboard) y alertas automáticas para evitar quiebres de stock.
+| Segmento | Señales descritas en las fichas | Implicación para el diseño | Límite de interpretación |
+| :--- | :--- | :--- | :--- |
+| Dueños y administradores | Registros en cuadernos y Excel, preocupación por diferencias de inventario y necesidad de supervisar el negocio. | Priorizar indicadores comprensibles y trazabilidad de compras, ventas y existencias. | La expectativa no demuestra adopción, ahorro ni rentabilidad obtenida con CeTe. |
+| Personal operativo | Transcripción manual, conciliación de cantidades, identificación de productos y dificultad para registrar movimientos en momentos de alta demanda. | Hacer visibles búsqueda, cantidades, motivos y confirmación del resultado; distinguir orden de compra de recepción. | Escaneo, variantes y merma como flujo propio continúan siendo oportunidades, no capacidades completadas. |
 
-**Análisis del Segmento 2: Usuarios Finales (Operarios/Logística)**
-* **Demografía y Perfil:** Un público más joven, oscilan entre los 22 y 31 años.
-* **Tecnología y Canales:** El 100% utiliza dispositivos móviles Android. Son receptivos a interfaces visuales modernas (similares a redes sociales).
-* **Dolores (Pain Points):** El 100% considera que los **reportes manuales (cuadernos/papeles)** son su mayor pérdida de tiempo y frustración, propiciando errores en tallas, colores o cantidades.
-* **Expectativas (Gains):** El 100% exige una herramienta que reduzca su carga de trabajo (simplicidad extrema, pocos clics, buscadores ágiles y escaneo de códigos).
+**Control de las fuentes de descubrimiento.**
+
+| Ficha | Evidencia identificada | Aspecto que requiere confirmación |
+| :--- | :--- | :--- |
+| Carlos Mendoza, Lucía Valdivia y Diego Ramirez | Resúmenes, imágenes y tramos de video consignados en la entrega histórica. | No hay URL individual o consolidada identificable en estas fichas. Los tramos no sustituyen el enlace. |
+| Carmen Soto y Raúl Delgado | Enlaces de Drive y capturas registradas. | Confirmar permisos de acceso al consolidar los videos. |
+| María Morales y Sebastián Ramírez | Enlaces individuales de YouTube y capturas registradas. | Mantener la asociación de cada enlace con su entrevistado y distinguir descubrimiento de validación. |
+| Jorge Quispe | Resumen histórico conservado. | Enlace y fotografía sin contrastar. No se contabiliza como sesión audiovisual verificada. |
+
+Los User Personas y mapas siguientes sintetizan estas necesidades como artefactos de diseño. Sus descripciones no sustituyen los registros de entrevistas ni permiten completar metadatos ausentes. Los hallazgos de uso de la aplicación se contrastan por separado en 5.3 y en las conclusiones.
 
 ## 2.3. Needfinding
 

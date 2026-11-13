@@ -8,7 +8,7 @@
 
 Nuestra startup nace de la experiencia directa de sus fundadores lidiando con ineficiencias operativas en diferentes rubros comerciales. Habiendo trabajado desde el interior de negocios familiares de gastronomía, almacenes corporativos, empresas textiles recientes y consorcios de distribución de alimentos para el Estado, el equipo identificó un "dolor" compartido: la ausencia crítica de herramientas tecnológicas adaptadas a la realidad de las Micro y Pequeñas Empresas (MYPES).
 
-Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos empíricos (cuadernos, apuntes a mano) o archivos de Excel aislados, lo que desencadena en pérdida de tiempo, extravío de mercadería y falta de trazabilidad. Frente a esto, nuestra startup, Nexxus, se dedica a desarrollar soluciones de software B2B (Business-to-Business) ágiles y generalizables que democraticen la digitalización. Nuestro producto estrella, CeTe (Celer Tech), es el reflejo de esta visión.
+Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos empíricos (cuadernos, apuntes a mano) o archivos de Excel aislados, lo que provoca pérdida de tiempo, extravío de mercadería y falta de trazabilidad. Frente a esto, nuestra startup, Nexxus, se dedica a desarrollar soluciones de software B2B (Business-to-Business) ágiles y generalizables que democraticen la digitalización. Nuestro producto estrella, CeTe (Celer Tech), es el reflejo de esta visión.
 
 > **Misión:** Democratizar el acceso a la tecnología para las MYPES latinoamericanas, proporcionando herramientas digitales intuitivas y centralizadas que optimicen su cadena de suministro y les permitan competir con mayor eficiencia en el mercado.
 >
@@ -90,7 +90,7 @@ En el panorama tecnológico actual, las alternativas de software robustas suelen
 Con el propósito de profundizar en la naturaleza del problema identificado, hemos empleado la metodología de análisis **The 5 'W's y 2 'H's**:
 
 * **Who (¿Quién lo sufre?):** Propietarios, gestores administrativos y colaboradores operativos de MYPES que carecen de ecosistemas tecnológicos estandarizados para sus procesos.
-* **What (¿Cuál es el problema?):** Inexistencia de un entorno digital unificado para articular el inventario, las ventas y el despacho, resultando en una gestión basada en la empirismo o registros aislados.
+* **What (¿Cuál es el problema?):** Inexistencia de un entorno digital unificado para articular el inventario, las ventas y el despacho, resultando en una gestión basada en el empirismo o registros aislados.
 * **Where (¿Dónde ocurre?):** En el núcleo de las actividades empresariales diarias, particularmente dentro de los almacenes, centros de distribución y puntos críticos de venta.
 * **When (¿Cuándo ocurre?):** Se manifiesta durante el control de flujos de mercadería, en la conciliación de existencias y al intentar rastrear la trazabilidad de cada transacción comercial.
 * **Why (¿Por qué ocurre?):** Debido a que las soluciones ERP del mercado actual suelen ser financieramente prohibitivas, técnicamente complejas y poco flexibles ante la agilidad que requiere una pequeña empresa.
@@ -120,7 +120,7 @@ Aplicando la estructura sugerida por el marco de trabajo Lean UX (Brand new init
 
 #### 1.2.2.2. Lean UX Assumptions
 
-En base a la discusión del equipo, planteamos nuestras creencias fundamentales:
+A partir de la discusión del equipo, planteamos las siguientes creencias. Son supuestos por contrastar; no resultados de adopción, retención o ahorro ya medidos:
 
 **Business Assumptions:**
 * Creemos que las MYPES necesitan urgentemente reemplazar los cuadernos y excels por una plataforma web centralizada.
@@ -166,6 +166,8 @@ Para validar nuestros Feature Assumptions, planteamos las siguientes hipótesis:
     * Los ERPs actuales son muy costosos, complejos y las MYPES no pueden adoptarlos.
 
 **2. Business Outcomes (Resultados de Negocio)**
+
+Las cifras siguientes son metas iniciales del canvas. El capítulo III concreta los indicadores de evaluación y las conclusiones distinguen los resultados observados de las mediciones pendientes.
 * ¿Qué cambios en el comportamiento del cliente indicarán que hemos resuelto el problema?
     * Reducción del 50% del tiempo semanal que las MYPES gastan cuadrando inventario.
     * Adopción diaria del sistema por parte del personal operativo (abandono total del papel).

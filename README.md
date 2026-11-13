@@ -77,6 +77,7 @@ Proyecto
         <tr><td><strong>AV2 (revisión editorial y conclusiones)</strong></td><td>12/11/2026</td><td>Kevin Salazar · consolidación del informe</td><td>Índice de cuatro niveles, código de Piero confirmado, herramientas y commits históricos contrastados, conclusiones frente a Lean UX y roadmap. Videos y validaciones se conservan con su estado real.</td></tr>
         <tr><td><strong>AV2 (entrevistas de Piero)</strong></td><td>12/11/2026</td><td>Piero Montes · entrevistas y resúmenes; Kevin Salazar · integración</td><td>Fichas 5 y 6, capturas, enlaces y duraciones verificadas; Jaime registrado con 29 años por corrección confirmada. Cobertura por segmento y evaluación documental de seis hallazgos nuevos; cierre de validación aún pendiente.</td></tr>
         <tr><td><strong>AV2 (cierre documental de Sprint 3)</strong></td><td>12/11/2026</td><td>Kevin Salazar · integración del equipo</td><td>Planificación y esfuerzo retrospectivos identificados como estimaciones; cierre del incremento implementado y de las seis fichas entregadas; análisis y continuidad para TF. Montaje de Team en Canva enlazado como material en edición.</td></tr>
+        <tr><td><strong>AV2 (revisión final del informe)</strong></td><td>12/11/2026</td><td>Kevin Salazar · consolidación editorial</td><td>Control de fuentes de descubrimiento y comparación comercial, escenario inválido de recepción, trazabilidad de wireflows con AV2, clases de Identidad, captura del tablero al cierre y enlace de Team corregido. Exportación completa con carátula, índice navegable y verificación visual de páginas.</td></tr>
     </table>
 </div>
 </div>
@@ -269,6 +270,7 @@ La tabla conserva cuatro niveles de esquema. Cada capítulo puede desplegarse pa
             - [4.7.1.2. Ventas](04-Chapter-4.md#4712-ventas)
             - [4.7.1.3. Abastecimiento](04-Chapter-4.md#4713-abastecimiento)
             - [4.7.1.4. Logística](04-Chapter-4.md#4714-logística)
+            - [4.7.1.5. Identidad y empresa](04-Chapter-4.md#4715-identidad-y-empresa)
         - [4.7.2. Agregados, invariantes y responsabilidad](04-Chapter-4.md#472-agregados-invariantes-y-responsabilidad)
         - [4.7.3. Estados y reglas de transición](04-Chapter-4.md#473-estados-y-reglas-de-transición)
     - [4.8. Database Design](04-Chapter-4.md#48-database-design)
@@ -350,7 +352,6 @@ La tabla conserva cuatro niveles de esquema. Cada capítulo puede desplegarse pa
 
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
-- [Videos de Exposiciones](#anexo-b-videos-de-exposiciones)
 - [Atlas de diagramas](diagrams/README.md)
 - [Diccionario de datos](AV2/diccionario-datos.md)
 
@@ -375,7 +376,7 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 </div>
 
-**Cierre documental de ABET 5.** Los aportes se sustentan con la matriz, los commits, las integraciones y las entrevistas incorporadas. Los testimonios del equipo se encuentran en montaje en Canva y el performance corresponde al líder. La coordinación se sintetiza a partir de las fuentes disponibles y se identifica el esfuerzo estimado; no se atribuyen horarios ni asistencia a reuniones sin registro.
+**Cierre documental de ABET 5.** Los aportes se sustentan con la matriz, los commits, las integraciones y las entrevistas incorporadas. Los testimonios del equipo se encuentran en montaje en Canva. El performance registra 20/20 para los cinco integrantes por indicación del equipo; esa evaluación individual no sustituye la evidencia del outcome. La coordinación se sintetiza a partir de las fuentes disponibles y se identifica el esfuerzo estimado; no se atribuyen horarios ni asistencia a reuniones sin registro.
 
 
 # Capítulo I: Introducción
@@ -388,7 +389,7 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 Nuestra startup nace de la experiencia directa de sus fundadores lidiando con ineficiencias operativas en diferentes rubros comerciales. Habiendo trabajado desde el interior de negocios familiares de gastronomía, almacenes corporativos, empresas textiles recientes y consorcios de distribución de alimentos para el Estado, el equipo identificó un "dolor" compartido: la ausencia crítica de herramientas tecnológicas adaptadas a la realidad de las Micro y Pequeñas Empresas (MYPES).
 
-Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos empíricos (cuadernos, apuntes a mano) o archivos de Excel aislados, lo que desencadena en pérdida de tiempo, extravío de mercadería y falta de trazabilidad. Frente a esto, nuestra startup, Nexxus, se dedica a desarrollar soluciones de software B2B (Business-to-Business) ágiles y generalizables que democraticen la digitalización. Nuestro producto estrella, CeTe (Celer Tech), es el reflejo de esta visión.
+Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos empíricos (cuadernos, apuntes a mano) o archivos de Excel aislados, lo que provoca pérdida de tiempo, extravío de mercadería y falta de trazabilidad. Frente a esto, nuestra startup, Nexxus, se dedica a desarrollar soluciones de software B2B (Business-to-Business) ágiles y generalizables que democraticen la digitalización. Nuestro producto estrella, CeTe (Celer Tech), es el reflejo de esta visión.
 
 > **Misión:** Democratizar el acceso a la tecnología para las MYPES latinoamericanas, proporcionando herramientas digitales intuitivas y centralizadas que optimicen su cadena de suministro y les permitan competir con mayor eficiencia en el mercado.
 >
@@ -470,7 +471,7 @@ En el panorama tecnológico actual, las alternativas de software robustas suelen
 Con el propósito de profundizar en la naturaleza del problema identificado, hemos empleado la metodología de análisis **The 5 'W's y 2 'H's**:
 
 * **Who (¿Quién lo sufre?):** Propietarios, gestores administrativos y colaboradores operativos de MYPES que carecen de ecosistemas tecnológicos estandarizados para sus procesos.
-* **What (¿Cuál es el problema?):** Inexistencia de un entorno digital unificado para articular el inventario, las ventas y el despacho, resultando en una gestión basada en la empirismo o registros aislados.
+* **What (¿Cuál es el problema?):** Inexistencia de un entorno digital unificado para articular el inventario, las ventas y el despacho, resultando en una gestión basada en el empirismo o registros aislados.
 * **Where (¿Dónde ocurre?):** En el núcleo de las actividades empresariales diarias, particularmente dentro de los almacenes, centros de distribución y puntos críticos de venta.
 * **When (¿Cuándo ocurre?):** Se manifiesta durante el control de flujos de mercadería, en la conciliación de existencias y al intentar rastrear la trazabilidad de cada transacción comercial.
 * **Why (¿Por qué ocurre?):** Debido a que las soluciones ERP del mercado actual suelen ser financieramente prohibitivas, técnicamente complejas y poco flexibles ante la agilidad que requiere una pequeña empresa.
@@ -500,7 +501,7 @@ Aplicando la estructura sugerida por el marco de trabajo Lean UX (Brand new init
 
 #### 1.2.2.2. Lean UX Assumptions
 
-En base a la discusión del equipo, planteamos nuestras creencias fundamentales:
+A partir de la discusión del equipo, planteamos las siguientes creencias. Son supuestos por contrastar; no resultados de adopción, retención o ahorro ya medidos:
 
 **Business Assumptions:**
 * Creemos que las MYPES necesitan urgentemente reemplazar los cuadernos y excels por una plataforma web centralizada.
@@ -546,6 +547,8 @@ Para validar nuestros Feature Assumptions, planteamos las siguientes hipótesis:
     * Los ERPs actuales son muy costosos, complejos y las MYPES no pueden adoptarlos.
 
 **2. Business Outcomes (Resultados de Negocio)**
+
+Las cifras siguientes son metas iniciales del canvas. El capítulo III concreta los indicadores de evaluación y las conclusiones distinguen los resultados observados de las mediciones pendientes.
 * ¿Qué cambios en el comportamiento del cliente indicarán que hemos resuelto el problema?
     * Reducción del 50% del tiempo semanal que las MYPES gastan cuadrando inventario.
     * Adopción diaria del sistema por parte del personal operativo (abandono total del papel).
@@ -613,56 +616,42 @@ Representan a la fuerza laboral que interactúa diariamente con el inventario, l
 
 ## 2.1. Competidores
 
-Para validar nuestra propuesta de valor en el ecosistema B2B SaaS, hemos identificado a tres competidores principales que ofrecen soluciones de digitalización para MYPES en la región.
+El análisis compara tres alternativas utilizadas como referencia funcional: Wally, Alegra y Odoo. Las capacidades que declara cada proveedor se distinguen de las hipótesis de diferenciación del equipo. La comparación no equivale a una prueba exhaustiva de esos productos.
 
-1. **Wally POS:** Startup peruana enfocada fuertemente en el punto de venta (POS) y facturación, orientada principalmente a restaurantes y *retail*.
-2. **Alegra:** Plataforma SaaS colombiana enfocada principalmente en la contabilidad y administración financiera para pequeñas empresas, integrando módulos de inventario básicos.
-3. **Odoo:** Un sistema ERP de código abierto con módulos para ventas, almacén y manufactura. Representa a la competencia de software robusto, complejo y de difícil adopción.
+1. **Wally:** solución de punto de venta, facturación electrónica y gestión de inventario. [Sitio oficial](https://miwally.com/).
+2. **Alegra:** suite con soluciones de contabilidad, facturación y punto de venta para pequeñas empresas. [Planes de Contabilidad en Perú](https://www.alegra.com/peru/contabilidad/precios/).
+3. **Odoo:** conjunto de aplicaciones de gestión empresarial, con opciones de contratación y alojamiento diferentes. [Planes oficiales](https://www.odoo.com/pricing).
 
 ### 2.1.1. Análisis competitivo
 
-**¿Por qué llevar a cabo este análisis?**
-Entender el panorama actual para identificar cómo CeTe puede diferenciarse siendo una plataforma más generalizable, amigable y menos restrictiva que un ERP tradicional.
+| Dimensión | Wally | Alegra | Odoo | CeTe de Nexxus |
+| :--- | :--- | :--- | :--- | :--- |
+| **Overview** | Punto de venta y gestión comercial. | Gestión contable y comercial mediante distintas soluciones. | Suite modular de gestión empresarial. | Incremento académico para conectar compras, stock, ventas y despachos en MYPES. |
+| **Mercado de referencia** | Negocios que necesitan vender y emitir comprobantes en Perú. | Pequeñas empresas que requieren ordenar facturación, contabilidad e inventario. | Empresas que requieren integrar varias aplicaciones de gestión. | Dueños, administradores y personal operativo de pequeñas empresas con registros dispersos. |
+| **Capacidades publicadas** | POS, facturación electrónica, inventario e indicadores. | Contabilidad, comprobantes, reportes e inventario, según solución y plan. | Ventas, inventario, compras y otras aplicaciones, según edición y configuración. | Catálogo, movimientos, recepción parcial, venta y boleta académica, despacho e indicadores; alcance detallado en el capítulo V. |
+| **Modelo comercial** | Planes y condiciones que deben consultarse con el proveedor. | Planes con distintos límites de comprobantes, usuarios y funciones. | Opciones por aplicación y planes comerciales por usuario; revisar condiciones de alojamiento e implementación. | Hipótesis comercial de S/80 por empresa al mes; no hay suscripción ni cobro implementado. |
+| **Fortalezas de referencia** | Oferta enfocada en operación comercial y comprobantes. | Funciones contables y comerciales documentadas. | Amplitud y modularidad de aplicaciones. | Trazabilidad del flujo compra–recepción–stock–venta–despacho en una misma demostración. |
+| **Aspecto que debe evaluarse en una prueba** | Adecuación de la recepción parcial y los despachos al caso de la MYPE. | Facilidad de los flujos operativos para personal de almacén. | Configuración necesaria y esfuerzo de aprendizaje para el negocio. | Comprensión de la navegación, ingreso manual, conciliación de stock y utilidad de los indicadores. |
+| **Oportunidad y riesgo para CeTe** | Diferenciar el recorrido logístico sin atribuir carencias no comprobadas al competidor. | Evaluar la experiencia del operario sin reducir la propuesta de Alegra a contabilidad. | Delimitar un alcance pequeño y validar su utilidad, sin afirmar que todos los despliegues requieren consultoría. | La utilidad percibida aún necesita medición de uso repetido y disposición a pagar; la emisión fiscal está fuera del incremento. |
 
-| | Nombre | Wally POS | Alegra | Odoo | CeTe (Nexxus) |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Perfil** | **Ventaja competitiva** | Súper simplificado para el punto de venta (POS) rápido. | Enfoque contable maduro, ideal para contadores. | Altamente modular y robusto (ERP completo). | "Plantilla" adaptable, unificando almacén y logística como sistema nervioso central intuitivo. |
-| | **¿Qué valor ofrece?** | Vender rápido en tiendas y cumplir con la SUNAT. | Mantener las finanzas e impuestos en orden. | Tener todas las aplicaciones de gestión interconectadas. | Eliminar los cuadernos y excels, sabiendo exactamente dónde está la mercadería y ahorrando horas. |
-| | **Mercado objetivo** | Restaurantes y tiendas minoristas en Perú. | MYPES que priorizan el orden contable. | Desde PYMES hasta grandes corporaciones globales. | Dueños y operarios de MYPES (consorcios, textiles, restaurantes) agobiados por procesos manuales. |
-| **Producto** | **Productos & Servicios** | Punto de venta web, inventario básico, facturación. | Facturación, contabilidad, gestión de inventario. | CRM, eCommerce, Almacén avanzado, Contabilidad. | Gestión de Almacén, Ventas, Despacho, Dashboard en tiempo real y proyección IoT. |
-| | **Precios & Costos** | Desde S/ 149.00/mes (Plan Básico 1 caja). Hardware y terminales extra se cotizan por separado. | Desde S/ 99.00/mes (Plan Pyme con límite de facturas). Plan Pro (inventario full) escala a S/ 249.00/mes. | Versión Standard Cloud: $24.90 (S/ 95 aprox.) por usuario/mes. Requiere alto costo de consultoría para la implementación inicial. | Tarifa plana MYPE: S/ 80.00/mes. Sin cobro por usuario adicional operativo. Implementación a costo cero (Plug & Play). |
-| | **Distribución** | Web Application y App móvil POS. | Plataforma Web Cloud. | Plataforma Web, Apps móviles y software de escritorio. | Web Application (Cloud) responsiva (Mobile/Desktop). |
-| **SWOT** | **Fortalezas** | Excelente usabilidad y presencia local. | Gran ecosistema de integraciones contables. | Código abierto, infinidad de funcionalidades. | Diseño inspirado en dolores reales, alta adaptabilidad (plantilla general). |
-| | **Debilidades** | Módulo logístico básico, no apto para distribución compleja. | Enfoque muy administrativo, pesado para el almacenero. | Configuración inicial compleja, requiere consultores. | Startup emergente sin marca establecida aún. |
-| | **Oportunidades** | MYPES buscando formalizarse y facturar rápido. | Leyes de facturación electrónica en LATAM. | Empresas en crecimiento que necesitan unificar sistemas. | Alta tasa de negocios que aún usan cuadernos y buscan dar su primer salto digital. |
-| | **Amenazas** | Nuevos competidores POS de bajo costo. | Cambios en normativas tributarias. | Soluciones locales de nicho. | Resistencia al cambio del personal acostumbrado al papel. |
-
-<p align="center"><em>Nota: Análisis competitivo de CeTe en comparación con las principales soluciones del mercado.</em></p>
+Las tres referencias se consultan en sus sitios oficiales. Las valoraciones sobre aprendizaje, adecuación al flujo y diferenciación son **criterios de investigación del equipo**, no resultados de un estudio comparativo con usuarios.
 
 #### 2.1.1.1. Análisis de Modelos Tarifarios (Pricing)
 
-Para sustentar la viabilidad comercial y el diseño de la tarifa plana de CeTe, se investigó el modelo de monetización de los competidores directos, evidenciando barreras económicas estructurales para la adopción tecnológica en el segmento MYPE:
+La comparación comercial requiere el mismo alcance: número de usuarios, volumen de comprobantes, funciones, impuestos, hardware, alojamiento y apoyo de implementación. No es válido concluir que abrir un segundo almacén duplica automáticamente el precio ni comparar una tarifa por usuario con una tarifa por empresa sin especificar esas condiciones.
 
-* **Cobro por Terminal de Venta (Wally POS):** El mercado de POS tradicional exige un pago base aproximado de S/ 149.00 mensuales anclado a un único dispositivo o punto de emisión. Si una MYPE (ej. un consorcio de alimentos) necesita aperturar un almacén secundario o una segunda caja, el costo de suscripción se duplica automáticamente, penalizando la expansión física del negocio.
-* **Cobro por Volumen de Transacciones (Alegra):** Los sistemas con enfoque contable atraen a las MYPES con planes de entrada (S/ 99.00/mes) que imponen límites estrictos en la cantidad de comprobantes emitidos. Para que un negocio acceda a métricas gerenciales completas y gestión multi-almacén, es forzado a migrar al plan Pro (S/ 249.00/mes), lo que representa un salto financiero superior al 150%.
-* **Cobro por Usuario Nombrado (Odoo):** El modelo tradicional de ERP en la nube cobra una licencia individual por cada trabajador. Aunque la tarifa base ronda los S/ 95.00 mensuales ($24.90 USD), una pequeña empresa que requiera accesos para un administrador, dos almaceneros y dos vendedores enfrentaría un costo operativo de S/ 475.00 mensuales, sin contar las elevadas horas de consultoría necesarias para parametrizar el ecosistema.
-* **Nuestra Propuesta de Valor (CeTe):** Se introduce un modelo SaaS de *Tarifa Plana* de S/ 80.00 mensuales diseñado para la realidad financiera peruana. CeTe absorbe la ventaja competitiva al no cobrar licencias adicionales por cada operario logístico registrado ni limitar el volumen de ingresos de SKUs. Esto elimina la fricción económica y permite que el dueño del negocio digitalice a toda su fuerza laboral de almacén bajo una sola suscripción centralizada.eTe en comparación con las principales soluciones del mercado.</em></p>
+* **Wally:** revisar la propuesta y las condiciones del plan aplicable al negocio en su [sitio oficial](https://miwally.com/). No se conserva como vigente el precio de S/149 consignado en una versión anterior porque no se dispone de una cotización fechada que lo respalde.
+* **Alegra:** la [página oficial de planes para Perú](https://www.alegra.com/peru/contabilidad/precios/) diferencia límites de comprobantes, usuarios y funciones. Las cifras históricas de S/99 y S/249 se retiran de la comparación; los importes y condiciones deben consultarse antes de tomar una decisión comercial.
+* **Odoo:** sus [planes oficiales](https://www.odoo.com/pricing) distinguen opciones por aplicación y planes comerciales. La moneda, periodicidad, usuarios, alojamiento y servicios de implementación deben especificarse en cualquier comparación de costo.
+* **CeTe:** S/80 por empresa al mes es una **hipótesis de precio**, comunicada de forma uniforme en la landing. No acredita viabilidad financiera, usuarios ilimitados, instalación gratuita, una suscripción activa ni disposición de pago validada.
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-A partir del análisis competitivo, el equipo de Nexxus ha identificado las siguientes estrategias para posicionar a CeTe en el mercado:
-
-**Estrategia 1: Profundidad en el módulo logístico**
-* *Frente a:* Wally POS.
-* *Táctica:* Resaltaremos la profundidad de nuestro módulo logístico y de despacho, atrayendo a quienes la gestión de almacén de un POS básico ya les quedó corta (ej. Consorcios de alimentos).
-
-**Estrategia 2: Accesibilidad y despliegue inmediato (Plug & Play)**
-* *Frente a:* Odoo.
-* *Táctica:* Promoveremos CeTe como un sistema "plantilla" lista para usar que no requiere semanas de parametrización ni consultores costosos, eliminando la fricción de entrada tecnológica.
-
-**Estrategia 3: Usabilidad centrada en el operario logístico**
-* *Frente a:* Alegra.
-* *Táctica:* Centraremos nuestra usabilidad en el operario de almacén. Si el sistema es fácil para el usuario final (cero fricción), los reportes llegarán solos al dueño, diferenciándonos de los sistemas diseñados exclusivamente para contadores.
+| Estrategia del equipo | Acción propuesta | Evidencia para evaluarla |
+| :--- | :--- | :--- |
+| Enfocar el recorrido logístico de la MYPE | Mostrar el paso de orden a recepción parcial y su efecto en stock, venta y despacho. | Observar si un operario distingue esos conceptos y completa el caso sin ayuda. |
+| Reducir la dificultad de entrada | Preparar un recorrido guiado con datos ficticios y acciones visibles según el rol. | Registrar errores y tiempo de primera ejecución; contrastar con el proceso actual del negocio. |
+| Comunicar el alcance comercial con claridad | Mantener S/80 como propuesta de investigación y explicar las capacidades del incremento académico. | Entrevistar a dueños sobre utilidad, condiciones de contratación y disposición a pagar. |
 
 ## 2.2. Entrevistas
 
@@ -691,7 +680,7 @@ Para recolectar información cualitativa y descubrir competidores reales, hemos 
 
 ### 2.2.2. Registro de entrevistas
 
-Como evidencia de nuestra investigación cualitativa, hemos consolidado las entrevistas de nuestros dos segmentos
+Se conservan ocho fichas de descubrimiento de las entregas anteriores. Su existencia no implica que todas dispongan de un video identificable y de una captura contrastada. El control de fuentes siguiente separa las fichas de la evidencia disponible; las entrevistas de validación de AV2 se registran en 5.3.
 
 #### Segmento 1: Tomadores de Decisión (Dueños, Administradores, Gerentes)
 
@@ -765,25 +754,29 @@ Como evidencia de nuestra investigación cualitativa, hemos consolidado las entr
 | **Nombres y Apellidos** | Jorge Quispe |
 | **ID** | E-S2-03 |
 | **Edad / Distrito** | 31 años / Ate Vitarte |
-| **Enlace del video** | [Ver entrevista de Jorge Quispe](https://www.youtube.com/watch?v=AItYU4_ckvU) |
-| **Evidencia fotográfica** | <p align="center"><img src="Images/Raul Delgado.jpeg" width="400" alt="Jorge Quispe"></p> |
+| **Enlace del video** | Pendiente de identificar: el enlace anterior duplicaba el de Sebastián Ramírez. |
+| **Evidencia fotográfica** | Pendiente de contrastar: se retiró la imagen cuyo archivo identifica a Raúl Delgado. |
 | **Resumen descriptivo** | Jorge es encargado de despachos en un consorcio de alimentos. Tiene habilidades tecnológicas moderadas y prefiere herramientas simples. Su dolor principal radica en el registro de mermas y devoluciones: el trámite en papel es tan tedioso que a veces no lo anota, generando el descuadre. Desea un sistema que con dos toques le permita registrar una merma. |
 
 ### 2.2.3. Análisis de entrevistas
 
-Con base en la información cualitativa extraída de las 8 entrevistas registradas, hemos realizado un análisis estadístico para definir las características que moldearán nuestros User Personas.
+El análisis utiliza las ocho **fichas de descubrimiento** conservadas. Se trata de una lectura cualitativa de sus resúmenes, no de un análisis estadístico ni de una estimación representativa de todas las MYPES. No se mantienen porcentajes del 100% porque no hay una matriz de respuestas y codificación que permita reproducirlos.
 
-**Análisis del Segmento 1: Tomadores de Decisión (Dueños/Administradores)**
-* **Demografía y Perfil:** El 100% de los entrevistados tiene entre 26 y 52 años. La mayoría tiene responsabilidades familiares y administra su propio negocio.
-* **Tecnología y Canales:** El 100% utiliza Smartphones para la supervisión diaria. WhatsApp es la herramienta de comunicación dominante para negocios.
-* **Dolores (Pain Points):** El 100% coincide en que la **"falta de transparencia en los datos"** y los **"descuadres entre compras y caja"** son su mayor dolor. El alto nivel de estrés por registros manuales es una constante.
-* **Expectativas (Gains):** El 100% espera visibilidad del negocio a distancia (Dashboard) y alertas automáticas para evitar quiebres de stock.
+| Segmento | Señales descritas en las fichas | Implicación para el diseño | Límite de interpretación |
+| :--- | :--- | :--- | :--- |
+| Dueños y administradores | Registros en cuadernos y Excel, preocupación por diferencias de inventario y necesidad de supervisar el negocio. | Priorizar indicadores comprensibles y trazabilidad de compras, ventas y existencias. | La expectativa no demuestra adopción, ahorro ni rentabilidad obtenida con CeTe. |
+| Personal operativo | Transcripción manual, conciliación de cantidades, identificación de productos y dificultad para registrar movimientos en momentos de alta demanda. | Hacer visibles búsqueda, cantidades, motivos y confirmación del resultado; distinguir orden de compra de recepción. | Escaneo, variantes y merma como flujo propio continúan siendo oportunidades, no capacidades completadas. |
 
-**Análisis del Segmento 2: Usuarios Finales (Operarios/Logística)**
-* **Demografía y Perfil:** Un público más joven, oscilan entre los 22 y 31 años.
-* **Tecnología y Canales:** El 100% utiliza dispositivos móviles Android. Son receptivos a interfaces visuales modernas (similares a redes sociales).
-* **Dolores (Pain Points):** El 100% considera que los **reportes manuales (cuadernos/papeles)** son su mayor pérdida de tiempo y frustración, propiciando errores en tallas, colores o cantidades.
-* **Expectativas (Gains):** El 100% exige una herramienta que reduzca su carga de trabajo (simplicidad extrema, pocos clics, buscadores ágiles y escaneo de códigos).
+**Control de las fuentes de descubrimiento.**
+
+| Ficha | Evidencia identificada | Aspecto que requiere confirmación |
+| :--- | :--- | :--- |
+| Carlos Mendoza, Lucía Valdivia y Diego Ramirez | Resúmenes, imágenes y tramos de video consignados en la entrega histórica. | No hay URL individual o consolidada identificable en estas fichas. Los tramos no sustituyen el enlace. |
+| Carmen Soto y Raúl Delgado | Enlaces de Drive y capturas registradas. | Confirmar permisos de acceso al consolidar los videos. |
+| María Morales y Sebastián Ramírez | Enlaces individuales de YouTube y capturas registradas. | Mantener la asociación de cada enlace con su entrevistado y distinguir descubrimiento de validación. |
+| Jorge Quispe | Resumen histórico conservado. | Enlace y fotografía sin contrastar. No se contabiliza como sesión audiovisual verificada. |
+
+Los User Personas y mapas siguientes sintetizan estas necesidades como artefactos de diseño. Sus descripciones no sustituyen los registros de entrevistas ni permiten completar metadatos ausentes. Los hallazgos de uso de la aplicación se contrastan por separado en 5.3 y en las conclusiones.
 
 ## 2.3. Needfinding
 
@@ -1039,7 +1032,7 @@ El catálogo reúne **10 épicas, 42 historias de usuario y 35 historias técnic
 | **US42** | Idioma de landing y recursos | **Como** visitante,<br>**deseo** usar la landing y sus recursos en inglés o español,<br>**para** comprender la propuesta y continuar al producto. | **Escenario 1: Flujo esperado**<br>**Given** una primera visita,<br>**When** abro la landing,<br>**Then** usa en_US.<br><br>**Escenario 2: Validación**<br>**Given** es_419 seleccionado,<br>**When** recargo o abro guía, términos, privacidad y ética,<br>**Then** conserva el español.<br><br>**Escenario 3: Validación**<br>**Given** un móvil de 390px,<br>**When** navego,<br>**Then** el menú funciona sin desbordamiento. | EPIC-09 |
 | **TS26** | POST /api/v1/contact-messages | **Como** Developer,<br>**deseo** disponer de este contrato<br>**para** soportar US08. | **Escenario 1: Flujo esperado**<br>**Given** formulario público válido,<br>**When** servidor procesa,<br>**Then** responde 201 Created guardando solicitud.<br><br>**Escenario 2: Validación**<br>**Given** ataques por bots,<br>**When** procesa,<br>**Then** devuelve 429 Too Many Requests. | EPIC-09 |
 | **TS27** | GET /api/v1/landing/plans | **Como** Developer,<br>**deseo** disponer de este contrato<br>**para** soportar US07. | **Escenario 1: Flujo esperado**<br>**Given** petición pública a la landing,<br>**When** servidor procesa,<br>**Then** responde 200 OK renderizando planes actuales.<br><br>**Escenario 2: Validación**<br>**Given** error de conectividad interna,<br>**When** procesa,<br>**Then** responde 500 Internal Server Error seguro. | EPIC-09 |
-| **EPIC-10** | Abastecimiento | **Como** encargado de almacén,<br>**deseo** controlar compras y recepciones,<br>**para** reponer mercadería con trazabilidad. | **Escenario 1: Flujo esperado**<br>**Given** una compra pendiente,<br>**When** recibo físicamente,<br>**Then** actualiza saldo y stock juntos. | — |
+| **EPIC-10** | Abastecimiento | **Como** encargado de almacén,<br>**deseo** controlar compras y recepciones,<br>**para** reponer mercadería con trazabilidad. | **Escenario 1: Flujo esperado**<br>**Given** una compra pendiente,<br>**When** recibo físicamente,<br>**Then** actualiza saldo y stock juntos.<br><br>**Escenario 2: Recepción inválida**<br>**Given** una cantidad superior al saldo pendiente o no positiva,<br>**When** intenta registrar la recepción,<br>**Then** se rechaza la operación sin modificar la orden, las recepciones ni el inventario. | — |
 | **US40** | Registrar orden de compra | **Como** encargado de almacén,<br>**deseo** registrar una orden a un proveedor,<br>**para** organizar el reabastecimiento sin confundirlo con la recepción física. | **Escenario 1: Flujo esperado**<br>**Given** proveedor y un producto con cantidad y costo válidos,<br>**When** creo la orden,<br>**Then** queda pendiente sin modificar stock.<br><br>**Escenario 2: Validación**<br>**Given** datos inválidos,<br>**When** envío la orden,<br>**Then** se rechaza sin crear registros. | EPIC-10 |
 | **US41** | Recibir compra parcialmente | **Como** encargado de almacén,<br>**deseo** registrar entregas parciales,<br>**para** controlar el stock recibido y el saldo de una compra. | **Escenario 1: Flujo esperado**<br>**Given** una compra de 10 unidades,<br>**When** recibo 4 y luego 6,<br>**Then** registra ambas recepciones y suma 10 al stock.<br><br>**Escenario 2: Validación**<br>**Given** 6 pendientes,<br>**When** intento recibir 7,<br>**Then** rechaza sin modificar stock. | EPIC-10 |
 | **TS29** | GET y POST /api/v1/purchases | **Como** Developer,<br>**deseo** soportar US40 mediante este habilitador. | **Escenario 1: Flujo esperado**<br>**Given** proveedor, producto, cantidad y costo válidos,<br>**When** ejecuta el contrato,<br>**Then** obtiene 200 con orden sin aumentar stock.<br><br>**Escenario 2: Validación**<br>**Given** cantidad no positiva,<br>**When** ejecuta el contrato,<br>**Then** obtiene 422. | EPIC-10 |
@@ -1188,7 +1181,7 @@ Para mantener la consistencia visual y técnica en todo el ecosistema (Landing P
 
 ### 4.1.1. General Style Guidelines
 
-Nuestras decisiones de diseño a nivel general se sustentan en la heurística de "Consistencia y estándares", asegurando que la interfaz transmita confianza y productividad en todo momento.
+Las decisiones generales de diseño toman como referencia la heurística de consistencia y estándares. La confianza y la facilidad de aprendizaje se evalúan en las sesiones con usuarios.
 
 **4.1.1.1. Brand & Tono de Comunicación**
 
@@ -1401,6 +1394,20 @@ El administrador selecciona la opción “Reportes” desde el menú lateral. El
 El usuario accede al dashboard de inventario y selecciona el ícono de notificaciones. El sistema muestra alertas relacionadas con quiebres de stock y nuevas entradas registradas.
 <p align="center"><img src="Images/w6.jpg" width="800" alt="Wireflow W6"></p>
 
+**Correspondencia con los recorridos implementados en AV2.** Las imágenes W1–W6 anteriores conservan el diseño histórico. La revisión distingue las acciones actuales de las capacidades propuestas:
+
+| Recorrido actual | Segmento y acción | Resultado verificable y relación con el diseño inicial |
+| :--- | :--- | :--- |
+| Registrar producto y movimiento | Personal autorizado crea un SKU o selecciona uno existente para registrar entrada/salida con cantidad y motivo. | Separa la identidad del producto de sus existencias; sustituye la ambigüedad de W1. |
+| Archivar producto | Administrador selecciona un producto sin saldo y confirma su archivo. | Cambia `Active` y conserva la historia; la eliminación de W2 no representa un borrado físico. |
+| Comprar y recibir parcialmente | Operario autorizado crea una orden y registra la cantidad recibida. | La orden no aumenta stock. La recepción incrementa solo lo recibido y mantiene el pendiente. US40/US41. |
+| Vender y consultar boleta | Vendedor arma el carrito, confirma el método de pago registrado y abre o imprime la boleta. | Actualiza stock una vez y conserva el detalle histórico. Amplía W3 con US15/US35/US36/US39. |
+| Crear y seguir despacho | Personal de logística agrupa ventas elegibles, indica conductor/placa y registra transiciones o incidencias. | El despacho de W4 controla la entrega y no genera una segunda salida de inventario. |
+| Consultar indicadores | Administrador consulta ventas y existencias de su empresa. | W5 se limita a los indicadores disponibles; todavía no calcula margen neto ni rentabilidad contable. |
+| Notificaciones | Flujo previsto en el diseño W6. | No hay generación ni bandeja operativas en el incremento. Su estado permanece pendiente en el backlog. |
+
+Las [capturas de ejecución de AV2](05-Chapter-5.md#5235-execution-evidence-for-sprint-review) muestran las interfaces implementadas y complementan los artefactos históricos de diseño.
+
 ### 4.4.3. Web Applications Mock-ups
 
 Los mockups de CeTe presentan la propuesta visual de la aplicación web para la gestión de inventario. La interfaz incluye la landing page, el dashboard de almacén, los módulos de ventas, despachos y reportes, el registro de entradas, la confirmación de eliminación y el panel de notificaciones.
@@ -1554,6 +1561,18 @@ El nivel 3 amplía exclusivamente el contenedor CeTe API. `Program.cs` configura
 
 La aplicación depende de interfaces de repositorio y de servicios, sin importar EF Core ni infraestructura. `IPasswordService` e `ITokenService` se implementan en los adaptadores de autenticación de Identidad. `ExchangeRatesController` adapta la consulta HTTP al proveedor cambiario. Reporting conserva una proyección transversal de solo lectura en infraestructura. Permanecen pendientes las migraciones versionadas, la paginación y una separación más estricta de la propiedad de los datos; los contratos actuales no equivalen a bases independientes ni a aislamiento físico entre módulos.
 
+**Detalle de componentes por contexto.** La vista anterior agrupa tipos para mantener su lectura. La tabla vincula cada grupo con sus componentes reales y el contrato que cruza el límite de contexto.
+
+| Contexto | Interfaz REST y servicios de aplicación | Puerto de persistencia | Colaboración entre contextos |
+| :--- | :--- | :--- | :--- |
+| Identity | `AuthenticationController`, `UsersController`; `IdentityCommandService` y `IdentityQueryService`. | `IIdentityRepository`. | Provee `ICurrentUser` e `ICompanyQueryService`; solicita el almacén inicial a Inventario. |
+| Inventory | `InventoryController`; `InventoryCommandService` y `InventoryQueryService`. | `IInventoryRepository`. | Provee `IInventoryFacade` para instantáneas y movimientos. |
+| Procurement | `ProcurementController`; `ProcurementCommandService` y `ProcurementQueryService`. | `IProcurementRepository`. | Solicita a Inventario la recepción física dentro de `IUnitOfWork`. |
+| Sales | `SalesController`; `SalesCommandService` y `SalesQueryService`. | `ISalesRepository`. | Consume Inventario, empresa y política de despacho; expone consulta del estado de venta. |
+| Logistics | `LogisticsController`; `LogisticsCommandService` y `LogisticsQueryService`. | `ILogisticsRepository`. | Consume `ISalesQueryService` e implementa el adaptador de `ISaleDispatchPolicy`. |
+
+Los servicios están en `Application/Internal`, los contratos en `Application/Services` o `Domain/Repositories`, y los adaptadores en `Infrastructure`. Reporting e Integrations se mantienen como capacidades transversales según lo indicado en la vista; no se confunden con agregados comerciales independientes.
+
 #### 4.6.4.1. Vista dinámica de la venta
 
 ![Secuencia de venta, idempotencia y boleta](diagrams/sequence-checkout.svg)
@@ -1591,6 +1610,12 @@ Los diagramas siguientes muestran **tipos y miembros existentes**, con atributos
 ![Clases actuales de logística](diagrams/classes-logistics.svg)
 
 *Dispatch.Transition protege las transiciones. DriverName y LicensePlate son instantáneas de texto; aún no son relaciones a los maestros Driver y Vehicle.* [Ampliar](diagrams/classes-logistics.svg) · [Fuente editable](diagrams/classes-logistics.mmd)
+
+#### 4.7.1.5. Identidad y empresa
+
+![Clases actuales de identidad, roles y sesiones](diagrams/classes-identity.svg)
+
+*Tenant identifica la empresa; User y UserSession distinguen cuenta y sesión. Las asociaciones indican referencias por identificador. User.Role es la fuente usada en autorización; Roles y UserRoles permanecen en el esquema. Estos tipos todavía tienen propiedades mutables: el diagrama no les atribuye invariantes encapsuladas que el código no implementa.* [Ampliar](diagrams/classes-identity.svg) · [Fuente editable](diagrams/classes-identity.mmd)
 
 ### 4.7.2. Agregados, invariantes y responsabilidad
 
@@ -2243,13 +2268,9 @@ Piero estructura los contextos y las reglas de inventario; Kevin integra abastec
 
 El backlog descompone el objetivo en tareas de ingeniería y entregables de validación, colaboración y comunicación. El [tablero público del Sprint 3](https://github.com/orgs/Nexxus-ops/projects/1/views/1) se creó el **12/11/2026** para registrar el estado actual. No se presenta como evidencia de movimientos anteriores en Trello ni como un historial reconstruido de trabajo diario.
 
-![Tablero del Sprint 3: tareas pendientes y en proceso](AV2/evidence/sprint3-board.png)
+![Tablero del Sprint 3 al cierre documental: 13 Done, 2 To Review y 1 In Process](AV2/evidence/sprint3-board-close.jpg)
 
-*Captura histórica del tablero tomada durante la consolidación del 12/11. La tabla de cierre siguiente registra el estado actualizado; la imagen conserva el corte anterior.*
-
-![Tablero del Sprint 3: tareas completadas y en revisión](AV2/evidence/sprint3-review.png)
-
-*Captura del mismo corte histórico. Los estados posteriores de cierre se distinguen en la tabla y en el tablero enlazado.*
+*Corte de cierre del 12/11/2026. Los estados corresponden al alcance técnico y documental descrito en la tabla; no son un registro de horas ni de aceptación de todas las historias del producto.*
 
 | US / TS y título | Task ID | Task Title | Task Description / resultado al corte | Estimation (h) | Assigned To | Status |
 | :--- | :--- | :--- | :--- | :---: | :--- | :--- |
@@ -2409,7 +2430,7 @@ Los cinco integrantes aportaron al incremento mediante diseño, implementación,
 ### 5.3.1. Diseño de entrevistas
 
 Para el proceso de validación, hemos diseñado sesiones interactivas donde los usuarios evalúan nuestros productos digitales de CeTe, basándonos en escenarios reales de uso.
-El protocolo de continuidad para TF utiliza la landing y la aplicación desplegadas para **ambos segmentos**, según los permisos de cada rol. Las dos entrevistas históricas conservan las condiciones en que se realizaron, incluida la evaluación de Figma por Luis; no se reclasifican como pruebas de la aplicación AV2.
+El protocolo utiliza la landing y la aplicación desplegadas para **ambos segmentos**, según los permisos de cada rol. Las mediciones comparativas y la ampliación de la muestra continúan en TF. Las dos entrevistas históricas conservan las condiciones en que se realizaron, incluida la evaluación de Figma por Luis; no se reclasifican como pruebas de la aplicación AV2.
 
 | Segmento | Tareas en la landing | Tareas en la aplicación | Registro esperado |
 | :--- | :--- | :--- | :--- |
@@ -2657,7 +2678,7 @@ La publicación del promocional y la ejecución técnica de CeTe no sustituyen e
 
 ### Conclusiones y recomendaciones
 
-El incremento AV2 conecta la aplicación Vue con una API propia en C# y PostgreSQL y amplía el recorrido de inventario, compras, recepción, ventas, boletas y despachos. Las pruebas técnicas y las fichas de entrevistas aportan evidencias diferentes: las primeras comprueban comportamientos del software; las segundas permiten identificar dificultades de uso y revisar las hipótesis del producto. Este cierre se basa en lo documentado al 12/11/2026; no atribuye resultados a entrevistas aún no recibidas.
+El incremento AV2 conecta la aplicación Vue con una API propia en C# y PostgreSQL y amplía el recorrido de inventario, compras, recepción, ventas, boletas y despachos. Las pruebas técnicas y las fichas de entrevistas aportan evidencias diferentes: las primeras comprueban comportamientos del software; las segundas permiten identificar dificultades de uso y revisar las hipótesis del producto. Este cierre se basa en el código y las seis fichas disponibles al 12/11/2026, conservando la diferencia entre descubrimiento, validación del prototipo y uso de la aplicación.
 
 #### Resultados técnicos del incremento
 
@@ -2686,7 +2707,7 @@ El registro contiene seis fichas: cuatro de dueños/administradores —Jesús, R
 | :--- | :--- | :--- |
 | Cierre documental de AV2 | Incorporar la ronda de seis entrevistas y sus hallazgos. | Fichas y capturas integradas, cobertura diferenciada y evaluación documental registrada. Ampliación de muestra y revalidación programadas para TF. |
 | Cierre de AV2 | Editar y publicar Product, grabar Team y enlazar la navegación del incremento. | Evidencias en los destinos solicitados, capturas y tiempos reales; Product y Team incrustados en la landing. Los clips de IA son solo material ilustrativo. |
-| Cierre de AV2 | Consolidar colaboración y entregables. | Aportes y evidencias documentados; estimaciones retrospectivas identificadas. Revisar performance con el líder y conservar coherencia entre informe, PDF, presentación y videos. |
+| Cierre de AV2 | Consolidar colaboración y entregables. | Aportes y evidencias documentados; estimaciones retrospectivas identificadas. Performance actualizado con la evaluación de 20/20 para los cinco integrantes indicada por el equipo; conservar coherencia entre informe, PDF, presentación y videos. |
 | Siguiente iteración | Evaluar la navegación móvil, el ingreso manual y las alertas priorizadas por usuarios. | Prototipar y validar una solución, vincularla al backlog y medir si disminuye la dificultad observada. |
 | Siguiente iteración | Evolucionar agregados, integridad y mantenimiento de datos. | Aplicar los criterios del capítulo IV: migraciones ensayadas, restricciones consistentes, referencias de origen y responsabilidades de contexto verificadas. |
 
@@ -2696,7 +2717,7 @@ El Sprint 3 consolida el incremento técnico y su documentación, con seis entre
 
 El About-the-Team documentará el proceso real de trabajo de Nexxus: distribución de responsabilidades, decisiones de diseño con DDD, revisión de cambios, integración y aprendizajes individuales. Incluirá escenas de sesiones reales de trabajo acompañadas de narración y el testimonio ante cámara de los cinco integrantes.
 
-**Montaje en curso:** [About-the-Team en Canva · vista del diseño]([https://www.canva.com/d/mA3bW8S9nOk7TK0]). Al revisar el diseño se comprobaron clips del equipo ya insertados. Es la fuente de edición y no sustituye los enlaces de la versión final en Stream y YouTube. El acceso conserva los permisos del diseño; no se modificó su configuración de uso compartido. La [carpeta de evidencias](https://drive.google.com/drive/folders/1xVEEo9wgbIuEtw1UIYaJLxzBtxMa2upI?usp=sharing) se mantiene como recurso complementario.
+**Montaje en curso:** [About-the-Team en Canva · vista del diseño](https://www.canva.com/d/mA3bW8S9nOk7TK0). Al revisar el diseño se comprobaron clips del equipo ya insertados. Es la fuente de edición y no sustituye los enlaces de la versión final en Stream y YouTube. La [carpeta de evidencias](https://drive.google.com/drive/folders/1xVEEo9wgbIuEtw1UIYaJLxzBtxMa2upI?usp=sharing) se mantiene como recurso complementario.
 
 | Evidencia de entrega | Estado |
 | :--- | :--- |
@@ -2710,6 +2731,9 @@ La primera versión se solicita desde AV2, conforme a las consideraciones de ent
 
 ## Bibliografía
 
+* Alegra. (s. f.). *Planes de Alegra Contabilidad en Perú*. https://www.alegra.com/peru/contabilidad/precios/
+* Odoo. (s. f.). *Odoo pricing*. https://www.odoo.com/pricing
+* Wally. (s. f.). *Sistema de facturación y punto de venta en Perú*. https://miwally.com/
 * C4 model. (s. f.). *Diagrams*. Recuperado el 12 de noviembre de 2026, de https://c4model.com/diagrams
 * Centro Nacional de Planeamiento Estratégico. (2023). *Políticas y estrategias nacionales de desarrollo agroalimentario*. CEPLAN. https://www.ceplan.gob.pe/documentos_/politicas-y-estrategias-nacionales/
 * Evans, E. (2003). *Domain-driven design: Tackling complexity in the heart of software*. Addison-Wesley Professional.
@@ -2740,5 +2764,3 @@ La primera versión se solicita desde AV2, conforme a las consideraciones de ent
 * **Repositorio de Landing Page:** https://github.com/Nexxus-ops/nexxus-landing-page.git
 * **Promocional introductorio de 10 segundos:** https://youtu.be/EBS8s4CFWRo
 * **Carpeta registrada de evidencias (no acredita About-the-Team publicado):** https://drive.google.com/drive/folders/1xVEEo9wgbIuEtw1UIYaJLxzBtxMa2upI?usp=sharing
-
-<div style="page-break-before: always;"></div>
