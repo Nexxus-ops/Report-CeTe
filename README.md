@@ -2745,13 +2745,3 @@ La primera versión se solicita desde AV2, conforme a las consideraciones de ent
 * **Carpeta registrada de evidencias (no acredita About-the-Team publicado):** https://drive.google.com/drive/folders/1xVEEo9wgbIuEtw1UIYaJLxzBtxMa2upI?usp=sharing
 
 <div style="page-break-before: always;"></div>
-
-### Anexo B. Videos de Exposiciones
-
-Esta relación corresponde a las sustentaciones de cada entrega. Los videos de exposición son diferentes de About-the-Product, About-the-Team y la navegación del producto. Solo se incorporarán enlaces de grabaciones efectivamente entregadas y accesibles para el docente.
-
-| Entrega | Estado de la evidencia en este informe | Microsoft Stream / Clipchamp |
-| :--- | :--- | :--- |
-| AV1 | Enlace no registrado. | Por incorporar a partir de la grabación original. |
-| TB1 | Enlace no registrado. | Por incorporar a partir de la grabación original. |
-| AV2 | Exposición y enlace pendientes de incorporar. | No se ha proporcionado una grabación de la sustentación AV2. |
