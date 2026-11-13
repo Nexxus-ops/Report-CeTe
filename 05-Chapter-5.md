@@ -537,7 +537,7 @@ El backlog descompone el objetivo en tareas de ingeniería y entregables de vali
 | TS34 · Pruebas de dominio, HTTP y navegador | T3-09 | Calidad: pruebas de dominio, HTTP y navegador | Ejecutar compilación, reglas, integración con PostgreSQL y flujo público. Comprobar continuidad de sesión/boleta e idempotencia tras desplegar. Resultado aprobado el 12/11. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/tests/api_smoke.py). | 8 | Kevin | Done |
 | TS32 · Docker y publicación | T3-10 | Deployment: publicación y recorrido público | Publicar API refactorizada, frontend integrado y landing por segmento. Confirmar los commits desplegados y acceso público. Continuidad futura de PostgreSQL fuera de este cierre. [Evidencia](https://github.com/Nexxus-ops/FrontEnd-CeTe/pull/4). | 6 | Kevin | Done |
 | Presentación · Evidencia del incremento | T3-11 | Presentación: incremento AV2 y Sprint 2 | Existe una presentación técnica editable. Faltan revisión conjunta, actualización de resultados de validación y preparación de la sustentación final. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/AV2/CeTe-AV2-revision-tecnica.pptx). | 4 | Darikson | To Review |
-| Validación · Dos segmentos | T3-12 | Validación: 3–5 entrevistas por segmento | Diego entregó dos entrevistas nuevas del segmento dueño/administrador, incorporadas al informe. Piero está realizando la siguiente ronda; faltan fichas y cobertura por segmento. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/05-Chapter-5.md#532-registro-de-entrevistas). | 6 | Diego y Piero | In Process |
+| Validación · Dos segmentos | T3-12 | Validación: 3–5 entrevistas por segmento | Diego entregó las entrevistas de Raúl y Carmen y Piero las de Nicol y Jaime. La ronda nueva reúne tres dueños/administradores y un operario; faltan al menos dos operarios sobre la aplicación AV2, además del consolidado en Stream y los metadatos pendientes. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/05-Chapter-5.md#532-registro-de-entrevistas). | 6 | Diego y Piero | In Process |
 | SO5 · Colaboración y revisión | T3-13 | Colaboración: acuerdos y evidencias SO5 | Vincular aportes, revisión y resultados con evidencia individual. Reunión del 03/11 informada por Kevin; faltan horario, lugar, asistentes confirmados y acuerdos de la sesión. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe#colaboración-por-producto). | 4 | Diego | In Process |
 | About-the-Product · Video del producto | T3-14 | About-the-Product: verificar video y enlace | El enlace recibido corresponde al promocional de 10 segundos. Preparar la versión AV2 de 1–3 minutos con interacción real y una opinión por segmento; publicar en Stream y YouTube e incrustar en la landing. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/05-Chapter-5.md#54-video-about-the-product). | 6 | Darikson | To Review |
 | About-the-Team · Video del equipo | T3-15 | About-the-Team: aportes y reflexión | Kevin confirma que todavía no se ha grabado. Preparar la retrospectiva y los cinco testimonios, publicar en Stream y YouTube e incrustar en la landing. No se acredita publicación con una carpeta de evidencias. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/06-Conclusions.md). | 6 | Equipo | To Do |
@@ -669,13 +669,13 @@ Los cinco integrantes aportaron al incremento mediante diseño, implementación,
 | Corregir acceso y recorrido desde la landing | Darikson aporta CTA para dueños y operarios, Liz integra el cambio y Kevin publica la versión. Se conserva la autoría de cada registro. | [Landing PR #3](https://github.com/Nexxus-ops/nexxus-landing-page/pull/3): destinos reales, ambos idiomas, teclado y móvil comprobados. |
 | Mejorar boleta y claridad de la interfaz | El equipo incorpora el flujo de boleta propuesto por Liz, los aportes de Ventas y la integración del frontend. Kevin consolida la mejora de lectura y controles tras priorizar los comentarios de UI/UX. | [Frontend PR #5](https://github.com/Nexxus-ops/FrontEnd-CeTe/pull/5): carrito adaptable, acción visible de boleta y detalle móvil legible, conservando la impresión. Build y recorrido con API local aprobados; nueva versión publicada en Render. |
 | Dar trazabilidad a la participación | La documentación distingue diseño, implementación, revisión e integración. No se altera el historial para igualar contadores. | En frontend constan Kevin y Diego como autores de commits sin merge y Liz como autora de la integración [`f7449ac`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/f7449ac), que incluye un ajuste de navegación. Las gráficas de GitHub excluyen los merges. Los aportes informados de Piero y Darikson requieren sus artefactos o testimonios individuales. |
-| Contrastar el producto con usuarios | Diego entrega las entrevistas de Raúl y Carmen; Piero prepara la siguiente ronda. Las recomendaciones se registran antes de decidir las siguientes mejoras. | [Entrevistas incorporadas](#532-registro-de-entrevistas). La cobertura de 3–5 participantes por segmento sigue en curso. |
+| Contrastar el producto con usuarios | Diego entrega las entrevistas de Raúl y Carmen; Piero entrega las de Nicol y Jaime con fichas, capturas y enlaces. Las recomendaciones se registran antes de decidir las siguientes mejoras. | [Entrevistas incorporadas](#532-registro-de-entrevistas). La cobertura de 3–5 participantes por segmento sigue en curso. |
 
 **Lectura del resultado.** Las integraciones publicadas y la evidencia enlazada permiten seguir la colaboración entre aspectos del producto. No acreditan automáticamente que todos hayan trabajado el mismo número de horas o en todos los archivos. La aceptación individual del cuadro ABET, los detalles de la reunión del 03/11 y los testimonios del equipo siguen pendientes; no se registran como realizados. El tablero conserva T3-13 en In Process hasta completar esa evidencia humana.
 
 ## 5.3. Validation Interviews
 
-> **Validación AV2 en curso.** Se conservan dos entrevistas históricas y se incorporan las entrevistas de Raúl y Carmen, realizadas por Diego Campoblanco para el segmento de dueños y administradores. La ronda requiere de 3 a 5 participantes por segmento usando la landing y la aplicación desplegadas, con tareas, captura, enlace a Stream, marcas de tiempo y hallazgos según el Anexo D.
+> **Validación AV2 en curso.** Se conservan dos entrevistas históricas y se incorporan las de Raúl y Carmen, realizadas por Diego Campoblanco, y las de Nicol y Jaime, aportadas por Piero Montes. Hay seis fichas en total; la cobertura de la ronda actual se desglosa al final de 5.3.2. La ronda requiere de 3 a 5 participantes por segmento usando la landing y la aplicación desplegadas, con tareas, captura, enlace a Stream, marcas de tiempo y hallazgos según el Anexo D.
 
 ### 5.3.1. Diseño de entrevistas
 
@@ -789,9 +789,22 @@ Piero Montes entregó las fichas, enlaces y capturas de las siguientes entrevist
 
 Las cuatro primeras fichas conservan pendientes sus fechas, marcas de tiempo, duración y enlaces a Microsoft Stream. Las fichas 5 y 6 incorporan las fechas confirmadas y la duración de cada archivo individual; el video consolidado en Stream y sus marcas de inicio siguen pendientes. Los resúmenes recogen apreciaciones de los entrevistados, no métricas de efectividad medidas por el equipo.
 
+#### 5.3.2.1. Cobertura de la ronda de validación
+
+| Segmento | Registro histórico | Nuevas entrevistas AV2 recibidas | Cobertura nueva y pendiente |
+| :--- | :--- | :--- | :--- |
+| Dueños y administradores | Jesús: evaluación histórica de la landing. | Raúl, Carmen y Nicol. | Tres fichas nuevas. Completar los metadatos faltantes y comprobar el conjunto de tareas requerido; el número no sustituye esa revisión. |
+| Operarios de almacén | Luis: evaluación histórica de mockups en Figma. | Jaime: evaluación de la plataforma de prueba, incluida recepción parcial. | Una ficha nueva. Faltan al menos dos participantes sobre la aplicación AV2 para alcanzar el mínimo de tres de la ronda. |
+
+El total acumulado es de **cuatro dueños/administradores y dos operarios**. No se suma la prueba histórica de Figma a la muestra de uso de la aplicación AV2. Las duraciones de los videos no son tiempos de ejecución de tareas ni permiten calcular los indicadores G1–G3. Los enlaces individuales de YouTube tampoco sustituyen el consolidado en Microsoft Stream y sus marcas de inicio.
+
 ### 5.3.3. Evaluaciones según heurísticas
 
-A partir del feedback recopilado, analizamos la interfaz basándonos en las heurísticas de Nielsen para aplicar mejoras iterativas al producto.
+La evaluación distingue los hallazgos históricos de las nuevas fichas. Los principios de usabilidad se contrastan con las [heurísticas de Nielsen](https://www.nngroup.com/articles/ten-usability-heuristics/). Las severidades nuevas son una valoración de revisión documental, no una puntuación dada por los participantes ni un resultado de revalidación.
+
+#### 5.3.3.1. Registro histórico de hallazgos
+
+La tabla siguiente conserva lo registrado en la entrega anterior. Su descripción corresponde a la versión evaluada entonces; no prueba que cada problema persista en la versión publicada actualmente.
 
 | # | Problema | Escala de severidad | Heurística / Principio violado |
 | :---: | :--- | :---: | :--- |
@@ -799,6 +812,93 @@ A partir del feedback recopilado, analizamos la interfaz basándonos en las heur
 | 2 | Ausencia de un canal de contacto rápido (botón de WhatsApp o soporte flotante) para resolver dudas antes de crear la cuenta B2B. | 2 (Problema menor) | Usabilidad: Ayuda y documentación. |
 | 3 | El formulario de ingreso de mercadería requiere tipear el SKU a mano, lo que aumenta el riesgo de error humano y demora el proceso. | 3 (Problema mayor) | Usabilidad: Flexibilidad y eficiencia de uso. |
 | 4 | No existe un botón o flujo específico y claro para registrar productos dañados (Mermas) desde la vista del operario. | 3 (Problema mayor) | Usabilidad: Prevención de errores. |
+
+#### 5.3.3.2. Evaluación de las entrevistas 5 y 6
+
+**UX Heuristics & Principles Evaluation · Usability – Inclusive Design – Information Architecture**
+
+| Campo | Registro |
+| :--- | :--- |
+| Carrera / curso / sección | Ingeniería de Software · Aplicaciones Web · NRC 8168. |
+| Docente | Humberto Alex Sánchez Ponce. |
+| Grupo auditor | Nexxus. Entrevistas y resúmenes: Piero Montes. Integración de la evaluación documental: Kevin Salazar. |
+| Participantes | Nicol Loyola, 07/11/2026; Jaime Ronceros, 11/11/2026. |
+| Sitios evaluados según las fichas | Landing CeTe y plataforma de prueba. Las fichas no identifican la revisión exacta desplegada durante la sesión. |
+| Fecha de integración de hallazgos | 12/11/2026. |
+
+**Tareas incluidas:** comprender la propuesta; interpretar las ventas del día; localizar el detalle de una venta y su boleta; registrar una recepción parcial de cuatro de diez unidades y consultar el saldo pendiente. El registro identifica dificultades de navegación y solicitudes de mejora. No incluye medición comparativa de tiempos, auditoría integral de accesibilidad, emisión fiscal, cobro real ni una función terminada de envío de comprobantes.
+
+**Escala de severidad del Anexo D:**
+
+| Nivel | Criterio aplicado |
+| :---: | :--- |
+| 1 | Dificultad superficial o fácilmente superable; mejora de baja urgencia. |
+| 2 | Dificultad menor que añade esfuerzo, pero permite continuar. |
+| 3 | Problema mayor que se repite o dificulta resolver la tarea; prioridad alta. |
+| 4 | Problema crítico que impide continuar; corregir antes de publicar. |
+
+**Tabla resumen de nuevos hallazgos:**
+
+| # | Problema o mejora identificada | Severidad propuesta | Heurística / principio | Ficha y trazabilidad |
+| :---: | :--- | :---: | :--- | :--- |
+| 5 | Abrir una boleta desde la fila de venta. | 2 | Usabilidad: consistencia y estándares; reconocimiento antes que recuerdo. | Nicol · US17, US39. |
+| 6 | Jerarquía del método de pago y expectativa de envío. | 2 | Usabilidad: visibilidad del estado del sistema. | Nicol · US39. |
+| 7 | Acceso desde Ventas del día al historial. | 1 | Usabilidad: flexibilidad y eficiencia de uso. | Nicol · US23, US17. |
+| 8 | Ubicación de la recepción parcial de una compra. | 2 | Usabilidad: correspondencia con el mundo real; reconocimiento antes que recuerdo. | Jaime · US41. |
+| 9 | Confirmación del saldo tras recibir mercancía. | 2 | Usabilidad: visibilidad del estado del sistema. | Jaime · US41. |
+| 10 | Acceso directo a recepciones pendientes. | 1 | Usabilidad: flexibilidad y eficiencia de uso. | Jaime · US41. |
+
+**Descripción y recomendaciones:**
+
+Las capturas aportadas por Piero se incluyen en las fichas 5 y 6. Son capturas contextuales: la de Nicol muestra el registro y la de Jaime una vista de movimientos. No muestran todos los momentos descritos en los resúmenes. Falta seleccionar el fotograma y la marca de tiempo de cada incidencia para completar su evidencia específica conforme al Anexo D. No se asigna un resultado cuantitativo de diseño inclusivo a partir de estas imágenes.
+
+**PROBLEMA #5: Abrir una boleta desde la fila de venta**
+
+* **Severidad propuesta:** 2. **Principio:** Consistencia y estándares; reconocimiento antes que recuerdo.
+* **Descripción:** Nicol intentó seleccionar la fila completa de una venta en lugar del control específico de detalle. La ficha describe una confusión leve, no un bloqueo del flujo.
+* **Captura disponible:** [contexto de la entrevista de Nicol](Images/Validation/nicol-av2.jpeg); fotograma específico y marca de tiempo por registrar.
+* **Recomendación:** Hacer evidente la acción de consultar la boleta; evaluar un enlace en el identificador o una fila accesible por teclado. Mantener la consulta de Sales sin repetir la confirmación de la venta.
+* **Estado:** propuesta de mejora; corrección y revalidación con participantes pendientes.
+
+**PROBLEMA #6: Jerarquía del método de pago y expectativa de envío**
+
+* **Severidad propuesta:** 2. **Principio:** Visibilidad del estado del sistema.
+* **Descripción:** Nicol solicitó ver con mayor claridad el método de pago registrado y conocer el estado de envío del comprobante. La solicitud no demuestra que exista una función de envío.
+* **Captura disponible:** [contexto de la entrevista de Nicol](Images/Validation/nicol-av2.jpeg); fotograma específico y marca de tiempo por registrar.
+* **Recomendación:** Destacar el método realmente registrado. Diferenciar el estado de la venta de una eventual entrega del comprobante; no mostrar un estado de envío ficticio. Definir el envío como alcance futuro si el equipo lo prioriza.
+* **Estado:** propuesta de mejora; corrección y revalidación con participantes pendientes.
+
+**PROBLEMA #7: Acceso desde Ventas del día al historial**
+
+* **Severidad propuesta:** 1. **Principio:** Flexibilidad y eficiencia de uso.
+* **Descripción:** Nicol propuso que la tarjeta de ventas del día conduzca al historial de esa fecha, evitando una navegación adicional por el menú. Se registra como oportunidad de eficiencia, no como una tarea imposible de realizar.
+* **Captura disponible:** [contexto de la entrevista de Nicol](Images/Validation/nicol-av2.jpeg); fotograma específico y marca de tiempo por registrar.
+* **Recomendación:** Evaluar un enlace accesible con el filtro del día y respetar los permisos del usuario. Contrastar el criterio de fechas de US17 antes de considerarlo implementado.
+* **Estado:** propuesta de mejora; corrección y revalidación con participantes pendientes.
+
+**PROBLEMA #8: Ubicación de la recepción parcial de una compra**
+
+* **Severidad propuesta:** 2. **Principio:** Correspondencia con el mundo real; reconocimiento antes que recuerdo.
+* **Descripción:** En el caso de recibir cuatro de diez unidades, Jaime buscó primero la acción en Inventario y después identificó Compras como el lugar de recepción del pedido. La ficha describe recuperación de la navegación.
+* **Captura disponible:** [contexto de la entrevista de Jaime](Images/Validation/jaime-av2.jpeg); fotograma específico y marca de tiempo por registrar.
+* **Recomendación:** Usar una etiqueta clara como Recibir compra y una ayuda contextual que conecte la orden con su recepción. Procurement debe registrar la recepción y coordinar el saldo con Inventory; no sumar stock desde un atajo que omita la orden.
+* **Estado:** propuesta de mejora; corrección y revalidación con participantes pendientes.
+
+**PROBLEMA #9: Confirmación del saldo tras recibir mercancía**
+
+* **Severidad propuesta:** 2. **Principio:** Visibilidad del estado del sistema.
+* **Descripción:** Jaime solicitó una confirmación visible del stock resultante después de guardar una recepción, para evitar consultar Inventario solo para comprobar el efecto.
+* **Captura disponible:** [contexto de la entrevista de Jaime](Images/Validation/jaime-av2.jpeg); fotograma específico y marca de tiempo por registrar.
+* **Recomendación:** Mostrar una confirmación solo después del éxito de la API, con cantidad recibida, pendiente y saldo confirmado cuando el contrato lo permita. No calcular un éxito ficticio ni repetir la recepción.
+* **Estado:** propuesta de mejora; corrección y revalidación con participantes pendientes.
+
+**PROBLEMA #10: Acceso directo a recepciones pendientes**
+
+* **Severidad propuesta:** 1. **Principio:** Flexibilidad y eficiencia de uso.
+* **Descripción:** Jaime sugirió un acceso desde el inicio a la mercancía pendiente de recibir, especialmente cuando el proveedor está esperando. Se trata de una propuesta de acceso rápido.
+* **Captura disponible:** [contexto de la entrevista de Jaime](Images/Validation/jaime-av2.jpeg); fotograma específico y marca de tiempo por registrar.
+* **Recomendación:** Evaluar un enlace a compras pendientes filtradas, visible para roles autorizados y sin ejecutar automáticamente una recepción. Comprobar que la persona identifica la orden correcta.
+* **Estado:** propuesta de mejora; corrección y revalidación con participantes pendientes.
 
 ---
 
@@ -815,7 +915,7 @@ CeTe cuenta con un recurso promocional introductorio que presenta la identidad d
 | Evidencia de entrega | Estado al 12/11/2026 |
 | :--- | :--- |
 | Versión AV2 de 1–3 minutos | Pendiente de edición y publicación. Además del promocional disponible, se generaron tres clips ilustrativos de aproximadamente diez segundos cada uno, conservados localmente como material de montaje. No representan navegación real ni testimonios. |
-| Interacción con el producto y opiniones | Incorporar una demostración real y al menos una opinión de dueño/administrador y otra de operario de almacén. Las entrevistas de Raúl y Carmen corresponden al primer segmento. |
+| Interacción con el producto y opiniones | Incorporar una demostración real y al menos una opinión de dueño/administrador y otra de operario de almacén. Las entrevistas de Raúl, Carmen y Nicol corresponden al primer segmento; la de Jaime aporta la perspectiva operativa. Seleccionar fragmentos reales y autorizados para la edición. |
 | Publicación en Microsoft Stream y YouTube | El enlace disponible corresponde al recurso de diez segundos; faltan los enlaces de la versión AV2 completa. |
 | Captura y duración del video AV2 | La captura anterior documenta el recurso existente; reemplazar o complementar con evidencia de la edición final. |
 | Incrustación en la landing | Pendiente de disponer del video AV2 publicado. |
