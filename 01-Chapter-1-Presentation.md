@@ -35,7 +35,7 @@ Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos
 <td align="center" valign="middle">
   <b>Anahua Ancachi, Liz Maribel</b><br>
   <small>Código: U202421123</small>
-  <img src="Images/Foto-Liz.jpeg" alt="Logo de la Universidad" width="300">
+  <img src="Images/Foto-Liz.jpeg" alt="Fotografía de Liz Anahua" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
 <td>Estudiante con sólidos conocimientos en el desarrollo frontend y backend. Aporta al equipo habilidades en la implementación de arquitecturas orientadas a dominio (DDD).</td>
@@ -44,25 +44,25 @@ Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos
 <td align="center" valign="middle">
   <b>Campoblanco Guzman, Diego Roberto</b><br>
   <small>Código: U202414313</small>
-    <img src="Images/Foto-Diego.png" alt="Logo de la Universidad" width="300">
+    <img src="Images/Foto-Diego.png" alt="Fotografía de Diego Campoblanco" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
 <td>Actualmente estudio la carrera de Ingeniería de Software en la UPC. Soy una persona apasionada por la programación, enfocada en la creación de aplicaciones modulares y en la simulación de infraestructuras de red y dispositivos IoT. Busco garantizar que la integración del hardware se comunique de manera eficiente con las bases de datos y la plataforma web.</td>
 </tr>
 <tr>
 <td align="center" valign="middle">
-  <b>Montes Chang, Piero</b><br>
-  <small>Código: U202411324</small>
-    <img src="Images/Foto-Piero.jpg" alt="Logo de la Universidad" width="300">
+  <b>Montes Chang, Piero Francisco</b><br>
+  <small>Código: U20241G031</small>
+    <img src="Images/Foto-Piero.jpg" alt="Fotografía de Piero Montes" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
-<td>Estudiante de 5to ciclo con conocimientos en DDD.</td>
+<td>Estudiante de quinto ciclo de Ingeniería de Software con conocimientos en Domain-Driven Design. En CeTe participa en la organización del backend por contextos y en los contratos de Inventario. Colabora con el equipo en la revisión de los modelos y en las entrevistas de validación.</td>
 </tr>
 <tr>
 <td align="center" valign="middle">
   <b>Salazar Marquina, Kevin Junior</b><br>
   <small>Código: U202417747</small>
-    <img src="Images/Foto-Kevin.jpg" alt="Logo de la Universidad" width="300">
+    <img src="Images/Foto-Kevin.jpg" alt="Fotografía de Kevin Salazar" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
 <td>Estudiante con sólidos conocimientos en el desarrollo frontend y backend. Aporta al equipo habilidades en el uso de frameworks como Angular y Spring Boot, enfocado en asegurar la escalabilidad del sistema B2B.</td>
@@ -71,10 +71,10 @@ Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos
 <td align="center" valign="middle">
   <b>Salazar Quiche, Darikson Bill</b><br>
   <small>Código: U202422620</small>
-    <img src="Images/Foto-Darikson.jpg" alt="Logo de la Universidad" width="300">
+    <img src="Images/Foto-Darikson.jpg" alt="Fotografía de Darikson Salazar" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
-<td>Estudiante con desarrollo de figma avanzado</td>
+<td>Estudiante de Ingeniería de Software con experiencia en Figma y en la elaboración de propuestas visuales. En CeTe participa en el diseño de experiencias y en los flujos de Ventas y Logística, coordinando su integración con los demás contextos.</td>
 </tr>
 </tbody>
 </table>
@@ -99,6 +99,8 @@ Con el propósito de profundizar en la naturaleza del problema identificado, hem
 
 **Objetivo del producto:**
 Con el objetivo de cerrar esta brecha, surge CeTe como un ecosistema digital bajo la modalidad SaaS, enfocado en unificar y potenciar la cadena de valor. Nuestra herramienta permite articular los flujos de almacén, transacciones de venta y logística de entrega en un solo entorno, facilitando reportes financieros automáticos y notificaciones preventivas mediante una experiencia de usuario simplificada y adaptable.
+
+> **Alcance de la propuesta.** La descripción anterior expresa la visión del producto. AV2 implementa los flujos descritos en el capítulo V; las alertas automáticas, el control de vencimientos y otros procesos del roadmap aún requieren desarrollo y validación. Su presencia en los modelos no acredita una funcionalidad terminada.
 
 ### 1.2.2 Lean UX Process
 

@@ -59,7 +59,7 @@ Para asegurar la claridad, nuestras etiquetas reflejan fielmente el **Ubiquitous
 
 ### 4.2.3. SEO Tags and Meta Tags
 
-La landing y la aplicación web tienen metadatos para sus páginas de entrada. La tabla registra los valores de la landing publicada y los definidos para el siguiente despliegue de la aplicación.
+La landing y la aplicación web tienen metadatos para sus páginas de entrada. La tabla registra los valores de la landing y de la configuración del frontend integrada y publicada el 12/11/2026. La aplicación también actualiza el título al navegar entre sus vistas.
 
 | Elemento | Landing | Aplicación web |
 | :--- | :--- | :--- |

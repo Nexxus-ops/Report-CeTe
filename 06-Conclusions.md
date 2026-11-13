@@ -1,11 +1,41 @@
 ## Conclusiones
 
-1. El incremento conecta Vue con una API propia y PostgreSQL. El recorrido verificado genera una boleta con dirección, fecha/hora, detalle y total, que conserva precios y nombres históricos.
-2. La transacción serializable impide vender dos veces la última unidad. La prueba detectó y corrigió una respuesta 500 de un conflicto envuelto por EF, que ahora devuelve 409.
-3. La ampliación agrega compras y recepciones separadas, movimientos, comprobantes y sesiones. Las 35 tablas no implican que lotes, devoluciones, paradas y suscripciones estén terminados.
-4. La landing incorpora inglés/español persistentes, footer funcional y captura del producto. Las pruebas técnicas respaldan su funcionamiento y quedan por validar con usuarios.
-5. Las TS son visibles en el backlog y las 25 horas estimadas de Sprint 2 se conservan como registro histórico. El equipo debe acordar las nuevas estimaciones y responsabilidades.
-6. La publicación técnica está verificada. AV2 requiere al menos tres participantes reales en frontend, 3–5 validaciones por segmento y los videos del producto y equipo. El incremento todavía requiere ese cierre antes de evaluación.
+### Conclusiones y recomendaciones
+
+El incremento AV2 conecta la aplicación Vue con una API propia en C# y PostgreSQL y amplía el recorrido de inventario, compras, recepción, ventas, boletas y despachos. Las pruebas técnicas y las fichas de entrevistas aportan evidencias diferentes: las primeras comprueban comportamientos del software; las segundas permiten identificar dificultades de uso y revisar las hipótesis del producto. Este cierre se basa en lo documentado al 12/11/2026; no atribuye resultados a entrevistas aún no recibidas.
+
+#### Resultados técnicos del incremento
+
+1. **Trazabilidad operativa.** La orden de compra y la recepción física están separadas. La venta confirma conjuntamente detalle, stock, pago registrado y boleta académica. La consulta conserva nombres y precios históricos; no existe emisión fiscal ni cobro electrónico integrado.
+2. **Protección de las operaciones.** Las verificaciones documentadas cubren aislamiento por empresa, permisos, reintentos, recepción parcial, anulación y concurrencia sobre la última unidad. Estos resultados no equivalen a una auditoría completa de seguridad ni a una garantía de operación en producción.
+3. **Coherencia de DDD.** El backend se organiza como un monolito modular con cinco contextos activos: Identity, Inventory, Procurement, Sales y Logistics. Los contratos y servicios de cada contexto se contrastan con EventStorming, C4, clases y esquema físico. Persisten una base de datos y una unidad de trabajo compartidas; no se presenta el diseño como microservicios ni como una implementación de eventos distribuidos.
+4. **Diseño y experiencia.** La landing mantiene inglés/español, recursos funcionales en el footer y accesos por segmento. Ventas y boletas incorporan mejoras de alineación, acceso visible y lectura móvil. La regresión de navegador respalda su funcionamiento; falta comprobar con nuevos participantes si resuelve las dificultades observadas.
+5. **Alcance del modelo.** Las 35 tablas documentan el esquema, no 35 capacidades terminadas. Lotes, vencimientos, variantes, ubicaciones avanzadas, devoluciones completas y suscripciones siguen delimitados como evolución. Aumentar tablas por sí solo no demuestra mayor calidad del dominio.
+
+#### Contraste con Lean UX y los segmentos
+
+| Planteamiento de los capítulos I y III | Evidencia disponible | Conclusión y siguiente comprobación |
+| :--- | :--- | :--- |
+| Problem Statement: seguimiento disperso mediante cuadernos y hojas de cálculo. | La ficha de Raúl relaciona el producto con su registro en cuadernos; Carmen valora reunir compras y ventas y explica sus dificultades con el ingreso manual. | Existe una señal cualitativa de relevancia para dueños y administradores. No demuestra reemplazo de sus herramientas ni adopción diaria. Observar el uso repetido y registrar una línea base. |
+| Hypothesis 1: reducir el tiempo y esfuerzo del registro y control operativo. | Luis evaluó Figma; Carmen y Luis solicitaron escaneo y Carmen señaló vencimientos y alertas. El incremento separa compra y recepción, pero el registro continúa siendo manual. | La hipótesis no está validada. No hay comparación de tiempos con la aplicación AV2; las sugerencias identifican fricción y oportunidades que deben priorizarse antes de prometer ahorro. |
+| Hypothesis 2: aumentar confianza y retención mediante visibilidad del negocio. | Raúl y Carmen valoran las ventas del día y el dashboard. También aparecen dificultades con navegación, notificaciones y registro de mercancía. | La utilidad percibida del panel es una señal inicial. No se midieron retención, confianza sostenida ni disposición a pagar; la propuesta de S/80 mensuales continúa siendo una hipótesis comercial. |
+| G1: reducir 30% el tiempo de una venta. | Existe el flujo con boleta y su comprobación técnica. No se registraron mediciones comparables antes y después. | Meta pendiente: cronometrar el mismo caso y comparar medianas; no informar el 30% como resultado. |
+| G2: lograr 90% de coincidencia del stock. | Las pruebas técnicas comprueban recepciones, ventas y anulaciones con datos ficticios. No hay conciliación observada con la muestra de operarios de la ronda. | Meta pendiente: conciliar las cantidades durante las sesiones y documentar coincidencias y diferencias. |
+| G3: lograr 80% de éxito sin ayuda al consultar boleta y cambiar idioma. | Hay pruebas de navegador de boleta, teclado e idioma. No se dispone del registro de éxito por participante en ambos segmentos. | Meta pendiente: medir éxito, tiempo y errores sin asistencia con la muestra requerida; la automatización no sustituye esa medición. |
+
+El registro contiene tres fichas de dueños/administradores —Jesús, Raúl y Carmen— y una de operario —Luis—. Las dos primeras fichas históricas se conservaron junto con las nuevas; por ello, ese conteo no acredita por sí solo la ronda de AV2 de 3–5 participantes por segmento usando todos los componentes. Faltan completar la cobertura, los metadatos y las evidencias audiovisuales indicadas en 5.3.
+
+#### Recomendaciones y roadmap
+
+| Prioridad | Próximo resultado | Criterio para considerarlo cerrado |
+| :--- | :--- | :--- |
+| Cierre de AV2 | Completar la ronda de validación y relacionar cada hallazgo con una decisión. | Entrevistas requeridas por segmento, tareas sobre los sitios desplegados, registros completos y evaluación conforme al Anexo D. |
+| Cierre de AV2 | Editar y publicar Product, grabar Team y enlazar la navegación del incremento. | Evidencias en los destinos solicitados, capturas y tiempos reales; Product y Team incrustados en la landing. Los clips de IA son solo material ilustrativo. |
+| Cierre de AV2 | Consolidar colaboración y entregables. | Confirmación de aportes, datos del acta, performance revisado por el líder y coherencia entre informe, PDF y presentación. No deducir desempeño de horas estimadas o cantidad de commits. |
+| Siguiente iteración | Evaluar la navegación móvil, el ingreso manual y las alertas priorizadas por usuarios. | Prototipar y validar una solución, vincularla al backlog y medir si disminuye la dificultad observada. |
+| Siguiente iteración | Evolucionar agregados, integridad y mantenimiento de datos. | Aplicar los criterios del capítulo IV: migraciones ensayadas, restricciones consistentes, referencias de origen y responsabilidades de contexto verificadas. |
+
+El avance demuestra un incremento técnico integrado y una base para continuar la validación. La aceptación de AV2 requiere cerrar las evidencias humanas y de entrega pendientes; todavía no permite concluir que las hipótesis de adopción, ahorro y retención se hayan confirmado.
 
 ## Video About-the-Team
 

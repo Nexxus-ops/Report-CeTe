@@ -42,7 +42,7 @@ Proyecto
 <br>
 
 ### **Período 2026-02**
-### **Octubre 2026**
+### **Noviembre 2026**
 
 </div>
 
@@ -69,10 +69,12 @@ Proyecto
             <td>- Equipo Nexxus</td>
             <td>Desarrollo del <strong>Capítulo V</strong>. Despliegue de la Landing Page v1.0.0 (Sprint 1), adición de Student Outcome ABET y consolidación de la primera entrega (AV1).</td>
         </tr>
+        <tr><td><strong>TB1 (registro histórico)</strong></td><td>Fecha de entrega por confirmar</td><td>Equipo Nexxus</td><td>Frontend Vue con Fake API y evidencia del Sprint 2. El historial recuperado registra commits del 06/10/2026; esa fecha no sustituye la confirmación de la entrega.</td></tr>
         <tr><td><strong>AV2 (revisión técnica)</strong></td><td>29/10/2026</td><td>Revisión asistida solicitada por Kevin</td><td>Correcciones TB1, API propia, boleta, modelo de datos, backlog con TS y evidencias públicas. Aceptación y evidencias humanas pendientes.</td></tr>
         <tr><td><strong>AV2 (actualización del informe)</strong></td><td>10/11/2026</td><td>Revisión asistida solicitada por Kevin</td><td>EventStorming de diseño, evidencia de despliegue, trazabilidad de commits y catálogo unificado. Validación del equipo en curso.</td></tr>
         <tr><td><strong>AV2 (DDD y continuidad)</strong></td><td>12/11/2026</td><td>Kevin Salazar · consolidación técnica</td><td>Sincronización de C4, EventStorming, clases y contratos con la API refactorizada integrada por el equipo. Despliegue y regresión públicos verificados; respaldo privado restaurado en PostgreSQL aislado.</td></tr>
         <tr><td><strong>AV2 (colaboración y ABET 5)</strong></td><td>12/11/2026</td><td>Kevin Salazar · consolidación del equipo</td><td>Sustento AV2 de los cinco integrantes en los dos criterios de ABET 5; trazabilidad por producto, analíticas de GitHub y distinción de commits e integraciones. Confirmación individual y testimonios pendientes.</td></tr>
+        <tr><td><strong>AV2 (revisión editorial y conclusiones)</strong></td><td>12/11/2026</td><td>Kevin Salazar · consolidación del informe</td><td>Índice de cuatro niveles, código de Piero confirmado, herramientas y commits históricos contrastados, conclusiones frente a Lean UX y roadmap. Videos y validaciones se conservan con su estado real.</td></tr>
     </table>
 </div>
 </div>
@@ -161,18 +163,188 @@ El estado del Sprint 3 se presenta en [5.2.3.8](#5238-team-collaboration-insight
 <div style="page-break-after: always;"></div>
 
 ## Contenido
-**Tabla de Contenidos:**
+
+La tabla conserva cuatro niveles de esquema. Cada capítulo puede desplegarse para consultar sus secciones y subsecciones.
 
 - [Carátula](#universidad-peruana-de-ciencias-aplicadas)
 - [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
 - [Project Report Collaboration Insights](#project-report-collaboration-insights)
 - [Student Outcome ABET 5](#abet---eac---student-outcome-5)
+
+<details>
+<summary><strong>Capítulo I: Introducción</strong></summary>
+
 - [Capítulo I: Introducción](01-Chapter-1-Presentation.md)
+    - [1.1. Startup Profile](01-Chapter-1-Presentation.md#11-startup-profile)
+        - [1.1.1. Descripción de la Startup](01-Chapter-1-Presentation.md#111-descripción-de-la-startup)
+        - [1.1.2. Perfiles de integrantes del equipo](01-Chapter-1-Presentation.md#112-perfiles-de-integrantes-del-equipo)
+    - [1.2. Solution Profile](01-Chapter-1-Presentation.md#12-solution-profile)
+        - [1.2.1 Antecedentes y problemática](01-Chapter-1-Presentation.md#121-antecedentes-y-problemática)
+        - [1.2.2 Lean UX Process](01-Chapter-1-Presentation.md#122-lean-ux-process)
+            - [1.2.2.1. Lean UX Problem Statements](01-Chapter-1-Presentation.md#1221-lean-ux-problem-statements)
+            - [1.2.2.2. Lean UX Assumptions](01-Chapter-1-Presentation.md#1222-lean-ux-assumptions)
+            - [1.2.2.3. Lean UX Hypothesis Statements](01-Chapter-1-Presentation.md#1223-lean-ux-hypothesis-statements)
+            - [1.2.2.4. Lean UX Canvas](01-Chapter-1-Presentation.md#1224-lean-ux-canvas)
+    - [1.3. Segmentos objetivo](01-Chapter-1-Presentation.md#13-segmentos-objetivo)
+        - [1.3.1. Segmento 1: Dueños y Administradores de Negocio (El Comprador)](01-Chapter-1-Presentation.md#131-segmento-1-dueños-y-administradores-de-negocio-el-comprador)
+        - [1.3.2. Segmento 2: Jefes de Logística y Personal Operativo de Almacén (El Usuario Final)](01-Chapter-1-Presentation.md#132-segmento-2-jefes-de-logística-y-personal-operativo-de-almacén-el-usuario-final)
+
+</details>
+
+<details>
+<summary><strong>Capítulo II: Requirements Elicitation & Analysis</strong></summary>
+
 - [Capítulo II: Requirements Elicitation & Analysis](02-Chapter-2.md)
+    - [2.1. Competidores](02-Chapter-2.md#21-competidores)
+        - [2.1.1. Análisis competitivo](02-Chapter-2.md#211-análisis-competitivo)
+            - [2.1.1.1. Análisis de Modelos Tarifarios (Pricing)](02-Chapter-2.md#2111-análisis-de-modelos-tarifarios-pricing)
+        - [2.1.2. Estrategias y tácticas frente a competidores](02-Chapter-2.md#212-estrategias-y-tácticas-frente-a-competidores)
+    - [2.2. Entrevistas](02-Chapter-2.md#22-entrevistas)
+        - [2.2.1. Diseño de entrevistas](02-Chapter-2.md#221-diseño-de-entrevistas)
+        - [2.2.2. Registro de entrevistas](02-Chapter-2.md#222-registro-de-entrevistas)
+            - [Segmento 1: Tomadores de Decisión (Dueños, Administradores, Gerentes)](02-Chapter-2.md#segmento-1-tomadores-de-decisión-dueños-administradores-gerentes)
+            - [Segmento 2: Usuarios Finales (Jefes de Logística, Operarios de Almacén)](02-Chapter-2.md#segmento-2-usuarios-finales-jefes-de-logística-operarios-de-almacén)
+        - [2.2.3. Análisis de entrevistas](02-Chapter-2.md#223-análisis-de-entrevistas)
+    - [2.3. Needfinding](02-Chapter-2.md#23-needfinding)
+        - [2.3.1. User Personas](02-Chapter-2.md#231-user-personas)
+        - [2.3.2. User Task Matrix](02-Chapter-2.md#232-user-task-matrix)
+        - [2.3.3. User Journey Mapping](02-Chapter-2.md#233-user-journey-mapping)
+        - [2.3.4. Empathy Mapping](02-Chapter-2.md#234-empathy-mapping)
+    - [2.4. Big Picture EventStorming](02-Chapter-2.md#24-big-picture-eventstorming)
+    - [2.5. Ubiquitous Language](02-Chapter-2.md#25-ubiquitous-language)
+
+</details>
+
+<details>
+<summary><strong>Capítulo III: Requirements Specification</strong></summary>
+
 - [Capítulo III: Requirements Specification](03-Chapter-3.md)
+    - [3.1. User Stories](03-Chapter-3.md#31-user-stories)
+    - [3.2. Impact Mapping](03-Chapter-3.md#32-impact-mapping)
+        - [3.2.1. Metas medibles de validación AV2](03-Chapter-3.md#321-metas-medibles-de-validación-av2)
+    - [3.3. Product Backlog](03-Chapter-3.md#33-product-backlog)
+        - [3.3.1. Prioridades 1–20](03-Chapter-3.md#331-prioridades-120)
+        - [3.3.2. Prioridades 21–40](03-Chapter-3.md#332-prioridades-2140)
+        - [3.3.3. Prioridades 41–60](03-Chapter-3.md#333-prioridades-4160)
+        - [3.3.4. Prioridades 61–77](03-Chapter-3.md#334-prioridades-6177)
+
+</details>
+
+<details>
+<summary><strong>Capítulo IV: Product Design</strong></summary>
+
 - [Capítulo IV: Product Design](04-Chapter-4.md)
+    - [4.1. Style Guidelines](04-Chapter-4.md#41-style-guidelines)
+        - [4.1.1. General Style Guidelines](04-Chapter-4.md#411-general-style-guidelines)
+        - [4.1.2. Web Style Guidelines](04-Chapter-4.md#412-web-style-guidelines)
+    - [4.2. Information Architecture](04-Chapter-4.md#42-information-architecture)
+        - [4.2.1. Organization Systems](04-Chapter-4.md#421-organization-systems)
+        - [4.2.2. Labeling Systems](04-Chapter-4.md#422-labeling-systems)
+        - [4.2.3. SEO Tags and Meta Tags](04-Chapter-4.md#423-seo-tags-and-meta-tags)
+        - [4.2.4. Searching Systems](04-Chapter-4.md#424-searching-systems)
+        - [4.2.5. Navigation Systems](04-Chapter-4.md#425-navigation-systems)
+    - [4.3. Landing Page UI Design](04-Chapter-4.md#43-landing-page-ui-design)
+        - [4.3.1. Landing Page Wireframe](04-Chapter-4.md#431-landing-page-wireframe)
+        - [4.3.2. Landing Page Mock-up](04-Chapter-4.md#432-landing-page-mock-up)
+    - [4.4. Web Applications UX/UI Design](04-Chapter-4.md#44-web-applications-uxui-design)
+        - [4.4.1. Web Applications Wireframes](04-Chapter-4.md#441-web-applications-wireframes)
+        - [4.4.2. Web Applications Wireflow Diagrams](04-Chapter-4.md#442-web-applications-wireflow-diagrams)
+        - [4.4.3. Web Applications Mock-ups](04-Chapter-4.md#443-web-applications-mock-ups)
+        - [4.4.4. Web Applications User Flow Diagrams](04-Chapter-4.md#444-web-applications-user-flow-diagrams)
+    - [4.5. Web Applications Prototyping](04-Chapter-4.md#45-web-applications-prototyping)
+    - [4.6. Domain-Driven Software Architecture](04-Chapter-4.md#46-domain-driven-software-architecture)
+        - [4.6.1. Design-Level Event Storming](04-Chapter-4.md#461-design-level-event-storming)
+            - [4.6.1.1. Subdominios y límites de responsabilidad](04-Chapter-4.md#4611-subdominios-y-límites-de-responsabilidad)
+            - [4.6.1.2. Mapa de contextos](04-Chapter-4.md#4612-mapa-de-contextos)
+            - [4.6.1.3. Comandos, reglas, hechos y consultas](04-Chapter-4.md#4613-comandos-reglas-hechos-y-consultas)
+        - [4.6.2. Software Architecture Context Diagram](04-Chapter-4.md#462-software-architecture-context-diagram)
+        - [4.6.3. Software Architecture Container Diagrams](04-Chapter-4.md#463-software-architecture-container-diagrams)
+        - [4.6.4. Software Architecture Components Diagrams](04-Chapter-4.md#464-software-architecture-components-diagrams)
+            - [4.6.4.1. Vista dinámica de la venta](04-Chapter-4.md#4641-vista-dinámica-de-la-venta)
+    - [4.7. Software Object-Oriented Design](04-Chapter-4.md#47-software-object-oriented-design)
+        - [4.7.1. Class Diagrams](04-Chapter-4.md#471-class-diagrams)
+            - [4.7.1.1. Inventario](04-Chapter-4.md#4711-inventario)
+            - [4.7.1.2. Ventas](04-Chapter-4.md#4712-ventas)
+            - [4.7.1.3. Abastecimiento](04-Chapter-4.md#4713-abastecimiento)
+            - [4.7.1.4. Logística](04-Chapter-4.md#4714-logística)
+        - [4.7.2. Agregados, invariantes y responsabilidad](04-Chapter-4.md#472-agregados-invariantes-y-responsabilidad)
+        - [4.7.3. Estados y reglas de transición](04-Chapter-4.md#473-estados-y-reglas-de-transición)
+    - [4.8. Database Design](04-Chapter-4.md#48-database-design)
+        - [4.8.1. Esquema físico AV2](04-Chapter-4.md#481-esquema-físico-av2)
+        - [4.8.2. Diagramas entidad–relación por área](04-Chapter-4.md#482-diagramas-entidadrelación-por-área)
+            - [4.8.2.1. Identidad y empresa](04-Chapter-4.md#4821-identidad-y-empresa)
+            - [4.8.2.2. Inventario](04-Chapter-4.md#4822-inventario)
+            - [4.8.2.3. Abastecimiento](04-Chapter-4.md#4823-abastecimiento)
+            - [4.8.2.4. Ventas](04-Chapter-4.md#4824-ventas)
+            - [4.8.2.5. Logística](04-Chapter-4.md#4825-logística)
+            - [4.8.2.6. Devoluciones y notificaciones](04-Chapter-4.md#4826-devoluciones-y-notificaciones)
+        - [4.8.3. Integridad y reglas verificables](04-Chapter-4.md#483-integridad-y-reglas-verificables)
+        - [4.8.4. Hallazgos y evolución del diseño](04-Chapter-4.md#484-hallazgos-y-evolución-del-diseño)
+        - [4.8.5. Fuentes de diseño y trazabilidad](04-Chapter-4.md#485-fuentes-de-diseño-y-trazabilidad)
+
+</details>
+
+<details>
+<summary><strong>Capítulo V: Product Implementation, Validation & Deployment</strong></summary>
+
 - [Capítulo V: Product Implementation, Validation & Deployment](05-Chapter-5.md)
+    - [5.1. Software Configuration Management](05-Chapter-5.md#51-software-configuration-management)
+        - [5.1.1. Software Development Environment Configuration](05-Chapter-5.md#511-software-development-environment-configuration)
+        - [5.1.2. Source Code Management](05-Chapter-5.md#512-source-code-management)
+        - [5.1.3. Source Code Style Guide & Conventions](05-Chapter-5.md#513-source-code-style-guide--conventions)
+        - [5.1.4. Software Deployment Configuration](05-Chapter-5.md#514-software-deployment-configuration)
+    - [5.2. Landing Page, Services & Applications Implementation](05-Chapter-5.md#52-landing-page-services--applications-implementation)
+        - [5.2.1. Sprint 1](05-Chapter-5.md#521-sprint-1)
+            - [5.2.1.1. Sprint Planning 1](05-Chapter-5.md#5211-sprint-planning-1)
+            - [5.2.1.2. Aspect Leaders and Collaborators](05-Chapter-5.md#5212-aspect-leaders-and-collaborators)
+            - [5.2.1.3. Sprint Backlog 1](05-Chapter-5.md#5213-sprint-backlog-1)
+            - [5.2.1.4. Development Evidence for Sprint Review](05-Chapter-5.md#5214-development-evidence-for-sprint-review)
+            - [5.2.1.5. Execution Evidence for Sprint Review](05-Chapter-5.md#5215-execution-evidence-for-sprint-review)
+            - [5.2.1.6. Services Documentation Evidence for Sprint Review](05-Chapter-5.md#5216-services-documentation-evidence-for-sprint-review)
+            - [5.2.1.7. Software Deployment Evidence for Sprint Review](05-Chapter-5.md#5217-software-deployment-evidence-for-sprint-review)
+            - [5.2.1.8. Team Collaboration Insights during Sprint](05-Chapter-5.md#5218-team-collaboration-insights-during-sprint)
+        - [5.2.2. Sprint 2](05-Chapter-5.md#522-sprint-2)
+            - [5.2.2.1. Sprint Planning 2](05-Chapter-5.md#5221-sprint-planning-2)
+            - [5.2.2.2. Aspect Leaders and Collaborators](05-Chapter-5.md#5222-aspect-leaders-and-collaborators)
+            - [5.2.2.3. Sprint Backlog 2](05-Chapter-5.md#5223-sprint-backlog-2)
+            - [5.2.2.4. Development Evidence for Sprint Review](05-Chapter-5.md#5224-development-evidence-for-sprint-review)
+            - [5.2.2.5. Execution Evidence for Sprint Review](05-Chapter-5.md#5225-execution-evidence-for-sprint-review)
+            - [5.2.2.6. Services Documentation Evidence for Sprint Review](05-Chapter-5.md#5226-services-documentation-evidence-for-sprint-review)
+            - [5.2.2.7. Software Deployment Evidence for Sprint Review](05-Chapter-5.md#5227-software-deployment-evidence-for-sprint-review)
+            - [5.2.2.8. Team Collaboration Insights during Sprint](05-Chapter-5.md#5228-team-collaboration-insights-during-sprint)
+        - [5.2.3. Sprint 3 / consolidación AV2](05-Chapter-5.md#523-sprint-3--consolidación-av2)
+            - [5.2.3.1. Sprint Planning 3](05-Chapter-5.md#5231-sprint-planning-3)
+            - [5.2.3.2. Aspect Leaders and Collaborators](05-Chapter-5.md#5232-aspect-leaders-and-collaborators)
+            - [5.2.3.3. Sprint Backlog 3](05-Chapter-5.md#5233-sprint-backlog-3)
+            - [5.2.3.4. Development Evidence for Sprint Review](05-Chapter-5.md#5234-development-evidence-for-sprint-review)
+            - [5.2.3.5. Execution Evidence for Sprint Review](05-Chapter-5.md#5235-execution-evidence-for-sprint-review)
+            - [5.2.3.6. Services Documentation Evidence for Sprint Review](05-Chapter-5.md#5236-services-documentation-evidence-for-sprint-review)
+            - [5.2.3.7. Software Deployment Evidence for Sprint Review](05-Chapter-5.md#5237-software-deployment-evidence-for-sprint-review)
+            - [5.2.3.8. Team Collaboration Insights during Sprint](05-Chapter-5.md#5238-team-collaboration-insights-during-sprint)
+    - [5.3. Validation Interviews](05-Chapter-5.md#53-validation-interviews)
+        - [5.3.1. Diseño de entrevistas](05-Chapter-5.md#531-diseño-de-entrevistas)
+        - [5.3.2. Registro de Entrevistas](05-Chapter-5.md#532-registro-de-entrevistas)
+            - [Entrevistas de validación aportadas por Diego Campoblanco](05-Chapter-5.md#entrevistas-de-validación-aportadas-por-diego-campoblanco)
+        - [5.3.3. Evaluaciones según heurísticas](05-Chapter-5.md#533-evaluaciones-según-heurísticas)
+    - [5.4. Video About-the-Product](05-Chapter-5.md#54-video-about-the-product)
+
+</details>
+
+<details>
+<summary><strong>Conclusiones</strong></summary>
+
 - [Conclusiones](06-Conclusions.md)
+    - [Conclusiones y recomendaciones](06-Conclusions.md#conclusiones-y-recomendaciones)
+        - [Resultados técnicos del incremento](06-Conclusions.md#resultados-técnicos-del-incremento)
+        - [Contraste con Lean UX y los segmentos](06-Conclusions.md#contraste-con-lean-ux-y-los-segmentos)
+        - [Recomendaciones y roadmap](06-Conclusions.md#recomendaciones-y-roadmap)
+    - [Video About-the-Team](06-Conclusions.md#video-about-the-team)
+
+</details>
+
+- [Bibliografía](#bibliografía)
+- [Anexos](#anexos)
+- [Videos de Exposiciones](#anexo-b-videos-de-exposiciones)
 - [Atlas de diagramas](diagrams/README.md)
 - [Diccionario de datos](AV2/diccionario-datos.md)
 
@@ -237,7 +409,7 @@ Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos
 <td align="center" valign="middle">
   <b>Anahua Ancachi, Liz Maribel</b><br>
   <small>Código: U202421123</small>
-  <img src="Images/Foto-Liz.jpeg" alt="Logo de la Universidad" width="300">
+  <img src="Images/Foto-Liz.jpeg" alt="Fotografía de Liz Anahua" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
 <td>Estudiante con sólidos conocimientos en el desarrollo frontend y backend. Aporta al equipo habilidades en la implementación de arquitecturas orientadas a dominio (DDD).</td>
@@ -246,25 +418,25 @@ Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos
 <td align="center" valign="middle">
   <b>Campoblanco Guzman, Diego Roberto</b><br>
   <small>Código: U202414313</small>
-    <img src="Images/Foto-Diego.png" alt="Logo de la Universidad" width="300">
+    <img src="Images/Foto-Diego.png" alt="Fotografía de Diego Campoblanco" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
 <td>Actualmente estudio la carrera de Ingeniería de Software en la UPC. Soy una persona apasionada por la programación, enfocada en la creación de aplicaciones modulares y en la simulación de infraestructuras de red y dispositivos IoT. Busco garantizar que la integración del hardware se comunique de manera eficiente con las bases de datos y la plataforma web.</td>
 </tr>
 <tr>
 <td align="center" valign="middle">
-  <b>Montes Chang, Piero</b><br>
-  <small>Código: U202411324</small>
-    <img src="Images/Foto-Piero.jpg" alt="Logo de la Universidad" width="300">
+  <b>Montes Chang, Piero Francisco</b><br>
+  <small>Código: U20241G031</small>
+    <img src="Images/Foto-Piero.jpg" alt="Fotografía de Piero Montes" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
-<td>Estudiante de 5to ciclo con conocimientos en DDD.</td>
+<td>Estudiante de quinto ciclo de Ingeniería de Software con conocimientos en Domain-Driven Design. En CeTe participa en la organización del backend por contextos y en los contratos de Inventario. Colabora con el equipo en la revisión de los modelos y en las entrevistas de validación.</td>
 </tr>
 <tr>
 <td align="center" valign="middle">
   <b>Salazar Marquina, Kevin Junior</b><br>
   <small>Código: U202417747</small>
-    <img src="Images/Foto-Kevin.jpg" alt="Logo de la Universidad" width="300">
+    <img src="Images/Foto-Kevin.jpg" alt="Fotografía de Kevin Salazar" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
 <td>Estudiante con sólidos conocimientos en el desarrollo frontend y backend. Aporta al equipo habilidades en el uso de frameworks como Angular y Spring Boot, enfocado en asegurar la escalabilidad del sistema B2B.</td>
@@ -273,10 +445,10 @@ Tradicionalmente, este sector gestiona su cadena de suministro mediante métodos
 <td align="center" valign="middle">
   <b>Salazar Quiche, Darikson Bill</b><br>
   <small>Código: U202422620</small>
-    <img src="Images/Foto-Darikson.jpg" alt="Logo de la Universidad" width="300">
+    <img src="Images/Foto-Darikson.jpg" alt="Fotografía de Darikson Salazar" width="300">
 </td>
 <td align="center">Ingeniería de Software</td>
-<td>Estudiante con desarrollo de figma avanzado</td>
+<td>Estudiante de Ingeniería de Software con experiencia en Figma y en la elaboración de propuestas visuales. En CeTe participa en el diseño de experiencias y en los flujos de Ventas y Logística, coordinando su integración con los demás contextos.</td>
 </tr>
 </tbody>
 </table>
@@ -301,6 +473,8 @@ Con el propósito de profundizar en la naturaleza del problema identificado, hem
 
 **Objetivo del producto:**
 Con el objetivo de cerrar esta brecha, surge CeTe como un ecosistema digital bajo la modalidad SaaS, enfocado en unificar y potenciar la cadena de valor. Nuestra herramienta permite articular los flujos de almacén, transacciones de venta y logística de entrega en un solo entorno, facilitando reportes financieros automáticos y notificaciones preventivas mediante una experiencia de usuario simplificada y adaptable.
+
+> **Alcance de la propuesta.** La descripción anterior expresa la visión del producto. AV2 implementa los flujos descritos en el capítulo V; las alertas automáticas, el control de vencimientos y otros procesos del roadmap aún requieren desarrollo y validación. Su presencia en los modelos no acredita una funcionalidad terminada.
 
 ### 1.2.2 Lean UX Process
 
@@ -459,7 +633,7 @@ Entender el panorama actual para identificar cómo CeTe puede diferenciarse sien
 
 <p align="center"><em>Nota: Análisis competitivo de CeTe en comparación con las principales soluciones del mercado.</em></p>
 
-### 2.1.1.1. Análisis de Modelos Tarifarios (Pricing)
+#### 2.1.1.1. Análisis de Modelos Tarifarios (Pricing)
 
 Para sustentar la viabilidad comercial y el diseño de la tarifa plana de CeTe, se investigó el modelo de monetización de los competidores directos, evidenciando barreras económicas estructurales para la adopción tecnológica en el segmento MYPE:
 
@@ -1057,7 +1231,7 @@ Para asegurar la claridad, nuestras etiquetas reflejan fielmente el **Ubiquitous
 
 ### 4.2.3. SEO Tags and Meta Tags
 
-La landing y la aplicación web tienen metadatos para sus páginas de entrada. La tabla registra los valores de la landing publicada y los definidos para el siguiente despliegue de la aplicación.
+La landing y la aplicación web tienen metadatos para sus páginas de entrada. La tabla registra los valores de la landing y de la configuración del frontend integrada y publicada el 12/11/2026. La aplicación también actualiza el título al navegar entre sus vistas.
 
 | Elemento | Landing | Aplicación web |
 | :--- | :--- | :--- |
@@ -1556,8 +1730,8 @@ A continuación se listan los productos de software utilizados por el equipo, or
 
 *Descripción:* La gestión del proyecto permite organizar las actividades necesarias para alcanzar los objetivos del Sprint, asignar responsables, dar seguimiento al avance y mantener la comunicación entre los integrantes del equipo.
 
-**Jira Software / Trello:**
-Utilizado para la gestión del Product Backlog, Sprint Backlog y el seguimiento de las User Stories y Technical Stories. ([Atlassian](https://www.atlassian.com/software/jira))
+**Trello y GitHub Projects:**
+Los sprints históricos conservan sus capturas de Trello. El seguimiento actual de Sprint 3 se consulta en el [tablero público de Nexxus](https://github.com/orgs/Nexxus-ops/projects/1/views/1), creado el 12/11/2026 para consolidar tareas, estados y evidencias. La imagen de Jira siguiente pertenece al registro inicial de herramientas y no acredita que Sprint 3 se haya gestionado allí.
 <p align="center">
   <img src="Images/Jira.png" alt="Jira" title="Jira" width="250">
 </p>
@@ -1593,8 +1767,8 @@ Editores principales para el desarrollo Frontend (HTML, CSS, JS, Vue.js). La con
   <img src="Images/Visual Studio Code.png" alt="Visual Studio Code" title="Visual Studio Code" width="250">
 </p>
 
-**Visual Studio 2022 / JetBrains Rider:**
-Entornos de desarrollo integrados (IDE) robustos utilizados para la programación del Backend en C# con .NET 8.
+**JetBrains Rider / Visual Studio:**
+Entornos contemplados por el equipo para trabajar con C#. El backend actual tiene como destino `net10.0` y utiliza ASP.NET Core 10; requiere un IDE y un SDK compatibles. La imagen de Visual Studio 2022 se conserva como referencia del entorno inicial, sin atribuirle compatibilidad con toda versión del proyecto.
 <p align="center">
   <img src="Images/Visual Studio 2022.png" alt="Visual Studio 2022" title="Visual Studio 2022" width="250">
 </p>
@@ -1620,7 +1794,7 @@ Framework y lenguaje utilizados para el desarrollo del RESTful API de CeTe, resp
 </p>
 
 **Entity Framework Core & PostgreSQL:**
-ORM y base de datos relacional definidos para almacenar el estado transaccional, inventario y métricas de CeTe.
+Entity Framework Core 10 con Npgsql y PostgreSQL 17 proporcionan la persistencia del incremento AV2. El esquema físico se documenta con 35 tablas; los módulos todavía previstos se distinguen de los flujos implementados en el capítulo IV.
 <p align="center">
   <img src="Images/PostgreSQL.png" alt="PostgreSQL" title="PostgreSQL" width="250">
 </p>
@@ -1638,6 +1812,12 @@ Servicio de alojamiento estático utilizado para publicar la primera versión de
 <p align="center">
   <img src="Images/GitHub Pages.png" alt="GitHub Pages" title="GitHub Pages" width="250">
 </p>
+
+**Render y Docker:**
+Render publica la landing y el frontend como sitios estáticos y la API como servicio Docker conectado a PostgreSQL administrado. Docker Compose reproduce API y base de datos en el entorno local. Las ramas de despliegue vigentes se indican en 5.1.4.
+
+**Swagger / OpenAPI y herramientas de verificación:**
+Swagger documenta los contratos HTTP de la API. Las comprobaciones de dominio en C#, las pruebas HTTP en Python y los recorridos de navegador respaldan la evidencia técnica; no reemplazan la validación con usuarios. El [repositorio de la API](https://github.com/Nexxus-ops/CeTe-Api) conserva las instrucciones reproducibles.
 
 <div style="page-break-after: always"></div>
 
@@ -1657,10 +1837,13 @@ La solución distribuida de CeTe se organiza en repositorios independientes:
 
 | Nombre de la rama | Descripción |
 | :--- | :--- |
-| **Main Branch** (`main`) | Rama base que refleja el estado de producción. Es la rama publicada por GitHub Pages. |
-| **Develop Branch** (`develop`) | Rama de integración del equipo. Unifica el código de las funcionalidades en curso. |
+| **Main Branch** (`main`) | Base integrada del informe, frontend y API. Render publica frontend y API desde `main`; no se generaliza esa configuración a la landing. |
+| **Develop Branch** (`develop`) | Rama de integración cuando existe en el repositorio. En la landing es, además, la rama configurada para la publicación actual en Render. |
 | **Feature Branches** (`feature/*`) | Ramas temporales para desarrollar funcionalidades aisladas. <br> **Convención:** `feature/nombre-de-la-funcionalidad` |
 | **Release Branches** (`release/*`) | Ramas de estabilización previas al pase a producción. <br> **Convención:** `release/vX.Y.Z` |
+| **Hotfix Branches** (`hotfix/*`) | Convención prevista para correcciones urgentes sobre una versión publicada. No se acredita su uso únicamente por definir el nombre. |
+
+El flujo anterior es la convención del equipo. Las integraciones AV2 también emplean ramas `refactor/*`, `fix/*`, `improve/*`, `integrate/*` y `docs/*`, con Pull Requests enlazados en 5.2.3.4. El historial de cada repositorio determina qué ramas y revisiones se utilizaron realmente.
 
 **3. Versionado Semántico (Semantic Versioning 2.0.0)**
 
@@ -1765,14 +1948,16 @@ Enlace al tablero: https://trello.com/invite/b/6ac45ef9360979a18e3bdcb8/ATTI9b64
 
 Esta sección expone la evidencia técnica del progreso alcanzado. La Landing Page de CeTe fue desarrollada utilizando HTML5, CSS3 y JavaScript bajo un enfoque Mobile-First.
 
-**Registro de commits del Sprint 1:**
+**Registro recuperado del historial de Sprint 1:**
 
-| Repository | Branch | Commit Id | Commit Message | Commited on |
-| :--- | :--- | :--- | :--- | :--- |
-| cete-landing-page | `feature/hero-section` | `[COMMIT_ID]` | feat: implement hero section with value proposition | `[DD/MM/2026]` |
-| cete-landing-page | `feature/plans-section` | `[COMMIT_ID]` | feat: add B2B subscription plans cards | `[DD/MM/2026]` |
-| cete-landing-page | `feature/responsive-nav` | `[COMMIT_ID]` | feat: add mobile burger menu and sticky header | `[DD/MM/2026]` |
-| cete-landing-page | `main` | `[COMMIT_ID]` | chore: prepare release v1.0.0 and trigger gh-pages | `[DD/MM/2026]` |
+Los commits siguientes corresponden a la implementación inicial de la landing. La rama consultada identifica dónde son alcanzables actualmente; el historial no permite atribuirles los nombres de ramas de trabajo consignados en la tabla anterior. Las fechas son las del commit, no horas de trabajo ni fechas de aceptación.
+
+| Repositorio | Rama consultada | Commit | Mensaje original | Cuerpo original | Fecha y hora de commit (Lima) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| nexxus-landing-page | `develop` | [`30cf770`](https://github.com/Nexxus-ops/nexxus-landing-page/commit/30cf770e4699ea705ac9ef87b4e6ee68210e64eb) | chore: setup of html structure and global styles | Sin cuerpo adicional. | 14/09/2026 23:35:04 -0500 |
+| nexxus-landing-page | `develop` | [`69a5775`](https://github.com/Nexxus-ops/nexxus-landing-page/commit/69a5775ad6b29b26306194a87f7fb149701b02a2) | feat: implement navbar and main hero section | Sin cuerpo adicional. | 14/09/2026 23:38:20 -0500 |
+| nexxus-landing-page | `develop` | [`7385c80`](https://github.com/Nexxus-ops/nexxus-landing-page/commit/7385c80bf2840b332184f89433174eb6aae1d091) | feat: add benefits, solutions and cta sections | Sin cuerpo adicional. | 14/09/2026 23:39:57 -0500 |
+| nexxus-landing-page | `develop` | [`47cef62`](https://github.com/Nexxus-ops/nexxus-landing-page/commit/47cef62ff73586b341c47d611733e517aa7106f7) | feat: add footer, responsive design and mobile menu logic | Sin cuerpo adicional. | 14/09/2026 23:42:04 -0500 |
 
 <p align="center">
   <img src="Images/Evidencia de Código.png" alt="Evidencia de Código" title="Development Evidence" width="700">
@@ -1888,7 +2073,16 @@ Enlace al tablero: https://trello.com/invite/b/6ac48ac544b95ec0d7179e1b/ATTId558
 
 Esta sección expone la evidencia técnica del progreso alcanzado. El Frontend de CeTe fue desarrollada utilizando JavaScript, Vue3, CSS y HTML haciendo uso de DDD.
 
-**Registro de commits del Sprint 1:**
+**Registro recuperado del historial de Sprint 2:**
+
+Se conserva el mensaje original de cada commit. La referencia a DDD en el historial describe lo declarado en esa entrega; la revisión de los límites actuales se encuentra en el capítulo IV. `main` es la rama consultada para recuperar los commits, sin reconstruir nombres de ramas históricas no acreditados.
+
+| Repositorio | Rama consultada | Commit | Mensaje original | Cuerpo original | Fecha y hora de commit (Lima) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| FrontEnd-CeTe | `main` | [`b081cb6`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/b081cb67ae6dda0977d59a2e9a33ee47fbc2a6a3) | chore: Mock API configuration (json-server) and environment documentation | Sin cuerpo adicional. | 06/10/2026 00:12:57 -0500 |
+| FrontEnd-CeTe | `main` | [`fba33be`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/fba33be4489f09844d08087445a420d3a95895ef) | feat: Implementation of DDD architecture (IAM, Inventory, Logistics, Sales) and base configuration of Vue/Vite | Sin cuerpo adicional. | 06/10/2026 00:14:46 -0500 |
+| FrontEnd-CeTe | `main` | [`b663e5a`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/b663e5a13de43a90a27407b06a7b2c87ec538df4) | ci: configuración de despliegue automático con GitHub Actions | Sin cuerpo adicional. | 06/10/2026 00:32:29 -0500 |
+| FrontEnd-CeTe | `main` | [`be033a3`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/be033a308ec4652e35a5ba06ba4bc0b4d9c86b50) | Update README with project structure and contexts | Added project structure and bounded contexts to README. | 06/10/2026 01:06:46 -0500 |
 
 <p align="center">
   <img src="Images/Registro-De-Commits-2.png" alt="Evidencia de Código" title="Development Evidence" width="700">
@@ -2200,8 +2394,14 @@ Los cinco integrantes aportaron al incremento mediante diseño, implementación,
 ### 5.3.1. Diseño de entrevistas
 
 Para el proceso de validación, hemos diseñado sesiones interactivas donde los usuarios evalúan nuestros productos digitales de CeTe, basándonos en escenarios reales de uso.
-* **Segmento 1 (Dueños/Gerentes):** Se evalúa la Landing Page en su versión Desktop, analizando la comprensión de la propuesta de valor, claridad de precios y la intención de conversión.
-* **Segmento 2 (Operarios/Logística):** Se evaluará el prototipo interactivo de la Web Application (Módulo de Inventario), midiendo la facilidad de uso y prevención de errores (Stock Out).
+El protocolo de la siguiente ronda utiliza la landing y la aplicación desplegadas para **ambos segmentos**, según los permisos de cada rol. Las dos entrevistas históricas conservan las condiciones en que se realizaron, incluida la evaluación de Figma por Luis; no se reclasifican como pruebas de la aplicación AV2.
+
+| Segmento | Tareas en la landing | Tareas en la aplicación | Registro esperado |
+| :--- | :--- | :--- | :--- |
+| Dueños y administradores | Explicar la propuesta, localizar la propuesta comercial, cambiar idioma e ingresar por el acceso del segmento. | Interpretar las métricas, registrar una venta con datos ficticios, consultar su boleta académica y ubicar el despacho relacionado. | Éxito sin ayuda, tiempo, errores, comprensión y comentarios espontáneos. |
+| Operarios de almacén y logística | Identificar para quién sirve CeTe, cambiar idioma y localizar el acceso de operarios. | Buscar un producto, distinguir orden de compra de recepción, recibir parcialmente y consultar el saldo y los movimientos; revisar un despacho si el rol lo permite. | Éxito sin ayuda, tiempo, errores y comprensión de las cantidades recibidas y pendientes. |
+
+Las tareas se realizarán sin guiar al participante hacia la respuesta. Los hallazgos se registrarán con captura, severidad, heurística y recomendación según el Anexo D, distinguiendo propuestas de funcionalidades ya implementadas.
 
 ### 5.3.2. Registro de Entrevistas
 
@@ -2286,7 +2486,7 @@ CeTe cuenta con un recurso promocional introductorio que presenta la identidad d
 
 | Evidencia de entrega | Estado al 12/11/2026 |
 | :--- | :--- |
-| Versión AV2 de 1–3 minutos | Pendiente de edición y publicación. Puede reutilizarse el promocional como introducción. |
+| Versión AV2 de 1–3 minutos | Pendiente de edición y publicación. Además del promocional disponible, se generaron tres clips ilustrativos de aproximadamente diez segundos cada uno, conservados localmente como material de montaje. No representan navegación real ni testimonios. |
 | Interacción con el producto y opiniones | Incorporar una demostración real y al menos una opinión de dueño/administrador y otra de operario de almacén. Las entrevistas de Raúl y Carmen corresponden al primer segmento. |
 | Publicación en Microsoft Stream y YouTube | El enlace disponible corresponde al recurso de diez segundos; faltan los enlaces de la versión AV2 completa. |
 | Captura y duración del video AV2 | La captura anterior documenta el recurso existente; reemplazar o complementar con evidencia de la edición final. |
@@ -2298,12 +2498,42 @@ La publicación del promocional y la ejecución técnica de CeTe no sustituyen e
 
 ## Conclusiones
 
-1. El incremento conecta Vue con una API propia y PostgreSQL. El recorrido verificado genera una boleta con dirección, fecha/hora, detalle y total, que conserva precios y nombres históricos.
-2. La transacción serializable impide vender dos veces la última unidad. La prueba detectó y corrigió una respuesta 500 de un conflicto envuelto por EF, que ahora devuelve 409.
-3. La ampliación agrega compras y recepciones separadas, movimientos, comprobantes y sesiones. Las 35 tablas no implican que lotes, devoluciones, paradas y suscripciones estén terminados.
-4. La landing incorpora inglés/español persistentes, footer funcional y captura del producto. Las pruebas técnicas respaldan su funcionamiento y quedan por validar con usuarios.
-5. Las TS son visibles en el backlog y las 25 horas estimadas de Sprint 2 se conservan como registro histórico. El equipo debe acordar las nuevas estimaciones y responsabilidades.
-6. La publicación técnica está verificada. AV2 requiere al menos tres participantes reales en frontend, 3–5 validaciones por segmento y los videos del producto y equipo. El incremento todavía requiere ese cierre antes de evaluación.
+### Conclusiones y recomendaciones
+
+El incremento AV2 conecta la aplicación Vue con una API propia en C# y PostgreSQL y amplía el recorrido de inventario, compras, recepción, ventas, boletas y despachos. Las pruebas técnicas y las fichas de entrevistas aportan evidencias diferentes: las primeras comprueban comportamientos del software; las segundas permiten identificar dificultades de uso y revisar las hipótesis del producto. Este cierre se basa en lo documentado al 12/11/2026; no atribuye resultados a entrevistas aún no recibidas.
+
+#### Resultados técnicos del incremento
+
+1. **Trazabilidad operativa.** La orden de compra y la recepción física están separadas. La venta confirma conjuntamente detalle, stock, pago registrado y boleta académica. La consulta conserva nombres y precios históricos; no existe emisión fiscal ni cobro electrónico integrado.
+2. **Protección de las operaciones.** Las verificaciones documentadas cubren aislamiento por empresa, permisos, reintentos, recepción parcial, anulación y concurrencia sobre la última unidad. Estos resultados no equivalen a una auditoría completa de seguridad ni a una garantía de operación en producción.
+3. **Coherencia de DDD.** El backend se organiza como un monolito modular con cinco contextos activos: Identity, Inventory, Procurement, Sales y Logistics. Los contratos y servicios de cada contexto se contrastan con EventStorming, C4, clases y esquema físico. Persisten una base de datos y una unidad de trabajo compartidas; no se presenta el diseño como microservicios ni como una implementación de eventos distribuidos.
+4. **Diseño y experiencia.** La landing mantiene inglés/español, recursos funcionales en el footer y accesos por segmento. Ventas y boletas incorporan mejoras de alineación, acceso visible y lectura móvil. La regresión de navegador respalda su funcionamiento; falta comprobar con nuevos participantes si resuelve las dificultades observadas.
+5. **Alcance del modelo.** Las 35 tablas documentan el esquema, no 35 capacidades terminadas. Lotes, vencimientos, variantes, ubicaciones avanzadas, devoluciones completas y suscripciones siguen delimitados como evolución. Aumentar tablas por sí solo no demuestra mayor calidad del dominio.
+
+#### Contraste con Lean UX y los segmentos
+
+| Planteamiento de los capítulos I y III | Evidencia disponible | Conclusión y siguiente comprobación |
+| :--- | :--- | :--- |
+| Problem Statement: seguimiento disperso mediante cuadernos y hojas de cálculo. | La ficha de Raúl relaciona el producto con su registro en cuadernos; Carmen valora reunir compras y ventas y explica sus dificultades con el ingreso manual. | Existe una señal cualitativa de relevancia para dueños y administradores. No demuestra reemplazo de sus herramientas ni adopción diaria. Observar el uso repetido y registrar una línea base. |
+| Hypothesis 1: reducir el tiempo y esfuerzo del registro y control operativo. | Luis evaluó Figma; Carmen y Luis solicitaron escaneo y Carmen señaló vencimientos y alertas. El incremento separa compra y recepción, pero el registro continúa siendo manual. | La hipótesis no está validada. No hay comparación de tiempos con la aplicación AV2; las sugerencias identifican fricción y oportunidades que deben priorizarse antes de prometer ahorro. |
+| Hypothesis 2: aumentar confianza y retención mediante visibilidad del negocio. | Raúl y Carmen valoran las ventas del día y el dashboard. También aparecen dificultades con navegación, notificaciones y registro de mercancía. | La utilidad percibida del panel es una señal inicial. No se midieron retención, confianza sostenida ni disposición a pagar; la propuesta de S/80 mensuales continúa siendo una hipótesis comercial. |
+| G1: reducir 30% el tiempo de una venta. | Existe el flujo con boleta y su comprobación técnica. No se registraron mediciones comparables antes y después. | Meta pendiente: cronometrar el mismo caso y comparar medianas; no informar el 30% como resultado. |
+| G2: lograr 90% de coincidencia del stock. | Las pruebas técnicas comprueban recepciones, ventas y anulaciones con datos ficticios. No hay conciliación observada con la muestra de operarios de la ronda. | Meta pendiente: conciliar las cantidades durante las sesiones y documentar coincidencias y diferencias. |
+| G3: lograr 80% de éxito sin ayuda al consultar boleta y cambiar idioma. | Hay pruebas de navegador de boleta, teclado e idioma. No se dispone del registro de éxito por participante en ambos segmentos. | Meta pendiente: medir éxito, tiempo y errores sin asistencia con la muestra requerida; la automatización no sustituye esa medición. |
+
+El registro contiene tres fichas de dueños/administradores —Jesús, Raúl y Carmen— y una de operario —Luis—. Las dos primeras fichas históricas se conservaron junto con las nuevas; por ello, ese conteo no acredita por sí solo la ronda de AV2 de 3–5 participantes por segmento usando todos los componentes. Faltan completar la cobertura, los metadatos y las evidencias audiovisuales indicadas en 5.3.
+
+#### Recomendaciones y roadmap
+
+| Prioridad | Próximo resultado | Criterio para considerarlo cerrado |
+| :--- | :--- | :--- |
+| Cierre de AV2 | Completar la ronda de validación y relacionar cada hallazgo con una decisión. | Entrevistas requeridas por segmento, tareas sobre los sitios desplegados, registros completos y evaluación conforme al Anexo D. |
+| Cierre de AV2 | Editar y publicar Product, grabar Team y enlazar la navegación del incremento. | Evidencias en los destinos solicitados, capturas y tiempos reales; Product y Team incrustados en la landing. Los clips de IA son solo material ilustrativo. |
+| Cierre de AV2 | Consolidar colaboración y entregables. | Confirmación de aportes, datos del acta, performance revisado por el líder y coherencia entre informe, PDF y presentación. No deducir desempeño de horas estimadas o cantidad de commits. |
+| Siguiente iteración | Evaluar la navegación móvil, el ingreso manual y las alertas priorizadas por usuarios. | Prototipar y validar una solución, vincularla al backlog y medir si disminuye la dificultad observada. |
+| Siguiente iteración | Evolucionar agregados, integridad y mantenimiento de datos. | Aplicar los criterios del capítulo IV: migraciones ensayadas, restricciones consistentes, referencias de origen y responsabilidades de contexto verificadas. |
+
+El avance demuestra un incremento técnico integrado y una base para continuar la validación. La aceptación de AV2 requiere cerrar las evidencias humanas y de entrega pendientes; todavía no permite concluir que las hipótesis de adopción, ahorro y retención se hayan confirmado.
 
 ## Video About-the-Team
 
@@ -2326,9 +2556,14 @@ La primera versión se solicita desde AV2, conforme a las consideraciones de ent
 
 ## Bibliografía
 
-* Instituto Nacional de Estadística e Informática. (2022). *Producción nacional: Informe técnico*. INEI. https://www.inei.gob.pe/media/MenuRecursivo/boletines/boletin-estadistico-del-sector-servicios-n-12-diciembre-2022.pdf
-* Evans, E. (2003). *Domain-Driven Design: Tackling Complexity in the Heart of Software*. Addison-Wesley Professional.
+* C4 model. (s. f.). *Diagrams*. Recuperado el 12 de noviembre de 2026, de https://c4model.com/diagrams
 * Centro Nacional de Planeamiento Estratégico. (2023). *Políticas y estrategias nacionales de desarrollo agroalimentario*. CEPLAN. https://www.ceplan.gob.pe/documentos_/politicas-y-estrategias-nacionales/
+* Evans, E. (2003). *Domain-driven design: Tackling complexity in the heart of software*. Addison-Wesley Professional.
+* Gothelf, J., & Seiden, J. (2021). *Lean UX* (3.ª ed.). O’Reilly Media. https://www.oreilly.com/library/view/lean-ux-3rd/9781098116293/
+* Instituto Nacional de Estadística e Informática. (2022). *Producción nacional: Informe técnico*. INEI. https://www.inei.gob.pe/media/MenuRecursivo/boletines/boletin-estadistico-del-sector-servicios-n-12-diciembre-2022.pdf
+* Mermaid. (s. f.). *Entity relationship diagrams*. Recuperado el 12 de noviembre de 2026, de https://mermaid.js.org/syntax/entityRelationshipDiagram.html
+* Microsoft. (2026, 14 de abril). *Foreign and principal keys in relationships*. Microsoft Learn. https://learn.microsoft.com/en-us/ef/core/modeling/relationships/foreign-and-principal-keys
+* Microsoft. (2026, 25 de febrero). *Use domain analysis to model microservices*. Microsoft Learn. https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis
 * Ministerio de Trabajo y Promoción del Empleo. (2023). *Informe anual del empleo en el Perú 2022*. MTPE. https://cdn.www.gob.pe/uploads/document/file/4558080/Informe_Anual_del_Empleo_Peru_2022.pdf
 * Ministerio de Transportes y Comunicaciones. (2022). *Anuario estadístico 2022*. MTC. https://portal.mtc.gob.pe/estadisticas/publicaciones/anuarios/ANUARIO_ESTADISTICO_2022.pdf
 
@@ -2336,6 +2571,29 @@ La primera versión se solicita desde AV2, conforme a las consideraciones de ent
 
 ## Anexos
 
+### Anexo A. Recursos del proyecto
+
+| Producto | Repositorio | Acceso o artefacto |
+| :--- | :--- | :--- |
+| Informe | [Report-CeTe](https://github.com/Nexxus-ops/Report-CeTe) | Capítulos, evidencias y fuentes de diagramas. |
+| Landing | [nexxus-landing-page](https://github.com/Nexxus-ops/nexxus-landing-page) | [Sitio publicado](https://cete-landing-av2.onrender.com/). |
+| Frontend | [FrontEnd-CeTe](https://github.com/Nexxus-ops/FrontEnd-CeTe) | [Aplicación publicada](https://cete-web-av2.onrender.com/). |
+| Backend | [CeTe-Api](https://github.com/Nexxus-ops/CeTe-Api) | [Swagger](https://cete-api-av2.onrender.com/swagger). |
+
+**Recursos audiovisuales registrados:**
+
 * **Repositorio de Landing Page:** https://github.com/Nexxus-ops/nexxus-landing-page.git
 * **Promocional introductorio de 10 segundos:** https://youtu.be/EBS8s4CFWRo
 * **Carpeta registrada de evidencias (no acredita About-the-Team publicado):** https://drive.google.com/drive/folders/1xVEEo9wgbIuEtw1UIYaJLxzBtxMa2upI?usp=sharing
+
+<div style="page-break-before: always;"></div>
+
+### Anexo B. Videos de Exposiciones
+
+Esta relación corresponde a las sustentaciones de cada entrega. Los videos de exposición son diferentes de About-the-Product, About-the-Team y la navegación del producto. Solo se incorporarán enlaces de grabaciones efectivamente entregadas y accesibles para el docente.
+
+| Entrega | Estado de la evidencia en este informe | Microsoft Stream / Clipchamp |
+| :--- | :--- | :--- |
+| AV1 | Enlace no registrado. | Por incorporar a partir de la grabación original. |
+| TB1 | Enlace no registrado. | Por incorporar a partir de la grabación original. |
+| AV2 | Exposición y enlace pendientes de incorporar. | No se ha proporcionado una grabación de la sustentación AV2. |
