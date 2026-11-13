@@ -350,7 +350,6 @@ La tabla conserva cuatro niveles de esquema. Cada capítulo puede desplegarse pa
 
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
-- [Videos de Exposiciones](#anexo-b-videos-de-exposiciones)
 - [Atlas de diagramas](diagrams/README.md)
 - [Diccionario de datos](AV2/diccionario-datos.md)
 
@@ -2740,5 +2739,3 @@ La primera versión se solicita desde AV2, conforme a las consideraciones de ent
 * **Repositorio de Landing Page:** https://github.com/Nexxus-ops/nexxus-landing-page.git
 * **Promocional introductorio de 10 segundos:** https://youtu.be/EBS8s4CFWRo
 * **Carpeta registrada de evidencias (no acredita About-the-Team publicado):** https://drive.google.com/drive/folders/1xVEEo9wgbIuEtw1UIYaJLxzBtxMa2upI?usp=sharing
-
-<div style="page-break-before: always;"></div>
