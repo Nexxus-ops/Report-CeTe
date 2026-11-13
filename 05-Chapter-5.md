@@ -16,8 +16,8 @@ A continuación se listan los productos de software utilizados por el equipo, or
 
 *Descripción:* La gestión del proyecto permite organizar las actividades necesarias para alcanzar los objetivos del Sprint, asignar responsables, dar seguimiento al avance y mantener la comunicación entre los integrantes del equipo.
 
-**Jira Software / Trello:**
-Utilizado para la gestión del Product Backlog, Sprint Backlog y el seguimiento de las User Stories y Technical Stories. ([Atlassian](https://www.atlassian.com/software/jira))
+**Trello y GitHub Projects:**
+Los sprints históricos conservan sus capturas de Trello. El seguimiento actual de Sprint 3 se consulta en el [tablero público de Nexxus](https://github.com/orgs/Nexxus-ops/projects/1/views/1), creado el 12/11/2026 para consolidar tareas, estados y evidencias. La imagen de Jira siguiente pertenece al registro inicial de herramientas y no acredita que Sprint 3 se haya gestionado allí.
 <p align="center">
   <img src="Images/Jira.png" alt="Jira" title="Jira" width="250">
 </p>
@@ -53,8 +53,8 @@ Editores principales para el desarrollo Frontend (HTML, CSS, JS, Vue.js). La con
   <img src="Images/Visual Studio Code.png" alt="Visual Studio Code" title="Visual Studio Code" width="250">
 </p>
 
-**Visual Studio 2022 / JetBrains Rider:**
-Entornos de desarrollo integrados (IDE) robustos utilizados para la programación del Backend en C# con .NET 8.
+**JetBrains Rider / Visual Studio:**
+Entornos contemplados por el equipo para trabajar con C#. El backend actual tiene como destino `net10.0` y utiliza ASP.NET Core 10; requiere un IDE y un SDK compatibles. La imagen de Visual Studio 2022 se conserva como referencia del entorno inicial, sin atribuirle compatibilidad con toda versión del proyecto.
 <p align="center">
   <img src="Images/Visual Studio 2022.png" alt="Visual Studio 2022" title="Visual Studio 2022" width="250">
 </p>
@@ -80,7 +80,7 @@ Framework y lenguaje utilizados para el desarrollo del RESTful API de CeTe, resp
 </p>
 
 **Entity Framework Core & PostgreSQL:**
-ORM y base de datos relacional definidos para almacenar el estado transaccional, inventario y métricas de CeTe.
+Entity Framework Core 10 con Npgsql y PostgreSQL 17 proporcionan la persistencia del incremento AV2. El esquema físico se documenta con 35 tablas; los módulos todavía previstos se distinguen de los flujos implementados en el capítulo IV.
 <p align="center">
   <img src="Images/PostgreSQL.png" alt="PostgreSQL" title="PostgreSQL" width="250">
 </p>
@@ -98,6 +98,12 @@ Servicio de alojamiento estático utilizado para publicar la primera versión de
 <p align="center">
   <img src="Images/GitHub Pages.png" alt="GitHub Pages" title="GitHub Pages" width="250">
 </p>
+
+**Render y Docker:**
+Render publica la landing y el frontend como sitios estáticos y la API como servicio Docker conectado a PostgreSQL administrado. Docker Compose reproduce API y base de datos en el entorno local. Las ramas de despliegue vigentes se indican en 5.1.4.
+
+**Swagger / OpenAPI y herramientas de verificación:**
+Swagger documenta los contratos HTTP de la API. Las comprobaciones de dominio en C#, las pruebas HTTP en Python y los recorridos de navegador respaldan la evidencia técnica; no reemplazan la validación con usuarios. El [repositorio de la API](https://github.com/Nexxus-ops/CeTe-Api) conserva las instrucciones reproducibles.
 
 <div style="page-break-after: always"></div>
 
@@ -117,10 +123,13 @@ La solución distribuida de CeTe se organiza en repositorios independientes:
 
 | Nombre de la rama | Descripción |
 | :--- | :--- |
-| **Main Branch** (`main`) | Rama base que refleja el estado de producción. Es la rama publicada por GitHub Pages. |
-| **Develop Branch** (`develop`) | Rama de integración del equipo. Unifica el código de las funcionalidades en curso. |
+| **Main Branch** (`main`) | Base integrada del informe, frontend y API. Render publica frontend y API desde `main`; no se generaliza esa configuración a la landing. |
+| **Develop Branch** (`develop`) | Rama de integración cuando existe en el repositorio. En la landing es, además, la rama configurada para la publicación actual en Render. |
 | **Feature Branches** (`feature/*`) | Ramas temporales para desarrollar funcionalidades aisladas. <br> **Convención:** `feature/nombre-de-la-funcionalidad` |
 | **Release Branches** (`release/*`) | Ramas de estabilización previas al pase a producción. <br> **Convención:** `release/vX.Y.Z` |
+| **Hotfix Branches** (`hotfix/*`) | Convención prevista para correcciones urgentes sobre una versión publicada. No se acredita su uso únicamente por definir el nombre. |
+
+El flujo anterior es la convención del equipo. Las integraciones AV2 también emplean ramas `refactor/*`, `fix/*`, `improve/*`, `integrate/*` y `docs/*`, con Pull Requests enlazados en 5.2.3.4. El historial de cada repositorio determina qué ramas y revisiones se utilizaron realmente.
 
 **3. Versionado Semántico (Semantic Versioning 2.0.0)**
 
@@ -225,14 +234,16 @@ Enlace al tablero: https://trello.com/invite/b/6ac45ef9360979a18e3bdcb8/ATTI9b64
 
 Esta sección expone la evidencia técnica del progreso alcanzado. La Landing Page de CeTe fue desarrollada utilizando HTML5, CSS3 y JavaScript bajo un enfoque Mobile-First.
 
-**Registro de commits del Sprint 1:**
+**Registro recuperado del historial de Sprint 1:**
 
-| Repository | Branch | Commit Id | Commit Message | Commited on |
-| :--- | :--- | :--- | :--- | :--- |
-| cete-landing-page | `feature/hero-section` | `[COMMIT_ID]` | feat: implement hero section with value proposition | `[DD/MM/2026]` |
-| cete-landing-page | `feature/plans-section` | `[COMMIT_ID]` | feat: add B2B subscription plans cards | `[DD/MM/2026]` |
-| cete-landing-page | `feature/responsive-nav` | `[COMMIT_ID]` | feat: add mobile burger menu and sticky header | `[DD/MM/2026]` |
-| cete-landing-page | `main` | `[COMMIT_ID]` | chore: prepare release v1.0.0 and trigger gh-pages | `[DD/MM/2026]` |
+Los commits siguientes corresponden a la implementación inicial de la landing. La rama consultada identifica dónde son alcanzables actualmente; el historial no permite atribuirles los nombres de ramas de trabajo consignados en la tabla anterior. Las fechas son las del commit, no horas de trabajo ni fechas de aceptación.
+
+| Repositorio | Rama consultada | Commit | Mensaje original | Cuerpo original | Fecha y hora de commit (Lima) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| nexxus-landing-page | `develop` | [`30cf770`](https://github.com/Nexxus-ops/nexxus-landing-page/commit/30cf770e4699ea705ac9ef87b4e6ee68210e64eb) | chore: setup of html structure and global styles | Sin cuerpo adicional. | 14/09/2026 23:35:04 -0500 |
+| nexxus-landing-page | `develop` | [`69a5775`](https://github.com/Nexxus-ops/nexxus-landing-page/commit/69a5775ad6b29b26306194a87f7fb149701b02a2) | feat: implement navbar and main hero section | Sin cuerpo adicional. | 14/09/2026 23:38:20 -0500 |
+| nexxus-landing-page | `develop` | [`7385c80`](https://github.com/Nexxus-ops/nexxus-landing-page/commit/7385c80bf2840b332184f89433174eb6aae1d091) | feat: add benefits, solutions and cta sections | Sin cuerpo adicional. | 14/09/2026 23:39:57 -0500 |
+| nexxus-landing-page | `develop` | [`47cef62`](https://github.com/Nexxus-ops/nexxus-landing-page/commit/47cef62ff73586b341c47d611733e517aa7106f7) | feat: add footer, responsive design and mobile menu logic | Sin cuerpo adicional. | 14/09/2026 23:42:04 -0500 |
 
 <p align="center">
   <img src="Images/Evidencia de Código.png" alt="Evidencia de Código" title="Development Evidence" width="700">
@@ -348,7 +359,16 @@ Enlace al tablero: https://trello.com/invite/b/6ac48ac544b95ec0d7179e1b/ATTId558
 
 Esta sección expone la evidencia técnica del progreso alcanzado. El Frontend de CeTe fue desarrollada utilizando JavaScript, Vue3, CSS y HTML haciendo uso de DDD.
 
-**Registro de commits del Sprint 1:**
+**Registro recuperado del historial de Sprint 2:**
+
+Se conserva el mensaje original de cada commit. La referencia a DDD en el historial describe lo declarado en esa entrega; la revisión de los límites actuales se encuentra en el capítulo IV. `main` es la rama consultada para recuperar los commits, sin reconstruir nombres de ramas históricas no acreditados.
+
+| Repositorio | Rama consultada | Commit | Mensaje original | Cuerpo original | Fecha y hora de commit (Lima) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| FrontEnd-CeTe | `main` | [`b081cb6`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/b081cb67ae6dda0977d59a2e9a33ee47fbc2a6a3) | chore: Mock API configuration (json-server) and environment documentation | Sin cuerpo adicional. | 06/10/2026 00:12:57 -0500 |
+| FrontEnd-CeTe | `main` | [`fba33be`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/fba33be4489f09844d08087445a420d3a95895ef) | feat: Implementation of DDD architecture (IAM, Inventory, Logistics, Sales) and base configuration of Vue/Vite | Sin cuerpo adicional. | 06/10/2026 00:14:46 -0500 |
+| FrontEnd-CeTe | `main` | [`b663e5a`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/b663e5a13de43a90a27407b06a7b2c87ec538df4) | ci: configuración de despliegue automático con GitHub Actions | Sin cuerpo adicional. | 06/10/2026 00:32:29 -0500 |
+| FrontEnd-CeTe | `main` | [`be033a3`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/be033a308ec4652e35a5ba06ba4bc0b4d9c86b50) | Update README with project structure and contexts | Added project structure and bounded contexts to README. | 06/10/2026 01:06:46 -0500 |
 
 <p align="center">
   <img src="Images/Registro-De-Commits-2.png" alt="Evidencia de Código" title="Development Evidence" width="700">
@@ -660,8 +680,14 @@ Los cinco integrantes aportaron al incremento mediante diseño, implementación,
 ### 5.3.1. Diseño de entrevistas
 
 Para el proceso de validación, hemos diseñado sesiones interactivas donde los usuarios evalúan nuestros productos digitales de CeTe, basándonos en escenarios reales de uso.
-* **Segmento 1 (Dueños/Gerentes):** Se evalúa la Landing Page en su versión Desktop, analizando la comprensión de la propuesta de valor, claridad de precios y la intención de conversión.
-* **Segmento 2 (Operarios/Logística):** Se evaluará el prototipo interactivo de la Web Application (Módulo de Inventario), midiendo la facilidad de uso y prevención de errores (Stock Out).
+El protocolo de la siguiente ronda utiliza la landing y la aplicación desplegadas para **ambos segmentos**, según los permisos de cada rol. Las dos entrevistas históricas conservan las condiciones en que se realizaron, incluida la evaluación de Figma por Luis; no se reclasifican como pruebas de la aplicación AV2.
+
+| Segmento | Tareas en la landing | Tareas en la aplicación | Registro esperado |
+| :--- | :--- | :--- | :--- |
+| Dueños y administradores | Explicar la propuesta, localizar la propuesta comercial, cambiar idioma e ingresar por el acceso del segmento. | Interpretar las métricas, registrar una venta con datos ficticios, consultar su boleta académica y ubicar el despacho relacionado. | Éxito sin ayuda, tiempo, errores, comprensión y comentarios espontáneos. |
+| Operarios de almacén y logística | Identificar para quién sirve CeTe, cambiar idioma y localizar el acceso de operarios. | Buscar un producto, distinguir orden de compra de recepción, recibir parcialmente y consultar el saldo y los movimientos; revisar un despacho si el rol lo permite. | Éxito sin ayuda, tiempo, errores y comprensión de las cantidades recibidas y pendientes. |
+
+Las tareas se realizarán sin guiar al participante hacia la respuesta. Los hallazgos se registrarán con captura, severidad, heurística y recomendación según el Anexo D, distinguiendo propuestas de funcionalidades ya implementadas.
 
 ### 5.3.2. Registro de Entrevistas
 
@@ -746,7 +772,7 @@ CeTe cuenta con un recurso promocional introductorio que presenta la identidad d
 
 | Evidencia de entrega | Estado al 12/11/2026 |
 | :--- | :--- |
-| Versión AV2 de 1–3 minutos | Pendiente de edición y publicación. Puede reutilizarse el promocional como introducción. |
+| Versión AV2 de 1–3 minutos | Pendiente de edición y publicación. Además del promocional disponible, se generaron tres clips ilustrativos de aproximadamente diez segundos cada uno, conservados localmente como material de montaje. No representan navegación real ni testimonios. |
 | Interacción con el producto y opiniones | Incorporar una demostración real y al menos una opinión de dueño/administrador y otra de operario de almacén. Las entrevistas de Raúl y Carmen corresponden al primer segmento. |
 | Publicación en Microsoft Stream y YouTube | El enlace disponible corresponde al recurso de diez segundos; faltan los enlaces de la versión AV2 completa. |
 | Captura y duración del video AV2 | La captura anterior documenta el recurso existente; reemplazar o complementar con evidencia de la edición final. |

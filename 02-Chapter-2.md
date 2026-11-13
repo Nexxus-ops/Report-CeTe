@@ -30,7 +30,7 @@ Entender el panorama actual para identificar cómo CeTe puede diferenciarse sien
 
 <p align="center"><em>Nota: Análisis competitivo de CeTe en comparación con las principales soluciones del mercado.</em></p>
 
-### 2.1.1.1. Análisis de Modelos Tarifarios (Pricing)
+#### 2.1.1.1. Análisis de Modelos Tarifarios (Pricing)
 
 Para sustentar la viabilidad comercial y el diseño de la tarifa plana de CeTe, se investigó el modelo de monetización de los competidores directos, evidenciando barreras económicas estructurales para la adopción tecnológica en el segmento MYPE:
 
