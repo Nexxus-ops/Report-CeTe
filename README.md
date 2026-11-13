@@ -2702,10 +2702,7 @@ El About-the-Team documentará el proceso real de trabajo de Nexxus: distribuci�
 | :--- | :--- |
 | Retrospectiva grupal y escenas reales de trabajo | Material en preparación y edición dentro del montaje. |
 | Testimonio individual | Clips recibidos en el montaje. Al terminar se comprobará la participación de Diego, Piero, Darikson, Liz y Kevin y la correspondencia de sus aportes. |
-| Duración | Por registrar tras la edición. El Anexo C orienta a considerar cinco minutos de retrospectiva y un minuto por integrante; la duración depende del contenido. |
-| Pauta de secuencias | Pendiente de registrar los inicios reales de cada sección en formato `hh:mm:ss`. |
 | Captura representativa y enlaces | Canva enlazado como material en edición. La captura definitiva y los enlaces de Stream y YouTube se añadirán después de exportar y publicar. |
-| Incrustación en la landing | Pendiente de disponer del video publicado. |
 
 La primera versión se solicita desde AV2, conforme a las consideraciones de entrega y al Anexo C del enunciado. Las descripciones documentadas de los aportes y las capturas de GitHub complementan esta evidencia, pero no reemplazan los testimonios ni permiten dar por completado el video.
 
