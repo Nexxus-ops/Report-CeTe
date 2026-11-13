@@ -1,0 +1,36 @@
+---
+title: UML actual · Identidad y empresa · CeTe API
+---
+classDiagram
+  class Tenant {
+    +Guid Id
+    +string Name
+    +string Ruc
+    +string Address
+  }
+  class User {
+    +Guid Id
+    +Guid TenantId
+    +string Username
+    +string PasswordHash
+    +string Role
+    +bool Active
+  }
+  class UserSession {
+    +Guid UserId
+    +DateTimeOffset ExpiresAt
+    +bool Revoked
+  }
+  class Role {
+    +string Name
+  }
+  class UserRole {
+    +Guid UserId
+    +Guid RoleId
+  }
+  Tenant "1" <-- "0..*" User : TenantId
+  Tenant "1" <-- "0..*" Role : TenantId
+  User "1" <-- "0..*" UserSession : UserId
+  User "1" <-- "0..*" UserRole : UserId
+  Role "1" <-- "0..*" UserRole : RoleId
+  note for User "Role contiene el permiso usado en autorización.\nPropiedades mutables en la implementación actual."

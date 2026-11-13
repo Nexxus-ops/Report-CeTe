@@ -10,7 +10,7 @@ Para mantener la consistencia visual y técnica en todo el ecosistema (Landing P
 
 ### 4.1.1. General Style Guidelines
 
-Nuestras decisiones de diseño a nivel general se sustentan en la heurística de "Consistencia y estándares", asegurando que la interfaz transmita confianza y productividad en todo momento.
+Las decisiones generales de diseño toman como referencia la heurística de consistencia y estándares. La confianza y la facilidad de aprendizaje se evalúan en las sesiones con usuarios.
 
 **4.1.1.1. Brand & Tono de Comunicación**
 
@@ -223,6 +223,20 @@ El administrador selecciona la opción “Reportes” desde el menú lateral. El
 El usuario accede al dashboard de inventario y selecciona el ícono de notificaciones. El sistema muestra alertas relacionadas con quiebres de stock y nuevas entradas registradas.
 <p align="center"><img src="Images/w6.jpg" width="800" alt="Wireflow W6"></p>
 
+**Correspondencia con los recorridos implementados en AV2.** Las imágenes W1–W6 anteriores conservan el diseño histórico. La revisión distingue las acciones actuales de las capacidades propuestas:
+
+| Recorrido actual | Segmento y acción | Resultado verificable y relación con el diseño inicial |
+| :--- | :--- | :--- |
+| Registrar producto y movimiento | Personal autorizado crea un SKU o selecciona uno existente para registrar entrada/salida con cantidad y motivo. | Separa la identidad del producto de sus existencias; sustituye la ambigüedad de W1. |
+| Archivar producto | Administrador selecciona un producto sin saldo y confirma su archivo. | Cambia `Active` y conserva la historia; la eliminación de W2 no representa un borrado físico. |
+| Comprar y recibir parcialmente | Operario autorizado crea una orden y registra la cantidad recibida. | La orden no aumenta stock. La recepción incrementa solo lo recibido y mantiene el pendiente. US40/US41. |
+| Vender y consultar boleta | Vendedor arma el carrito, confirma el método de pago registrado y abre o imprime la boleta. | Actualiza stock una vez y conserva el detalle histórico. Amplía W3 con US15/US35/US36/US39. |
+| Crear y seguir despacho | Personal de logística agrupa ventas elegibles, indica conductor/placa y registra transiciones o incidencias. | El despacho de W4 controla la entrega y no genera una segunda salida de inventario. |
+| Consultar indicadores | Administrador consulta ventas y existencias de su empresa. | W5 se limita a los indicadores disponibles; todavía no calcula margen neto ni rentabilidad contable. |
+| Notificaciones | Flujo previsto en el diseño W6. | No hay generación ni bandeja operativas en el incremento. Su estado permanece pendiente en el backlog. |
+
+Las [capturas de ejecución de AV2](05-Chapter-5.md#5235-execution-evidence-for-sprint-review) muestran las interfaces implementadas y complementan los artefactos históricos de diseño.
+
 ### 4.4.3. Web Applications Mock-ups
 
 Los mockups de CeTe presentan la propuesta visual de la aplicación web para la gestión de inventario. La interfaz incluye la landing page, el dashboard de almacén, los módulos de ventas, despachos y reportes, el registro de entradas, la confirmación de eliminación y el panel de notificaciones.
@@ -376,6 +390,18 @@ El nivel 3 amplía exclusivamente el contenedor CeTe API. `Program.cs` configura
 
 La aplicación depende de interfaces de repositorio y de servicios, sin importar EF Core ni infraestructura. `IPasswordService` e `ITokenService` se implementan en los adaptadores de autenticación de Identidad. `ExchangeRatesController` adapta la consulta HTTP al proveedor cambiario. Reporting conserva una proyección transversal de solo lectura en infraestructura. Permanecen pendientes las migraciones versionadas, la paginación y una separación más estricta de la propiedad de los datos; los contratos actuales no equivalen a bases independientes ni a aislamiento físico entre módulos.
 
+**Detalle de componentes por contexto.** La vista anterior agrupa tipos para mantener su lectura. La tabla vincula cada grupo con sus componentes reales y el contrato que cruza el límite de contexto.
+
+| Contexto | Interfaz REST y servicios de aplicación | Puerto de persistencia | Colaboración entre contextos |
+| :--- | :--- | :--- | :--- |
+| Identity | `AuthenticationController`, `UsersController`; `IdentityCommandService` y `IdentityQueryService`. | `IIdentityRepository`. | Provee `ICurrentUser` e `ICompanyQueryService`; solicita el almacén inicial a Inventario. |
+| Inventory | `InventoryController`; `InventoryCommandService` y `InventoryQueryService`. | `IInventoryRepository`. | Provee `IInventoryFacade` para instantáneas y movimientos. |
+| Procurement | `ProcurementController`; `ProcurementCommandService` y `ProcurementQueryService`. | `IProcurementRepository`. | Solicita a Inventario la recepción física dentro de `IUnitOfWork`. |
+| Sales | `SalesController`; `SalesCommandService` y `SalesQueryService`. | `ISalesRepository`. | Consume Inventario, empresa y política de despacho; expone consulta del estado de venta. |
+| Logistics | `LogisticsController`; `LogisticsCommandService` y `LogisticsQueryService`. | `ILogisticsRepository`. | Consume `ISalesQueryService` e implementa el adaptador de `ISaleDispatchPolicy`. |
+
+Los servicios están en `Application/Internal`, los contratos en `Application/Services` o `Domain/Repositories`, y los adaptadores en `Infrastructure`. Reporting e Integrations se mantienen como capacidades transversales según lo indicado en la vista; no se confunden con agregados comerciales independientes.
+
 #### 4.6.4.1. Vista dinámica de la venta
 
 ![Secuencia de venta, idempotencia y boleta](diagrams/sequence-checkout.svg)
@@ -413,6 +439,12 @@ Los diagramas siguientes muestran **tipos y miembros existentes**, con atributos
 ![Clases actuales de logística](diagrams/classes-logistics.svg)
 
 *Dispatch.Transition protege las transiciones. DriverName y LicensePlate son instantáneas de texto; aún no son relaciones a los maestros Driver y Vehicle.* [Ampliar](diagrams/classes-logistics.svg) · [Fuente editable](diagrams/classes-logistics.mmd)
+
+#### 4.7.1.5. Identidad y empresa
+
+![Clases actuales de identidad, roles y sesiones](diagrams/classes-identity.svg)
+
+*Tenant identifica la empresa; User y UserSession distinguen cuenta y sesión. Las asociaciones indican referencias por identificador. User.Role es la fuente usada en autorización; Roles y UserRoles permanecen en el esquema. Estos tipos todavía tienen propiedades mutables: el diagrama no les atribuye invariantes encapsuladas que el código no implementa.* [Ampliar](diagrams/classes-identity.svg) · [Fuente editable](diagrams/classes-identity.mmd)
 
 ### 4.7.2. Agregados, invariantes y responsabilidad
 

@@ -43,6 +43,7 @@ for file in ROOT.rglob('*.md'):
     content = text(file)
     check(len(re.findall(r'^```', content, re.M))%2==0, f'Unbalanced code fences: {file.relative_to(ROOT)}')
     clean = no_fences(content)
+    check(not re.search(r'\]\(\[https?://', clean), f'Nested Markdown link: {file.relative_to(ROOT)}')
     lines = clean.splitlines()
     # A blank line breaks a GFM table; every pipe block must have its own header.
     i=0
@@ -68,7 +69,7 @@ for file in ROOT.rglob('*.md'):
             check(anchor in targets, f'Missing anchor: {file.relative_to(ROOT)} -> {link}')
 
 sources=list((ROOT/'diagrams').glob('*.mmd'))
-check(len(sources)==22, 'Expected 22 editable diagram sources')
+check(len(sources)==23, 'Expected 23 editable diagram sources, including Identity classes')
 for source in sources:
     image=source.with_suffix('.svg')
     check(image.exists(), f'Missing SVG: {source.name}')
@@ -101,4 +102,4 @@ if args.api_root:
 if errors:
     print('\n'.join('FAIL '+e for e in errors))
     sys.exit(1)
-print('PASS: chapters synchronized; 10 epics; 42 US; 35 TS; 77 backlog entries; 139 SP; tables, links, 22 SVG/source pairs and 35 dictionary tables valid.' + (' API SQL matched.' if args.api_root else ''))
+print('PASS: chapters synchronized; 10 epics; 42 US; 35 TS; 77 backlog entries; 139 SP; tables, links, 23 SVG/source pairs and 35 dictionary tables valid.' + (' API SQL matched.' if args.api_root else ''))

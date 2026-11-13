@@ -523,13 +523,9 @@ Piero estructura los contextos y las reglas de inventario; Kevin integra abastec
 
 El backlog descompone el objetivo en tareas de ingeniería y entregables de validación, colaboración y comunicación. El [tablero público del Sprint 3](https://github.com/orgs/Nexxus-ops/projects/1/views/1) se creó el **12/11/2026** para registrar el estado actual. No se presenta como evidencia de movimientos anteriores en Trello ni como un historial reconstruido de trabajo diario.
 
-![Tablero del Sprint 3: tareas pendientes y en proceso](AV2/evidence/sprint3-board.png)
+![Tablero del Sprint 3 al cierre documental: 13 Done, 2 To Review y 1 In Process](AV2/evidence/sprint3-board-close.jpg)
 
-*Captura histórica del tablero tomada durante la consolidación del 12/11. La tabla de cierre siguiente registra el estado actualizado; la imagen conserva el corte anterior.*
-
-![Tablero del Sprint 3: tareas completadas y en revisión](AV2/evidence/sprint3-review.png)
-
-*Captura del mismo corte histórico. Los estados posteriores de cierre se distinguen en la tabla y en el tablero enlazado.*
+*Corte de cierre del 12/11/2026. Los estados corresponden al alcance técnico y documental descrito en la tabla; no son un registro de horas ni de aceptación de todas las historias del producto.*
 
 | US / TS y título | Task ID | Task Title | Task Description / resultado al corte | Estimation (h) | Assigned To | Status |
 | :--- | :--- | :--- | :--- | :---: | :--- | :--- |
@@ -689,7 +685,7 @@ Los cinco integrantes aportaron al incremento mediante diseño, implementación,
 ### 5.3.1. Diseño de entrevistas
 
 Para el proceso de validación, hemos diseñado sesiones interactivas donde los usuarios evalúan nuestros productos digitales de CeTe, basándonos en escenarios reales de uso.
-El protocolo de continuidad para TF utiliza la landing y la aplicación desplegadas para **ambos segmentos**, según los permisos de cada rol. Las dos entrevistas históricas conservan las condiciones en que se realizaron, incluida la evaluación de Figma por Luis; no se reclasifican como pruebas de la aplicación AV2.
+El protocolo utiliza la landing y la aplicación desplegadas para **ambos segmentos**, según los permisos de cada rol. Las mediciones comparativas y la ampliación de la muestra continúan en TF. Las dos entrevistas históricas conservan las condiciones en que se realizaron, incluida la evaluación de Figma por Luis; no se reclasifican como pruebas de la aplicación AV2.
 
 | Segmento | Tareas en la landing | Tareas en la aplicación | Registro esperado |
 | :--- | :--- | :--- | :--- |
