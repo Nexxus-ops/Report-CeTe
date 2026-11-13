@@ -201,7 +201,7 @@ Para validar nuestros Feature Assumptions, planteamos las siguientes hipótesis:
 **8. What's the least amount of work we need to do to learn the next most important thing? (MVP / Experimentos)**
 * ¿Cuál es el mínimo esfuerzo para probar nuestro supuesto más riesgoso?
     * Crear un Landing Page con los planes de pago para medir la intención de compra (conversión).
-    * Desarrollar un Prototipo interactivo (Figma) del módulo de ingreso rápido de mercadería y testearlo directamente con operarios de almacén para ver si les parece más fácil que usar un cuaderno.
+    * Desarrollar un Prototipo interactivo (Figma) del módulo de ingreso rápido de mercadería y probarlo directamente con operarios de almacén para ver si les parece más fácil que usar un cuaderno.
 
 <p align="center">
   <img src="Images/Lean UX Canvas.jpeg" alt="Lean UX Canvas" width="800">

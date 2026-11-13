@@ -116,7 +116,7 @@ El Impact Mapping elaborado para CeTe ilustra de manera estratégica cómo las f
 
 ### 3.2.1. Metas medibles de validación AV2
 
-Son hipótesis propuestas, todavía sin resultados ni línea base.
+Estas metas se formularon para orientar la validación de AV2 y se conservan como referencia del planteamiento inicial. El cierre de las seis fichas aporta hallazgos cualitativos, no una medición de esos porcentajes. La comparación con línea base y la ampliación de la muestra se programan para TF.
 
 | Meta y plazo | Actor e impacto | Medición | US |
 | :--- | :--- | :--- | :--- |

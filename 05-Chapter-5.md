@@ -477,26 +477,33 @@ Material de sustentación: [presentación técnica AV2 editable](AV2/CeTe-AV2-re
 
 #### 5.2.3.1. Sprint Planning 3
 
-Este registro consolida el incremento AV2 y su situación al **12/11/2026**. Integra la reunión informada por el equipo, los cambios versionados y las pruebas realizadas. El calendario se estima a solicitud de Kevin porque el equipo no conserva las fechas exactas; no se presenta como un acta de planificación redactada al inicio del sprint.
+Este registro consolida el **cierre técnico y documental del Sprint 3 al 12/11/2026**. Distingue los resultados respaldados por código, pruebas y entrevistas del esfuerzo estimado y de los materiales audiovisuales en edición.
+
+**Base de estimación retrospectiva.** El equipo no conserva un control de horas ni el horario completo de sus sesiones. Para dimensionar el trabajo se adopta un ciclo de cuatro semanas y se conserva la estimación de 94 horas-persona del backlog. Estas cifras son un modelo de planificación reconstruido; no son horas consumidas, registros de asistencia ni mediciones de velocidad.
 
 | Sprint # | Sprint 3 · AV2 |
 | :--- | :--- |
-| **Sprint Planning Background** | **Registro de consolidación** |
-| Fecha de reunión informada | Martes **03/11/2026**, confirmada por Kevin. |
-| Horario y lugar | Pendientes de confirmación. |
-| Preparado por | Salazar Marquina, Kevin Junior, el 12/11/2026. |
-| Asistentes | Pendiente la confirmación de la lista de asistentes. La matriz siguiente describe al equipo y sus aportes; no sustituye la asistencia a esta sesión. |
-| Calendario estimado | **16/10/2026–12/11/2026**, 28 días calendario inclusivos. Se toma como referencia el intervalo de 28 días entre las planificaciones históricas del 08/09 y 06/10 y se fija el corte en la entrega AV2 del 12/11. Es una aproximación pendiente de confirmación, no una duración histórica comprobada. |
-| **Sprint 2 Review Summary** | El registro TB1 muestra el frontend integrado con una Fake API. El feedback exige revisar las estimaciones, internacionalización y footer, Technical Stories, modelo de datos, evidencias de ejecución, boleta y participación de al menos tres integrantes en frontend. |
-| **Sprint 2 Retrospective Summary** | La revisión del feedback evidencia la necesidad de conectar el flujo completo a una API persistente, contrastar DDD con el código y vincular cada tarea con criterios y pruebas. Es la síntesis documental del feedback recibido; no se atribuyen acuerdos verbales a la reunión del 03/11. |
-| Sprint 3 Goal | **Our focus is on** permitir a una MYPE registrar abastecimiento, vender con stock consistente y entregar una boleta consultable, accediendo desde una landing bilingüe. **We believe it delivers** trazabilidad de compras y ventas y menor doble registro para el dueño y el operario. **This will be confirmed when** el recorrido público conserve los datos, rechace stock insuficiente y acceso ajeno, y las validaciones de ambos segmentos documenten resultados y mejoras. |
-| Sprint 3 Velocity | **Pendiente de cierre y aceptación por el equipo.** Las pruebas técnicas no permiten asignar automáticamente puntos a historias con criterios incompletos. La velocidad declarada de Sprint 2 fue 24 SP; no se extrapola como resultado de Sprint 3. |
-| Sum of Story Points | **60 SP de alcance de referencia** en 16 US: US10, US11, US14, US19–22, US28–29, US34–36 y US39–42. Son las estimaciones existentes del Product Backlog, no un compromiso retrospectivo ni puntos terminados. Las TS no suman puntos adicionales. |
-| Capacidad | **94 horas-persona estimadas**, distribuidas en tareas de 4 a 8 h. No existe un registro consolidado de horas efectivamente trabajadas ni disponibilidad individual para contrastar la capacidad. |
+| **Sprint Planning Background** | **Registro retrospectivo de planificación y cierre** |
+| Fecha de reunión registrada | Martes **03/11/2026**, fecha confirmada por el equipo. |
+| Horario y lugar de la sesión | No registrados. La coordinación del incremento combinó sesiones presenciales, mensajería y revisión de los repositorios. |
+| Preparado por | Salazar Marquina, Kevin Junior · 12/11/2026. |
+| Equipo participante en el incremento | Liz Anahua, Diego Campoblanco, Piero Montes, Kevin Salazar y Darikson Salazar. Corresponde a los aportes del sprint; no se utiliza como lista de asistencia de una reunión particular. |
+| Calendario de referencia estimado | **16/10/2026–12/11/2026**, 28 días calendario inclusivos. Se adopta como reconstrucción del ciclo de trabajo, tomando como referencia el intervalo de cuatro semanas de las planificaciones anteriores y el corte de AV2. |
+| **Sprint 2 Review Summary** | El registro TB1 muestra el frontend con Fake API. La revisión identificó mejoras de estimación, internacionalización y footer, historias técnicas, modelo de datos, boleta, evidencias de ejecución y participación. |
+| **Sprint 2 Retrospective Summary** | El incremento siguiente debía conectar los flujos con persistencia real, contrastar DDD con el código y hacer trazables las tareas y pruebas. Esta síntesis se basa en el feedback y los artefactos conservados. |
+| Sprint 3 Goal | **Our focus is on** permitir registrar abastecimiento, vender con stock consistente y consultar una boleta histórica desde una aplicación integrada y una landing bilingüe. **We believe it delivers** trazabilidad operativa para el dueño y el operario. **This will be confirmed when** los flujos conservan datos, protegen stock y acceso por empresa y las fichas de validación permiten identificar dificultades y siguientes mejoras. |
+| Sprint Review 3 · resultado | API modular y PostgreSQL integrados; compras y recepción parcial separadas; venta atómica, boleta histórica y despachos verificados; landing por segmento e idiomas. Se consolidan seis fichas de validación acumuladas y el análisis de sus hallazgos. |
+| Sprint Retrospective 3 · síntesis | Funcionó separar responsabilidades de dominio y revisar el recorrido completo. La publicación centralizada exigió reforzar la trazabilidad individual. Para TF se priorizan navegación y retroalimentación de recepción, mediciones de usabilidad y ampliación de la muestra operativa. No se presentan estas conclusiones como transcripción de acuerdos verbales no registrados. |
+| Revisión y retrospectiva · duración de referencia | **60 minutos de revisión y 30 minutos de retrospectiva**, como estimación orientativa para dimensionar el cierre. No identifican la hora ni la duración real de la reunión del 03/11. |
+| Sprint 3 Velocity | **No medida.** No se convierten tareas técnicas ni horas en puntos aceptados. La referencia histórica de Sprint 2 es 24 SP, sin atribuir ese resultado a Sprint 3. |
+| Sum of Story Points | **60 SP de alcance de referencia** en US10, US11, US14, US19–22, US28–29, US34–36 y US39–42. Las historias parciales conservan sus límites en el Product Backlog y las TS no se suman dos veces. |
+| Capacidad estimada | **94 horas-persona**, en tareas de 4 a 8 h. Como referencia aritmética para cinco integrantes y cuatro semanas, equivalen a 18,8 h por persona en el ciclo o 4,7 h semanales; no representan disponibilidad ni esfuerzo individual observado. |
 
-**Criterios de aceptación del incremento.** Crear una compra sin incrementar stock; recibir parcialmente y conservar el saldo; vender una sola vez ante reintentos; consultar e imprimir una boleta histórica; aislar empresas y permisos; navegar en ambos idiomas y desde móvil. Los casos técnicos se documentan en 5.2.3.5. La validación con usuarios, los videos y la aceptación de historias parciales mantienen su estado pendiente o en curso.
+**Criterios técnicos revisados.** Crear una compra no incrementa stock; recibir parcialmente conserva el saldo; el reintento de venta no duplica la operación; la boleta conserva los datos históricos y permite impresión; las consultas aíslan empresas y permisos; la landing y las vistas comprobadas admiten idiomas, teclado y móvil. Los resultados se enlazan en 5.2.3.5. Los hallazgos cualitativos de usuarios no se convierten en porcentajes de mejora.
 
-**Definition of Done de una tarea técnica.** Cambio integrado en la rama de publicación, criterio de la tarea comprobado y evidencia enlazada. Esto no cierra toda una US ni acredita validación de usabilidad. Para el cierre del sprint, el equipo debe aceptar el alcance, registrar la revisión y completar los entregables académicos restantes.
+**Alcance del cierre.** Se consolida el incremento implementado y la ronda AV2 entregada de seis fichas. La ampliación de participantes y las nuevas comprobaciones de usabilidad se programan para TF. La presentación y las versiones audiovisuales finales conservan su estado de edición o revisión hasta disponer de los enlaces y archivos correspondientes.
+
+**Definition of Done de una tarea técnica.** Cambio integrado, criterio acotado comprobado y evidencia enlazada. El cierre de una tarea no declara terminados todos los criterios de las US relacionadas ni funciones que quedan expresamente fuera del incremento.
 
 #### 5.2.3.2. Aspect Leaders and Collaborators
 
@@ -518,34 +525,36 @@ El backlog descompone el objetivo en tareas de ingeniería y entregables de vali
 
 ![Tablero del Sprint 3: tareas pendientes y en proceso](AV2/evidence/sprint3-board.png)
 
-*Vista izquierda: To Do e In Process, con validaciones, colaboración y comunicación en curso.*
+*Captura histórica del tablero tomada durante la consolidación del 12/11. La tabla de cierre siguiente registra el estado actualizado; la imagen conserva el corte anterior.*
 
 ![Tablero del Sprint 3: tareas completadas y en revisión](AV2/evidence/sprint3-review.png)
 
-*Vista derecha: Done y To Review. Las dos capturas corresponden al mismo tablero; las tarjetas detallan el criterio, responsable, estimación y evidencia enlazada.*
+*Captura del mismo corte histórico. Los estados posteriores de cierre se distinguen en la tabla y en el tablero enlazado.*
 
 | US / TS y título | Task ID | Task Title | Task Description / resultado al corte | Estimation (h) | Assigned To | Status |
 | :--- | :--- | :--- | :--- | :---: | :--- | :--- |
-| US35/36 · Pago registrado y descuento de stock; TS11/31 | T3-01 | Sales: cierre atómico e idempotencia | Comprobar rollback, reintento y última unidad. Pruebas aprobadas; US35 conserva el límite de pago académico sin pasarela. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/commit/bc369f5). | 8 | Kevin | To Review |
-| US39 · Visualizar e imprimir boleta; TS28 | T3-02 | Sales: boleta histórica e impresión | Contrastar cabecera, detalle, consulta histórica e impresión móvil con el flujo de diseño aportado por Liz. Ejecución aprobada; aceptación de usabilidad pendiente. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/commit/f1b4799). | 6 | Liz | To Review |
+| US35/36 · Pago registrado y descuento de stock; TS11/31 | T3-01 | Sales: cierre atómico e idempotencia | Venta, rollback, reintentos y última unidad comprobados. Se cierra la tarea técnica de pago registrado y stock; US35 conserva el límite académico sin pasarela. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/commit/bc369f5). | 8 | Kevin | Done |
+| US39 · Visualizar e imprimir boleta; TS28 | T3-02 | Sales: boleta histórica e impresión | Cabecera, detalle, consulta histórica e impresión móvil comprobados. Las mejoras de acceso y jerarquía sugeridas en las entrevistas pasan al seguimiento de TF. [Evidencia](https://github.com/Nexxus-ops/FrontEnd-CeTe/pull/5). | 6 | Liz | Done |
 | US40/41 · Orden de compra y recepción parcial; TS29/30 | T3-03 | Procurement: compra y recepción parcial | Verificar que crear una orden no mueva stock y que cada recepción incremente solo lo recibido. Flujo público y rechazo de exceso comprobados. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/commit/00c1ec3). | 6 | Kevin | Done |
 | US10/11/14 · Entradas, salidas e historial; TS07–09 | T3-04 | Inventory: entradas, salidas e historial | Verificar invariantes de saldo, motivo e historial y el contrato IInventoryFacade. Reglas encapsuladas y pruebas de stock aprobadas. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/commit/f8f2eb3). | 6 | Piero | Done |
-| US19–22 · Despachos, recursos, estados e incidencias; TS14–17 | T3-05 | Logistics: recursos, estados e incidencias | Contrastar elegibilidad de ventas y transiciones con el frontend. API probada; revisión funcional del conjunto de historias pendiente. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/commit/84f14c7). | 6 | Darikson | To Review |
+| US19–22 · Despachos, recursos, estados e incidencias; TS14–17 | T3-05 | Logistics: recursos, estados e incidencias | Elegibilidad de ventas, recursos, transiciones e incidencias contrastados con el flujo de navegador y las pruebas HTTP. Se cierra la revisión técnica del incremento. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/commit/84f14c7). | 6 | Darikson | Done |
 | US42/34 · Idioma y términos de la landing | T3-06 | Landing: idioma, footer y acceso por segmento | Verificar ambos idiomas, recarga, cuatro recursos del footer, teclado y 390 px; comprobar CTA de dueño a registro y operario a acceso. Publicación comprobada. [Evidencia](https://github.com/Nexxus-ops/nexxus-landing-page/pull/3). | 6 | Liz | Done |
-| US28/29 · Usuarios y roles; TS21/22 | T3-07 | Identity: empleados y permisos | Verificar alta directa y aislamiento desde cliente y API. Pruebas aprobadas; correo de invitación de US28 todavía pendiente. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/commit/2930433). | 6 | Kevin | To Review |
+| US28/29 · Usuarios y roles; TS21/22 | T3-07 | Identity: alta directa y permisos AV2 | Alta directa, permisos y aislamiento comprobados. El envío de correo de invitación de US28 queda fuera del incremento y continúa como evolución. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/commit/2930433). | 6 | Kevin | Done |
 | US29 · Restricción por roles; TS33 | T3-08 | Datos: esquema y aislamiento de empresa | Contrastar las 35 tablas, 182 columnas y 67 claves foráneas con diccionario, diagrama y código; comprobar aislamiento por empresa. Verificación técnica aprobada. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/AV2/diccionario-datos.md). | 6 | Piero | Done |
 | TS34 · Pruebas de dominio, HTTP y navegador | T3-09 | Calidad: pruebas de dominio, HTTP y navegador | Ejecutar compilación, reglas, integración con PostgreSQL y flujo público. Comprobar continuidad de sesión/boleta e idempotencia tras desplegar. Resultado aprobado el 12/11. [Evidencia](https://github.com/Nexxus-ops/CeTe-Api/blob/4df092e49cef5033476add1c7b2caf410d35eac9/tests/api_smoke.py). | 8 | Kevin | Done |
 | TS32 · Docker y publicación | T3-10 | Deployment: publicación y recorrido público | Publicar API refactorizada, frontend integrado y landing por segmento. Confirmar los commits desplegados y acceso público. Continuidad futura de PostgreSQL fuera de este cierre. [Evidencia](https://github.com/Nexxus-ops/FrontEnd-CeTe/pull/4). | 6 | Kevin | Done |
 | Presentación · Evidencia del incremento | T3-11 | Presentación: incremento AV2 y Sprint 2 | Existe una presentación técnica editable. Faltan revisión conjunta, actualización de resultados de validación y preparación de la sustentación final. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/AV2/CeTe-AV2-revision-tecnica.pptx). | 4 | Darikson | To Review |
-| Validación · Dos segmentos | T3-12 | Validación: 3–5 entrevistas por segmento | Diego entregó las entrevistas de Raúl y Carmen y Piero las de Nicol y Jaime. La ronda nueva reúne tres dueños/administradores y un operario; faltan al menos dos operarios sobre la aplicación AV2, además del consolidado en Stream y los metadatos pendientes. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/05-Chapter-5.md#532-registro-de-entrevistas). | 6 | Diego y Piero | In Process |
-| SO5 · Colaboración y revisión | T3-13 | Colaboración: acuerdos y evidencias SO5 | Vincular aportes, revisión y resultados con evidencia individual. Reunión del 03/11 informada por Kevin; faltan horario, lugar, asistentes confirmados y acuerdos de la sesión. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe#colaboración-por-producto). | 4 | Diego | In Process |
+| Validación · Dos segmentos | T3-12 | Validación: seis fichas AV2 y análisis | Se incorporan las seis fichas entregadas, incluidas las entrevistas de Diego y Piero, con cobertura y análisis diferenciados. La ampliación de la muestra operativa y las mediciones comparativas se trasladan a TF. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/pull/28). | 6 | Diego y Piero | Done |
+| SO5 · Colaboración y revisión | T3-13 | Colaboración: trazabilidad y revisión retrospectiva | Matriz LACX, aportes por producto, commits e integraciones consolidados. La síntesis de revisión y coordinación se documenta retrospectivamente; no se reconstruyen horarios ni asistencias. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/pull/25). | 4 | Diego | Done |
 | About-the-Product · Video del producto | T3-14 | About-the-Product: verificar video y enlace | El enlace recibido corresponde al promocional de 10 segundos. Preparar la versión AV2 de 1–3 minutos con interacción real y una opinión por segmento; publicar en Stream y YouTube e incrustar en la landing. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/05-Chapter-5.md#54-video-about-the-product). | 6 | Darikson | To Review |
-| About-the-Team · Video del equipo | T3-15 | About-the-Team: aportes y reflexión | Kevin confirma que todavía no se ha grabado. Preparar la retrospectiva y los cinco testimonios, publicar en Stream y YouTube e incrustar en la landing. No se acredita publicación con una carpeta de evidencias. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/blob/main/06-Conclusions.md). | 6 | Equipo | To Do |
-| Comunicación · Informe y conclusiones | T3-16 | Comunicación: conclusiones y coherencia | Se corrigieron formato, diagramas y correspondencia DDD/código. Falta cierre conjunto de conclusiones, bibliografía y resultados de validación antes de exportar la entrega. [Evidencia](https://github.com/Nexxus-ops/Report-CeTe/pull/22). | 4 | Kevin | In Process |
+| About-the-Team · Video del equipo | T3-15 | About-the-Team: aportes y reflexión | Montaje del equipo en Canva con clips recibidos y edición en curso. Completar la versión final, revisar los cinco testimonios y publicar enlaces definitivos. [Montaje](https://www.canva.com/d/mA3bW8S9nOk7TK0). | 6 | Equipo | In Process |
+| Comunicación · Informe y conclusiones | T3-16 | Comunicación: conclusiones y coherencia | Informe consolidado: estimaciones retrospectivas, cierre de alcance AV2, seis entrevistas, hallazgos, conclusiones y roadmap para TF. Revisión de estructura y coherencia completada antes de la exportación. [Informe](https://github.com/Nexxus-ops/Report-CeTe). | 4 | Kevin | Done |
 
-**Total estimado: 94 horas-persona.** Se conserva la base de estimación de la versión anterior; no es tiempo restante ni tiempo efectivamente consumido. Las tareas técnicas completadas suman 38 h estimadas, no 38 h trabajadas. El resto del esfuerzo sigue distribuido entre revisión y entregables pendientes. Los responsables identifican la coordinación de cada tarea y pueden recibir los aportes indicados en la matriz LACX.
+**Esfuerzo estimado de referencia: 94 horas-persona.** Las 13 tareas técnicas y documentales cerradas representan **78 h estimadas**; los tres materiales en edición o revisión, **16 h estimadas**. No son horas trabajadas ni esfuerzo restante medido. Las 4 h de T3-13 dimensionan preparación, seguimiento y documentación de coordinación dentro del modelo de esfuerzo.
 
-**Estado al corte:** 6 tareas Done, 6 To Review, 3 In Process y 1 To Do. US35 conserva el alcance de pago académico sin pasarela y US28 mantiene pendiente el correo de invitación. Los estados de las tareas no elevan estas historias a completadas. Faltan por confirmar el horario, lugar, asistentes y acuerdos de la reunión; estos datos no se estiman.
+**Balance de cierre:** 13 tareas Done, 2 To Review y 1 In Process. Los materiales de presentación, Product y Team continúan como complementos de publicación de AV2. US35 mantiene el pago académico y US28 el alta directa sin correo de invitación; no se elevan a historias completas por cerrar sus tareas técnicas.
+
+**Revisión de la coordinación.** El reparto y los resultados se sustentan en la matriz y en los artefactos. Se conserva la fecha confirmada de la sesión y se sintetiza la coordinación a partir de las fuentes disponibles. Para las siguientes iteraciones se incorpora el registro oportuno de acuerdos, asistencia y aportes individuales como mejora del proceso.
 
 #### 5.2.3.4. Development Evidence for Sprint Review
 
@@ -669,18 +678,18 @@ Los cinco integrantes aportaron al incremento mediante diseño, implementación,
 | Corregir acceso y recorrido desde la landing | Darikson aporta CTA para dueños y operarios, Liz integra el cambio y Kevin publica la versión. Se conserva la autoría de cada registro. | [Landing PR #3](https://github.com/Nexxus-ops/nexxus-landing-page/pull/3): destinos reales, ambos idiomas, teclado y móvil comprobados. |
 | Mejorar boleta y claridad de la interfaz | El equipo incorpora el flujo de boleta propuesto por Liz, los aportes de Ventas y la integración del frontend. Kevin consolida la mejora de lectura y controles tras priorizar los comentarios de UI/UX. | [Frontend PR #5](https://github.com/Nexxus-ops/FrontEnd-CeTe/pull/5): carrito adaptable, acción visible de boleta y detalle móvil legible, conservando la impresión. Build y recorrido con API local aprobados; nueva versión publicada en Render. |
 | Dar trazabilidad a la participación | La documentación distingue diseño, implementación, revisión e integración. No se altera el historial para igualar contadores. | En frontend constan Kevin y Diego como autores de commits sin merge y Liz como autora de la integración [`f7449ac`](https://github.com/Nexxus-ops/FrontEnd-CeTe/commit/f7449ac), que incluye un ajuste de navegación. Las gráficas de GitHub excluyen los merges. Los aportes informados de Piero y Darikson requieren sus artefactos o testimonios individuales. |
-| Contrastar el producto con usuarios | Diego entrega las entrevistas de Raúl y Carmen; Piero entrega las de Nicol y Jaime con fichas, capturas y enlaces. Las recomendaciones se registran antes de decidir las siguientes mejoras. | [Entrevistas incorporadas](#532-registro-de-entrevistas). La cobertura de 3–5 participantes por segmento sigue en curso. |
+| Contrastar el producto con usuarios | Diego entrega las entrevistas de Raúl y Carmen; Piero entrega las de Nicol y Jaime con fichas, capturas y enlaces. Las recomendaciones se registran antes de decidir las siguientes mejoras. | [Entrevistas incorporadas](#532-registro-de-entrevistas). Las seis fichas recibidas conforman la ronda entregada de AV2; la ampliación de la muestra y la revalidación se programan para TF. |
 
-**Lectura del resultado.** Las integraciones publicadas y la evidencia enlazada permiten seguir la colaboración entre aspectos del producto. No acreditan automáticamente que todos hayan trabajado el mismo número de horas o en todos los archivos. La aceptación individual del cuadro ABET, los detalles de la reunión del 03/11 y los testimonios del equipo siguen pendientes; no se registran como realizados. El tablero conserva T3-13 en In Process hasta completar esa evidencia humana.
+**Lectura del resultado.** Las integraciones publicadas y la evidencia enlazada permiten seguir la colaboración entre aspectos del producto. No acreditan automáticamente que todos hayan trabajado el mismo número de horas o en todos los archivos. La tarea documental de colaboración queda consolidada con los aportes y las evidencias disponibles. Los testimonios están en montaje y el performance corresponde a la evaluación del líder. No se atribuyen horarios, asistencia ni declaraciones personales que no constan en las fuentes.
 
 ## 5.3. Validation Interviews
 
-> **Validación AV2 en curso.** Se conservan dos entrevistas históricas y se incorporan las de Raúl y Carmen, realizadas por Diego Campoblanco, y las de Nicol y Jaime, aportadas por Piero Montes. Hay seis fichas en total; la cobertura de la ronda actual se desglosa al final de 5.3.2. La ronda requiere de 3 a 5 participantes por segmento usando la landing y la aplicación desplegadas, con tareas, captura, enlace a Stream, marcas de tiempo y hallazgos según el Anexo D.
+> **Ronda de validación entregada en AV2.** Se conservan dos entrevistas históricas y se incorporan las de Raúl y Carmen, realizadas por Diego Campoblanco, y las de Nicol y Jaime, aportadas por Piero Montes. Hay seis fichas en total; la cobertura de la ronda actual se desglosa al final de 5.3.2. Se cierra la incorporación de las seis fichas disponibles y se conserva su procedencia y alcance. La ampliación de la muestra y la medición comparativa de los indicadores se programan para TF; los enlaces consolidados y los tiempos de edición se completarán con las publicaciones audiovisuales.
 
 ### 5.3.1. Diseño de entrevistas
 
 Para el proceso de validación, hemos diseñado sesiones interactivas donde los usuarios evalúan nuestros productos digitales de CeTe, basándonos en escenarios reales de uso.
-El protocolo de la siguiente ronda utiliza la landing y la aplicación desplegadas para **ambos segmentos**, según los permisos de cada rol. Las dos entrevistas históricas conservan las condiciones en que se realizaron, incluida la evaluación de Figma por Luis; no se reclasifican como pruebas de la aplicación AV2.
+El protocolo de continuidad para TF utiliza la landing y la aplicación desplegadas para **ambos segmentos**, según los permisos de cada rol. Las dos entrevistas históricas conservan las condiciones en que se realizaron, incluida la evaluación de Figma por Luis; no se reclasifican como pruebas de la aplicación AV2.
 
 | Segmento | Tareas en la landing | Tareas en la aplicación | Registro esperado |
 | :--- | :--- | :--- | :--- |
@@ -791,10 +800,10 @@ Las cuatro primeras fichas conservan pendientes sus fechas, marcas de tiempo, du
 
 #### 5.3.2.1. Cobertura de la ronda de validación
 
-| Segmento | Registro histórico | Nuevas entrevistas AV2 recibidas | Cobertura nueva y pendiente |
+| Segmento | Registro histórico | Nuevas entrevistas AV2 recibidas | Resultado del corte y continuidad |
 | :--- | :--- | :--- | :--- |
-| Dueños y administradores | Jesús: evaluación histórica de la landing. | Raúl, Carmen y Nicol. | Tres fichas nuevas. Completar los metadatos faltantes y comprobar el conjunto de tareas requerido; el número no sustituye esa revisión. |
-| Operarios de almacén | Luis: evaluación histórica de mockups en Figma. | Jaime: evaluación de la plataforma de prueba, incluida recepción parcial. | Una ficha nueva. Faltan al menos dos participantes sobre la aplicación AV2 para alcanzar el mínimo de tres de la ronda. |
+| Dueños y administradores | Jesús: evaluación histórica de la landing. | Raúl, Carmen y Nicol. | Tres fichas nuevas incorporadas al cierre AV2. La observación de uso y los metadatos audiovisuales se conservan con el alcance de cada ficha. |
+| Operarios de almacén | Luis: evaluación histórica de mockups en Figma. | Jaime: evaluación de la plataforma de prueba, incluida recepción parcial. | Una ficha nueva sobre la plataforma. Ampliar la muestra operativa con al menos dos participantes adicionales en TF para contrastar los hallazgos sobre la aplicación. |
 
 El total acumulado es de **cuatro dueños/administradores y dos operarios**. No se suma la prueba histórica de Figma a la muestra de uso de la aplicación AV2. Las duraciones de los videos no son tiempos de ejecución de tareas ni permiten calcular los indicadores G1–G3. Los enlaces individuales de YouTube tampoco sustituyen el consolidado en Microsoft Stream y sus marcas de inicio.
 
@@ -858,7 +867,7 @@ Las capturas aportadas por Piero se incluyen en las fichas 5 y 6. Son capturas c
 * **Descripción:** Nicol intentó seleccionar la fila completa de una venta en lugar del control específico de detalle. La ficha describe una confusión leve, no un bloqueo del flujo.
 * **Captura disponible:** [contexto de la entrevista de Nicol](Images/Validation/nicol-av2.jpeg); fotograma específico y marca de tiempo por registrar.
 * **Recomendación:** Hacer evidente la acción de consultar la boleta; evaluar un enlace en el identificador o una fila accesible por teclado. Mantener la consulta de Sales sin repetir la confirmación de la venta.
-* **Estado:** propuesta de mejora; corrección y revalidación con participantes pendientes.
+* **Estado de cierre AV2:** hallazgo documentado. La priorización, implementación y revalidación de esta mejora se programan para TF.
 
 **PROBLEMA #6: Jerarquía del método de pago y expectativa de envío**
 
@@ -866,7 +875,7 @@ Las capturas aportadas por Piero se incluyen en las fichas 5 y 6. Son capturas c
 * **Descripción:** Nicol solicitó ver con mayor claridad el método de pago registrado y conocer el estado de envío del comprobante. La solicitud no demuestra que exista una función de envío.
 * **Captura disponible:** [contexto de la entrevista de Nicol](Images/Validation/nicol-av2.jpeg); fotograma específico y marca de tiempo por registrar.
 * **Recomendación:** Destacar el método realmente registrado. Diferenciar el estado de la venta de una eventual entrega del comprobante; no mostrar un estado de envío ficticio. Definir el envío como alcance futuro si el equipo lo prioriza.
-* **Estado:** propuesta de mejora; corrección y revalidación con participantes pendientes.
+* **Estado de cierre AV2:** hallazgo documentado. La priorización, implementación y revalidación de esta mejora se programan para TF.
 
 **PROBLEMA #7: Acceso desde Ventas del día al historial**
 
@@ -874,7 +883,7 @@ Las capturas aportadas por Piero se incluyen en las fichas 5 y 6. Son capturas c
 * **Descripción:** Nicol propuso que la tarjeta de ventas del día conduzca al historial de esa fecha, evitando una navegación adicional por el menú. Se registra como oportunidad de eficiencia, no como una tarea imposible de realizar.
 * **Captura disponible:** [contexto de la entrevista de Nicol](Images/Validation/nicol-av2.jpeg); fotograma específico y marca de tiempo por registrar.
 * **Recomendación:** Evaluar un enlace accesible con el filtro del día y respetar los permisos del usuario. Contrastar el criterio de fechas de US17 antes de considerarlo implementado.
-* **Estado:** propuesta de mejora; corrección y revalidación con participantes pendientes.
+* **Estado de cierre AV2:** hallazgo documentado. La priorización, implementación y revalidación de esta mejora se programan para TF.
 
 **PROBLEMA #8: Ubicación de la recepción parcial de una compra**
 
@@ -882,7 +891,7 @@ Las capturas aportadas por Piero se incluyen en las fichas 5 y 6. Son capturas c
 * **Descripción:** En el caso de recibir cuatro de diez unidades, Jaime buscó primero la acción en Inventario y después identificó Compras como el lugar de recepción del pedido. La ficha describe recuperación de la navegación.
 * **Captura disponible:** [contexto de la entrevista de Jaime](Images/Validation/jaime-av2.jpeg); fotograma específico y marca de tiempo por registrar.
 * **Recomendación:** Usar una etiqueta clara como Recibir compra y una ayuda contextual que conecte la orden con su recepción. Procurement debe registrar la recepción y coordinar el saldo con Inventory; no sumar stock desde un atajo que omita la orden.
-* **Estado:** propuesta de mejora; corrección y revalidación con participantes pendientes.
+* **Estado de cierre AV2:** hallazgo documentado. La priorización, implementación y revalidación de esta mejora se programan para TF.
 
 **PROBLEMA #9: Confirmación del saldo tras recibir mercancía**
 
@@ -890,7 +899,7 @@ Las capturas aportadas por Piero se incluyen en las fichas 5 y 6. Son capturas c
 * **Descripción:** Jaime solicitó una confirmación visible del stock resultante después de guardar una recepción, para evitar consultar Inventario solo para comprobar el efecto.
 * **Captura disponible:** [contexto de la entrevista de Jaime](Images/Validation/jaime-av2.jpeg); fotograma específico y marca de tiempo por registrar.
 * **Recomendación:** Mostrar una confirmación solo después del éxito de la API, con cantidad recibida, pendiente y saldo confirmado cuando el contrato lo permita. No calcular un éxito ficticio ni repetir la recepción.
-* **Estado:** propuesta de mejora; corrección y revalidación con participantes pendientes.
+* **Estado de cierre AV2:** hallazgo documentado. La priorización, implementación y revalidación de esta mejora se programan para TF.
 
 **PROBLEMA #10: Acceso directo a recepciones pendientes**
 
@@ -898,7 +907,7 @@ Las capturas aportadas por Piero se incluyen en las fichas 5 y 6. Son capturas c
 * **Descripción:** Jaime sugirió un acceso desde el inicio a la mercancía pendiente de recibir, especialmente cuando el proveedor está esperando. Se trata de una propuesta de acceso rápido.
 * **Captura disponible:** [contexto de la entrevista de Jaime](Images/Validation/jaime-av2.jpeg); fotograma específico y marca de tiempo por registrar.
 * **Recomendación:** Evaluar un enlace a compras pendientes filtradas, visible para roles autorizados y sin ejecutar automáticamente una recepción. Comprobar que la persona identifica la orden correcta.
-* **Estado:** propuesta de mejora; corrección y revalidación con participantes pendientes.
+* **Estado de cierre AV2:** hallazgo documentado. La priorización, implementación y revalidación de esta mejora se programan para TF.
 
 ---
 
